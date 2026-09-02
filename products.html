@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>All Toys - Toykart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-grid">
+      <div class="logo">Toykart</div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="cart.html">Cart <span class="cart-count">0</span></a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="products-layout">
+      <aside class="sidebar">
+        <h3>Filters</h3>
+        <div class="filter-section">
+          <h4>Categories</h4>
+          <div id="filter-categories"></div>
+        </div>
+        <div class="filter-section">
+          <h4>Max Price</h4>
+          <input type="range" id="price-range" min="0" value="1000" />
+          <div id="price-value"></div>
+        </div>
+        <div class="filter-section">
+          <h4>Age Group</h4>
+          <select id="age-select"><option value="all">All ages</option></select>
+        </div>
+        <div class="filter-actions">
+          <button id="clear-filters" class="btn">Reset Filters</button>
+        </div>
+      </aside>
+
+      <section class="products-area">
+        <div class="products-top">
+          <div>
+            <label>Sort:</label>
+            <select id="sort-select">
+              <option value="default">Featured</option>
+              <option value="price-asc">Price: Low - High</option>
+              <option value="price-desc">Price: High - Low</option>
+              <option value="popularity">Popularity</option>
+            </select>
+          </div>
+        </div>
+        <div id="products-grid" class="products-grid"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div>© Toykart - Toys only store</div>
+    <nav>
+      <a href="#">Terms</a> · <a href="#">Privacy</a>
+    </nav>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
