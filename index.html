@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BrewHub — Modern Coffee Shop</title>
+  <meta name="description" content="BrewHub — specialty coffee, tea, and pastries. Visit us for a crafted cup.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">BrewHub</a>
+      <nav class="site-nav" aria-label="Main Navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+        <ul id="nav-menu" class="nav-list">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Welcome to BrewHub</h1>
+          <p>Crafted coffee, freshly baked pastries, and a cozy place to linger. Start your day the BrewHub way.</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#menu">See Menu</a>
+            <a class="btn ghost" href="#about">Our Story</a>
+          </div>
+        </div>
+        <div class="hero-media" aria-hidden="true">
+          <!-- Simple decorative SVG of a coffee cup -->
+          <svg viewBox="0 0 200 200" class="coffee-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="g" x1="0" x2="1">
+                <stop offset="0%" stop-color="#6b4226" />
+                <stop offset="100%" stop-color="#d69f6a" />
+              </linearGradient>
+            </defs>
+            <rect width="200" height="200" rx="20" fill="url(#g)" />
+            <g transform="translate(40,40)">
+              <path d="M10 30c0 11 9 20 20 20h40c11 0 20-9 20-20v-2H10v2z" fill="#fff8f0" opacity="0.9"/>
+              <path d="M80 10c6 0 12 4 12 10s-6 10-12 10" fill="none" stroke="#fff8f0" stroke-width="3" stroke-linecap="round"/>
+              <rect x="10" y="8" width="60" height="8" rx="4" fill="#fff3e8" opacity="0.7"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="menu">
+      <div class="container">
+        <div class="section-head">
+          <h2>Our Menu</h2>
+          <p>Seasonal selections and customer favorites — carefully roasted and brewed.</p>
+        </div>
+
+        <div class="filters" role="tablist" aria-label="Menu Filters">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="coffee">Coffee</button>
+          <button class="filter" data-filter="tea">Tea</button>
+          <button class="filter" data-filter="pastry">Pastries</button>
+        </div>
+
+        <div class="menu-grid" id="menu-grid">
+          <!-- Card 1 -->
+          <article class="menu-card" data-category="coffee">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1d3d5d2b5d6b7c2c" alt="Espresso in small cup">
+            <div class="card-body">
+              <h3>Espresso</h3>
+              <p>Rich and intense—single origin espresso pulled to perfection.</p>
+              <div class="price">$3.00</div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="menu-card" data-category="coffee">
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=6a7e5f3c1b2cc6e5" alt="Cappuccino with latte art">
+            <div class="card-body">
+              <h3>Cappuccino</h3>
+              <p>Velvety milk and silky microfoam over our signature espresso.</p>
+              <div class="price">$4.25</div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="menu-card" data-category="tea">
+            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=7c2a6f0d4b6c2d0f" alt="Loose leaf tea in cup">
+            <div class="card-body">
+              <h3>Sencha Green Tea</h3>
+              <p>Fresh, grassy notes with a clean finish—brewed to order.</p>
+              <div class="price">$3.50</div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="menu-card" data-category="pastry">
+            <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=8c8f4032c8c78d44" alt="Fresh croissant on plate">
+            <div class="card-body">
+              <h3>Butter Croissant</h3>
+              <p>Flaky layers, golden buttered perfection baked daily.</p>
+              <div class="price">$2.75</div>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="menu-card" data-category="coffee">
+            <img src="https://images.unsplash.com/photo-1510627498534-cf7e9002facc?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=7b8a4a3f1e0f2b6a" alt="Iced coffee in glass">
+            <div class="card-body">
+              <h3>Iced Cold Brew</h3>
+              <p>Smooth, low-acid cold brew with bright chocolate notes.</p>
+              <div class="price">$4.00</div>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="menu-card" data-category="pastry">
+            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2b7bb1f1a8c3b4d6" alt="Sliced loaf cake">
+            <div class="card-body">
+              <h3>Lemon Pound Cake</h3>
+              <p>Moist and zesty, a perfect pairing for tea or coffee.</p>
+              <div class="price">$3.25</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2>About BrewHub</h2>
+        <p>We source responsibly and roast thoughtfully. Our baristas craft each cup with care to bring you consistent, delicious coffee every visit.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Visit Us</h2>
+        <p>123 Brew Lane, Coffee City • Open daily 7am–6pm</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year">2026</span> BrewHub — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
