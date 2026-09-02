@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Find Your Next Watch or Read</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,14 +13,22 @@
       <div class="hero-grid">
         <div>
           <h1>Find Your Next Watch or Read</h1>
-          <div class="subtitle">Personalized movie and book recommendations tailored to your mood and taste.</div>
+          <div class="subtitle">Personalized movie and book recommendations tailored to your genre, mood and rating preferences.</div>
         </div>
+
+        <nav class="mode-toggle" role="tablist" aria-label="Choose type">
+          <button id="btn-movies" class="active" aria-pressed="true">🎬 Movies</button>
+          <button id="btn-books" aria-pressed="false">📚 Books</button>
+        </nav>
       </div>
 
-      <nav class="mode-toggle" role="tablist" aria-label="Choose type">
-        <button id="btn-movies" class="active" aria-pressed="true">🎬 Movies</button>
-        <button id="btn-books" aria-pressed="false">📚 Books</button>
-      </nav>
+      <div class="hero-inner">
+        <div class="logo-title"> <!-- decorative area for branding -->
+          <div class="hero-ctas">
+            <!-- small header meta/info could go here -->
+          </div>
+        </div>
+      </div>
     </header>
 
     <main class="main-grid">
@@ -59,18 +68,20 @@
           <div class="tiny muted" id="resultsCount" aria-live="polite"></div>
         </div>
 
-        <div id="results" class="result-grid" aria-live="polite"></div>
+        <div id="results" class="results-grid" aria-live="polite"></div>
 
         <div id="emptyState" class="empty-state" role="status" hidden>
           <strong>No matches found</strong>
-          <div class="muted">Try adjusting filters or reset to see more recommendations.</div>
+          <div class="muted">Try adjusting filters or reset to see recommendations.</div>
         </div>
+
+        <div id="emptyStatus" class="empty-status" hidden></div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="site-footer-inner">
-        <p>Made with care • Recommendation Engine demo</p>
+        <p>Made with care — "Recommendation Engine" demo</p>
       </div>
     </footer>
   </div>
