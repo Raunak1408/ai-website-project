@@ -1,164 +1,235 @@
-// BrewHaus interactions: mobile nav, smooth scroll, contact form validation, order buttons
+// script.js - Recommendation Engine logic
+// All DOM queries and event wiring
+const btnMovies = document.getElementById('btn-movies');
+const btnBooks = document.getElementById('btn-books');
+const genreSelect = document.getElementById('genre');
+const moodSelect = document.getElementById('mood');
+const minRating = document.getElementById('minRating');
+const ratingValue = document.getElementById('ratingValue');
+const getBtn = document.getElementById('getBtn');
+const resetBtn = document.getElementById('resetBtn');
+const resultsContainer = document.getElementById('results');
+const emptyState = document.getElementById('emptyState');
+const statusArea = document.getElementById('statusArea');
+const resultsCount = document.getElementById('resultsCount');
 
-document.addEventListener('DOMContentLoaded', () => {
-  const navToggle = document.getElementById('navToggle');
-  const navList = document.getElementById('navList');
+// Application state
+let activeType = 'movie'; // 'movie' or 'book'
+let items = ITEMS; // from data.js
 
-  function setNav(open) {
-    if (!navList || !navToggle) return;
-    const isOpen = !!open;
-    navList.classList.toggle('open', isOpen);
-    navToggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  // Mobile hamburger toggle
-  if (navToggle) {
-    navToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = navList && navList.classList.contains('open');
-      setNav(!isOpen);
-    });
-  }
-
-  // Close nav when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!navList || !navToggle) return;
-    if (!navList.classList.contains('open')) return;
-    if (!navList.contains(e.target) && e.target !== navToggle) {
-      setNav(false);
-    }
+// Populate select options for genre and mood from data.js arrays
+function populateSelects(){
+  // Genre
+  GENRES.forEach(g => {
+    const opt = document.createElement('option');
+    opt.value = g;
+    opt.textContent = g;
+    genreSelect.appendChild(opt);
   });
-
-  // Close nav with Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') setNav(false);
+  // Mood
+  MOODS.forEach(m => {
+    const opt = document.createElement('option');
+    opt.value = m;
+    opt.textContent = m;
+    moodSelect.appendChild(opt);
   });
+}
 
-  // Smooth scroll for all internal anchor links (and close mobile nav)
-  document.querySelectorAll('a[href^="#"]').forEach((a) => {
-    a.addEventListener('click', (e) => {
-      const href = a.getAttribute('href');
-      // If it's just a hash with no target, prevent default but do nothing
-      if (!href || href === '#') {
-        e.preventDefault();
-        return;
-      }
-
-      // Find target element
-      try {
-        const target = document.querySelector(href);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // close mobile nav if open
-          setNav(false);
-        }
-      } catch (err) {
-        // invalid selector or no target - do nothing but prevent default
-        e.preventDefault();
-      }
-    });
-  });
-
-  // Order buttons - show a clear confirmation message
-  function showToast(message = 'Done', duration = 4200) {
-    const toast = document.createElement('div');
-    toast.className = 'site-toast';
-    toast.setAttribute('role', 'status');
-    toast.setAttribute('aria-live', 'polite');
-    toast.textContent = message;
-    Object.assign(toast.style, {
-      position: 'fixed',
-      right: '1rem',
-      bottom: '1rem',
-      background: 'rgba(0,0,0,0.85)',
-      color: '#fff',
-      padding: '0.75rem 1rem',
-      borderRadius: '8px',
-      zIndex: '9999',
-      boxShadow: '0 6px 20px rgba(0,0,0,0.2)',
-      fontSize: '0.95rem',
-      maxWidth: 'min(380px, 90%)',
-      lineHeight: '1.3',
-      opacity: '1',
-    });
-
-    document.body.appendChild(toast);
-
-    // fade out after duration
-    setTimeout(() => {
-      toast.style.transition = 'opacity 300ms ease, transform 300ms ease';
-      toast.style.opacity = '0';
-      toast.style.transform = 'translateY(8px)';
-    }, duration - 300);
-
-    setTimeout(() => {
-      toast.remove();
-    }, duration + 100);
-  }
-
-  document.querySelectorAll('.order-btn').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      showToast('Your order has been selected. Please contact us to complete the order.');
-    });
-  });
-
-  // Contact form validation & submission (frontend-only)
-  const contactForm = document.getElementById('contactForm');
-  const formMessage = document.getElementById('formMessage');
-
-  function showFormMessage(text, isError = false) {
-    if (!formMessage) {
-      // fallback to alert if message element not present
-      alert(text);
-      return;
-    }
-    formMessage.textContent = text;
-    formMessage.className = isError ? 'form-message error' : 'form-message success';
-    formMessage.style.display = 'block';
-    formMessage.setAttribute('aria-live', 'polite');
-  }
-
-  function validateEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const nameEl = contactForm.querySelector('#name');
-      const emailEl = contactForm.querySelector('#email');
-      const subjectEl = contactForm.querySelector('#subject');
-      const messageEl = contactForm.querySelector('#message');
-
-      const name = nameEl ? nameEl.value.trim() : '';
-      const email = emailEl ? emailEl.value.trim() : '';
-      const subject = subjectEl ? subjectEl.value.trim() : '';
-      const message = messageEl ? messageEl.value.trim() : '';
-
-      const errors = [];
-      if (!name) errors.push('Please enter your name.');
-      if (!email || !validateEmail(email)) errors.push('Please enter a valid email address.');
-      if (!subject) errors.push('Please enter a subject.');
-      if (!message || message.length < 5) errors.push('Please enter a message (at least 5 characters).');
-
-      if (errors.length) {
-        showFormMessage(errors.join(' '), true);
-        return;
-      }
-
-      // Frontend-only: show success message and reset form
-      showFormMessage('Thanks! Your message has been received. We will contact you soon.');
-      contactForm.reset();
-    });
-  }
-
-  // Accessibility: ensure nav links toggle nav when clicked (for any anchor in nav)
-  if (navList) {
-    navList.querySelectorAll('a').forEach((a) => {
-      a.addEventListener('click', () => setNav(false));
-    });
-  }
+// Update rating display
+minRating.addEventListener('input', ()=>{
+  ratingValue.textContent = parseFloat(minRating.value).toFixed(1);
 });
+
+// Toggle active mode and styling
+function setActiveMode(type){
+  activeType = type;
+  if(type === 'movie'){
+    btnMovies.classList.add('active');
+    btnMovies.setAttribute('aria-pressed','true');
+    btnBooks.classList.remove('active');
+    btnBooks.setAttribute('aria-pressed','false');
+  } else {
+    btnBooks.classList.add('active');
+    btnBooks.setAttribute('aria-pressed','true');
+    btnMovies.classList.remove('active');
+    btnMovies.setAttribute('aria-pressed','false');
+  }
+  // clear previous results when switching type
+  clearResults();
+}
+
+btnMovies.addEventListener('click', ()=>setActiveMode('movie'));
+btnBooks.addEventListener('click', ()=>setActiveMode('book'));
+
+// Clear results and hide states
+function clearResults(){
+  resultsContainer.innerHTML = '';
+  emptyState.hidden = true;
+  resultsCount.textContent = '';
+  statusArea.innerHTML = '';
+}
+
+// Render spinner in status area
+function showLoading(){
+  statusArea.innerHTML = '';
+  const spinner = document.createElement('div');
+  spinner.className = 'spinner';
+  spinner.setAttribute('role','status');
+  spinner.setAttribute('aria-label','Loading');
+  statusArea.appendChild(spinner);
+}
+
+// Show results count
+function updateResultsCount(n){
+  resultsCount.textContent = `${n} result${n===1?'':'s'}`;
+}
+
+// Create card DOM for an item
+function createCard(item){
+  const card = document.createElement('article');
+  card.className = 'card';
+
+  const meta = document.createElement('div');
+  meta.className = 'meta';
+
+  const typeBadge = document.createElement('div');
+  typeBadge.className = 'badge type-badge';
+  typeBadge.textContent = item.type === 'movie' ? 'MOVIE' : 'BOOK';
+
+  const rightMeta = document.createElement('div');
+  rightMeta.style.display = 'flex';
+  rightMeta.style.gap = '8px';
+
+  const genreTag = document.createElement('div');
+  genreTag.className = 'genre-tag';
+  genreTag.textContent = item.genre;
+
+  const moodTag = document.createElement('div');
+  moodTag.className = 'mood-tag';
+  moodTag.textContent = item.mood;
+
+  rightMeta.appendChild(genreTag);
+  rightMeta.appendChild(moodTag);
+
+  meta.appendChild(typeBadge);
+  meta.appendChild(rightMeta);
+
+  const title = document.createElement('div');
+  title.className = 'title';
+  title.textContent = `${item.title} (${item.year})`;
+
+  const desc = document.createElement('div');
+  desc.className = 'desc';
+  desc.textContent = item.description;
+
+  const rating = document.createElement('div');
+  rating.className = 'rating';
+  // show stars (rounded to nearest 0.5)
+  const stars = document.createElement('div');
+  const fullStars = Math.floor(item.rating/2); // out of 5
+  const half = (item.rating/2) - fullStars >= 0.5;
+  for(let i=0;i<fullStars;i++){
+    const s = document.createElement('span'); s.className='star'; s.textContent='★'; stars.appendChild(s);
+  }
+  if(half){ const s = document.createElement('span'); s.className='star'; s.textContent='☆'; stars.appendChild(s); }
+  const num = document.createElement('div'); num.textContent = item.rating.toFixed(1); num.style.marginLeft='8px'; num.style.color='var(--muted)';
+
+  rating.appendChild(stars);
+  rating.appendChild(num);
+
+  card.appendChild(meta);
+  card.appendChild(title);
+  card.appendChild(desc);
+  card.appendChild(rating);
+
+  return card;
+}
+
+// Render list of items
+function renderResults(list){
+  clearResults();
+  if(!list || list.length===0){
+    emptyState.hidden = false;
+    updateResultsCount(0);
+    return;
+  }
+  const frag = document.createDocumentFragment();
+  list.forEach((it, idx) => {
+    const c = createCard(it);
+    frag.appendChild(c);
+    // slight stagger for animation
+    setTimeout(()=> c.classList.add('show'), 50 + idx*60);
+  });
+  resultsContainer.appendChild(frag);
+  updateResultsCount(list.length);
+}
+
+// Filtering logic: genre AND mood AND rating >= min
+function getFiltered(){
+  const genre = genreSelect.value;
+  const mood = moodSelect.value;
+  const minR = parseFloat(minRating.value) || 0;
+
+  // choose dataset by activeType
+  const dataset = items.filter(i=> i.type === activeType);
+
+  const filtered = dataset.filter(i=>{
+    if(genre && genre!=='All' && i.genre !== genre) return false;
+    if(mood && mood!=='All' && i.mood !== mood) return false;
+    if(i.rating < minR) return false;
+    return true;
+  });
+  return filtered;
+}
+
+// Get Recommendations button handler
+getBtn.addEventListener('click', ()=>{
+  // show loading for about 350ms
+  clearResults();
+  showLoading();
+  getBtn.disabled = true;
+  setTimeout(()=>{
+    const results = getFiltered();
+    statusArea.innerHTML = '';
+    renderResults(results);
+    getBtn.disabled = false;
+  }, 350);
+});
+
+// Reset filters
+resetBtn.addEventListener('click', ()=>{
+  genreSelect.value = 'All';
+  moodSelect.value = 'All';
+  minRating.value = 0;
+  ratingValue.textContent = '0';
+  clearResults();
+  // show a subtle message
+  statusArea.textContent = 'Filters reset.';
+  setTimeout(()=>{ statusArea.textContent = ''; }, 1200);
+});
+
+// Edge-case handling: no filters selected should show top-rated defaults
+function showDefaultIfNoFilters(){
+  const noGenre = !genreSelect.value || genreSelect.value === 'All';
+  const noMood = !moodSelect.value || moodSelect.value === 'All';
+  const noRating = !minRating.value || Number(minRating.value) === 0;
+  if(noGenre && noMood && noRating){
+    // show top 8 items of active type by rating
+    const top = items.filter(i=>i.type===activeType).sort((a,b)=>b.rating-a.rating).slice(0,8);
+    renderResults(top);
+  }
+}
+
+// Initialize app
+function init(){
+  populateSelects();
+  setActiveMode('movie');
+  // default placeholder state: show defaults
+  showDefaultIfNoFilters();
+}
+
+// Run init on DOM ready
+if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+else init();
+
+// Comments provided above functions explain behavior
