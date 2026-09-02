@@ -5,122 +5,124 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
   const navList = document.getElementById('navList');
 
-  function setNav(open) {
-    if (!navList || !navToggle) return;
-    const isOpen = !!open;
-    navList.classList.toggle('open', isOpen);
-    navToggle.setAttribute('aria-expanded', String(isOpen));
-    navToggle.classList.toggle('active', isOpen);
+  function setNav(open){
+    if(!navList || !navToggle) return;
+    navToggle.classList.toggle('active', open);
+    navList.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', String(Boolean(open)));
   }
 
-  if (navToggle) {
+  if(navToggle){
     navToggle.addEventListener('click', () => {
-      setNav(!navList.classList.contains('open'));
+      const isOpen = navList.classList.contains('open');
+      setNav(!isOpen);
     });
   }
 
-  // Close nav when a link is clicked (mobile)
-  if (navList) {
-    navList.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => setNav(false));
-    });
-  }
-
-  // Smooth scrolling for internal anchors
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
+  // Close nav when clicking a link (mobile)
+  document.querySelectorAll('.nav-list a').forEach(a => {
     a.addEventListener('click', (e) => {
       const href = a.getAttribute('href');
-      if (!href || href === '#') return;
+      if(!href || href === '#') return;
+      // Smooth scroll
       const target = document.querySelector(href);
-      if (target) {
+      if(target){
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // close mobile nav after navigating
         setNav(false);
+        target.scrollIntoView({behavior:'smooth', block:'start'});
       }
     });
   });
 
-  // Set footer year
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  // Smooth scroll for other CTA buttons (if any)
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    // handled above for nav links, but keep for other CTAs
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if(!href || href === '#') return;
+      const target = document.querySelector(href);
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
 
-  // Subtle reveal animations using IntersectionObserver
-  const revealItems = document.querySelectorAll('.feature-card, .menu-card, .testimonial, .gallery-grid img, .about-media, .about-copy');
-  if ('IntersectionObserver' in window && revealItems.length) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
+  // Reveal on scroll simple
+  const revealEls = document.querySelectorAll('.feature-card, .menu-card, .testimonial, .stat, .hero-copy');
+  const revealObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('reveal');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.12});
+  revealEls.forEach(el=>{el.style.opacity = 0; el.style.transform = 'translateY(12px)'; el.style.transition = 'opacity 680ms cubic-bezier(.2,.9,.25,1), transform 680ms cubic-bezier(.2,.9,.25,1)'; revealObserver.observe(el);});
 
-    revealItems.forEach(el => io.observe(el));
-  } else {
-    // fallback: reveal all
-    revealItems.forEach(el => el.classList.add('reveal'));
+  // Contact form validation & submit handling
+  const contactForm = document.getElementById('contactForm');
+  const formMessage = document.getElementById('formMessage');
+
+  function showFormMessage(text, isError=false){
+    if(!formMessage) return;
+    formMessage.textContent = text;
+    formMessage.style.display = 'block';
+    formMessage.className = 'form-message ' + (isError ? 'error' : 'success');
+    formMessage.style.opacity = '1';
+    // hide after a delay
+    setTimeout(()=>{ formMessage.style.opacity = '0'; setTimeout(()=> formMessage.style.display='none', 300); }, 4500);
   }
 
-  // Contact form handling with client-side validation
-  const form = document.getElementById('contactForm');
-  if (form) {
-    const formMessageWrap = document.getElementById('formMessage');
+  function validateEmail(email){
+    // simple regex
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
 
-    function showMessage(message, type = 'success') {
-      if (!formMessageWrap) return;
-      formMessageWrap.textContent = message;
-      formMessageWrap.className = 'form-message ' + (type === 'error' ? 'error' : 'success');
-      formMessageWrap.style.opacity = 1;
-    }
-
-    function clearMessage() {
-      if (!formMessageWrap) return;
-      formMessageWrap.textContent = '';
-      formMessageWrap.className = 'form-message';
-    }
-
-    form.addEventListener('submit', (e) => {
+  if(contactForm){
+    contactForm.addEventListener('submit', (e)=>{
       e.preventDefault();
-
-      const nameEl = form.querySelector('[name="name"]');
-      const emailEl = form.querySelector('[name="email"]');
-      const subjectEl = form.querySelector('[name="subject"]');
-      const messageEl = form.querySelector('[name="message"]');
-
-      const name = nameEl ? nameEl.value.trim() : '';
-      const email = emailEl ? emailEl.value.trim() : '';
-      const subject = subjectEl ? subjectEl.value.trim() : '';
-      const message = messageEl ? messageEl.value.trim() : '';
+      const name = contactForm.querySelector('#name');
+      const email = contactForm.querySelector('#email');
+      const subject = contactForm.querySelector('#subject');
+      const message = contactForm.querySelector('#message');
 
       const errors = [];
-      if (!name) errors.push('Name is required.');
-      if (!email) errors.push('Email is required.');
-      // simple email regex
-      const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (email && !emailRx.test(email)) errors.push('Please enter a valid email address.');
-      if (!subject) errors.push('Subject is required.');
-      if (!message) errors.push('Message is required.');
+      if(!name || !name.value.trim()) errors.push('Please enter your name.');
+      if(!email || !email.value.trim() || !validateEmail(email.value.trim())) errors.push('Please enter a valid email.');
+      if(!subject || !subject.value.trim()) errors.push('Please enter a subject.');
+      if(!message || !message.value.trim() || message.value.trim().length < 10) errors.push('Message must be at least 10 characters.');
 
-      if (errors.length) {
-        showMessage(errors.join(' '), 'error');
+      if(errors.length){
+        showFormMessage(errors.join(' '), true);
+        // mark invalid fields for accessibility
+        [name,email,subject,message].forEach(field=>{ if(field && (!field.value || !field.value.trim())) field.setAttribute('aria-invalid','true'); else if(field) field.removeAttribute('aria-invalid'); });
         return;
       }
 
-      // Simulate successful submission (since there's no backend)
-      showMessage(`Thanks, ${name}! Your message has been received. We'll get back to you shortly.`, 'success');
-      form.reset();
+      // Simulated successful submit — prevent refresh and show message
+      showFormMessage('Thanks — your message has been sent. We\'ll get back to you soon.');
+      contactForm.reset();
 
-      // Remove message after a while and clear
-      setTimeout(() => {
-        clearMessage();
-      }, 6000);
     });
   }
 
-  // Optional: small keyboard handler to close nav with Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') setNav(false);
+  // Footer year
+  const yearEl = document.getElementById('year');
+  if(yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Keyboard accessibility: close nav with Escape
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape') setNav(false);
   });
+
+  // Close nav on outside click (mobile)
+  document.addEventListener('click', (e)=>{
+    if(!navList || !navToggle) return;
+    if(navList.classList.contains('open')){
+      const isClickInside = navList.contains(e.target) || navToggle.contains(e.target);
+      if(!isClickInside) setNav(false);
+    }
+  });
+
 });
