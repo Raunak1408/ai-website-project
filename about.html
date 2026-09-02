@@ -3,19 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>About ToyNest</title>
+  <title>About — ToyNest</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="hero-grid container">
+    <div class="container" style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:14px 16px;">
       <div class="logo">ToyNest</div>
-      <nav class="main-nav">
+      <button class="nav-toggle" aria-controls="main-navigation" aria-expanded="false" aria-label="Open menu"><span class="hamburger"></span></button>
+      <nav id="main-navigation" class="nav main-nav" aria-hidden="false">
         <a href="index.html">Home</a>
         <a href="products.html">Products</a>
         <a href="about.html" class="active">About</a>
         <a href="contact.html">Contact</a>
-        <a href="cart.html">Cart <span class="cart-count">0</span></a>
+        <a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
       </nav>
     </div>
   </header>
@@ -24,46 +25,38 @@
     <h1>About ToyNest</h1>
     <section>
       <h2>Our Story</h2>
-      <p>ToyNest started as a small family project with a big idea: make playtime safe, creative and enriching. We curate toys that inspire curiosity, encourage learning and bring families together.</p>
+      <p>ToyNest started as a small family project to make playtime safe, creative and enriching. We curate toys that inspire curiosity and learning.</p>
     </section>
 
     <section>
-      <h2>Safety-First Philosophy</h2>
-      <p>Every toy we stock is selected for high-quality materials, age-appropriate design and easy-to-find safety information. We prioritize non-toxic finishes, sturdy construction and transparent labeling.</p>
+      <h2>Safety-first philosophy</h2>
+      <p>Every toy we select meets strict safety criteria: no small choking hazards for recommended ages, non-toxic finishes and quality materials.</p>
     </section>
 
     <section>
-      <h2>Educational Approach</h2>
-      <p>We believe play is learning. Our range focuses on building, problem solving, imaginative play and STEM skills—so kids develop motor, social and cognitive skills while having fun.</p>
+      <h2>Educational approach</h2>
+      <p>We believe play is learning — our selection focuses on toys that promote problem solving, creativity and early STEM skills.</p>
     </section>
 
     <section>
-      <h2>Why Parents Choose ToyNest</h2>
+      <h2>Why parents choose ToyNest</h2>
       <ul>
-        <li>Carefully vetted toys from trusted makers</li>
-        <li>Age guidance and safety details on every product</li>
-        <li>Fast shipping and friendly support</li>
+        <li>Curated, quality toys</li>
+        <li>Safety-tested materials</li>
+        <li>Helpful age guidance</li>
       </ul>
     </section>
 
     <section class="stats">
-      <h3>Company Statistics</h3>
-      <div class="stat-grid">
-        <div><strong>500+</strong><div>Happy Families</div></div>
-        <div><strong>100+</strong><div>Carefully Selected Toys</div></div>
-        <div><strong>4.8/5</strong><div>Average Rating</div></div>
-      </div>
+      <h3>Short Company Statistics</h3>
+      <div>500+ Happy Families</div>
+      <div>100+ Carefully Selected Toys</div>
+      <div>4.8/5 Average Rating</div>
     </section>
   </main>
 
-  <footer class="site-footer container">
-    <div>ToyNest — Premium toys for curious kids</div>
-    <nav>
-      <a href="products.html">Products</a> ·
-      <a href="about.html">About</a> ·
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div>© ToyNest</div>
+  <footer class="site-footer">
+    <div class="container">ToyNest — Premium toys for curious kids.</div>
   </footer>
 
   <script src="data.js"></script>
