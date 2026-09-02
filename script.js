@@ -1,40 +1,49 @@
 // script.js
-// Recommendation engine logic for Movie/Book single-page app
+// Recommendation engine logic for Movies/Books single-page app
 
-// Cache DOM elements
+// Get DOM elements (IDs are defined in index.html)
 const btnMovies = document.getElementById('btn-movies');
 const btnBooks = document.getElementById('btn-books');
-const genreSelect = document.getElementById('genre-select');
-const moodSelect = document.getElementById('mood-select');
-const ratingRange = document.getElementById('rating-range');
-const ratingValue = document.getElementById('rating-value');
-const btnGet = document.getElementById('btn-get');
-const btnReset = document.getElementById('btn-reset');
+const genreSelect = document.getElementById('genre');
+const moodSelect = document.getElementById('mood');
+const ratingRange = document.getElementById('minRating');
+const ratingValueLabel = document.getElementById('ratingValue');
+const btnGet = document.getElementById('getBtn');
+const btnReset = document.getElementById('resetBtn');
 const resultsEl = document.getElementById('results');
 const loadingEl = document.getElementById('loading');
-const emptyEl = document.getElementById('empty');
+const emptyStateEl = document.getElementById('emptyState');
+const resultsCountEl = document.getElementById('resultsCount');
+const statusArea = document.getElementById('statusArea');
 
-// Application state
-let activeMode = 'movie'; // 'movie' or 'book'
-const DEFAULT_MIN_RATING = Number(ratingRange.value) || 6;
+// Active mode: 'movie' or 'book'
+let activeMode = 'movie';
 
-// Helper: show/hide utility
-function show(el) { el.classList.remove('hidden'); }
-function hide(el) { el.classList.add('hidden'); }
+// Default minimal rating considered when deciding "no filters"
+const DEFAULT_MIN_RATING = Number(ratingRange ? ratingRange.value : 0) || 0;
 
-// Populate genre and mood selects using DATA_GENRES and DATA_MOODS from data.js
+// Utility show/hide
+function show(el) { if (!el) return; el.hidden = false; el.classList.remove('hidden'); }
+function hide(el) { if (!el) return; el.hidden = true; el.classList.add('hidden'); }
+
+// Populate Genre and Mood selects from data.js (generated lists)
 function populateFilters() {
-  // Clear existing (except "All")
+  // Clear existing options
   genreSelect.innerHTML = '';
   moodSelect.innerHTML = '';
 
-  const allOpt = document.createElement('option');
-  allOpt.value = 'all';
-  allOpt.textContent = 'All';
-  genreSelect.appendChild(allOpt.cloneNode(true));
-  moodSelect.appendChild(allOpt.cloneNode(true));
+  // Add "All" option first
+  const allGenre = document.createElement('option');
+  allGenre.value = 'all';
+  allGenre.textContent = 'All';
+  genreSelect.appendChild(allGenre);
 
-  // Use global arrays prepared in data.js
+  const allMood = document.createElement('option');
+  allMood.value = 'all';
+  allMood.textContent = 'All';
+  moodSelect.appendChild(allMood);
+
+  // Use precomputed genre/mood lists from data.js when available
   if (window.DATA_GENRES && window.DATA_GENRES.length) {
     window.DATA_GENRES.forEach(g => {
       const o = document.createElement('option');
@@ -54,7 +63,7 @@ function populateFilters() {
   }
 }
 
-// Update toggle UI for Movies / Books
+// Set active mode UI and behavior
 function setMode(mode) {
   activeMode = mode;
   if (mode === 'movie') {
@@ -68,66 +77,24 @@ function setMode(mode) {
     btnMovies.classList.remove('active');
     btnMovies.setAttribute('aria-pressed', 'false');
   }
-  // When mode changes, clear results and empty state
-  clearResults();
+  // When mode changes, clear previous results and helpful status
+  clearResultsArea();
 }
 
-// Convert rating (0-10) to 5-star display using Unicode stars
-function starsFromRating(rating) {
-  const outOfFive = Math.round((rating / 10) * 5);
-  let s = '';
-  for (let i = 0; i < 5; i++) {
-    s += i < outOfFive ? '★' : '☆';
-  }
-  return s;
+// Convert 0-10 rating to a 0-5 star string (rounded to half stars)
+function starsFromRating(r) {
+  const outOfFive = Math.round((Number(r) / 2) * 2) / 2; // half-star precision
+  const full = Math.floor(outOfFive);
+  const half = outOfFive % 1 ? 1 : 0;
+  const empty = 5 - full - half;
+  return '★'.repeat(full) + (half ? '☆' : '') + '✩'.repeat(empty);
 }
 
-// Render an array of items into the results area
-function renderResults(items) {
-  clearResults();
-  if (!items || items.length === 0) {
-    show(emptyEl);
-    return;
-  }
-  hide(emptyEl);
-
-  const fragment = document.createDocumentFragment();
-
-  items.forEach(item => {
-    const card = document.createElement('article');
-    card.className = 'feature-card';
-    card.innerHTML = `
-      <div class="feature-card-inner">
-        <div class="feature-meta">
-          <span class="badge type">${item.type === 'movie' ? '🎬 Movie' : '📚 Book'}</span>
-          <span class="badge genre">${item.genre}</span>
-          <span class="badge mood">${item.mood}</span>
-          <span class="rating" aria-label="Rating: ${item.rating} out of 10">${starsFromRating(item.rating)} <small>${item.rating.toFixed(1)}</small></span>
-        </div>
-        <h3 class="title">${item.title} <span class="year">(${item.year})</span></h3>
-        <p class="desc">${item.description}</p>
-      </div>
-    `;
-
-    // Add hover/fade-in classes handled by CSS
-    fragment.appendChild(card);
-  });
-
-  resultsEl.appendChild(fragment);
-}
-
-// Clear results area and hide status messages
-function clearResults() {
-  resultsEl.innerHTML = '';
-  hide(loadingEl);
-  hide(emptyEl);
-}
-
-// Core filter logic: apply genre, mood, and min rating (AND logic)
+// Core filtering logic: AND of genre, mood, and minRating
 function filterData({ genre, mood, minRating }) {
   const min = Number(minRating) || 0;
   return window.DATA.filter(item => {
-    if (item.type !== activeMode) return false;
+    if (item.type !== activeMode) return false; // mode filter
     if (genre && genre !== 'all' && item.genre !== genre) return false;
     if (mood && mood !== 'all' && item.mood !== mood) return false;
     if (Number(item.rating) < min) return false;
@@ -135,36 +102,84 @@ function filterData({ genre, mood, minRating }) {
   });
 }
 
-// Handler for Get Recommendations button
-function handleGetRecommendations() {
-  // Read current filter values
-  const genre = genreSelect.value;
-  const mood = moodSelect.value;
-  const minRating = Number(ratingRange.value);
+// Render results cards into the DOM
+function renderResults(items) {
+  // Clear
+  resultsEl.innerHTML = '';
+  hide(emptyStateEl);
 
-  // Determine whether user has actively selected filters
-  const isDefaultSelection = (genre === 'all' && mood === 'all');
+  if (!items || items.length === 0) {
+    // Show empty state
+    show(emptyStateEl);
+    resultsCountEl.textContent = '';
+    return;
+  }
 
-  // Show loading state (simulate brief delay)
-  show(loadingEl);
-  hide(emptyEl);
-  clearResults(); // clear while loading
+  // Fade-in container: create fragment
+  const frag = document.createDocumentFragment();
 
-  setTimeout(() => {
-    // If no filters selected (both All), return top 8 items for the active mode
-    let results = [];
-    if (isDefaultSelection && minRating === DEFAULT_MIN_RATING) {
-      results = window.DATA
-        .filter(i => i.type === activeMode)
-        .sort((a, b) => b.rating - a.rating)
-        .slice(0, 8);
-    } else {
-      results = filterData({ genre, mood, minRating });
-    }
+  items.forEach(item => {
+    const card = document.createElement('article');
+    card.className = 'feature-card';
 
-    hide(loadingEl);
-    renderResults(results);
-  }, 350);
+    // Badge row
+    const meta = document.createElement('div');
+    meta.className = 'feature-meta';
+
+    const typeSpan = document.createElement('span');
+    typeSpan.className = 'badge type';
+    typeSpan.textContent = item.type === 'movie' ? '🎬 Movie' : '📚 Book';
+    meta.appendChild(typeSpan);
+
+    const genreSpan = document.createElement('span');
+    genreSpan.className = 'badge genre';
+    genreSpan.textContent = item.genre;
+    meta.appendChild(genreSpan);
+
+    const moodSpan = document.createElement('span');
+    moodSpan.className = 'badge mood';
+    moodSpan.textContent = item.mood;
+    meta.appendChild(moodSpan);
+
+    // Title
+    const h3 = document.createElement('h3');
+    h3.className = 'title';
+    h3.textContent = item.title + (item.year ? ` (${item.year})` : '');
+
+    // Rating
+    const ratingDiv = document.createElement('div');
+    ratingDiv.className = 'rating';
+    ratingDiv.setAttribute('aria-label', `Rating ${item.rating} out of 10`);
+    ratingDiv.innerHTML = `<span class="stars">${starsFromRating(item.rating)}</span> <span class="num">${Number(item.rating).toFixed(1)}/10</span>`;
+
+    // Description
+    const p = document.createElement('p');
+    p.className = 'desc';
+    p.textContent = item.description;
+
+    // Assemble
+    card.appendChild(meta);
+    card.appendChild(h3);
+    card.appendChild(ratingDiv);
+    card.appendChild(p);
+
+    // Hover/fade animation class
+    card.style.animation = 'fadeIn .35s ease both';
+
+    frag.appendChild(card);
+  });
+
+  resultsEl.appendChild(frag);
+  resultsCountEl.textContent = `${items.length} recommendation${items.length>1?'s':''}`;
+}
+
+// Clear results area and status
+function clearResultsArea() {
+  resultsEl.innerHTML = '';
+  resultsCountEl.textContent = '';
+  hide(loadingEl);
+  hide(emptyStateEl);
+  statusArea.textContent = '';
 }
 
 // Reset filters to defaults and clear results
@@ -172,32 +187,66 @@ function resetFilters() {
   genreSelect.value = 'all';
   moodSelect.value = 'all';
   ratingRange.value = DEFAULT_MIN_RATING;
-  ratingValue.textContent = DEFAULT_MIN_RATING;
-  clearResults();
+  if (ratingValueLabel) ratingValueLabel.textContent = ratingRange.value;
+  clearResultsArea();
 }
 
-// Event listeners setup
+// Handle Get Recommendations click
+function handleGetRecommendations() {
+  const genre = genreSelect.value;
+  const mood = moodSelect.value;
+  const minRating = Number(ratingRange.value) || 0;
+
+  const isDefaultSelection = (genre === 'all' && mood === 'all' && minRating === DEFAULT_MIN_RATING);
+
+  // Show loading shimmer briefly
+  show(loadingEl);
+  hide(emptyStateEl);
+
+  setTimeout(() => {
+    let results = [];
+
+    if (isDefaultSelection) {
+      // No filter selected: show top-rated items for the active mode (8)
+      results = window.DATA
+        .filter(i => i.type === activeMode)
+        .sort((a,b) => Number(b.rating) - Number(a.rating))
+        .slice(0, 8);
+      statusArea.textContent = 'Top picks for you — try filters to narrow results.';
+    } else {
+      results = filterData({ genre, mood, minRating });
+      statusArea.textContent = '';
+    }
+
+    hide(loadingEl);
+    renderResults(results);
+  }, 350);
+}
+
+// Wire up events
 function bindEvents() {
   btnMovies.addEventListener('click', () => setMode('movie'));
   btnBooks.addEventListener('click', () => setMode('book'));
 
-  ratingRange.addEventListener('input', (e) => {
-    ratingValue.textContent = Number(e.target.value).toFixed(1);
-  });
-
   btnGet.addEventListener('click', handleGetRecommendations);
   btnReset.addEventListener('click', resetFilters);
+
+  // Live update rating label if present
+  if (ratingRange && ratingValueLabel) {
+    ratingRange.addEventListener('input', (e) => {
+      ratingValueLabel.textContent = e.target.value;
+    });
+  }
 }
 
-// Initialize app
+// Initialize app when DOM content is ready
 function init() {
   populateFilters();
   bindEvents();
   setMode(activeMode);
-  ratingValue.textContent = Number(ratingRange.value).toFixed(1);
 }
 
-// Run init when DOM is ready
+// If DOM already loaded, init; otherwise wait for DOMContentLoaded
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {
