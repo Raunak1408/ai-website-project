@@ -8,14 +8,15 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="hero-grid container">
+    <div class="container" style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:14px 16px;">
       <div class="logo">ToyNest</div>
-      <nav class="main-nav">
+      <button class="nav-toggle" aria-controls="main-navigation" aria-expanded="false" aria-label="Open menu"><span class="hamburger"></span></button>
+      <nav id="main-navigation" class="nav main-nav" aria-hidden="false">
         <a href="index.html">Home</a>
         <a href="products.html" class="active">Products</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="cart.html">Cart <span class="cart-count">0</span></a>
+        <a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
       </nav>
     </div>
   </header>
@@ -25,24 +26,16 @@
       <aside class="sidebar">
         <h3>Filters</h3>
         <div id="filter-categories"></div>
-        <div class="filter-section">
-          <h4>Price</h4>
-          <div id="price-range"></div>
-        </div>
-        <div class="filter-section">
-          <h4>Age Group</h4>
-          <select id="age-select"><option value="all">All ages</option></select>
-        </div>
-        <div class="filter-actions">
-          <button id="clear-filters" class="btn">Reset Filters</button>
-        </div>
+        <div id="price-range"></div>
+        <div id="age-select"></div>
+        <div class="filter-actions"><button id="clear-filters" class="btn">Reset Filters</button></div>
       </aside>
 
       <section class="products-area">
         <div class="products-top">
           <label>Sort:</label>
           <select id="sort-select">
-            <option value="default">Featured</option>
+            <option value="featured">Featured</option>
             <option value="price-asc">Price: Low → High</option>
             <option value="price-desc">Price: High → Low</option>
             <option value="rating-desc">Rating</option>
@@ -51,19 +44,13 @@
           <input id="search-box" placeholder="Search toys...">
         </div>
 
-        <div id="products-grid" class="feature-grid"></div>
+        <div id="products-grid" class="featured-grid"></div>
       </section>
     </div>
   </main>
 
-  <footer class="site-footer container">
-    <div>ToyNest — Premium toys for curious kids</div>
-    <nav>
-      <a href="products.html">Products</a> ·
-      <a href="about.html">About</a> ·
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div>© ToyNest</div>
+  <footer class="site-footer">
+    <div class="container">ToyNest — Premium toys for curious kids. <a href="about.html">About</a> • <a href="contact.html">Contact</a></div>
   </footer>
 
   <script src="data.js"></script>
