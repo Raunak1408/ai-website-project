@@ -1,45 +1,33 @@
-// BrewHaus interactivity: mobile nav & simple form handlers
-// Clean, minimal, accessible behavior
+// BrewHaus interactions: mobile nav, smooth scroll, contact form validation, subtle reveal animations
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Nav toggle
   const navToggle = document.getElementById('navToggle');
   const navList = document.getElementById('navList');
 
   function setNav(open) {
     if (!navList || !navToggle) return;
-    navList.classList.toggle('open', !!open);
-    navToggle.setAttribute('aria-expanded', !!open);
+    const isOpen = !!open;
+    navList.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+    navToggle.classList.toggle('active', isOpen);
   }
 
-  function toggleNav(open) {
-    if (!navList || !navToggle) return;
-    const isOpen = navList.classList.contains('open');
-    setNav(open === undefined ? !isOpen : open);
-  }
-
-  // Attach toggle if present
-  if (navToggle && navList) {
-    navToggle.addEventListener('click', () => toggleNav());
-
-    // Close when a nav link is clicked (mobile)
-    navList.addEventListener('click', (e) => {
-      const link = e.target.closest('a');
-      if (!link) return;
-      const href = link.getAttribute('href') || '';
-      if (href.startsWith('#')) {
-        // close mobile nav
-        setNav(false);
-      }
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      setNav(!navList.classList.contains('open'));
     });
   }
 
-  // Close on Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') setNav(false);
-  });
+  // Close nav when a link is clicked (mobile)
+  if (navList) {
+    navList.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => setNav(false));
+    });
+  }
 
   // Smooth scrolling for internal anchors
-  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
       const href = a.getAttribute('href');
       if (!href || href === '#') return;
@@ -47,40 +35,54 @@ document.addEventListener('DOMContentLoaded', () => {
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // close mobile nav after navigating
+        setNav(false);
       }
     });
   });
 
-  // Click-to-scroll helpers inside hero/CTAs (if used)
-  document.querySelectorAll('[data-scroll-to]').forEach((el) => {
-    el.addEventListener('click', (e) => {
-      const sel = el.getAttribute('data-scroll-to');
-      const tgt = document.querySelector(sel);
-      if (tgt) {
-        e.preventDefault();
-        tgt.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
+  // Set footer year
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Contact form behavior: client-side validation and inline success message
-  const form = document.getElementById('contactForm') || document.querySelector('form#contactForm');
+  // Subtle reveal animations using IntersectionObserver
+  const revealItems = document.querySelectorAll('.feature-card, .menu-card, .testimonial, .gallery-grid img, .about-media, .about-copy');
+  if ('IntersectionObserver' in window && revealItems.length) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach(el => io.observe(el));
+  } else {
+    // fallback: reveal all
+    revealItems.forEach(el => el.classList.add('reveal'));
+  }
+
+  // Contact form handling with client-side validation
+  const form = document.getElementById('contactForm');
   if (form) {
-    // create message container if missing
-    let msgDiv = form.querySelector('#formMessage');
-    if (!msgDiv) {
-      msgDiv = document.createElement('div');
-      msgDiv.id = 'formMessage';
-      msgDiv.className = 'form-message sr-only';
-      msgDiv.setAttribute('role', 'status');
-      msgDiv.setAttribute('aria-live', 'polite');
-      form.appendChild(msgDiv);
+    const formMessageWrap = document.getElementById('formMessage');
+
+    function showMessage(message, type = 'success') {
+      if (!formMessageWrap) return;
+      formMessageWrap.textContent = message;
+      formMessageWrap.className = 'form-message ' + (type === 'error' ? 'error' : 'success');
+      formMessageWrap.style.opacity = 1;
+    }
+
+    function clearMessage() {
+      if (!formMessageWrap) return;
+      formMessageWrap.textContent = '';
+      formMessageWrap.className = 'form-message';
     }
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      msgDiv.classList.remove('error', 'success', 'sr-only');
-      msgDiv.innerHTML = '';
 
       const nameEl = form.querySelector('[name="name"]');
       const emailEl = form.querySelector('[name="email"]');
@@ -95,45 +97,30 @@ document.addEventListener('DOMContentLoaded', () => {
       const errors = [];
       if (!name) errors.push('Name is required.');
       if (!email) errors.push('Email is required.');
-      else if (!/^\S+@\S+\.\S+$/.test(email)) errors.push('Please enter a valid email address.');
-      if (!message) errors.push('Message cannot be empty.');
+      // simple email regex
+      const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email && !emailRx.test(email)) errors.push('Please enter a valid email address.');
+      if (!subject) errors.push('Subject is required.');
+      if (!message) errors.push('Message is required.');
 
       if (errors.length) {
-        msgDiv.classList.add('error');
-        msgDiv.innerHTML = '<ul class="error-list"><li>' + errors.join('</li><li>') + '</li></ul>';
-        msgDiv.focus();
+        showMessage(errors.join(' '), 'error');
         return;
       }
 
-      // Simulate a successful submission (would send to server in real app)
-      msgDiv.classList.add('success');
-      msgDiv.textContent = `Thanks, ${name}! Your message has been received. We'll get back to you shortly.`;
+      // Simulate successful submission (since there's no backend)
+      showMessage(`Thanks, ${name}! Your message has been received. We'll get back to you shortly.`, 'success');
       form.reset();
 
-      // Remove success message after a short delay
+      // Remove message after a while and clear
       setTimeout(() => {
-        msgDiv.classList.add('sr-only');
-        msgDiv.classList.remove('success');
-        msgDiv.textContent = '';
-      }, 7000);
+        clearMessage();
+      }, 6000);
     });
   }
 
-  // Simple reveal-on-scroll for elements with .reveal class
-  const revealElems = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && revealElems.length) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((en) => {
-        if (en.isIntersecting) {
-          en.target.classList.add('revealed');
-          io.unobserve(en.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    revealElems.forEach((el) => io.observe(el));
-  } else {
-    // fallback: reveal all
-    revealElems.forEach((el) => el.classList.add('revealed'));
-  }
+  // Optional: small keyboard handler to close nav with Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setNav(false);
+  });
 });
