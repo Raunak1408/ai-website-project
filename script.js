@@ -6,88 +6,111 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setNav(open) {
     if (!navList || !navToggle) return;
-    navList.classList.toggle('open', !!open);
-    navToggle.setAttribute('aria-expanded', String(!!open));
+    const isOpen = !!open;
+    navList.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', String(isOpen));
   }
 
-  // Hamburger toggle
-  if (navToggle && navList) {
+  // Mobile hamburger toggle
+  if (navToggle) {
     navToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      const isOpen = navList.classList.contains('open');
+      const isOpen = navList && navList.classList.contains('open');
       setNav(!isOpen);
-    });
-
-    // Close nav when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!navList.classList.contains('open')) return;
-      if (!navList.contains(e.target) && e.target !== navToggle && !navToggle.contains(e.target)) {
-        setNav(false);
-      }
-    });
-
-    // Close nav on Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') setNav(false);
     });
   }
 
-  // Smooth scroll for all anchor links that point to an ID on the page
+  // Close nav when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!navList || !navToggle) return;
+    if (!navList.classList.contains('open')) return;
+    if (!navList.contains(e.target) && e.target !== navToggle) {
+      setNav(false);
+    }
+  });
+
+  // Close nav with Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setNav(false);
+  });
+
+  // Smooth scroll for all internal anchor links (and close mobile nav)
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
       const href = a.getAttribute('href');
-      if (!href || href === '#') return;
-      const target = document.querySelector(href);
-      if (target) {
+      // If it's just a hash with no target, prevent default but do nothing
+      if (!href || href === '#') {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // Close mobile nav if open
-        if (navList && navList.classList.contains('open')) setNav(false);
+        return;
+      }
+
+      // Find target element
+      try {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // close mobile nav if open
+          setNav(false);
+        }
+      } catch (err) {
+        // invalid selector or no target - do nothing but prevent default
+        e.preventDefault();
       }
     });
   });
 
-  // Order buttons in Menu - show confirmation message
-  function attachOrderButtons() {
-    const orderButtons = document.querySelectorAll('.order-btn');
-    orderButtons.forEach((btn) => {
-      // Avoid attaching multiple handlers
-      if (btn.dataset.orderHandlerAttached) return;
-      btn.dataset.orderHandlerAttached = '1';
-
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        // Try to find a nearby title for context
-        let itemName = '';
-        const card = btn.closest('article, .menu-card, .menu-body, .card, .menu-card, .article');
-        if (card) {
-          const titleEl = card.querySelector('h3, h2, h4, .menu-meta, .menu-title');
-          if (titleEl) itemName = titleEl.textContent.trim();
-        }
-
-        const message = itemName
-          ? `Your order has been selected for: "${itemName}". Please contact us to complete the order.`
-          : 'Your order has been selected. Please contact us to complete the order.';
-
-        // Use a non-blocking toast if available, otherwise alert
-        if (window.Toastify) {
-          Toastify({ text: message, duration: 4000, gravity: 'top', position: 'right', backgroundColor: 'linear-gradient(to right, #6B4226, #8B5E3C)' }).showToast();
-        } else {
-          // Fallback
-          alert(message);
-        }
-      });
+  // Order buttons - show a clear confirmation message
+  function showToast(message = 'Done', duration = 4200) {
+    const toast = document.createElement('div');
+    toast.className = 'site-toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.textContent = message;
+    Object.assign(toast.style, {
+      position: 'fixed',
+      right: '1rem',
+      bottom: '1rem',
+      background: 'rgba(0,0,0,0.85)',
+      color: '#fff',
+      padding: '0.75rem 1rem',
+      borderRadius: '8px',
+      zIndex: '9999',
+      boxShadow: '0 6px 20px rgba(0,0,0,0.2)',
+      fontSize: '0.95rem',
+      maxWidth: 'min(380px, 90%)',
+      lineHeight: '1.3',
+      opacity: '1',
     });
-  }
-  attachOrderButtons();
 
-  // Contact form validation & submission (frontend only)
+    document.body.appendChild(toast);
+
+    // fade out after duration
+    setTimeout(() => {
+      toast.style.transition = 'opacity 300ms ease, transform 300ms ease';
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(8px)';
+    }, duration - 300);
+
+    setTimeout(() => {
+      toast.remove();
+    }, duration + 100);
+  }
+
+  document.querySelectorAll('.order-btn').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      showToast('Your order has been selected. Please contact us to complete the order.');
+    });
+  });
+
+  // Contact form validation & submission (frontend-only)
   const contactForm = document.getElementById('contactForm');
   const formMessage = document.getElementById('formMessage');
 
   function showFormMessage(text, isError = false) {
     if (!formMessage) {
-      // fallback
+      // fallback to alert if message element not present
       alert(text);
       return;
     }
@@ -105,36 +128,37 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const name = contactForm.querySelector('#name');
-      const email = contactForm.querySelector('#email');
-      const subject = contactForm.querySelector('#subject');
-      const message = contactForm.querySelector('#message');
+      const nameEl = contactForm.querySelector('#name');
+      const emailEl = contactForm.querySelector('#email');
+      const subjectEl = contactForm.querySelector('#subject');
+      const messageEl = contactForm.querySelector('#message');
+
+      const name = nameEl ? nameEl.value.trim() : '';
+      const email = emailEl ? emailEl.value.trim() : '';
+      const subject = subjectEl ? subjectEl.value.trim() : '';
+      const message = messageEl ? messageEl.value.trim() : '';
 
       const errors = [];
-      if (!name || !name.value.trim()) errors.push('Please enter your name.');
-      if (!email || !email.value.trim() || !validateEmail(email.value)) errors.push('Please enter a valid email address.');
-      if (!message || !message.value.trim() || message.value.trim().length < 5) errors.push('Please enter a message (at least 5 characters).');
+      if (!name) errors.push('Please enter your name.');
+      if (!email || !validateEmail(email)) errors.push('Please enter a valid email address.');
+      if (!subject) errors.push('Please enter a subject.');
+      if (!message || message.length < 5) errors.push('Please enter a message (at least 5 characters).');
 
       if (errors.length) {
         showFormMessage(errors.join(' '), true);
         return;
       }
 
-      // Frontend-only success flow
-      showFormMessage('Thanks — your message has been received. We will contact you soon.');
+      // Frontend-only: show success message and reset form
+      showFormMessage('Thanks! Your message has been received. We will contact you soon.');
       contactForm.reset();
     });
   }
 
-  // Footer year element update if present
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  // Accessibility: close nav when any nav link is activated (keyboard/mouse)
+  // Accessibility: ensure nav links toggle nav when clicked (for any anchor in nav)
   if (navList) {
     navList.querySelectorAll('a').forEach((a) => {
       a.addEventListener('click', () => setNav(false));
     });
   }
-
 });
