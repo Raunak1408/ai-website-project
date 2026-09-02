@@ -5,22 +5,33 @@ document.addEventListener('DOMContentLoaded', function(){
   const navToggle = document.getElementById('navToggle');
   const navList = document.getElementById('nav-menu');
 
-  if(navToggle && navList){
-    function setNav(open){
-      navList.classList.toggle('open', open);
-      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    }
+  function setNav(open){
+    if(!navList) return;
+    navList.classList.toggle('open', !!open);
+    navToggle.setAttribute('aria-expanded', !!open);
+  }
 
+  if(navToggle && navList){
     navToggle.addEventListener('click', function(){
       const isOpen = navList.classList.contains('open');
       setNav(!isOpen);
     });
 
-    // Close mobile nav when a link is activated (and link is internal)
+    // Close nav when clicking a link
     navList.addEventListener('click', function(e){
-      if(e.target.tagName === 'A'){
+      if(e.target.tagName === 'A') setNav(false);
+    });
+
+    // close when focus moves away (accessibility)
+    document.addEventListener('click', function(e){
+      if(!navList.contains(e.target) && !navToggle.contains(e.target)){
         setNav(false);
       }
+    });
+
+    // close on ESC
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') setNav(false);
     });
   }
 
@@ -32,40 +43,21 @@ document.addEventListener('DOMContentLoaded', function(){
         const target = document.querySelector(href);
         if(target){
           e.preventDefault();
-          target.scrollIntoView({behavior:'smooth', block:'start'});
+          target.scrollIntoView({behavior:'smooth',block:'start'});
         }
       }
     });
   });
 
-  // Menu filtering (if filters exist)
-  const filters = document.querySelectorAll('.filter');
-  const cards = document.querySelectorAll('.menu-card');
-  if(filters.length && cards.length){
-    filters.forEach(btn=>{
-      btn.addEventListener('click', function(){
-        filters.forEach(b=>b.classList.remove('active'));
-        this.classList.add('active');
-        const cat = this.dataset.filter;
-        cards.forEach(card=>{
-          if(cat === 'all' || card.dataset.cat === cat){
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-  }
-
-  // Contact form basic submit handling
+  // Contact form basic handler
   const form = document.getElementById('contactForm');
   if(form){
     form.addEventListener('submit', function(e){
       e.preventDefault();
-      // simple feedback
+      // basic feedback — in a real site you'd send data via fetch
       alert('Thanks! Your message has been sent.');
       form.reset();
     });
   }
+
 });
