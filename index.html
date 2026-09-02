@@ -47,19 +47,17 @@
   <footer class="site-footer container">
     <div>© Toykart - Toys only store</div>
     <nav>
-      <a href="#">Terms</a>  <a href="#">Privacy</a>
+      <a href="#">Terms</a>  <a href="#">Privacy</a>
     </nav>
   </footer>
 
   <script src="data.js"></script>
   <script src="script.js"></script>
   <script>
-    // quick category click links
+    // quick category click links — use relative path so GitHub Pages works from repo root
     document.querySelectorAll('.cat-btn').forEach(b=> b.addEventListener('click', ()=>{
       const cat = b.dataset.cat;
-      const url = new URL(location.origin + '/products.html');
-      url.searchParams.set('category', cat);
-      location.href = url.toString();
+      location.href = 'products.html?category=' + encodeURIComponent(cat);
     }));
   </script>
 </body>
