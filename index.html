@@ -3,76 +3,66 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Find Your Next Watch or Read</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Toykart - Toys for Every Child</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <header class="site-header">
-      <div class="hero-grid">
-        <div>
-          <h1>Find Your Next Watch or Read</h1>
-          <div class="subtitle">Personalized movie and book recommendations based on genre, mood and rating.</div>
-        </div>
-        <nav class="mode-toggle" role="tablist" aria-label="Choose catalog">
-          <button id="btn-movies" class="mode-btn active" aria-pressed="true">🎬 Movies</button>
-          <button id="btn-books" class="mode-btn" aria-pressed="false">📚 Books</button>
-        </nav>
+  <header class="site-header">
+    <div class="hero-grid">
+      <div class="logo">Toykart</div>
+      <nav class="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart <span class="cart-count">0</span></a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Big Toy Sale - Up to 50% off selected toys!</h1>
+        <p>Free shipping on orders above ₹2000. Handpicked toys for learning and fun.</p>
+        <a href="products.html" class="btn btn-primary">Shop Toys</a>
       </div>
-    </header>
+      <img class="hero-img" src="https://images.unsplash.com/photo-1533158625-0fc5d3d9de6a?auto=format&fit=crop&w=1200&q=60" alt="kids playing with toys">
+    </section>
 
-    <main class="main-grid">
-      <aside class="filter-card" aria-labelledby="filters-title">
-        <h2 id="filters-title">Filters</h2>
-        <form id="filters" class="contact-form-wrap" role="form">
-          <label for="genre">Genre</label>
-          <select id="genre" name="genre" aria-label="Genre"></select>
+    <section class="categories">
+      <button class="cat-btn" data-cat="Action Figures">Action Figures</button>
+      <button class="cat-btn" data-cat="Soft Toys">Soft Toys</button>
+      <button class="cat-btn" data-cat="Educational Toys">Educational Toys</button>
+      <button class="cat-btn" data-cat="Remote Control Toys">Remote Control Toys</button>
+      <button class="cat-btn" data-cat="Puzzles">Puzzles</button>
+    </section>
 
-          <label for="mood">Mood</label>
-          <select id="mood" name="mood" aria-label="Mood">
-            <!-- options populated from data.js -->
-          </select>
+    <section class="features">
+      <h2>Featured Toys</h2>
+      <div id="featured-grid" class="featured-grid"></div>
+    </section>
+  </main>
 
-          <label for="minRating">Minimum rating</label>
-          <div class="range-row">
-            <input type="range" id="minRating" name="minRating" min="0" max="10" step="0.1" value="0">
-            <span id="ratingValue" class="rating-value">0</span>
-          </div>
-
-          <div class="btn-row">
-            <button type="button" id="getBtn" class="btn primary">Get Recommendations</button>
-            <button type="button" id="resetBtn" class="btn secondary">Reset Filters</button>
-          </div>
-        </form>
-      </aside>
-
-      <section class="results-area">
-        <div class="controls-top">
-          <div id="statusArea" class="status-area"></div>
-          <div id="resultsCount" class="results-count" aria-live="polite"></div>
-        </div>
-
-        <div id="loading" class="loading" hidden>
-          <div class="spinner" aria-hidden="true"></div>
-          <div class="loading-text">Finding matches…</div>
-        </div>
-
-        <div id="results" class="results-grid" aria-live="polite"></div>
-
-        <div id="emptyState" class="empty-state" hidden>
-          <strong>No matches found</strong>
-          <div class="muted">Try different filters or reset to see recommendations.</div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="site-footer-inner">Made with care — "Recommendation Engine" demo</div>
-    </footer>
-  </div>
+  <footer class="site-footer">
+    <div>© Toykart - Toys only store</div>
+    <nav>
+      <a href="#">Terms</a> · <a href="#">Privacy</a>
+    </nav>
+  </footer>
 
   <script src="data.js"></script>
   <script src="script.js"></script>
+  <script>
+    // category quick links
+    document.querySelectorAll('.cat-btn').forEach(b=> b.addEventListener('click', ()=>{
+      const cat = b.dataset.cat;
+      // go to products page with filter param
+      const url = new URL(location.origin + '/products.html');
+      url.searchParams.set('category', cat);
+      location.href = url.toString();
+    }));
+
+    // when index loads, featured render happens from script.js
+  </script>
 </body>
 </html>
