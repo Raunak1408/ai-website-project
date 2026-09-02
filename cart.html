@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shopping Cart - Toykart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-grid">
+      <div class="logo">Toykart</div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html" class="active">Cart <span class="cart-count">0</span></a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Your Cart</h2>
+    <div id="cart-items" class="cart-items"></div>
+
+    <aside id="cart-summary" class="cart-summary">
+      <div>Subtotal: <strong id="subtotal">₹0</strong></div>
+      <div>Shipping: <strong id="shipping">₹0</strong></div>
+      <div>Total: <strong id="total">₹0</strong></div>
+      <button class="btn btn-primary" id="checkout">Proceed to Checkout</button>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div>© Toykart - Toys only store</div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('checkout')?.addEventListener('click', ()=>{
+      alert('Checkout is a demo. Thank you for shopping with Toykart!');
+    });
+  </script>
+</body>
+</html>
