@@ -7,70 +7,51 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="product-detail-page">
-  <header class="header">
-    <div class="container">
-      <div class="logo"><div class="mark">TN</div><div>ToyNest</div></div>
-      <nav class="nav">
+  <header class="site-header">
+    <div class="container" style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:14px 16px;">
+      <div class="logo">ToyNest</div>
+      <button class="nav-toggle" aria-controls="main-navigation" aria-expanded="false" aria-label="Open menu"><span class="hamburger"></span></button>
+      <nav id="main-navigation" class="nav main-nav" aria-hidden="false">
         <a href="index.html">Home</a>
         <a href="products.html">Products</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="cart.html">Cart <span class="cart-count-display cart-count">0</span></a>
+        <a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="container">
-      <div class="pd">
-        <div class="pd-gallery card">
-          <!-- Main large image the script expects -->
-          <img id="pd-image" alt="Product image">
-          <!-- Thumbnails container the script expects -->
-          <div id="pd-thumbs"></div>
-        </div>
-        <div class="pd-info card">
+      <div id="pd">
+        <div id="pd-image"><img id="pd-image-img" alt="Product image"></div>
+        <div id="pd-info" class="pd-info">
           <h2 id="pd-title">Product title</h2>
-          <div style="display:flex;gap:12px;align-items:center"><div id="pd-price" class="price">$0.00</div><div id="pd-rating" class="small">⭐ 0</div></div>
+          <div style="display:flex;gap:12px;align-items:center;"> <div id="pd-price" class="price">$0.00</div> <div id="pd-rating" class="small">★ 0</div></div>
           <p id="pd-desc" class="small" style="margin-top:12px">Product description</p>
-          <div style="margin-top:12px" class="small">Category: <span id="pd-category">-</span></div>
+          <div style="margin-top:12px">Category: <span id="pd-category">-</span></div>
           <div class="small">Age: <span id="pd-age">-</span></div>
           <div class="small">Availability: <span id="pd-availability">-</span></div>
 
           <div style="margin-top:14px;display:flex;gap:12px;align-items:center">
-            <div class="qty">
+            <div id="pd-qty">
               <button id="pd-decrease">-</button>
-              <input id="pd-qty" type="number" value="1" min="1" style="width:56px;text-align:center;border-radius:8px;padding:6px;border:1px solid rgba(15,23,42,0.06)">
+              <input id="pd-qty" type="number" value="1" min="1" style="width:56px;text-align:center;border-radius:8px;padding:6px;border:1px solid rgba(10,25,47,0.06)">
               <button id="pd-increase">+</button>
             </div>
             <div style="display:flex;gap:8px">
               <button id="pd-add" class="btn">Add to Cart</button>
-              <button id="pd-buy" class="btn secondary">Buy Now</button>
+              <button id="pd-buy" class="btn btn-primary">Buy Now</button>
             </div>
           </div>
+
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="col">
-        <div class="logo"><div class="mark">TN</div><div>ToyNest</div></div>
-        <div class="small">Curated, safe and playful toys for curious kids.</div>
-      </div>
-      <div class="col">
-        <h4>Quick Links</h4>
-        <div><a class="footer-link" href="products.html">Products</a></div>
-        <div><a class="footer-link" href="about.html">About</a></div>
-        <div><a class="footer-link" href="contact.html">Contact</a></div>
-      </div>
-      <div class="col">
-        <h4>Contact</h4>
-        <div class="small">support@toynest.example</div>
-        <div class="small">© ToyNest 2026</div>
-      </div>
-    </div>
+  <footer class="site-footer">
+    <div class="container">ToyNest — Premium toys for curious kids.</div>
   </footer>
 
   <script src="data.js"></script>
