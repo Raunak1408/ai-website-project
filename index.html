@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="hero-grid">
+    <div class="hero-grid container">
       <div class="logo">Toykart</div>
       <nav class="main-nav">
         <a href="index.html" class="active">Home</a>
@@ -23,17 +23,17 @@
     <section class="hero">
       <div class="hero-content">
         <h1>Big Toy Sale - Up to 50% off selected toys!</h1>
-        <p>Free shipping on orders above ₹2000. Handpicked toys for learning and fun.</p>
+        <p>Free shipping on orders above 5000. Handpicked toys for learning and fun.</p>
         <a href="products.html" class="btn btn-primary">Shop Toys</a>
       </div>
-      <img class="hero-img" src="https://images.unsplash.com/photo-1533158625-0fc5d3d9de6a?auto=format&fit=crop&w=1200&q=60" alt="kids playing with toys">
+      <img class="hero-img" src="https://picsum.photos/seed/hero/1200/700" alt="kids playing with toys">
     </section>
 
     <section class="categories">
       <button class="cat-btn" data-cat="Action Figures">Action Figures</button>
       <button class="cat-btn" data-cat="Soft Toys">Soft Toys</button>
       <button class="cat-btn" data-cat="Educational Toys">Educational Toys</button>
-      <button class="cat-btn" data-cat="Remote Control Toys">Remote Control Toys</button>
+      <button class="cat-btn" data-cat="Remote Control Toys">Remote Control</button>
       <button class="cat-btn" data-cat="Puzzles">Puzzles</button>
     </section>
 
@@ -41,28 +41,26 @@
       <h2>Featured Toys</h2>
       <div id="featured-grid" class="featured-grid"></div>
     </section>
+
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer container">
     <div>© Toykart - Toys only store</div>
     <nav>
-      <a href="#">Terms</a> · <a href="#">Privacy</a>
+      <a href="#">Terms</a>  <a href="#">Privacy</a>
     </nav>
   </footer>
 
   <script src="data.js"></script>
   <script src="script.js"></script>
   <script>
-    // category quick links
+    // quick category click links
     document.querySelectorAll('.cat-btn').forEach(b=> b.addEventListener('click', ()=>{
       const cat = b.dataset.cat;
-      // go to products page with filter param
       const url = new URL(location.origin + '/products.html');
       url.searchParams.set('category', cat);
       location.href = url.toString();
     }));
-
-    // when index loads, featured render happens from script.js
   </script>
 </body>
 </html>
