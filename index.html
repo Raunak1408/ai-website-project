@@ -6,6 +6,26 @@
   <title>BrewHaus – Premium Coffee Shop</title>
   <meta name="description" content="BrewHaus – Crafted coffee made with passion. Visit us or order online for premium coffee and cozy atmosphere.">
   <link rel="stylesheet" href="style.css">
+
+  <style>
+  /* Small inline additions to enable mobile nav toggle and form message styles without changing the main stylesheet */
+  .nav-toggle{ display:none; background:transparent; border:0; padding:.4rem; cursor:pointer }
+  .nav-toggle .ham{ display:block; width:22px; height:2px; background:var(--deep); position:relative }
+  .nav-toggle .ham::before, .nav-toggle .ham::after{ content:''; position:absolute; left:0; right:0; height:2px; background:var(--deep) }
+  .nav-toggle .ham::before{ top:-6px } .nav-toggle .ham::after{ top:6px }
+
+  @media (max-width:780px){
+    .nav-list{ display:none; position:absolute; right:1rem; top:64px; background:rgba(255,255,255,0.98); padding:.8rem; border-radius:10px; flex-direction:column; gap:.6rem; box-shadow:0 10px 30px rgba(0,0,0,.08); min-width:200px }
+    .nav-list.open{ display:flex }
+    .nav-toggle{ display:block }
+    .nav-list li a{ display:block; padding:.4rem .6rem }
+    .main-nav .order-now{ display:none }
+  }
+
+  .form-message{ padding:.6rem; border-radius:6px; margin-bottom:.6rem; font-weight:600 }
+  .form-message.success{ background:#e6ffed; color:#08660d; border:1px solid #b8f0c9 }
+  .form-message.error{ background:#fff0f0; color:#8b0000; border:1px solid #f5c0c0 }
+  </style>
 </head>
 <body>
   <header class="site-header" role="banner">
@@ -249,7 +269,6 @@
               <button type="submit" class="btn btn-primary">Send Message</button>
             </div>
 
-            <div id="formMessage" role="status" style="display:none"></div>
           </form>
         </div>
 
