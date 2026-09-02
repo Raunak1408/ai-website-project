@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="hero-grid">
+    <div class="hero-grid container">
       <div class="logo">Toykart</div>
       <nav class="main-nav">
         <a href="index.html">Home</a>
@@ -19,24 +19,26 @@
     </div>
   </header>
 
-  <main class="container contact-page">
-    <section class="contact-form">
-      <h2>Contact Us</h2>
-      <form id="contact-form">
-        <label>Name<br><input id="c-name" required /></label>
-        <label>Email<br><input id="c-email" type="email" required /></label>
-        <label>Message<br><textarea id="c-message" rows="6" required></textarea></label>
-        <button class="btn btn-primary" type="submit">Send Message</button>
-      </form>
-    </section>
+  <main class="container">
+    <section class="contact-form-section">
+      <section class="contact-form">
+        <h2>Contact Us</h2>
+        <form id="contact-form" class="contact-form">
+          <label>Name<br><input id="c-name" required /></label>
+          <label>Email<br><input id="c-email" type="email" required /></label>
+          <label>Message<br><textarea id="c-message" rows="6" required></textarea></label>
+          <button class="btn btn-primary" type="submit">Send Message</button>
+        </form>
+      </section>
 
-    <section class="about">
-      <h3>About Us</h3>
-      <p>Toykart is a focused toy store built as a demo — curated toys across action figures, soft toys, puzzles, remote control and educational kits. We care about safe, age-appropriate play.</p>
+      <section class="about">
+        <h3>About Us</h3>
+        <p>Toykart is a focused toy store built as a demo — curated toys across action figures, soft toys, puzzles, remote control and educational kits. We care about safe, age-appropriate play.</p>
+      </section>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer container">
     <div>© Toykart - Toys only store</div>
   </footer>
 
