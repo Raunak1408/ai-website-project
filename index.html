@@ -2,310 +2,163 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BrewHub — Modern Coffee Shop</title>
-  <meta name="description" content="BrewHub — specialty coffee, fresh pastries, and a cozy space to work and meet. Visit us for expertly roasted beans and handcrafted drinks.">
-
-  <style>
-    :root{
-      --bg:#f7f3f0;
-      --card:#ffffff;
-      --accent:#6b4f3a; /* coffee brown */
-      --accent-2:#dba66a; /* caramel */
-      --muted:#6b6b6b;
-      --max-width:1100px;
-      --radius:12px;
-      --glass: rgba(255,255,255,0.6);
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:var(--bg); color:#222; -webkit-font-smoothing:antialiased;}
-
-    header.site-header{background:linear-gradient(180deg, rgba(107,79,58,0.06), transparent);backdrop-filter: blur(4px);}
-    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px;}
-
-    .topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--accent)}
-    .logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px}
-    nav.main-nav{display:flex;gap:18px}
-    nav.main-nav a{color:var(--muted);text-decoration:none;padding:8px;border-radius:8px}
-    nav.main-nav a:hover, nav.main-nav a:focus{color:var(--accent);outline:none}
-
-    .cta{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none}
-
-    /* Mobile nav */
-    .nav-toggle{display:none;background:none;border:0;font-size:20px}
-
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:36px 0}
-    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.5));border-radius:var(--radius);padding:28px;box-shadow:0 6px 30px rgba(20,20,20,0.06)}
-    .hero h1{margin:0 0 12px;font-size:36px;line-height:1.05;color:var(--accent)}
-    .hero p{margin:0 0 18px;color:var(--muted)}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-
-    .hero-media{border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 30px rgba(20,20,20,0.08)}
-    .hero-media img{display:block;width:100%;height:100%;object-fit:cover}
-
-    /* Menu grid */
-    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
-    .menu-card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(15,15,15,0.04)}
-    .menu-card h3{margin:0 0 6px;font-size:18px}
-    .price{color:var(--accent);font-weight:600}
-
-    /* About & gallery */
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:36px 0}
-    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-    .gallery img{width:100%;height:120px;object-fit:cover;border-radius:8px}
-
-    /* Contact */
-    .contact{background:linear-gradient(180deg, rgba(107,79,58,0.03), transparent);padding:24px;border-radius:12px}
-    form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    input, textarea{padding:10px;border-radius:8px;border:1px solid #e6e2df;font-size:14px}
-    textarea{grid-column:1/-1;min-height:120px}
-    .form-actions{grid-column:1/-1;display:flex;justify-content:flex-end}
-    button{background:var(--accent);color:#fff;border:0;padding:10px 16px;border-radius:10px;cursor:pointer}
-
-    footer.site-footer{padding:28px 0;margin-top:36px;color:var(--muted);font-size:14px}
-    .footer-grid{display:flex;justify-content:space-between;gap:20px;align-items:center}
-
-    /* Responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr;}
-      .menu-grid{grid-template-columns:repeat(2,1fr)}
-      .split{grid-template-columns:1fr}
-      nav.main-nav{display:none}
-      .nav-toggle{display:block}
-    }
-    @media (max-width:640px){
-      .menu-grid{grid-template-columns:1fr}
-      .gallery{grid-template-columns:repeat(2,1fr)}
-      .logo{width:40px;height:40px;font-size:16px}
-      .hero h1{font-size:28px}
-      form{grid-template-columns:1fr}
-    }
-
-    /* small helpers */
-    .muted{color:var(--muted)}
-    .small{font-size:13px}
-
-  </style>
+  <meta name="description" content="BrewHub — specialty coffee, crafted pastries, friendly service. Visit us or order online.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <header class="site-header" role="banner">
-    <div class="container topbar">
-      <a class="brand" href="#home">
-        <div class="logo" aria-hidden="true">BH</div>
-        <div>
-          <strong>BrewHub</strong>
-          <div class="small muted">Specialty Coffee</div>
-        </div>
-      </a>
+    <div class="container header-inner">
+      <a class="logo" href="#home" aria-label="BrewHub home">BrewHub</a>
 
-      <nav class="main-nav" role="navigation" aria-label="Main">
-        <a href="#menu">Menu</a>
-        <a href="#about">About</a>
-        <a href="#visit">Visit</a>
-        <a href="#contact">Contact</a>
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">Menu</button>
+        <ul id="primaryNav" class="nav-list">
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </nav>
-
-      <div style="display:flex;align-items:center;gap:10px">
-        <a class="cta" href="#order">Order Online</a>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" id="navToggle">☰</button>
-      </div>
-    </div>
-
-    <!-- Mobile navigation (hidden on desktop) -->
-    <div id="mobile-nav" style="display:none;padding:10px 20px;background:transparent">
-      <div class="container">
-        <nav role="navigation" aria-label="Mobile">
-          <a href="#menu" style="display:block;padding:10px 0;color:var(--muted)">Menu</a>
-          <a href="#about" style="display:block;padding:10px 0;color:var(--muted)">About</a>
-          <a href="#visit" style="display:block;padding:10px 0;color:var(--muted)">Visit</a>
-          <a href="#contact" style="display:block;padding:10px 0;color:var(--muted)">Contact</a>
-        </nav>
-      </div>
     </div>
   </header>
 
   <main id="home">
-    <div class="container">
-      <section class="hero" aria-labelledby="hero-heading">
-        <div class="hero-card">
-          <h1 id="hero-heading">Carefully roasted. Thoughtfully brewed.</h1>
-          <p class="muted">At BrewHub we source single-origin beans, roast in small batches, and craft every drink by hand. Join us for a cup and stay a while.</p>
+    <!-- Hero -->
+    <section class="hero" id="hero" aria-label="Hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>BrewHub — Coffee Crafted for Community</h1>
+          <p class="lead">Single-origin espresso, small-batch pour-overs, and baked goods made daily. Slow down — sip with us.</p>
           <div class="hero-actions">
-            <a class="cta" href="#menu">See Menu</a>
-            <a style="padding:10px 14px;border-radius:10px;background:transparent;border:1px solid var(--accent);color:var(--accent);text-decoration:none" href="#visit">Find Us</a>
-            <a style="padding:10px 14px;border-radius:10px;background:var(--accent-2);color:#fff;text-decoration:none" href="#order">Order Pickup</a>
+            <a class="btn btn-primary" href="#menu">View Menu</a>
+            <a class="btn" href="#about">About Us</a>
           </div>
-
-          <div class="menu-grid" aria-hidden="false">
-            <article class="menu-card">
-              <h3>Espresso</h3>
-              <div class="small muted">Rich & bold</div>
-              <div class="price">$2.75</div>
-            </article>
-            <article class="menu-card">
-              <h3>Cappuccino</h3>
-              <div class="small muted">Silky steamed milk</div>
-              <div class="price">$3.50</div>
-            </article>
-            <article class="menu-card">
-              <h3>Cold Brew</h3>
-              <div class="small muted">Smooth, slow-steeped</div>
-              <div class="price">$4.00</div>
-            </article>
-          </div>
-
         </div>
-
         <div class="hero-media" aria-hidden="true">
-          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop&crop=entropy" alt="Barista pouring latte art at BrewHub">
+          <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800&auto=format&fit=crop" alt="Barista pouring latte art">
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="menu" aria-labelledby="menu-heading">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:26px">
-          <div>
-            <h2 id="menu-heading">Menu Highlights</h2>
-            <p class="muted">Seasonal selections and classic favorites—crafted from quality beans and fresh ingredients.</p>
-          </div>
-          <a href="#order" class="small cta">Order Now</a>
-        </div>
+    <!-- Menu -->
+    <section id="menu" class="menu" aria-labelledby="menu-heading">
+      <div class="container">
+        <h2 id="menu-heading">Menu Highlights</h2>
+        <p class="muted">Thoughtfully sourced, thoughtfully served — explore some favorites.</p>
 
         <div class="menu-grid">
-          <div class="menu-card">
-            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=800&auto=format&fit=crop&crop=entropy" alt="cup of espresso" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:10px">
-            <h3>Single Origin Espresso</h3>
-            <div class="small muted">Bright, clean, and complex</div>
-            <div class="price">$3.00</div>
-          </div>
-
-          <div class="menu-card">
-            <img src="https://images.unsplash.com/photo-1505765052113-1f4f5b6a3b1f?q=80&w=800&auto=format&fit=crop&crop=entropy" alt="cappuccino" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:10px">
-            <h3>Cappuccino</h3>
-            <div class="small muted">Velvety milk, rich crema</div>
-            <div class="price">$3.50</div>
-          </div>
-
-          <div class="menu-card">
-            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800&auto=format&fit=crop&crop=entropy" alt="cold brew" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:10px">
-            <h3>Cold Brew</h3>
-            <div class="small muted">Slow steeped for smoothness</div>
-            <div class="price">$4.25</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" aria-labelledby="about-heading">
-        <div class="split">
-          <div>
-            <h2 id="about-heading">Our Story</h2>
-            <p class="muted">BrewHub started with a simple idea: roast thoughtfully and serve people well. We partner with small farms to source seasonal beans, roast onsite, and train our baristas to highlight each coffee's character.</p>
-            <p class="muted">Stop by for a tasting flight, bring a friend, or take a bag of freshly roasted beans home.</p>
-          </div>
-
-          <div class="gallery" aria-hidden="false">
-            <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?q=80&w=800&auto=format&fit=crop&crop=entropy" alt="coffee beans">
-            <img src="https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?q=80&w=800&auto=format&fit=crop&crop=entropy" alt="barista espresso">
-            <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?q=80&w=800&auto=format&fit=crop&crop=entropy" alt="pastries on display">
-          </div>
-        </div>
-      </section>
-
-      <section id="visit" aria-labelledby="visit-heading">
-        <div style="display:flex;gap:18px;align-items:flex-start;margin-top:18px">
-          <div style="flex:1">
-            <h2 id="visit-heading">Visit Us</h2>
-            <p class="muted">123 Brew Lane, Coffee City — Open daily 7am–6pm</p>
-            <p class="muted">Free Wi‑Fi • Outdoor seating • Wheelchair accessible</p>
-            <a class="small cta" href="https://maps.google.com" target="_blank" rel="noopener">Get Directions</a>
-          </div>
-
-          <div style="width:320px">
-            <div class="contact">
-              <h3 class="small">Reserve a Table</h3>
-              <form id="reserveForm" aria-label="Reserve a table">
-                <input type="text" name="name" placeholder="Your name" required>
-                <input type="tel" name="phone" placeholder="Phone" required>
-                <input type="date" name="date" required>
-                <input type="time" name="time" required>
-                <textarea name="notes" placeholder="Notes (optional)"></textarea>
-                <div class="form-actions"><button type="submit">Request</button></div>
-              </form>
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" alt="Espresso shot">
+            <div class="card-body">
+              <h3>Espresso</h3>
+              <p class="desc">Rich, concentrated, served solo or as a base for milk drinks.</p>
+              <div class="price">$2.75</div>
             </div>
-          </div>
-        </div>
-      </section>
+          </article>
 
-      <section id="contact" style="margin-top:28px">
-        <div style="display:flex;gap:18px;align-items:flex-start">
-          <div style="flex:1">
-            <h2>Get in touch</h2>
-            <p class="muted">Questions about wholesale, events, or our coffee? Send us a message and we’ll get back within one business day.</p>
-          </div>
-
-          <div style="width:420px">
-            <div class="contact">
-              <form id="contactForm" aria-label="Contact form">
-                <input type="text" name="fullname" placeholder="Full name" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <textarea name="message" placeholder="Message" required></textarea>
-                <div class="form-actions"><button type="submit">Send Message</button></div>
-              </form>
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1504610926078-a1611febcad3?q=80&w=800&auto=format&fit=crop" alt="Cappuccino">
+            <div class="card-body">
+              <h3>Cappuccino</h3>
+              <p class="desc">Velvety microfoam and a perfect ratio of milk to espresso.</p>
+              <div class="price">$3.50</div>
             </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=800&auto=format&fit=crop" alt="Cold brew">
+            <div class="card-body">
+              <h3>Cold Brew</h3>
+              <p class="desc">Slow-steeped for a smooth, bold cup that lasts all day.</p>
+              <div class="price">$4.00</div>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop" alt="Pastry on plate">
+            <div class="card-body">
+              <h3>Pastry</h3>
+              <p class="desc">Daily-baked pastries — buttery, flaky, and perfect with coffee.</p>
+              <div class="price">$3.25</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about" aria-labelledby="about-heading">
+      <div class="container split">
+        <div>
+          <h2 id="about-heading">Our Story</h2>
+          <p>BrewHub began as a neighborhood idea: a space to gather, create, and enjoy exceptional coffee. We prioritize direct trade beans, approachable service, and a cozy atmosphere where neighbors become friends.</p>
+          <ul class="features">
+            <li>Direct trade, single-origin beans</li>
+            <li>House-baked pastries daily</li>
+            <li>Workshops & community events</li>
+          </ul>
+        </div>
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1514756876715-48f18d09e4b9?q=80&w=800&auto=format&fit=crop" alt="Interior seating">
+          <img src="https://images.unsplash.com/photo-1527935324920-0a40f4a6b3b6?q=80&w=800&auto=format&fit=crop" alt="Coffee beans close up">
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 id="contact-heading">Contact & Visit</h2>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Visit Us</h3>
+            <p>123 Brew Lane<br>Open daily 7am — 6pm</p>
+
+            <h4>Get in touch</h4>
+            <p>Email: <a href="mailto:hello@brewhub.example">hello@brewhub.example</a><br>Phone: (555) 123-4567</p>
+
+            <p><a class="btn" href="https://maps.google.com" target="_blank" rel="noopener">Get Directions</a></p>
+          </div>
+
+          <div class="contact-form">
+            <form id="contactForm" aria-label="Contact form">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" required>
+
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required>
+
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" required></textarea>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Send Message</button>
+              </div>
+            </form>
           </div>
         </div>
-      </section>
-
-    </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
         <strong>BrewHub</strong>
-        <div class="small muted">© <span id="year"></span> BrewHub — All rights reserved</div>
+        <p>Small-batch coffee & good company.</p>
       </div>
-      <div class="small muted">Follow us on Instagram • Facebook • Twitter</div>
+      <div>
+        <nav aria-label="Footer">
+          <ul class="footer-links">
+            <li>&copy; <span id="year"></span> BrewHub</li>
+            <li><a href="#privacy">Privacy</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </footer>
 
-  <script>
-    // set current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // mobile nav toggle
-    (function(){
-      var btn = document.getElementById('navToggle');
-      var mobile = document.getElementById('mobile-nav');
-      btn.addEventListener('click', function(){
-        var expanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', String(!expanded));
-        if(expanded){ mobile.style.display = 'none'; }
-        else{ mobile.style.display = 'block'; }
-      });
-    })();
-
-    // simple form handlers (no network)
-    function handleForm(form, name){
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        var submit = form.querySelector('button[type="submit"]');
-        var old = submit.textContent;
-        submit.textContent = 'Sending…';
-        submit.disabled = true;
-        setTimeout(function(){
-          alert(name + ' submitted. Thank you!');
-          form.reset();
-          submit.textContent = old;
-          submit.disabled = false;
-        },800);
-      });
-    }
-    handleForm(document.getElementById('reserveForm'), 'Reservation');
-    handleForm(document.getElementById('contactForm'), 'Message');
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
