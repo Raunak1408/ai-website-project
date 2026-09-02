@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="hero-grid">
+    <div class="hero-grid container">
       <div class="logo">Toykart</div>
       <nav class="main-nav">
         <a href="index.html">Home</a>
@@ -21,20 +21,18 @@
 
   <main class="container">
     <section id="product-detail" class="product-detail">
-      <div class="pd-gallery">
-        <img id="pd-image" src="" alt="product" />
-        <div id="pd-thumbs" class="thumbnails"></div>
+      <div id="pd-gallery">
+        <img id="pd-image" src="" alt="product">
+        <div id="pd-thumbs"></div>
       </div>
       <div class="pd-info">
         <h1 id="pd-title">Product name</h1>
-        <div class="price" id="pd-price">₹0</div>
+        <div id="pd-price" class="price">₹0</div>
         <p id="pd-desc">Description goes here.</p>
         <p><strong>Age:</strong> <span id="pd-age"></span></p>
-        <p><strong>Availability:</strong> <span id="pd-availability"></span></p>
-
         <div class="pd-actions">
-          <label>Qty: <input id="pd-qty" type="number" min="1" value="1" /></label>
-          <button id="pd-add" class="btn">Add to Cart</button>
+          <label>Qty: <input id="pd-qty" type="number" min="1" value="1" class="qty-input"></label>
+          <button id="pd-add" class="btn add-cart">Add to Cart</button>
           <button id="pd-buy" class="btn btn-primary">Buy Now</button>
         </div>
       </div>
@@ -46,11 +44,8 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer container">
     <div>© Toykart - Toys only store</div>
-    <nav>
-      <a href="#">Help</a> · <a href="#">Contact</a>
-    </nav>
   </footer>
 
   <script src="data.js"></script>
