@@ -1,63 +1,74 @@
 // BrewHub interactivity: mobile nav & menu filtering
+// Clean, small helper functions and accessible toggles
 
-document.addEventListener('DOMContentLoaded', function(){
-  // Mobile nav toggle
+document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
   const navList = document.getElementById('nav-menu');
 
-  function setNav(open){
-    if(!navList) return;
+  function setNav(open) {
+    if (!navList || !navToggle) return;
+    // control a clear "open" state on the list and the toggle button
     navList.classList.toggle('open', !!open);
-    navToggle.setAttribute('aria-expanded', !!open);
+    navToggle.classList.toggle('open', !!open);
+    navToggle.setAttribute('aria-expanded', !!open ? 'true' : 'false');
   }
 
-  if(navToggle && navList){
-    navToggle.addEventListener('click', function(){
+  if (navToggle && navList) {
+    // Toggle nav when button clicked
+    navToggle.addEventListener('click', () => {
       const isOpen = navList.classList.contains('open');
       setNav(!isOpen);
     });
 
-    // Close nav when clicking a link
-    navList.addEventListener('click', function(e){
-      if(e.target.tagName === 'A') setNav(false);
+    // Close nav when a link inside nav is clicked (mobile behavior)
+    navList.addEventListener('click', (e) => {
+      const link = e.target.closest('a');
+      if (!link) return;
+      setNav(false);
     });
 
-    // close when focus moves away (accessibility)
-    document.addEventListener('click', function(e){
-      if(!navList.contains(e.target) && !navToggle.contains(e.target)){
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setNav(false);
+    });
+
+    // Close when focus moves outside the nav (basic)
+    document.addEventListener('click', (e) => {
+      if (!navList.contains(e.target) && !navToggle.contains(e.target)) {
         setNav(false);
       }
     });
-
-    // close on ESC
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape') setNav(false);
-    });
   }
 
-  // Smooth scroll for internal anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click', function(e){
+  // Smooth scroll for internal anchors
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
-      if(href.length > 1){
-        const target = document.querySelector(href);
-        if(target){
-          e.preventDefault();
-          target.scrollIntoView({behavior:'smooth',block:'start'});
-        }
+      if (!href || href === '#') return; // ignore empty anchors
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // close mobile nav after navigating
+        if (navList) setNav(false);
       }
     });
   });
 
-  // Contact form basic handler
+  // Menu filtering / smooth behaviour for gallery links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      // already handled above for smooth scroll
+    });
+  });
+
+  // Contact form handler (basic client-side feedback)
   const form = document.getElementById('contactForm');
-  if(form){
-    form.addEventListener('submit', function(e){
+  if (form) {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      // basic feedback — in a real site you'd send data via fetch
       alert('Thanks! Your message has been sent.');
       form.reset();
     });
   }
-
 });
