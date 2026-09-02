@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Toykart - Toys for Every Child</title>
+  <title>ToyNest — Big Fun for Little Minds</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header container">
     <div class="hero-grid container">
-      <div class="logo">Toykart</div>
+      <div class="logo">ToyNest</div>
       <nav class="main-nav">
         <a href="index.html" class="active">Home</a>
         <a href="products.html">Products</a>
-        <a href="cart.html">Cart <span class="cart-count">0</span></a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
+        <a href="cart.html" class="active">Cart <span class="cart-count">0</span></a>
       </nav>
     </div>
   </header>
@@ -22,37 +23,86 @@
   <main class="container">
     <section class="hero">
       <div class="hero-content">
-        <h1>Big Toy Sale - Up to 50% off selected toys!</h1>
-        <p>Free shipping on orders above ₹5000. Handpicked toys for learning and fun.</p>
-        <a href="products.html" class="btn btn-primary">Shop Toys</a>
+        <h1>Big Fun for Little Minds</h1>
+        <p class="sub">Discover safe, creative and educational toys made for curious kids.</p>
+        <div class="hero-ctas">
+          <a href="products.html" class="btn btn-primary">Shop Toys</a>
+          <button id="explore-categories" class="btn">Explore Categories</button>
+        </div>
       </div>
-      <img class="hero-img" src="https://picsum.photos/seed/hero/1200/700" alt="kids playing with toys">
+      <img class="hero-img" src="https://picsum.photos/seed/hero/1200/500" alt="Children playing with toys" />
     </section>
 
-    <section class="categories">
-      <button class="cat-btn" data-cat="Action Figures">Action Figures</button>
-      <button class="cat-btn" data-cat="Soft Toys">Soft Toys</button>
-      <button class="cat-btn" data-cat="Educational Toys">Educational Toys</button>
-      <button class="cat-btn" data-cat="Puzzles">Puzzles</button>
-    </section>
-
-    <section class="features">
+    <section id="featured" class="featured">
       <h2>Featured Toys</h2>
       <div id="featured-grid" class="featured-grid"></div>
     </section>
+
+    <section id="categories" class="categories">
+      <h2>Explore Categories</h2>
+      <div class="category-list">
+        <button class="cat-btn" data-cat="Building &amp; Blocks">Building &amp; Blocks</button>
+        <button class="cat-btn" data-cat="Soft Toys">Dolls &amp; Pretend Play</button>
+        <button class="cat-btn" data-cat="Remote Control Toys">Vehicles</button>
+        <button class="cat-btn" data-cat="Educational Toys">Educational Toys</button>
+        <button class="cat-btn" data-cat="Outdoor">Outdoor Toys</button>
+        <button class="cat-btn" data-cat="Puzzles">Puzzles &amp; Games</button>
+      </div>
+    </section>
+
+    <section class="promo">
+      <strong>Free Shipping on Orders Over $50</strong>
+      <p>Fast, safe delivery for families — because playtime matters.</p>
+    </section>
+
+    <section class="newsletter">
+      <h3>Join our Newsletter</h3>
+      <form id="newsletter-form" class="newsletter-form">
+        <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+        <div id="newsletter-feedback" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
   </main>
 
   <footer class="site-footer container">
-    <div>© Toykart - Toys only store</div>
+    <div>ToyNest — Premium toys for curious kids</div>
     <nav>
-      <a href="#">Terms</a>  <a href="#">Privacy</a>
+      <a href="products.html">Products</a> ·
+      <a href="about.html">About</a> ·
+      <a href="contact.html">Contact</a>
     </nav>
+    <div>© ToyNest — All rights reserved</div>
   </footer>
 
   <script src="data.js"></script>
   <script src="script.js"></script>
   <script>
-    // Ensure category buttons navigate to products with category param
+    // Explore categories scroll
+    document.getElementById('explore-categories').addEventListener('click', function(){
+      var el = document.getElementById('categories');
+      if(el) el.scrollIntoView({behavior:'smooth'});
+    });
+
+    // Newsletter subscribe
+    document.getElementById('newsletter-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = document.getElementById('newsletter-email').value.trim();
+      var fb = document.getElementById('newsletter-feedback');
+      var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(!re.test(email)){
+        fb.textContent = 'Please enter a valid email address.';
+        fb.style.color = 'crimson';
+        return;
+      }
+      // show success and clear
+      fb.textContent = 'Thanks! You are subscribed.';
+      fb.style.color = 'green';
+      document.getElementById('newsletter-email').value = '';
+    });
+
+    // Category buttons navigate to products with filter
     document.querySelectorAll('.cat-btn').forEach(b=> b.addEventListener('click', ()=>{
       const cat = b.dataset.cat || '';
       location.href = 'products.html?category=' + encodeURIComponent(cat);
