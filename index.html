@@ -8,14 +8,15 @@
 </head>
 <body>
   <header class="site-header container">
-    <div class="hero-grid container">
+    <div class="container header-inner" style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:14px 16px;">
       <div class="logo">ToyNest</div>
-      <nav class="main-nav">
+      <button class="nav-toggle" aria-controls="main-navigation" aria-expanded="false" aria-label="Open menu"><span class="hamburger"></span></button>
+      <nav id="main-navigation" class="nav main-nav" aria-hidden="false">
         <a href="index.html" class="active">Home</a>
         <a href="products.html">Products</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="cart.html" class="active">Cart <span class="cart-count">0</span></a>
+        <a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
       </nav>
     </div>
   </header>
@@ -30,7 +31,7 @@
           <button id="explore-categories" class="btn">Explore Categories</button>
         </div>
       </div>
-      <img class="hero-img" src="https://picsum.photos/seed/hero/1200/500" alt="Children playing with toys" />
+      <img class="hero-img" src="https://images.unsplash.com/photo-1504198266287-1659872e6590?auto=format&fit=crop&w=1200&q=80" alt="Children playing with toys">
     </section>
 
     <section id="featured" class="featured">
@@ -42,11 +43,11 @@
       <h2>Explore Categories</h2>
       <div class="category-list">
         <button class="cat-btn" data-cat="Building &amp; Blocks">Building &amp; Blocks</button>
-        <button class="cat-btn" data-cat="Soft Toys">Dolls &amp; Pretend Play</button>
-        <button class="cat-btn" data-cat="Remote Control Toys">Vehicles</button>
+        <button class="cat-btn" data-cat="Dolls &amp; Pretend Play">Dolls &amp; Pretend Play</button>
+        <button class="cat-btn" data-cat="Vehicles">Vehicles</button>
         <button class="cat-btn" data-cat="Educational Toys">Educational Toys</button>
-        <button class="cat-btn" data-cat="Outdoor">Outdoor Toys</button>
-        <button class="cat-btn" data-cat="Puzzles">Puzzles &amp; Games</button>
+        <button class="cat-btn" data-cat="Outdoor Toys">Outdoor Toys</button>
+        <button class="cat-btn" data-cat="Puzzles &amp; Games">Puzzles &amp; Games</button>
       </div>
     </section>
 
@@ -63,50 +64,19 @@
         <div id="newsletter-feedback" role="status" aria-live="polite"></div>
       </form>
     </section>
-
   </main>
 
-  <footer class="site-footer container">
-    <div>ToyNest — Premium toys for curious kids</div>
-    <nav>
-      <a href="products.html">Products</a> ·
-      <a href="about.html">About</a> ·
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div>© ToyNest — All rights reserved</div>
+  <footer class="site-footer">
+    <div class="container">
+      <div><strong>ToyNest</strong> — Premium toys for curious kids.</div>
+      <nav>
+        <a href="products.html">Products</a> • <a href="about.html">About</a> • <a href="contact.html">Contact</a>
+      </nav>
+      <div>© ToyNest — All rights reserved</div>
+    </div>
   </footer>
 
   <script src="data.js"></script>
   <script src="script.js"></script>
-  <script>
-    // Explore categories scroll
-    document.getElementById('explore-categories').addEventListener('click', function(){
-      var el = document.getElementById('categories');
-      if(el) el.scrollIntoView({behavior:'smooth'});
-    });
-
-    // Newsletter subscribe
-    document.getElementById('newsletter-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      var email = document.getElementById('newsletter-email').value.trim();
-      var fb = document.getElementById('newsletter-feedback');
-      var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if(!re.test(email)){
-        fb.textContent = 'Please enter a valid email address.';
-        fb.style.color = 'crimson';
-        return;
-      }
-      // show success and clear
-      fb.textContent = 'Thanks! You are subscribed.';
-      fb.style.color = 'green';
-      document.getElementById('newsletter-email').value = '';
-    });
-
-    // Category buttons navigate to products with filter
-    document.querySelectorAll('.cat-btn').forEach(b=> b.addEventListener('click', ()=>{
-      const cat = b.dataset.cat || '';
-      location.href = 'products.html?category=' + encodeURIComponent(cat);
-    }));
-  </script>
 </body>
 </html>
