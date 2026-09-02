@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Product Detail - Toykart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-grid">
+      <div class="logo">Toykart</div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart <span class="cart-count">0</span></a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="product-detail" class="product-detail">
+      <div class="pd-gallery">
+        <img id="pd-image" src="" alt="product" />
+        <div id="pd-thumbs" class="thumbnails"></div>
+      </div>
+      <div class="pd-info">
+        <h1 id="pd-title">Product name</h1>
+        <div class="price" id="pd-price">₹0</div>
+        <p id="pd-desc">Description goes here.</p>
+        <p><strong>Age:</strong> <span id="pd-age"></span></p>
+        <p><strong>Availability:</strong> <span id="pd-availability"></span></p>
+
+        <div class="pd-actions">
+          <label>Qty: <input id="pd-qty" type="number" min="1" value="1" /></label>
+          <button id="pd-add" class="btn">Add to Cart</button>
+          <button id="pd-buy" class="btn btn-primary">Buy Now</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h3>You may also like</h3>
+      <div id="related-list" class="related-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>© Toykart - Toys only store</div>
+    <nav>
+      <a href="#">Help</a> · <a href="#">Contact</a>
+    </nav>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
