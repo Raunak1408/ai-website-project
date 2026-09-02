@@ -13,10 +13,21 @@
       <a class="logo" href="#home" aria-label="BrewHub home">BrewHub</a>
 
       <nav class="main-nav" role="navigation" aria-label="Main navigation">
-        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">Menu</button>
-        <ul id="primaryNav" class="nav-list">
+        <!-- Accessible hamburger toggle -->
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+          <span class="hamburger" aria-hidden="true">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </span>
+          <span class="sr-only">Menu</span>
+        </button>
+
+        <ul id="nav-menu" class="nav-list">
+          <li><a href="#home">Home</a></li>
           <li><a href="#menu">Menu</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -24,62 +35,67 @@
   </header>
 
   <main id="home">
+
     <!-- Hero -->
     <section class="hero" id="hero" aria-label="Hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <h1>BrewHub — Coffee Crafted for Community</h1>
-          <p class="lead">Single-origin espresso, small-batch pour-overs, and baked goods made daily. Slow down — sip with us.</p>
-          <div class="hero-actions">
+          <h1>BrewHub — Crafted Coffee for Community</h1>
+          <p class="lead">Small-batch espresso, carefully roasted beans, and a warm place to gather. Fuel your day with our signature brews and freshly baked pastries.</p>
+          <p class="hero-actions">
             <a class="btn btn-primary" href="#menu">View Menu</a>
-            <a class="btn" href="#about">About Us</a>
+            <a class="btn" href="#contact">Visit Us</a>
+          </p>
+          <div class="hero-actions--meta">
+            <span class="hours">Open daily 7am — 7pm</span>
           </div>
         </div>
+
         <div class="hero-media" aria-hidden="true">
-          <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800&auto=format&fit=crop" alt="Barista pouring latte art">
+          <img src="https://images.unsplash.com/photo-1511193311911-5e6b2c83d2a5?q=80&w=800&auto=format&fit=crop" alt="Close-up of latte art in a cup">
         </div>
       </div>
     </section>
 
     <!-- Menu -->
-    <section id="menu" class="menu" aria-labelledby="menu-heading">
+    <section id="menu" class="menu" aria-label="Menu">
       <div class="container">
         <h2 id="menu-heading">Menu Highlights</h2>
-        <p class="muted">Thoughtfully sourced, thoughtfully served — explore some favorites.</p>
+        <p class="muted">Our curated selection of espresso drinks, filter coffee, and seasonal specialties.</p>
 
         <div class="menu-grid">
           <article class="menu-card">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" alt="Espresso shot">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" alt="Latte in a ceramic cup">
             <div class="card-body">
-              <h3>Espresso</h3>
-              <p class="desc">Rich, concentrated, served solo or as a base for milk drinks.</p>
-              <div class="price">$2.75</div>
-            </div>
-          </article>
-
-          <article class="menu-card">
-            <img src="https://images.unsplash.com/photo-1504610926078-a1611febcad3?q=80&w=800&auto=format&fit=crop" alt="Cappuccino">
-            <div class="card-body">
-              <h3>Cappuccino</h3>
-              <p class="desc">Velvety microfoam and a perfect ratio of milk to espresso.</p>
+              <h3>Classic Latte</h3>
+              <p class="desc">Smooth espresso with steamed milk and a light layer of foam.</p>
               <div class="price">$3.50</div>
             </div>
           </article>
 
           <article class="menu-card">
-            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=800&auto=format&fit=crop" alt="Cold brew">
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c334?q=80&w=800&auto=format&fit=crop" alt="Espresso shot in small glass">
             <div class="card-body">
-              <h3>Cold Brew</h3>
-              <p class="desc">Slow-steeped for a smooth, bold cup that lasts all day.</p>
+              <h3>Espresso</h3>
+              <p class="desc">Rich, concentrated espresso made from our house blend.</p>
+              <div class="price">$2.75</div>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" alt="Pour-over coffee in glass carafe">
+            <div class="card-body">
+              <h3>Single Origin Pour-over</h3>
+              <p class="desc">Carefully brewed single-origin coffee highlighting floral and citrus notes.</p>
               <div class="price">$4.00</div>
             </div>
           </article>
 
           <article class="menu-card">
-            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop" alt="Pastry on plate">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop" alt="Fresh pastry on a plate">
             <div class="card-body">
-              <h3>Pastry</h3>
-              <p class="desc">Daily-baked pastries — buttery, flaky, and perfect with coffee.</p>
+              <h3>Almond Croissant</h3>
+              <p class="desc">Flaky, buttery pastry filled with almond frangipane — perfect with any coffee.</p>
               <div class="price">$3.25</div>
             </div>
           </article>
@@ -88,40 +104,50 @@
     </section>
 
     <!-- About -->
-    <section id="about" class="about" aria-labelledby="about-heading">
+    <section id="about" class="about" aria-label="About BrewHub">
       <div class="container split">
         <div>
-          <h2 id="about-heading">Our Story</h2>
-          <p>BrewHub began as a neighborhood idea: a space to gather, create, and enjoy exceptional coffee. We prioritize direct trade beans, approachable service, and a cozy atmosphere where neighbors become friends.</p>
-          <ul class="features">
-            <li>Direct trade, single-origin beans</li>
-            <li>House-baked pastries daily</li>
-            <li>Workshops & community events</li>
-          </ul>
+          <h2>About BrewHub</h2>
+          <p>Founded to bring high-quality coffee and a neighborly atmosphere to the community. We source ethically, roast responsibly, and treat every cup with care.</p>
+          <p>Stop by to taste our seasonal offerings or grab a bag of beans to brew at home.</p>
         </div>
-        <div class="gallery">
-          <img src="https://images.unsplash.com/photo-1514756876715-48f18d09e4b9?q=80&w=800&auto=format&fit=crop" alt="Interior seating">
-          <img src="https://images.unsplash.com/photo-1527935324920-0a40f4a6b3b6?q=80&w=800&auto=format&fit=crop" alt="Coffee beans close up">
+        <div>
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop" alt="Barista making coffee">
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="gallery" aria-label="Gallery">
+      <div class="container">
+        <h2>Gallery</h2>
+        <p class="muted">A few moments from the shop.</p>
+        <div class="gallery-grid">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop" alt="Coffee beans and grinder">
+          <img src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?q=80&w=800&auto=format&fit=crop" alt="Latte art heart">
+          <img src="https://images.unsplash.com/photo-1444198319065-1f36c1b5fafa?q=80&w=800&auto=format&fit=crop" alt="Cozy shop seating">
         </div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="contact" aria-labelledby="contact-heading">
+    <section id="contact" class="contact" aria-label="Contact us">
       <div class="container">
-        <h2 id="contact-heading">Contact & Visit</h2>
+        <h2>Contact & Visit</h2>
         <div class="contact-grid">
-          <div class="contact-info">
-            <h3>Visit Us</h3>
-            <p>123 Brew Lane<br>Open daily 7am — 6pm</p>
+          <div>
+            <h3>Get in touch</h3>
+            <p>Have a question, catering request, or want to leave feedback? Send us a message.</p>
 
-            <h4>Get in touch</h4>
-            <p>Email: <a href="mailto:hello@brewhub.example">hello@brewhub.example</a><br>Phone: (555) 123-4567</p>
-
-            <p><a class="btn" href="https://maps.google.com" target="_blank" rel="noopener">Get Directions</a></p>
+            <div class="contact-info">
+              <h4>Visit</h4>
+              <p>123 Brew Lane<br>Open daily 7am — 7pm</p>
+              <h4>Call</h4>
+              <p>(555) 123-4567</p>
+            </div>
           </div>
 
-          <div class="contact-form">
+          <div>
             <form id="contactForm" aria-label="Contact form">
               <label for="name">Full name</label>
               <input id="name" name="name" type="text" required>
@@ -140,22 +166,13 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <strong>BrewHub</strong>
-        <p>Small-batch coffee & good company.</p>
-      </div>
-      <div>
-        <nav aria-label="Footer">
-          <ul class="footer-links">
-            <li>&copy; <span id="year"></span> BrewHub</li>
-            <li><a href="#privacy">Privacy</a></li>
-          </ul>
-        </nav>
-      </div>
+    <div class="container">
+      <strong>BrewHub</strong>
+      <p>Small-batch coffee &amp; friendly service</p>
     </div>
   </footer>
 
