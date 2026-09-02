@@ -8,14 +8,15 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="hero-grid container">
+    <div class="container" style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:14px 16px;">
       <div class="logo">ToyNest</div>
-      <nav class="main-nav">
+      <button class="nav-toggle" aria-controls="main-navigation" aria-expanded="false" aria-label="Open menu"><span class="hamburger"></span></button>
+      <nav id="main-navigation" class="nav main-nav" aria-hidden="false">
         <a href="index.html">Home</a>
         <a href="products.html">Products</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="cart.html" class="active">Cart <span class="cart-count">0</span></a>
+        <a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
       </nav>
     </div>
   </header>
@@ -29,20 +30,15 @@
       <div id="shipping">Shipping: $0</div>
       <div id="total">Total: $0</div>
       <div class="cart-actions">
-        <a class="btn" href="products.html">Continue Shopping</a>
+        <a href="products.html" class="btn">Continue Shopping</a>
         <button id="checkout" class="btn btn-primary">Proceed to Checkout</button>
       </div>
+      <div id="cart-feedback" role="status" aria-live="polite"></div>
     </aside>
   </main>
 
-  <footer class="site-footer container">
-    <div>ToyNest — Premium toys for curious kids</div>
-    <nav>
-      <a href="products.html">Products</a> ·
-      <a href="about.html">About</a> ·
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div>© ToyNest</div>
+  <footer class="site-footer">
+    <div class="container">ToyNest — Premium toys for curious kids.</div>
   </footer>
 
   <script src="data.js"></script>
