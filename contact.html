@@ -8,14 +8,15 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="hero-grid container">
+    <div class="container" style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:14px 16px;">
       <div class="logo">ToyNest</div>
-      <nav class="main-nav">
+      <button class="nav-toggle" aria-controls="main-navigation" aria-expanded="false" aria-label="Open menu"><span class="hamburger"></span></button>
+      <nav id="main-navigation" class="nav main-nav" aria-hidden="false">
         <a href="index.html">Home</a>
         <a href="products.html">Products</a>
         <a href="about.html">About</a>
         <a href="contact.html" class="active">Contact</a>
-        <a href="cart.html">Cart <span class="cart-count">0</span></a>
+        <a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
       </nav>
     </div>
   </header>
@@ -24,29 +25,26 @@
     <section class="contact-form-section">
       <h2>Contact Us</h2>
       <form id="contact-form" class="contact-form">
-        <label>Name<br><input id="c-name" required></label>
-        <label>Email<br><input id="c-email" type="email" required></label>
-        <label>Subject<br><input id="c-subject" required></label>
-        <label>Message<br><textarea id="c-message" rows="6" required></textarea></label>
+        <label for="c-name">Name</label>
+        <input id="c-name" name="name" required>
+
+        <label for="c-email">Email</label>
+        <input id="c-email" name="email" type="email" required>
+
+        <label for="c-subject">Subject</label>
+        <input id="c-subject" name="subject" required>
+
+        <label for="c-message">Message</label>
+        <textarea id="c-message" name="message" rows="6" required></textarea>
+
         <button type="submit" class="btn btn-primary">Send Message</button>
         <div id="contact-feedback" role="status" aria-live="polite"></div>
       </form>
     </section>
-
-    <section class="about">
-      <h3>Need help?</h3>
-      <p>Our customer care team is ready to help with product questions, returns and safety information.</p>
-    </section>
   </main>
 
-  <footer class="site-footer container">
-    <div>ToyNest — Premium toys for curious kids</div>
-    <nav>
-      <a href="products.html">Products</a> ·
-      <a href="about.html">About</a> ·
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div>© ToyNest</div>
+  <footer class="site-footer">
+    <div class="container">ToyNest — Premium toys for curious kids.</div>
   </footer>
 
   <script src="data.js"></script>
