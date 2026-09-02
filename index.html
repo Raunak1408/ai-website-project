@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Find Your Next Watch or Read</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,76 +13,62 @@
       <div class="hero-grid">
         <div>
           <h1>Find Your Next Watch or Read</h1>
-          <div class="subtitle">Personalized movie and book recommendations tailored to your genre, mood and rating preferences.</div>
+          <div class="subtitle">Personalized movie and book recommendations based on genre, mood and rating.</div>
         </div>
-
-        <nav class="mode-toggle" role="tablist" aria-label="Choose type">
-          <button id="btn-movies" class="active" aria-pressed="true">🎬 Movies</button>
-          <button id="btn-books" aria-pressed="false">📚 Books</button>
+        <nav class="mode-toggle" role="tablist" aria-label="Choose catalog">
+          <button id="btn-movies" class="mode-btn active" aria-pressed="true">🎬 Movies</button>
+          <button id="btn-books" class="mode-btn" aria-pressed="false">📚 Books</button>
         </nav>
-      </div>
-
-      <div class="hero-inner">
-        <div class="logo-title"> <!-- decorative area for branding -->
-          <div class="hero-ctas">
-            <!-- small header meta/info could go here -->
-          </div>
-        </div>
       </div>
     </header>
 
     <main class="main-grid">
-      <aside class="filter-card" aria-label="Filters">
-        <h2>Filters</h2>
-        <form id="filters" class="contact-form-wrap">
-          <div class="form-row">
-            <label for="genre">Genre</label>
-            <select id="genre" name="genre" aria-label="Genre">
-              <!-- options populated from data.js -->
-            </select>
-          </div>
+      <aside class="filter-card" aria-labelledby="filters-title">
+        <h2 id="filters-title">Filters</h2>
+        <form id="filters" class="contact-form-wrap" role="form">
+          <label for="genre">Genre</label>
+          <select id="genre" name="genre" aria-label="Genre" />
 
-          <div class="form-row">
-            <label for="mood">Mood</label>
-            <select id="mood" name="mood" aria-label="Mood">
-              <!-- options populated from data.js -->
-            </select>
-          </div>
+          <label for="mood">Mood</label>
+          <select id="mood" name="mood" aria-label="Mood">
+            <!-- options populated from data.js -->
+          </select>
 
-          <div class="form-row">
-            <label for="minRating">Minimum rating</label>
-            <div class="range-value"><span class="muted">Select minimum</span><span id="ratingValue">0</span></div>
+          <label for="minRating">Minimum rating</label>
+          <div class="range-row">
             <input type="range" id="minRating" name="minRating" min="0" max="10" step="0.1" value="0">
+            <span id="ratingValue" class="rating-value">0</span>
           </div>
 
           <div class="btn-row">
-            <button id="getBtn" class="btn primary" type="button">Get Recommendations</button>
-            <button id="resetBtn" class="btn secondary" type="button">Reset Filters</button>
+            <button type="button" id="getBtn" class="btn primary">Get Recommendations</button>
+            <button type="button" id="resetBtn" class="btn secondary">Reset Filters</button>
           </div>
         </form>
       </aside>
 
       <section class="results-area">
         <div class="controls-top">
-          <div id="statusArea" class="status-area" aria-hidden="true"></div>
-          <div class="tiny muted" id="resultsCount" aria-live="polite"></div>
+          <div id="statusArea" class="status-area"></div>
+          <div id="resultsCount" class="results-count" aria-live="polite"></div>
+        </div>
+
+        <div id="loading" class="loading" hidden>
+          <div class="spinner" aria-hidden="true"></div>
+          <div class="loading-text">Finding matches…</div>
         </div>
 
         <div id="results" class="results-grid" aria-live="polite"></div>
 
-        <div id="emptyState" class="empty-state" role="status" hidden>
+        <div id="emptyState" class="empty-state" hidden>
           <strong>No matches found</strong>
-          <div class="muted">Try adjusting filters or reset to see recommendations.</div>
+          <div class="muted">Try different filters or reset to see recommendations.</div>
         </div>
-
-        <div id="emptyStatus" class="empty-status" hidden></div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="site-footer-inner">
-        <p>Made with care — "Recommendation Engine" demo</p>
-      </div>
+      <div class="site-footer-inner">Made with care — "Recommendation Engine" demo</div>
     </footer>
   </div>
 
