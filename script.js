@@ -1,25 +1,39 @@
-// BrewHaus interactions: mobile nav, smooth scroll, contact form validation, subtle reveal animations
+// BrewHaus interactions: mobile nav, smooth scroll, contact form validation, order buttons
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Nav toggle
   const navToggle = document.getElementById('navToggle');
   const navList = document.getElementById('navList');
 
   function setNav(open) {
     if (!navList || !navToggle) return;
-    navList.classList.toggle('open', open);
+    navList.classList.toggle('open', !!open);
     navToggle.setAttribute('aria-expanded', String(!!open));
   }
 
-  if (navToggle) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = navList && navList.classList.contains('open');
+  // Hamburger toggle
+  if (navToggle && navList) {
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navList.classList.contains('open');
       setNav(!isOpen);
+    });
+
+    // Close nav when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navList.classList.contains('open')) return;
+      if (!navList.contains(e.target) && e.target !== navToggle && !navToggle.contains(e.target)) {
+        setNav(false);
+      }
+    });
+
+    // Close nav on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setNav(false);
     });
   }
 
-  // Close nav when clicking a link (mobile)
-  document.querySelectorAll('.nav-list a').forEach(a => {
+  // Smooth scroll for all anchor links that point to an ID on the page
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
       const href = a.getAttribute('href');
       if (!href || href === '#') return;
@@ -27,92 +41,70 @@ document.addEventListener('DOMContentLoaded', () => {
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        setNav(false);
+        // Close mobile nav if open
+        if (navList && navList.classList.contains('open')) setNav(false);
       }
     });
   });
 
-  // Smooth scroll for any in-page links (CTA etc.)
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    // Skip links that are just '#' with no target
-    a.addEventListener('click', (e) => {
-      const href = a.getAttribute('href');
-      if (!href || href === '#') return;
-      const target = document.querySelector(href);
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Order buttons in Menu - show confirmation message
+  function attachOrderButtons() {
+    const orderButtons = document.querySelectorAll('.order-btn');
+    orderButtons.forEach((btn) => {
+      // Avoid attaching multiple handlers
+      if (btn.dataset.orderHandlerAttached) return;
+      btn.dataset.orderHandlerAttached = '1';
+
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Try to find a nearby title for context
+        let itemName = '';
+        const card = btn.closest('article, .menu-card, .menu-body, .card, .menu-card, .article');
+        if (card) {
+          const titleEl = card.querySelector('h3, h2, h4, .menu-meta, .menu-title');
+          if (titleEl) itemName = titleEl.textContent.trim();
+        }
+
+        const message = itemName
+          ? `Your order has been selected for: "${itemName}". Please contact us to complete the order.`
+          : 'Your order has been selected. Please contact us to complete the order.';
+
+        // Use a non-blocking toast if available, otherwise alert
+        if (window.Toastify) {
+          Toastify({ text: message, duration: 4000, gravity: 'top', position: 'right', backgroundColor: 'linear-gradient(to right, #6B4226, #8B5E3C)' }).showToast();
+        } else {
+          // Fallback
+          alert(message);
+        }
+      });
     });
-  });
-
-  // Reveal animation for cards and hero copy.
-  // We assign an initial hidden style and then reveal either via IntersectionObserver
-  // or with a graceful fallback so content never stays invisible.
-  const revealEls = Array.from(document.querySelectorAll('.feature-card, .menu-card, .testimonial, .stat, .hero-copy'));
-  const transition = 'opacity 680ms cubic-bezier(.2,.9,.25,1), transform 680ms cubic-bezier(.2,.9,.25,1)';
-
-  function hideInitial(el) {
-    // Only set these if not already styled to avoid overwriting author inline styles
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(12px)';
-    el.style.transition = transition;
   }
-  function revealNow(el) {
-    el.style.opacity = '1';
-    el.style.transform = 'translateY(0)';
-  }
+  attachOrderButtons();
 
-  if (revealEls.length) {
-    revealEls.forEach(hideInitial);
-
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            revealNow(entry.target);
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
-
-      revealEls.forEach(el => observer.observe(el));
-
-      // Fallback: if IntersectionObserver doesn't fire for some reason,
-      // ensure elements become visible after a short delay
-      setTimeout(() => {
-        revealEls.forEach(el => {
-          if (getComputedStyle(el).opacity === '0') {
-            revealNow(el);
-          }
-        });
-      }, 1200);
-    } else {
-      // No IntersectionObserver support: reveal everything immediately
-      revealEls.forEach(revealNow);
-    }
-  }
-
-  // Contact form validation & submit handling
+  // Contact form validation & submission (frontend only)
   const contactForm = document.getElementById('contactForm');
   const formMessage = document.getElementById('formMessage');
 
   function showFormMessage(text, isError = false) {
-    if (!formMessage) return;
+    if (!formMessage) {
+      // fallback
+      alert(text);
+      return;
+    }
     formMessage.textContent = text;
     formMessage.className = isError ? 'form-message error' : 'form-message success';
     formMessage.style.display = 'block';
-    // hide after a bit
-    setTimeout(() => { formMessage.style.display = 'none'; }, 4500);
+    formMessage.setAttribute('aria-live', 'polite');
   }
 
   function validateEmail(email) {
-    // simple regex
-    return /[^@\s]+@[^@\s]+\.[^@\s]+/.test(email);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (evt) => {
-      evt.preventDefault();
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
       const name = contactForm.querySelector('#name');
       const email = contactForm.querySelector('#email');
       const subject = contactForm.querySelector('#subject');
@@ -120,42 +112,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const errors = [];
       if (!name || !name.value.trim()) errors.push('Please enter your name.');
-      if (!email || !email.value.trim() || !validateEmail(email.value)) errors.push('Please enter a valid email.');
-      if (!subject || !subject.value.trim()) errors.push('Please enter a subject.');
-      if (!message || !message.value.trim() || message.value.trim().length < 10) errors.push('Message must be at least 10 characters.');
+      if (!email || !email.value.trim() || !validateEmail(email.value)) errors.push('Please enter a valid email address.');
+      if (!message || !message.value.trim() || message.value.trim().length < 5) errors.push('Please enter a message (at least 5 characters).');
 
       if (errors.length) {
         showFormMessage(errors.join(' '), true);
-        // mark invalid fields for accessibility
-        [name, email, subject, message].forEach(f => {
-          if (f && (!f.value || !f.value.trim())) f.setAttribute('aria-invalid', 'true');
-          else if (f) f.removeAttribute('aria-invalid');
-        });
         return;
       }
 
-      // Simulate successful submit
-      showFormMessage("Thanks — your message has been sent. We'll get back to you soon.");
+      // Frontend-only success flow
+      showFormMessage('Thanks — your message has been received. We will contact you soon.');
       contactForm.reset();
     });
   }
 
-  // Footer year
+  // Footer year element update if present
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Keyboard shortcut: Escape closes nav
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') setNav(false);
-  });
+  // Accessibility: close nav when any nav link is activated (keyboard/mouse)
+  if (navList) {
+    navList.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => setNav(false));
+    });
+  }
 
-  // Close nav on outside click (mobile behavior)
-  document.addEventListener('click', (e) => {
-    if (!navList || !navToggle) return;
-    // if nav isn't open, nothing to do
-    if (!navList.classList.contains('open')) return;
-    // if the click is inside nav or on the toggle, ignore
-    if (navList.contains(e.target) || navToggle.contains(e.target)) return;
-    setNav(false);
-  });
 });
