@@ -91,6 +91,7 @@ function initProductsPage(){
   // Populate filters
   const categories = Array.from(new Set(window.PRODUCTS.map(p=>p.category)));
   const catWrap = q('#filter-categories');
+  catWrap.innerHTML = '';
   categories.forEach(cat=>{
     const id = 'cat-'+cat.replace(/\s+/g,'-');
     const item = document.createElement('label'); item.className='filter-item';
@@ -119,6 +120,26 @@ function initProductsPage(){
   // Category checkboxes change
   catWrap.querySelectorAll('input[type=checkbox]').forEach(cb=> cb.addEventListener('change', renderProducts));
 
+  // Handle URL params to pre-set filters (e.g., ?category=Soft%20Toys)
+  const params = new URLSearchParams(location.search);
+  const initialCat = params.get('category');
+  if(initialCat){
+    const target = Array.from(catWrap.querySelectorAll('input')).find(i=> i.value === initialCat);
+    if(target){ target.checked = true; }
+  }
+
+  // Clear filters button
+  const clearBtn = q('#clear-filters');
+  if(clearBtn){
+    clearBtn.addEventListener('click', ()=>{
+      catWrap.querySelectorAll('input').forEach(i=> i.checked = false);
+      priceRange.value = priceRange.max; priceVal.textContent = priceFormat(priceRange.value);
+      ageSelect.value = 'all';
+      q('#sort-select').value = 'default';
+      renderProducts();
+    });
+  }
+
   renderProducts();
 
   // delegate add to cart
@@ -145,7 +166,7 @@ function renderProducts(){
   const sort = q('#sort-select').value;
   if(sort==='price-asc') items.sort((a,b)=>a.price-b.price);
   if(sort==='price-desc') items.sort((a,b)=>b.price-a.price);
-  if(sort==='popularity') items.sort((a,b)=>b.rating-b.rating ? b.rating-a.rating : b.price-a.price);
+  if(sort==='popularity') items.sort((a,b)=>b.rating - a.rating ? b.rating - a.rating : a.price - b.price);
 
   container.innerHTML = '';
   if(items.length===0){ container.innerHTML = '<p class="muted">No products match the selected filters.</p>'; return; }
