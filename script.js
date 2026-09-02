@@ -1,5 +1,5 @@
-// BrewHub interactivity: mobile nav & menu filtering
-// Clean, small helper functions and accessible toggles
+// BrewHub interactivity: mobile nav & simple form handlers
+// Clean, minimal, accessible behavior
 
 document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setNav(open) {
     if (!navList || !navToggle) return;
-    // control a clear "open" state on the list and the toggle button
     navList.classList.toggle('open', !!open);
     navToggle.classList.toggle('open', !!open);
     navToggle.setAttribute('aria-expanded', !!open ? 'true' : 'false');
@@ -20,54 +19,54 @@ document.addEventListener('DOMContentLoaded', () => {
       setNav(!isOpen);
     });
 
-    // Close nav when a link inside nav is clicked (mobile behavior)
+    // Close when a navigation link is clicked (mobile)
     navList.addEventListener('click', (e) => {
       const link = e.target.closest('a');
-      if (!link) return;
-      setNav(false);
+      if (link) setNav(false);
+    });
+
+    // Close when user clicks outside the nav
+    document.addEventListener('click', (e) => {
+      if (!navList.contains(e.target) && !navToggle.contains(e.target)) {
+        setNav(false);
+      }
     });
 
     // Close on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') setNav(false);
     });
-
-    // Close when focus moves outside the nav (basic)
-    document.addEventListener('click', (e) => {
-      if (!navList.contains(e.target) && !navToggle.contains(e.target)) {
-        setNav(false);
-      }
-    });
   }
 
   // Smooth scroll for internal anchors
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (!href || href === '#') return; // ignore empty anchors
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (!href || href === '#' || href === '') return;
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // close mobile nav after navigating
-        if (navList) setNav(false);
+        // close mobile nav after navigation
+        setNav(false);
       }
     });
   });
 
-  // Menu filtering / smooth behaviour for gallery links
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      // already handled above for smooth scroll
-    });
-  });
-
-  // Contact form handler (basic client-side feedback)
+  // Simple contact form handler (client-side only)
   const form = document.getElementById('contactForm');
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('Thanks! Your message has been sent.');
+      // Simple validation (name & email required by HTML) and UX feedback
+      const name = form.querySelector('[name="name"]').value.trim();
+      const email = form.querySelector('[name="email"]').value.trim();
+      if (!name || !email) {
+        alert('Please provide your name and email.');
+        return;
+      }
+      // In a real site you'd send this to a server. For now, show a toast/alert.
+      alert('Thanks, ' + name + "! Your message has been sent.");
       form.reset();
     });
   }
