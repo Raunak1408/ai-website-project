@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>BrewHaus — Premium Coffee Shop</title>
-  <meta name="description" content="BrewHaus — Crafted coffee made with passion. Visit us or order online for premium coffee and a cozy atmosphere.">
+  <meta name="description" content="BrewHaus — Crafted coffee made with passion. Visit us or order online for premium coffee and cozy atmosphere.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,11 +20,12 @@
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <a class="btn btn-primary order-now" href="#menu">Order Now</a>
+
+        <a class="btn btn-primary order-now" href="#menu" id="menu">Order Now</a>
       </nav>
 
       <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
-        <span class="hamburger" aria-hidden="true"></span>
+        <span class="ham" aria-hidden="true"></span>
       </button>
     </div>
   </header>
@@ -40,11 +41,12 @@
             <a class="btn btn-primary" href="#menu">Explore Menu</a>
             <a class="btn btn-outline" href="#contact">Visit Us</a>
           </div>
-          <ul class="features-small">
-            <li>Single-origin beans</li>
-            <li>Slow roast technique</li>
-            <li>Seasonal flavors</li>
-          </ul>
+
+          <div class="hero-ctas-mini">
+            <span class="small">Single-origin beans</span>
+            <span class="small">Slow roast technique</span>
+            <span class="small">Seasonal flavors</span>
+          </div>
         </div>
 
         <div class="hero-media" aria-hidden="true">
@@ -62,7 +64,7 @@
         <div class="feature-grid">
           <article class="feature-card">
             <div class="feature-icon"> 
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16v6a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6V7z" stroke="#6B4226" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 3h8" stroke="#6B4226" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16v6a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6V7z" stroke="#6B4226" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <h3>Premium Coffee</h3>
             <p>Hand-selected beans sourced from ethical farms and roasted to reveal character and balance.</p>
@@ -73,7 +75,7 @@
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v20M2 12h20" stroke="#6B4226" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <h3>Fresh Ingredients</h3>
-            <p>We use milk, syrups and toppings crafted from fresh, high-quality ingredients for a clean taste.</p>
+            <p>Handfuls of craft and high-quality ingredients for a clean taste.</p>
           </article>
 
           <article class="feature-card">
@@ -81,7 +83,7 @@
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20v-8" stroke="#6B4226" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 12l5-5 5 5" stroke="#6B4226" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <h3>Expert Baristas</h3>
-            <p>Years of craft and apprenticeship — every cup is a small work of art pulled with care.</p>
+            <p>Years of craft and apprenticeship — every cup is a small work of art.</p>
           </article>
 
           <article class="feature-card">
@@ -99,77 +101,62 @@
     <section id="menu" class="section menu">
       <div class="container">
         <h2 class="section-title">Our Menu</h2>
-        <p class="section-lead">Classic favorites and seasonal specials — crafted with attention.</p>
+        <p class="section-lead">Classic favorites and seasonal specialties — crafted with attention.</p>
 
         <div class="menu-grid">
-
-          <!-- menu card template -->
           <article class="menu-card">
-            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800&auto=format&fit=crop" alt="Cappuccino">
+            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop" alt="Cappuccino">
             <div class="menu-body">
               <h3>Cappuccino</h3>
-              <p class="muted">Velvety milk foam over a rich double shot.</p>
-              <div class="menu-meta"><span class="price">$4.50</span>
-                <button class="btn btn-outline order-btn">Order</button>
-              </div>
+              <p>Velvety milk foam over a rich double shot.</p>
+              <div class="menu-meta"><span class="price">$4.50</span><button class="btn btn-outline order-btn">Order</button></div>
             </div>
           </article>
 
           <article class="menu-card">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" alt="Caramel Latte">
+            <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop" alt="Caramel Latte">
             <div class="menu-body">
               <h3>Caramel Latte</h3>
-              <p class="muted">Creamy latte with house-made caramel syrup.</p>
-              <div class="menu-meta"><span class="price">$5.00</span>
-                <button class="btn btn-outline order-btn">Order</button>
-              </div>
+              <p>Creamy latte with house-made caramel syrup.</p>
+              <div class="menu-meta"><span class="price">$5.00</span><button class="btn btn-outline order-btn">Order</button></div>
             </div>
           </article>
 
           <article class="menu-card">
-            <img src="https://images.unsplash.com/photo-1528813865803-9b1c3a8b4f8b?q=80&w=800&auto=format&fit=crop" alt="Espresso">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" alt="Espresso">
             <div class="menu-body">
               <h3>Espresso</h3>
-              <p class="muted">Single origin, richly concentrated; pure espresso.</p>
-              <div class="menu-meta"><span class="price">$3.00</span>
-                <button class="btn btn-outline order-btn">Order</button>
-              </div>
+              <p>Single-origin, richly concentrated; pure espresso.</p>
+              <div class="menu-meta"><span class="price">$3.00</span><button class="btn btn-outline order-btn">Order</button></div>
             </div>
           </article>
 
           <article class="menu-card">
-            <img src="https://images.unsplash.com/photo-1516910817561-4c3c71f7f6d9?q=80&w=800&auto=format&fit=crop" alt="Mocha">
+            <img src="https://images.unsplash.com/photo-1459257831348-f0cdd359235f?q=80&w=1200&auto=format&fit=crop" alt="Mocha">
             <div class="menu-body">
               <h3>Mocha</h3>
-              <p class="muted">Chocolate and espresso married with steamed milk.</p>
-              <div class="menu-meta"><span class="price">$5.50</span>
-                <button class="btn btn-outline order-btn">Order</button>
-              </div>
+              <p>Chocolatey and balanced — a comforting favorite.</p>
+              <div class="menu-meta"><span class="price">$5.50</span><button class="btn btn-outline order-btn">Order</button></div>
             </div>
           </article>
 
           <article class="menu-card">
-            <img src="https://images.unsplash.com/photo-1510627498534-cf7e9002facc?q=80&w=800&auto=format&fit=crop" alt="Cold Brew">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop" alt="Cold Brew">
             <div class="menu-body">
               <h3>Cold Brew</h3>
-              <p class="muted">Slow-steeped for a clean, smooth and bold character.</p>
-              <div class="menu-meta"><span class="price">$4.75</span>
-                <button class="btn btn-outline order-btn">Order</button>
-              </div>
+              <p>Slow-steeped for a clean, smooth and bold character.</p>
+              <div class="menu-meta"><span class="price">$4.75</span><button class="btn btn-outline order-btn">Order</button></div>
             </div>
           </article>
 
           <article class="menu-card">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" alt="Vanilla Latte">
+            <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=1200&auto=format&fit=crop" alt="Vanilla Latte">
             <div class="menu-body">
               <h3>Vanilla Latte</h3>
-              <p class="muted">Classic latte with a touch of Madagascar vanilla.</p>
-              <div class="menu-meta"><span class="price">$5.25</span>
-                <button class="btn btn-outline order-btn">Order</button>
-              </div>
+              <p>Classic latte with a touch of Madagascar vanilla.</p>
+              <div class="menu-meta"><span class="price">$5.25</span><button class="btn btn-outline order-btn">Order</button></div>
             </div>
           </article>
-
         </div>
       </div>
     </section>
@@ -178,25 +165,17 @@
     <section id="about" class="section about">
       <div class="container about-grid">
         <div class="about-media">
-          <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1200&auto=format&fit=crop" alt="Barista making coffee">
+          <img src="https://images.unsplash.com/photo-1511193311913-2f5a9f5a1c86?q=80&w=1200&auto=format&fit=crop" alt="Barista making coffee">
         </div>
+
         <div class="about-copy">
-          <h2 class="section-title">Our Story</h2>
+          <h2 class="section-title">About BrewHaus</h2>
           <p class="section-lead">BrewHaus began with a small idea: make exceptional coffee approachable. Over a decade of roasting, learning and refining our craft has given us a loyal family of customers and a commitment to quality.</p>
 
           <div class="stats">
-            <div class="stat">
-              <strong class="stat-num" data-target="10">10+</strong>
-              <small>Years Experience</small>
-            </div>
-            <div class="stat">
-              <strong class="stat-num" data-target="50000">50K+</strong>
-              <small>Happy Customers</small>
-            </div>
-            <div class="stat">
-              <strong class="stat-num" data-target="20">20+</strong>
-              <small>Coffee Varieties</small>
-            </div>
+            <div class="stat"><strong>10+</strong><span>Years Experience</span></div>
+            <div class="stat"><strong>50K+</strong><span>Happy Customers</span></div>
+            <div class="stat"><strong>20+</strong><span>Coffee Varieties</span></div>
           </div>
         </div>
       </div>
@@ -209,12 +188,12 @@
         <p class="section-lead">Moments captured in good light and great coffee.</p>
 
         <div class="gallery-grid">
-          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" alt="Latte art">
-          <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800&auto=format&fit=crop" alt="Coffee cup">
-          <img src="https://images.unsplash.com/photo-1516910817561-4c3c71f7f6d9?q=80&w=800&auto=format&fit=crop" alt="Espresso shot">
-          <img src="https://images.unsplash.com/photo-1510627498534-cf7e9002facc?q=80&w=800&auto=format&fit=crop" alt="Mocha">
-          <img src="https://images.unsplash.com/photo-1532634896-26909d0d2f6a?q=80&w=800&auto=format&fit=crop" alt="Beans">
-          <img src="https://images.unsplash.com/photo-1484981184820-2e84ea0e3b3e?q=80&w=800&auto=format&fit=crop" alt="Cafe interior">
+          <img src="https://images.unsplash.com/photo-1515096484212-6f3c8c5e7a53?q=80&w=800&auto=format&fit=crop" alt="Latte art">
+          <img src="https://images.unsplash.com/photo-1511193311913-2f5a9f5a1c86?q=80&w=800&auto=format&fit=crop" alt="Coffee cup">
+          <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=800&auto=format&fit=crop" alt="Mocha">
+          <img src="https://images.unsplash.com/photo-1533777324565-a040eb52fac2?q=80&w=800&auto=format&fit=crop" alt="Beans">
+          <img src="https://images.unsplash.com/photo-1523942839745-78496d2f3c4b?q=80&w=800&auto=format&fit=crop" alt="Coffee shop interior">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" alt="Cafe scene">
         </div>
       </div>
     </section>
@@ -226,29 +205,20 @@
         <p class="section-lead">Real stories from people who love BrewHaus.</p>
 
         <div class="test-grid">
-          <blockquote class="testimonial">
+          <div class="testimonial">
             <p>"Best cappuccino in town. The staff remembers my order and the atmosphere is perfect for working."</p>
-            <footer>
-              <strong>— Alex P.</strong>
-              <span class="stars">★★★★★</span>
-            </footer>
-          </blockquote>
+            <footer><strong>Alex P.</strong><span class="stars">★★★★☆</span></footer>
+          </div>
 
-          <blockquote class="testimonial">
-            <p>"Cozy place, outstanding Cold Brew. The flavors are always consistent and delightful."</p>
-            <footer>
-              <strong>— Marina S.</strong>
-              <span class="stars">★★★★★</span>
-            </footer>
-          </blockquote>
+          <div class="testimonial">
+            <p>"Cozy place, outstanding cold brew. The flavors are always consistent and delightful."</p>
+            <footer><strong>Omar K.</strong><span class="stars">★★★★★</span></footer>
+          </div>
 
-          <blockquote class="testimonial">
+          <div class="testimonial">
             <p>"Friendly baristas and exceptional beans. A dependable spot for weekends."</p>
-            <footer>
-              <strong>— Omar K.</strong>
-              <span class="stars">★★★★☆</span>
-            </footer>
-          </blockquote>
+            <footer><strong>Marin S.</strong><span class="stars">★★★★☆</span></footer>
+          </div>
         </div>
       </div>
     </section>
@@ -288,17 +258,18 @@
           <p class="muted">(555) 123-4567</p>
 
           <h4>Email</h4>
-          <p class="muted">hello@brewhaus.example</p>
+          <p class="muted">hello@brewhau s.example</p>
 
           <h4>Opening Hours</h4>
-          <p class="muted">Mon–Fri: 7am – 6pm<br>Sat–Sun: 8am – 5pm</p>
+          <p class="muted">Mon–Fri: 7am–7pm<br>Sat–Sun: 8am–6pm</p>
 
           <div class="socials">
             <a href="#" aria-label="Instagram" class="social">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#6B4226" stroke-width="1.2"/><circle cx="12" cy="12" r="3" stroke="#6B4226" stroke-width="1.2"/><circle cx="17.5" cy="6.5" r="0.5" fill="#6B4226"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#6B4226" stroke-width="1.2"/><circle cx="12" cy="12" r="3" stroke="#6B4226" stroke-width="1.2"/><circle cx="17.5" cy="6.5" r="0.5" fill="#6B4226"/></svg>
             </a>
+
             <a href="#" aria-label="Facebook" class="social">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a4 4 0 0 0-4 4v3H8v4h3v8h4v-8h3l1-4h-4V6a1 1 0 0 1 1-1h2z" stroke="#6B4226" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 2h-3a4 4 0 0 0-4 4v3H8v4h3v8h4v-8h3l1-4h-4V6a1 1 0 0 1 1-1h3z" stroke="#6B4226" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </aside>
@@ -310,7 +281,7 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <a class="logo" href="#home">BrewHaus</a>
-        <p class="muted">Crafted coffee, warm hospitality — every cup made with care.</p>
+        <p class="muted">Crafted coffee, warm hospitality and a refined neighborhood experience.</p>
       </div>
 
       <nav class="footer-nav" aria-label="Footer navigation">
@@ -324,15 +295,15 @@
       </nav>
 
       <div class="footer-socials">
-        <a href="#">Instagram</a>
-        <a href="#">Facebook</a>
-        <a href="#">Twitter</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
       </div>
-    </div>
 
-    <div class="container copyright">&copy; <span id="year"></span> BrewHaus — All rights reserved.</div>
+      <div class="copyright">&copy; <span id="year"></span> BrewHaus — All rights reserved.</div>
+    </div>
   </footer>
 
   <script src="script.js"></script>
+
 </body>
 </html>
