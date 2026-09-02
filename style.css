@@ -4,6 +4,8 @@
    changing the HTML files. Also small UI improvements for product cards,
    hero image behavior, responsiveness and buttons. */
 
+:root{ --accent: #ff4d6d; --muted:#667085; --radius:12px }
+
 /* --- Alias mapping: make HTML class names match existing design --- */
 /* Hero area */
 .hero-content { /* alias for .hero-copy */
@@ -23,7 +25,7 @@
 }
 
 /* featured / products grid alias */
-.featured-grid, .feature-grid, #featured-grid {
+.featured-grid, .feature-grid, #featured-grid, #products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--gap,1.25rem);
@@ -31,8 +33,8 @@
 }
 
 /* product card styling used by HTML produced cards */
-.product-card, .product-card a, .prod-card { /* support a few name variants */
-  background: var(--card, linear-gradient(180deg, #ffffff 0%, #fbfbff 100%));
+.product-card, .product-card a, .prod-card, .feature-card, .card, .card-item {
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbff 100%);
   border-radius: var(--radius,12px);
   padding: 0.75rem;
   box-shadow: 0 6px 18px rgba(16,24,40,0.04);
@@ -42,14 +44,14 @@
   gap: .6rem;
 }
 
-.product-card img, .prod-card img, .card-item img {
+.product-card img, .prod-card img, .card-item img, .feature-card img, .card-link img, .card img {
   width: 100%;
   height: 160px;
   object-fit: cover;
   border-radius: calc(var(--radius,12px) - 4px);
 }
 
-.product-card h4, .product-card h3, .prod-title {
+.product-card h4, .product-card h3, .prod-title, .feature-card h4, .card h4 {
   margin: 0;
   font-size: 1.05rem;
   line-height: 1.2;
@@ -57,9 +59,9 @@
   color: var(--color, #0d1b2a);
 }
 
-.product-card .price, .product-card .pricetag, .price {
+.product-card .price, .product-card .pricetag, .price, .feature-card .price {
   font-weight: 700;
-  color: var(--accent, #f22b6b);
+  color: var(--accent, #ff4d6d);
 }
 
 /* buttons used in HTML */
@@ -80,21 +82,39 @@
 
 /* category buttons */
 .cat-btn { background: transparent; border: 1px solid rgba(0,0,0,0.06); padding: .5rem .75rem; border-radius: 8px; }
-.cat-btn.active { background: var(--accent,#f22b6b); color: #fff; border-color: transparent; }
+.cat-btn.active { background: var(--accent,#ff4d6d); color: #fff; border-color: transparent; }
 
 /* small helpers for grid/layout used in HTML */
 .products-top { display:flex; gap:1rem; align-items:center; justify-content:space-between; flex-wrap:wrap; }
 .filter-section, .filter-actions { display:flex; gap:.6rem; align-items:center; }
 
+/* layout container and header/footer basics */
+.container{ max-width: var(--container,1100px); margin:0 auto; padding:0 1rem; }
+.site-header{ display:block; padding:1rem 0; background:linear-gradient(180deg,#f7f7fb,#fff); box-shadow:0 1px 0 rgba(16,24,40,0.03); }
+.hero-grid{ display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.logo{ font-weight:800; font-size:1.2rem; color:var(--muted); }
+.main-nav a{ margin-left:1rem; color:var(--muted); text-decoration:none }
+.main-nav a.active{ font-weight:700; color:var(--accent) }
+
+/* product detail and thumbnails */
+#product-detail{ display:grid; grid-template-columns: 1fr 360px; gap:1.25rem; align-items:start; }
+#pd-image{ width:100%; height:420px; object-fit:cover; border-radius:8px; }
+#pd-thumbs img{ width:72px; height:72px; object-fit:cover; border-radius:8px; margin-right:.5rem; cursor:pointer }
+
 /* responsive tweaks */
+@media (max-width: 980px){
+  .featured-grid{ grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+  #product-detail{ grid-template-columns: 1fr; }
+}
 @media (max-width: 680px){
   .hero-img, .hero-media { height: 220px; }
   .product-card img { height: 120px; }
+  #pd-image{ height:260px }
 }
 
 /* Ensure footer and nav links look polished */
 .site-footer a, .main-nav a { color: var(--muted,#666); text-decoration:none; }
-.main-nav a.active { font-weight:700; color:var(--accent,#f22b6b); }
+.site-footer{ padding:1.25rem 0; color:var(--muted) }
 
 /* Accessibility focus */
 a:focus, button:focus, input:focus { outline: 3px solid rgba(255,122,150,0.18); outline-offset: 2px; }
