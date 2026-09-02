@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header container">
     <div class="hero-grid container">
       <div class="logo">Toykart</div>
       <nav class="main-nav">
@@ -23,7 +23,7 @@
     <section class="hero">
       <div class="hero-content">
         <h1>Big Toy Sale - Up to 50% off selected toys!</h1>
-        <p>Free shipping on orders above 5000. Handpicked toys for learning and fun.</p>
+        <p>Free shipping on orders above ₹5000. Handpicked toys for learning and fun.</p>
         <a href="products.html" class="btn btn-primary">Shop Toys</a>
       </div>
       <img class="hero-img" src="https://picsum.photos/seed/hero/1200/700" alt="kids playing with toys">
@@ -33,7 +33,6 @@
       <button class="cat-btn" data-cat="Action Figures">Action Figures</button>
       <button class="cat-btn" data-cat="Soft Toys">Soft Toys</button>
       <button class="cat-btn" data-cat="Educational Toys">Educational Toys</button>
-      <button class="cat-btn" data-cat="Remote Control Toys">Remote Control</button>
       <button class="cat-btn" data-cat="Puzzles">Puzzles</button>
     </section>
 
@@ -41,7 +40,6 @@
       <h2>Featured Toys</h2>
       <div id="featured-grid" class="featured-grid"></div>
     </section>
-
   </main>
 
   <footer class="site-footer container">
@@ -54,9 +52,9 @@
   <script src="data.js"></script>
   <script src="script.js"></script>
   <script>
-    // quick category click links — use relative path so GitHub Pages works from repo root
+    // Ensure category buttons navigate to products with category param
     document.querySelectorAll('.cat-btn').forEach(b=> b.addEventListener('click', ()=>{
-      const cat = b.dataset.cat;
+      const cat = b.dataset.cat || '';
       location.href = 'products.html?category=' + encodeURIComponent(cat);
     }));
   </script>
