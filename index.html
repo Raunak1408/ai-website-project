@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GamingGear — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">GamingGear</a>
+      <nav class="site-nav" id="siteNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button id="navToggle" class="nav-toggle" aria-label="Toggle menu">☰</button>
+        <a href="wishlist.html" class="icon-btn" aria-label="Wishlist">
+          ♥ <span class="badge" id="wishCount">0</span>
+        </a>
+        <a href="cart.html" class="icon-btn" aria-label="Cart">
+          🛒 <span class="badge" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Level Up Your Setup</h1>
+          <p>Premium gaming gear — keyboards, mice, headsets and more with neon style and pro performance.</p>
+          <a class="btn btn-primary" href="shop.html">Shop Now</a>
+        </div>
+        <div class="hero-media">
+          <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?q=80&w=1400&auto=format&fit=crop" alt="Gaming setup">
+        </div>
+      </div>
+    </section>
+
+    <section class="container categories" id="categories">
+      <h2>Popular Categories</h2>
+      <div class="categories-grid">
+        <a href="shop.html?category=Keyboards" class="category-card">Keyboards</a>
+        <a href="shop.html?category=Mouse" class="category-card">Mice</a>
+        <a href="shop.html?category=Headsets" class="category-card">Headsets</a>
+        <a href="shop.html?category=Controllers" class="category-card">Controllers</a>
+      </div>
+    </section>
+
+    <section class="container featured" id="featured">
+      <h2>Featured Products</h2>
+      <div id="featuredProducts" class="products-grid">
+        <!-- populated by app.js -->
+      </div>
+    </section>
+
+    <section class="container testimonials">
+      <h2>What Gamers Say</h2>
+      <div class="testimonials-grid">
+        <blockquote>
+          "Best keyboard I've owned — fast, tactile and looks insane in my setup." <cite>— Alex P.</cite>
+        </blockquote>
+        <blockquote>
+          "Wireless headset with excellent range and comfort." <cite>— Maya R.</cite>
+        </blockquote>
+        <blockquote>
+          "Mouse sensor is on point. Can't lose a match now." <cite>— Jordan K.</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="container newsletter">
+      <h2>Join the Arena</h2>
+      <form id="newsletterForm" class="newsletter-form">
+        <input id="newsletterEmail" type="email" placeholder="Your email" required>
+        <button type="submit" class="btn">Subscribe</button>
+        <div id="newsletterMsg" class="form-msg"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© GamingGear — Neon Performance</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
