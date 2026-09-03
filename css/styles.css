@@ -1,0 +1,90 @@
+/* ToyLand World Styles */
+:root{
+  --bg:#ffffff;
+  --soft-yellow:#FFF4C2;
+  --pastel-cyan:#CFF6F2;
+  --warm-orange:#FFB57D;
+  --accent:#FF6B6B;
+  --muted:#6b6b6b;
+  --radius:12px;
+}
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, Arial, Helvetica, sans-serif;margin:0;background:var(--bg);color:#222}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+.site-header{background:linear-gradient(90deg,var(--soft-yellow),var(--pastel-cyan));box-shadow:0 4px 18px rgba(0,0,0,0.08);position:sticky;top:0;z-index:20}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:#2b2b2b;text-decoration:none;font-size:1.25rem}
+.nav{display:flex;gap:18px}
+.nav a{color:#2b2b2b;text-decoration:none;padding:12px;border-radius:10px}
+.nav a:hover{background:rgba(255,255,255,0.6)}
+.header-actions{display:flex;gap:10px;align-items:center}
+.icon-btn{background:transparent;border:0;cursor:pointer;font-size:1rem;padding:8px}
+.badge{background:var(--accent);color:#fff;padding:4px 7px;border-radius:50%;font-size:0.8rem;margin-left:6px}
+.mobile-menu-btn{display:none;background:transparent;border:0;font-size:1.4rem}
+
+.hero{background-size:cover;background-position:center;color:#222;padding:90px 0;border-radius:12px;margin:16px 0}
+.hero-content{background:rgba(255,255,255,0.85);display:inline-block;padding:28px;border-radius:12px}
+.btn{background:transparent;border:2px solid #333;padding:10px 16px;border-radius:10px;cursor:pointer}
+.btn-primary{background:var(--accent);color:#fff;border-color:transparent}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+
+.section{margin:28px 0}
+.categories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+.category-card{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;background:linear-gradient(180deg,#fff,#fff);border-radius:var(--radius);text-decoration:none;color:#222;box-shadow:0 6px 18px rgba(0,0,0,0.06);transition:transform .2s}
+.category-card:hover{transform:translateY(-6px)}
+.cat-icon{font-size:2.2rem;margin-bottom:8px}
+
+.promo{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(90deg,var(--pastel-cyan),#fff);padding:16px;border-radius:12px}
+.newsletter-form{display:flex;gap:8px}
+.newsletter-form input{padding:8px 10px;border-radius:8px;border:1px solid #ddd}
+
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.product-card{background:#fff;border-radius:12px;padding:12px;box-shadow:0 8px 24px rgba(0,0,0,0.06);display:flex;flex-direction:column}
+.product-image{border-radius:10px;height:160px;background-size:cover;background-position:center;margin-bottom:10px}
+.product-title{font-weight:700;margin:6px 0}
+.product-meta{display:flex;justify-content:space-between;align-items:center}
+.star{color:gold}
+.card-actions{display:flex;gap:8px;margin-top:10px}
+.icon-heart{cursor:pointer}
+
+.age-buttons{display:flex;gap:10px}
+.age-btn{background:#fff;border:1px solid #eee;padding:8px 12px;border-radius:10px;cursor:pointer}
+
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.testimonial{background:var(--soft-yellow);padding:16px;border-radius:12px}
+
+/* Cart layout */
+.cart-layout{display:grid;grid-template-columns:1fr 320px;gap:20px}
+.cart-items table{width:100%;border-collapse:collapse}
+.cart-items th,.cart-items td{padding:12px;border-bottom:1px solid #eee;text-align:left}
+.qty-controls{display:flex;align-items:center;gap:8px}
+.order-summary{background:#fff;padding:16px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+.summary-line{display:flex;justify-content:space-between;padding:8px 0}
+.summary-total{font-weight:800;padding-top:10px;border-top:1px dashed #eee}
+.checkout-form input,.checkout-form select,.contact-form input,.contact-form textarea{width:100%;padding:10px;border-radius:10px;border:1px solid #ddd;margin-bottom:10px}
+
+/* Contact grid */
+.contact-grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+.contact-form{background:#fff;padding:16px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+.contact-info{background:linear-gradient(90deg,#fff,#FFF4C2);padding:16px;border-radius:12px}
+.faq-q{width:100%;text-align:left;padding:10px;border-radius:8px;border:0;background:#fff;margin-top:8px}
+.faq-a{display:none;padding:10px;background:#fff;border-radius:8px;margin-top:4px}
+
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center}
+.modal.hidden{display:none}
+.modal-content{background:#fff;padding:18px;border-radius:12px;max-width:900px;width:90%;position:relative}
+.modal-close{position:absolute;right:12px;top:12px;border:0;background:transparent;font-size:1.2rem}
+
+/* Responsive */
+@media(max-width:900px){
+  .cart-layout,.contact-grid{grid-template-columns:1fr}
+  .mobile-menu-btn{display:block}
+  .nav{display:none}
+  .header-inner{gap:12px}
+}
+
+@media(max-width:480px){
+  .hero-content{padding:18px}
+  .product-image{height:140px}
+}
