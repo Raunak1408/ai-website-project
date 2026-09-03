@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Wishlist — TinyTrove</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="wishlist">
+  <header class="header">
+    <div class="container">
+      <div class="logo"><div class="mark">TT</div><div>TinyTrove</div></div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="categories.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="action" id="wishlist-btn">Wishlist <span id="wish-count" class="count">0</span></button>
+        <button class="action" id="cart-btn">Cart <span id="cart-count" class="count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:22px">
+    <h2>Your Wishlist</h2>
+    <div id="wishlist-grid" class="grid">
+      <!-- wishlist items by JS -->
+    </div>
+    <div id="wishlist-empty" class="card" style="display:none">Your wishlist is empty.</div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap">
+        <div style="max-width:320px">
+          <div class="logo"><div class="mark">TT</div><div>TinyTrove</div></div>
+          <p class="small">Premium toys and playful learning for curious kids.</p>
+        </div>
+      </div>
+      <div style="margin-top:14px" class="small">© 2026 TinyTrove</div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
