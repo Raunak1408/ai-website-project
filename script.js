@@ -143,19 +143,17 @@ function initProductsPage(){
     catWrap.innerHTML = '';
     cats.forEach(c=>{
       const btn = document.createElement('button'); btn.className='cat-btn'; btn.textContent=c; btn.dataset.cat=c; catWrap.appendChild(btn);
-      btn.addEventListener('click',()=>{ location.search = `?cat=${encodeURIComponent(c)}`; applyFilters(); });
+      btn.addEventListener('click',()=>{ location.search = `?cat=${encodeURIComponent(c)}`; });
     });
   }
 
   function applyFilters(){
     let list = getProductEntries();
     const params = new URLSearchParams(location.search);
-    const cat = params.get('cat') || (searchBox && searchBox.value) ? null : null;
 
-    // Category filter (from select or query)
-    const catSel = catWrap && catWrap.querySelector('.active');
-    let selCat = params.get('cat') || (catSel && catSel.dataset.cat) || '';
-    if(selCat && selCat!=='All') list = list.filter(i=>i.category.toLowerCase().includes(selCat.toLowerCase()));
+    // Category filter via query param
+    const selCat = params.get('cat') || '';
+    if(selCat && selCat !== 'All') list = list.filter(i=>i.category.toLowerCase().includes(selCat.toLowerCase()));
 
     // Age filter
     const age = ageWrap ? ageWrap.value : '';
@@ -183,7 +181,7 @@ function initProductsPage(){
     const sort = sortSelect ? sortSelect.value : 'featured';
     if(sort==='price-asc') list.sort((a,b)=>a.price-b.price);
     if(sort==='price-desc') list.sort((a,b)=>b.price-a.price);
-    if(sort==='rating') list.sort((a,b)=>b.rating-b.rating? b.rating-a.rating : 0).reverse();
+    if(sort==='rating') list.sort((a,b)=>b.rating - a.rating);
     if(sort==='name') list.sort((a,b)=>a.name.localeCompare(b.name));
 
     renderGrid(list);
@@ -196,6 +194,12 @@ function initProductsPage(){
   if(searchBox) searchBox.addEventListener('input', debounce(()=>applyFilters(),250));
 
   // initial render
+  // If URL provides age or price, set controls
+  const paramsInit = new URLSearchParams(location.search);
+  const ageParam = paramsInit.get('age'); if(ageParam && ageWrap) ageWrap.value = ageParam;
+  const priceParam = paramsInit.get('price'); if(priceParam && priceWrap) priceWrap.value = priceParam;
+  const qParam = paramsInit.get('q'); if(qParam && searchBox) searchBox.value = qParam;
+
   applyFilters();
 }
 
@@ -314,6 +318,7 @@ function initContact(){
     const msg = q('#c-message').value.trim();
     const feedback = q('#contact-feedback');
     feedback.textContent='';
+    feedback.style.color='red';
     if(!name){ feedback.textContent='Please enter your name.'; return; }
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ feedback.textContent='Please enter a valid email address.'; return; }
     if(!msg){ feedback.textContent='Please enter a message.'; return; }
