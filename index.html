@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WonderBox Kids — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+  <header class="header">
+    <div class="container nav">
+      <div class="logo">WonderBox Kids</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Shop</a>
+        <a href="categories.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="icon-btn" href="wishlist.html">Wishlist <span id="wish-count" class="counter">0</span></a>
+        <a class="icon-btn" href="cart.html">Cart <span id="cart-count" class="counter">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="left">
+        <h1>Playful toys that teach, explore and delight</h1>
+        <p>WonderBox Kids curates safe, fun, and educational toys for curious little minds. Discover featured picks and shop by age or interest.</p>
+        <div class="cta"><a class="btn" href="products.html">Browse Toys</a></div>
+      </div>
+      <div class="right">
+        <!-- featured products rendered by script -->
+        <div id="featured" class="grid"></div>
+      </div>
+    </section>
+
+    <section style="margin-top:28px;display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start">
+      <div>
+        <h3>Top Categories</h3>
+        <div class="grid" id="categories-grid"></div>
+      </div>
+      <aside class="side">
+        <h4>Subscribe for 10% off</h4>
+        <p>Receive updates on new toys and sales.</p>
+        <form id="subscribe-form">
+          <input class="input" id="subscribe-email" placeholder="Your email" type="email">
+          <div style="margin-top:8px"><button class="btn" type="submit">Subscribe</button></div>
+        </form>
+      </aside>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      &copy; <span id="year"></span> WonderBox Kids — playful learning for little ones
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
