@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GamingGear — Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">GamingGear</a>
+      <nav class="site-nav" id="siteNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button id="navToggle" class="nav-toggle" aria-label="Toggle menu">☰</button>
+        <a href="wishlist.html" class="icon-btn" aria-label="Wishlist">♥ <span class="badge" id="wishCount">0</span></a>
+        <a href="cart.html" class="icon-btn" aria-label="Cart">🛒 <span class="badge" id="cartCount">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="shop-controls">
+      <div class="search">
+        <input id="searchInput" type="search" placeholder="Search products...">
+      </div>
+      <div class="filters">
+        <label>Category
+          <select id="categoryFilter">
+            <option value="all">All</option>
+            <option value="Keyboards">Keyboards</option>
+            <option value="Mouse">Mouse</option>
+            <option value="Headsets">Headsets</option>
+            <option value="Controllers">Controllers</option>
+            <option value="Accessories">Accessories</option>
+          </select>
+        </label>
+        <label>Sort
+          <select id="sortSelect">
+            <option value="default">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section id="productsGrid" class="products-grid">
+      <!-- products rendered by app.js -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© GamingGear — Neon Performance</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
