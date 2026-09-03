@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WonderBox Kids — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="logo" href="index.html">WonderBox Kids</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="wishlist.html">Wishlist <span class="count" id="wish-count">0</span></a>
+        <a href="cart.html">Cart <span class="count" id="cart-count">0</span></a>
+      </nav>
+      <div class="mobile-toggle" id="mobile-toggle">☰</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Welcome to WonderBox Kids</h1>
+        <p>Playful toys, learning kits and adventures built for curious children.</p>
+        <p><a class="btn primary" href="products.html">Shop Toys</a></p>
+      </div>
+    </section>
+
+    <section class="container featured" id="featured">
+      <h2>Featured Picks</h2>
+      <div id="featured-grid" class="products-grid"></div>
+    </section>
+
+    <section class="container info-grid">
+      <article>
+        <h3>Learning Through Play</h3>
+        <p>STEM kits and creative projects designed to help children explore and learn.</p>
+      </article>
+      <article>
+        <h3>Safe & Durable</h3>
+        <p>Age-appropriate materials and safety-tested products parents can trust.</p>
+      </article>
+      <article>
+        <h3>Free Shipping Over $50</h3>
+        <p>Fast delivery, easy returns and friendly support.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; WonderBox Kids</p>
+      <p><a href="about.html">About</a> • <a href="contact.html">Contact</a></p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // page-specific init: render featured products
+    (function(){
+      if(!window.WonderBox || !Array.isArray(WonderBox.products)) return;
+      const grid = document.getElementById('featured-grid');
+      if(!grid) return;
+      const featured = WonderBox.products.slice(0,4);
+      featured.forEach(p=>{
+        const card = document.createElement('div'); card.className='product-card';
+        card.innerHTML = `
+          <a href="product.html?id=${encodeURIComponent(p.id)}"><img src="${p.image}" alt="${p.name}"></a>
+          <h4><a href="product.html?id=${encodeURIComponent(p.id)}">${p.name}</a></h4>
+          <div class="meta">${p.category} • ${p.age}</div>
+          <div class="price">$${p.price.toFixed(2)}</div>
+          <div class="actions"><button data-id="${p.id}" class="add-cart">Add to cart</button> <button data-id="${p.id}" class="add-wish">♡</button></div>
+        `;
+        grid.appendChild(card);
+      });
+    })();
+  </script>
+</body>
+</html>
