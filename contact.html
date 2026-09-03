@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — ToyLand World</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">ToyLand World</a>
+      <nav class="nav" id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button id="mobile-menu-btn-5" class="mobile-menu-btn">☰</button>
+        <button class="icon-btn wishlist-btn" title="Wishlist">❤ <span class="badge" id="wishlist-count">0</span></button>
+        <a class="icon-btn cart-link" href="cart.html">🛒 <span class="badge" id="cart-count">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h2>Contact Us</h2>
+    <div class="contact-grid">
+      <form id="contact-form" class="contact-form">
+        <input type="text" id="contact-name" placeholder="Your Name" required>
+        <input type="email" id="contact-email" placeholder="Your Email" required>
+        <input type="text" id="contact-subject" placeholder="Subject" required>
+        <textarea id="contact-message" placeholder="Message" rows="6" required></textarea>
+        <button class="btn btn-primary" type="submit">Send Message</button>
+      </form>
+
+      <div class="contact-info">
+        <h3>Store Location</h3>
+        <p>123 Fun St, Playtown, USA</p>
+        <h3>Working Hours</h3>
+        <p>Mon-Sat: 9am - 6pm<br>Sun: 10am - 4pm</p>
+
+        <h3>FAQ</h3>
+        <div class="faq">
+          <button class="faq-q">What is your return policy?</button>
+          <div class="faq-a">We accept returns within 30 days of purchase in original condition.</div>
+          <button class="faq-q">Do you ship internationally?</button>
+          <div class="faq-a">Yes — international shipping rates apply.</div>
+          <button class="faq-q">Is gift-wrapping available?</button>
+          <div class="faq-a">Yes, at checkout for a small fee.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© ToyLand World</div>
+      <div>Contact: <a href="contact.html">Get in touch</a></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
