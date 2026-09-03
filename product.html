@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Product — LittleLearners</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="logo"><a href="index.html">LittleLearners</a></div>
+      <nav id="main-navigation" class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="activities.html">Activities</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container product-page">
+    <div class="product-detail">
+      <div class="image" id="pd-image"><img id="pd-image-img" src="" alt=""></div>
+      <div class="info">
+        <h1 id="pd-title">Product Title</h1>
+        <div class="meta">Category: <span id="pd-category"></span> • Age: <span id="pd-age"></span></div>
+        <div class="price" id="pd-price"></div>
+        <div class="rating">Rating: <span id="pd-rating"></span></div>
+        <p id="pd-desc"></p>
+        <p><strong>Learning benefits:</strong> <span id="pd-learning"></span></p>
+        <p><strong>Availability:</strong> <span id="pd-availability"></span></p>
+        <div class="qty">
+          <label for="pd-qty">Quantity</label>
+          <input id="pd-qty" type="number" min="1" value="1">
+        </div>
+        <div class="actions">
+          <button id="pd-add" class="btn">Add to Cart</button>
+          <button id="pd-buy" class="btn btn-primary">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="about">LittleLearners — premium educational toys for curious kids.</div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
