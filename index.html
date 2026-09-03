@@ -1,130 +1,100 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ToyLand World — Home</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ToyLand World - Home</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <header class="site-header">
+<body class="page-index">
+  <header>
     <div class="container header-inner">
-      <a class="brand" href="index.html">ToyLand World</a>
-      <nav class="nav" id="main-nav">
+      <div class="brand"><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=1200" alt="logo" style="width:48px;height:48px;border-radius:10px;object-fit:cover"><h1>ToyLand World</h1></div>
+      <nav class="nav">
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
-        <a href="cart.html">Cart</a>
         <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
       </nav>
-      <div class="header-actions">
-        <button id="mobile-menu-btn" class="mobile-menu-btn">☰</button>
-        <button class="icon-btn wishlist-btn" title="Wishlist">❤ <span class="badge" id="wishlist-count">0</span></button>
-        <a class="icon-btn cart-link" href="cart.html">🛒 <span class="badge" id="cart-count">0</span></a>
+      <div style="display:flex;gap:12px;align-items:center">
+        <div class="icon-btn"><a href="wishlist.html" class="link">Wishlist <span class="badge wish-count">0</span></a></div>
+        <div class="icon-btn"><a href="cart.html" class="link">Cart <span class="badge cart-count">0</span></a></div>
+        <button id="mobile-toggle" class="btn">Menu</button>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=1200');">
-      <div class="container hero-content">
-        <h1>Welcome to ToyLand World</h1>
-        <p>Premium toys for curious minds — safe, fun, and creatively designed.</p>
-        <a class="btn btn-primary" href="shop.html">Shop Toys Now</a>
+  <main class="container">
+    <section class="hero">
+      <div style="max-width:650px">
+        <h2 style="font-size:32px;margin:0 0 8px">Welcome to ToyLand World</h2>
+        <p style="margin:0 0 16px">Premium toys that inspire play, learning, and imagination. Safe, fun, and handpicked for kids.</p>
+        <a href="shop.html"><button class="cta">Shop Toys Now</button></a>
       </div>
     </section>
 
-    <!-- Featured Categories -->
-    <section class="container section">
-      <h2>Featured Categories</h2>
-      <div class="categories-grid">
-        <a href="shop.html?category=Action Figures" class="category-card"> 
-          <div class="cat-icon">🤖</div>
-          <h3>Action Figures</h3>
-        </a>
-        <a href="shop.html?category=Educational" class="category-card"> 
-          <div class="cat-icon">🧩</div>
-          <h3>Educational Toys</h3>
-        </a>
-        <a href="shop.html?category=Board Games" class="category-card"> 
-          <div class="cat-icon">🎲</div>
-          <h3>Board Games</h3>
-        </a>
-        <a href="shop.html?category=Plush" class="category-card"> 
-          <div class="cat-icon">🐻</div>
-          <h3>Plush Toys</h3>
-        </a>
-      </div>
+    <section>
+      <h3>Featured Categories</h3>
+      <div id="featured-cats" class="grid categories"></div>
     </section>
 
-    <!-- Promotional Banner -->
-    <section class="promo container">
-      <div>
-        <h3>20% OFF on Educational Toys</h3>
-        <p>Use code: LEARN20 at checkout</p>
+    <section style="margin-top:20px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3>Trending Toys</h3>
+        <div class="small">Age Filter: <a class="link" href="shop.html?age=0-3">0-3</a> • <a class="link" href="shop.html?age=4-7">4-7</a> • <a class="link" href="shop.html?age=8-12">8-12</a> • <a class="link" href="shop.html?age=12+">12+</a></div>
       </div>
+      <div id="trending" class="grid products" style="margin-top:12px"></div>
+    </section>
+
+    <section style="margin-top:20px;display:grid;grid-template-columns:2fr 1fr;gap:16px">
       <div>
-        <form id="newsletter-form" class="newsletter-form">
-          <input type="email" id="newsletter-email" placeholder="Your email" required />
+        <div class="promo">
+          <div>
+            <strong>20% OFF on Educational Toys</strong>
+            <div class="small">Use code LEARN20 at checkout</div>
+          </div>
+          <div><img src="https://images.unsplash.com/photo-1587654562363-6054a493c3d6?w=600" alt="promo" style="width:120px;height:80px;object-fit:cover;border-radius:10px"></div>
+        </div>
+
+        <div style="margin-top:16px">
+          <h3>Customer Reviews</h3>
+          <div class="testimonials">
+            <div class="testimonial"><strong>Anna</strong><div class="small">Loved the building blocks — hours of creative play!</div></div>
+            <div class="testimonial"><strong>Marcus</strong><div class="small">Great quality plush toys. Fast shipping.</div></div>
+            <div class="testimonial"><strong>Priya</strong><div class="small">My kids enjoy the board game nights now.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side">
+        <h4>Newsletter</h4>
+        <form id="newsletter-form" class="newsletter">
+          <input id="newsletter-email" type="email" placeholder="Your email">
           <button class="btn" type="submit">Subscribe</button>
         </form>
-      </div>
-    </section>
-
-    <!-- Trending Toys -->
-    <section class="container section">
-      <h2>Trending Toys</h2>
-      <div class="products-grid" id="trending-grid">
-        <!-- JS inserts 4 trending product cards -->
-      </div>
-    </section>
-
-    <!-- Age Filter -->
-    <section class="container section age-filter">
-      <h2>Shop by Age</h2>
-      <div class="age-buttons">
-        <button class="age-btn" data-age="0-3">Ages 0-3</button>
-        <button class="age-btn" data-age="4-7">Ages 4-7</button>
-        <button class="age-btn" data-age="8-12">Ages 8-12</button>
-        <button class="age-btn" data-age="12+">Ages 12+</button>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="container section">
-      <h2>What Parents Say</h2>
-      <div class="testimonials-grid">
-        <div class="testimonial">
-          <p>"My kids love the educational blocks — hours of creative play!"</p>
-          <h4>— Sarah, Mom</h4>
+        <div style="margin-top:16px">
+          <h4>Quick Links</h4>
+          <a href="shop.html" class="link">All Toys</a><br>
+          <a href="contact.html" class="link">Contact Us</a>
         </div>
-        <div class="testimonial">
-          <p>"Fast shipping and great quality plush toys."</p>
-          <h4>— Mark, Dad</h4>
-        </div>
-        <div class="testimonial">
-          <p>"The action figures are so detailed — great for collectors."</p>
-          <h4>— Cam, Collector</h4>
-        </div>
-      </div>
+      </aside>
     </section>
 
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>© ToyLand World</div>
-      <div>Contact: <a href="contact.html">Get in touch</a></div>
-    </div>
+  <footer class="footer">
+    &copy; 2026 ToyLand World • Playful toys for every child
   </footer>
 
-  <div id="quickview-modal" class="modal hidden" aria-hidden="true">
-    <div class="modal-content">
-      <button class="modal-close">✕</button>
-      <div id="quickview-body"></div>
+  <div id="mobile-drawer" class="mobile-drawer">
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">Cart</a>
     </div>
   </div>
 
-  <script src="js/main.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
