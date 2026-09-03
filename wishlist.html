@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ToyLand World - Wishlist</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-wishlist">
+  <header>
+    <div class="container header-inner">
+      <div class="brand"><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=1200" alt="logo" style="width:48px;height:48px;border-radius:10px;object-fit:cover"><h1>ToyLand World</h1></div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+      <div style="display:flex;gap:12px;align-items:center">
+        <div class="icon-btn"><span class="wish-count badge">0</span></div>
+        <div class="icon-btn"><a href="cart.html" class="link">Cart <span class="badge cart-count">0</span></a></div>
+        <button id="mobile-toggle" style="display:none" class="btn">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Your Wishlist</h2>
+    <div id="wishlist-list" class="grid products"></div>
+  </main>
+
+  <footer class="footer">&copy; 2026 ToyLand World</footer>
+  <div id="mobile-drawer" class="mobile-drawer"><div class="menu"><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a><a href="cart.html">Cart</a></div></div>
+  <script src="script.js"></script>
+</body>
+</html>
