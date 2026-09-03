@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TinyTrove — Little Things. Big Adventures.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+  <header class="header">
+    <div class="container">
+      <div class="logo"><div class="mark">TT</div><div>TinyTrove</div></div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="categories.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="action" id="wishlist-btn">Wishlist <span id="wish-count" class="count">0</span></button>
+        <button class="action" id="cart-btn">Cart <span id="cart-count" class="count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <h1>Little Things. Big Adventures.</h1>
+          <p>Discover thoughtfully selected toys, creative kits, and learning products designed to make childhood more fun.</p>
+          <div class="ctas">
+            <a class="btn" href="shop.html">Shop Toys</a>
+            <a class="btn secondary" href="categories.html">Explore Categories</a>
+          </div>
+
+          <div class="banner">Free Shipping on Orders Over $60</div>
+
+          <h3 style="margin-top:20px">Featured Categories</h3>
+          <div class="categories" id="featured-cats">
+            <!-- categories rendered by JS -->
+          </div>
+
+          <h3 style="margin-top:18px">Shop by Age</h3>
+          <div class="age-grid" id="shop-by-age">
+            <!-- ages rendered by JS -->
+          </div>
+
+        </div>
+        <div class="card">
+          <h3 style="margin:6px 0">Why parents choose TinyTrove</h3>
+          <ul class="small">
+            <li>Child-friendly products</li>
+            <li>Quality checked</li>
+            <li>Easy returns</li>
+            <li>Secure checkout demo</li>
+          </ul>
+
+          <h4 style="margin-top:14px">Newsletter</h4>
+          <form id="newsletter-form" class="form-row">
+            <input id="newsletter-email" class="input" placeholder="Email">
+            <button class="btn" type="submit">Subscribe</button>
+          </form>
+          <div id="newsletter-feedback" class="small"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="best-sellers">
+      <h2>Best Sellers</h2>
+      <div class="grid" id="best-grid">
+        <!-- product cards by JS -->
+      </div>
+    </section>
+
+    <section class="trust card" style="margin-top:22px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
+        <div><strong>Child-friendly</strong><div class="small">Designed with safety and play in mind</div></div>
+        <div><strong>Quality checked</strong><div class="small">Sourced and inspected</div></div>
+        <div><strong>Easy returns</strong><div class="small">Hassle-free for parents</div></div>
+        <div><strong>Secure checkout</strong><div class="small">Demo payment disabled</div></div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h3 style="margin-top:22px">What parents say</h3>
+      <div class="grid">
+        <div class="testimonial card">"Amazing quality and fast delivery. My kids love the Rainbow Tiles!"<div class="small">— Sarah, mom of two</div></div>
+        <div class="testimonial card">"Thoughtful selection, great customer service."<div class="small">— Mateo, dad</div></div>
+        <div class="testimonial card">"High-quality toys that last — perfect gifts."<div class="small">— Priya, gift buyer</div></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap">
+        <div style="max-width:320px">
+          <div class="logo"><div class="mark">TT</div><div>TinyTrove</div></div>
+          <p class="small">Premium toys and playful learning for curious kids.</p>
+        </div>
+        <div class="small">
+          <strong>Quick Links</strong>
+          <div><a href="shop.html">Shop</a> · <a href="categories.html">Categories</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a></div>
+        </div>
+        <div class="small">
+          <strong>Account</strong>
+          <div><a href="wishlist.html">Wishlist</a> · <a href="cart.html">Cart</a></div>
+        </div>
+      </div>
+      <div style="margin-top:14px" class="small">© 2026 TinyTrove — Little Things. Big Adventures.</div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
