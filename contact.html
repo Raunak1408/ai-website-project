@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — ToyLand World</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container inner">
+      <div class="logo">ToyLand World</div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="icon-btn">Cart <span class="badge cart-count">0</span></a>
+        <button class="icon-btn">Wishlist <span class="badge wish-count">0</span></button>
+      </nav>
+      <button id="mobileToggle" class="mobile-toggle icon-btn">Menu</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Contact Us</h1>
+    <div class="contact-grid">
+      <div>
+        <form id="contactForm" class="form">
+          <div class="form-field"><label>Name</label><input id="conName" class="input" required></div>
+          <div class="form-field"><label>Email</label><input id="conEmail" class="input" required></div>
+          <div class="form-field"><label>Subject</label><input id="conSubj" class="input"></div>
+          <div class="form-field"><label>Message</label><textarea id="conMsg" class="input" rows="5" required></textarea></div>
+          <button class="button-primary" type="submit">Send Message</button>
+        </form>
+      </div>
+      <div>
+        <div class="summary">
+          <h3>Store Location</h3>
+          <div>123 Toy Lane, Fun City</div>
+          <h4 style="margin-top:12px">Working Hours</h4>
+          <div>Mon-Fri: 9am - 6pm</div>
+          <div>Sat: 10am - 5pm</div>
+          <div>Sun: Closed</div>
+        </div>
+        <div style="margin-top:12px">
+          <h3>FAQ</h3>
+          <div class="faq-item"><div class="faq-q" style="cursor:pointer;font-weight:700">Shipping times</div><div class="faq-a">Standard shipping 3-7 business days.</div></div>
+          <div class="faq-item"><div class="faq-q" style="cursor:pointer;font-weight:700">Returns</div><div class="faq-a">30-day returns for unused items.</div></div>
+          <div class="faq-item"><div class="faq-q" style="cursor:pointer;font-weight:700">Payment options</div><div class="faq-a">We accept Credit Card and PayPal.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">ToyLand World</footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
