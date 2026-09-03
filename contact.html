@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contact — ToyNest</title>
+  <title>Contact — LittleLearners</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="container" style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:14px 16px;">
-      <div class="logo">ToyNest</div>
-      <button class="nav-toggle" aria-controls="main-navigation" aria-expanded="false" aria-label="Open menu"><span class="hamburger"></span></button>
-      <nav id="main-navigation" class="nav main-nav" aria-hidden="false">
+    <div class="container">
+      <div class="logo"><a href="index.html">LittleLearners</a></div>
+      <nav id="main-navigation" class="nav">
         <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
+        <a href="shop.html">Shop</a>
+        <a href="activities.html">Activities</a>
         <a href="about.html">About</a>
         <a href="contact.html" class="active">Contact</a>
         <a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
@@ -22,21 +22,13 @@
   </header>
 
   <main class="container">
-    <section class="contact-form-section">
-      <h2>Contact Us</h2>
+    <section class="section">
+      <h1>Contact Us</h1>
       <form id="contact-form" class="contact-form">
-        <label for="c-name">Name</label>
-        <input id="c-name" name="name" required>
-
-        <label for="c-email">Email</label>
-        <input id="c-email" name="email" type="email" required>
-
-        <label for="c-subject">Subject</label>
-        <input id="c-subject" name="subject" required>
-
-        <label for="c-message">Message</label>
-        <textarea id="c-message" name="message" rows="6" required></textarea>
-
+        <label>Name <input id="c-name" type="text" required></label>
+        <label>Email <input id="c-email" type="email" required></label>
+        <label>Subject <input id="c-subject" type="text"></label>
+        <label>Message <textarea id="c-message" rows="6" required></textarea></label>
         <button type="submit" class="btn btn-primary">Send Message</button>
         <div id="contact-feedback" role="status" aria-live="polite"></div>
       </form>
@@ -44,10 +36,12 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">ToyNest — Premium toys for curious kids.</div>
+    <div class="container">
+      <div class="about">LittleLearners — premium educational toys for curious kids.</div>
+    </div>
   </footer>
 
-  <script src="data.js"></script>
   <script src="script.js"></script>
+  <script src="data.js"></script>
 </body>
 </html>
