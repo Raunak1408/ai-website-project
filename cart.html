@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cart — ToyLand World</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">ToyLand World</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="icon-btn">🔍</button>
+        <a class="icon-btn" href="wishlist.html">❤ <span class="badge wish-count">0</span></a>
+        <a class="icon-btn" href="cart.html">🛒 <span class="badge cart-count">0</span></a>
+        <button class="mobile-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Your Cart</h1>
+    <div style="display:grid;grid-template-columns:1fr 340px;gap:18px;align-items:start">
+      <div>
+        <table class="cart-table">
+          <thead><tr><th>Product</th><th>Title</th><th>Price</th><th>Qty</th><th>Total</th><th></th></tr></thead>
+          <tbody id="cartBody"></tbody>
+        </table>
+      </div>
+      <aside>
+        <div class="order-summary" id="orderSummary"></div>
+        <form id="checkoutForm" style="margin-top:12px">
+          <div class="input-field"><label>Name</label><input name="name" required></div>
+          <div class="input-field"><label>Shipping Address</label><input name="address" required></div>
+          <div class="input-field"><label>Payment Method</label><select name="payment"><option>Credit Card</option><option>PayPal</option><option>Cash on Delivery</option></select></div>
+          <button class="btn" type="submit">Place Order</button>
+        </form>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer container">© ToyLand World</footer>
+
+  <script src="app.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',()=>{if(typeof initCartPage==='function')initCartPage()});</script>
+</body>
+</html>
