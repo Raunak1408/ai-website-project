@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WonderSprout — Play. Learn. Imagine.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="logo" href="index.html">WonderSprout</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="games.html">Games</a>
+        <a href="activities.html">Activities</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="action" href="favorites.html">Favorites <span id="fav-count">0</span></a>
+        <a class="action" href="cart.html">Cart <span id="cart-count">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Play. Learn. Imagine.</h1>
+        <p>Discover fun games and creative activities designed to help kids learn through play.</p>
+        <div class="hero-ctas">
+          <a class="btn primary" href="games.html">Explore Games</a>
+          <a class="btn" href="activities.html">Try Activities</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="https://images.unsplash.com/photo-1526378726982-4b9e8d8f3d6d?q=80&w=1200" alt="Children playing educational games"/>
+      </div>
+    </section>
+
+    <section class="featured-games">
+      <h2>Featured Games</h2>
+      <div id="featured-grid" class="grid"></div>
+      <p class="view-all"><a href="games.html">View all games</a></p>
+    </section>
+
+    <section class="popular-activities">
+      <h2>Popular Activities</h2>
+      <div id="activities-grid" class="grid"></div>
+      <p class="view-all"><a href="activities.html">See more activities</a></p>
+    </section>
+
+    <section class="why">
+      <h2>Why WonderSprout</h2>
+      <ul class="reasons">
+        <li><strong>Learning through play</strong><p>Every experience is designed to teach while having fun.</p></li>
+        <li><strong>Parent approved</strong><p>Thoughtful content with clear learning goals.</p></li>
+        <li><strong>Age appropriate</strong><p>Activities and games tailored to ages 4–12.</p></li>
+        <li><strong>Screen-free options</strong><p>Plenty of hands-on, creative play ideas.</p></li>
+      </ul>
+    </section>
+
+    <section class="testimonials">
+      <h2>Parent Reviews</h2>
+      <div class="grid testimonials-grid">
+        <article class="card testimonial">
+          <p>"My 6-year-old loves Dino Memory Match — learning and laughs every time."</p>
+          <p class="meta">— Emma R., Parent</p>
+        </article>
+        <article class="card testimonial">
+          <p>"The activity kits make weekend projects easy and educational."</p>
+          <p class="meta">— Priya M., Parent</p>
+        </article>
+        <article class="card testimonial">
+          <p>"Great mix of screen and screen-free options. Highly recommend."</p>
+          <p class="meta">— Jonah K., Parent</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <h2>Join our newsletter</h2>
+      <form id="newsletter-form">
+        <input id="newsletter-email" type="email" placeholder="Email" required>
+        <button class="btn primary" type="submit">Subscribe</button>
+        <div id="newsletter-feedback" class="form-feedback" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>WonderSprout</h3>
+        <p>Play. Learn. Imagine — premium activity kits and educational games for curious kids.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="activities.html">Activities</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="cart.html">Kits</a></li>
+          <li><a href="favorites.html">Favorites</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <p><a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">YouTube</a></p>
+      </div>
+    </div>
+    <div class="container copyright">© WonderSprout 2026 · All rights reserved</div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
