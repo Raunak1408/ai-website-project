@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coffee Haven</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="home">
+    <div class="container header-inner">
+      <a href="#home" class="logo">Coffee Haven</a>
+      <nav class="nav" id="siteNav">
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Hero section">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Fresh Coffee. Warm Moments.</h1>
+          <p>Handcrafted coffee, freshly baked treats, and a cozy place to slow down.</p>
+          <div class="hero-ctas">
+            <a class="btn primary" href="#menu">View Menu</a>
+            <a class="btn" href="#contact">Contact Us</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="assets/cappuccino.svg" alt="Cappuccino in a cup" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="container">
+        <h2>Made With Passion</h2>
+        <p class="lead">Coffee Haven serves freshly brewed coffee and simple, delicious food in a welcoming atmosphere.</p>
+        <div class="features">
+          <article class="feature-card">
+            <img src="assets/cappuccino.svg" alt="Freshly roasted icon">
+            <h3>Freshly Roasted</h3>
+          </article>
+          <article class="feature-card">
+            <img src="assets/americano.svg" alt="Locally sourced icon">
+            <h3>Locally Sourced</h3>
+          </article>
+          <article class="feature-card">
+            <img src="assets/muffin.svg" alt="Made daily icon">
+            <h3>Made Daily</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="section menu">
+      <div class="container">
+        <h2>Our Menu</h2>
+        <p class="lead">A small, thoughtful selection crafted to enjoy with friends or alone.</p>
+
+        <div class="menu-grid">
+          <article class="menu-item">
+            <img src="assets/cappuccino.svg" alt="Cappuccino">
+            <div class="menu-body">
+              <h3>Cappuccino</h3>
+              <p>Classic espresso with steamed milk and a velvety foam.</p>
+              <div class="price">$3.50</div>
+            </div>
+          </article>
+
+          <article class="menu-item">
+            <img src="assets/caramel-latte.svg" alt="Caramel Latte">
+            <div class="menu-body">
+              <h3>Caramel Latte</h3>
+              <p>Smooth espresso with steamed milk and sweet caramel drizzle.</p>
+              <div class="price">$4.25</div>
+            </div>
+          </article>
+
+          <article class="menu-item">
+            <img src="assets/americano.svg" alt="Americano">
+            <div class="menu-body">
+              <h3>Americano</h3>
+              <p>Espresso diluted with hot water for a bold, clean cup.</p>
+              <div class="price">$2.75</div>
+            </div>
+          </article>
+
+          <article class="menu-item">
+            <img src="assets/croissant.svg" alt="Chocolate Croissant">
+            <div class="menu-body">
+              <h3>Chocolate Croissant</h3>
+              <p>Buttery, flaky pastry filled with rich chocolate.</p>
+              <div class="price">$3.00</div>
+            </div>
+          </article>
+
+          <article class="menu-item">
+            <img src="assets/muffin.svg" alt="Blueberry Muffin">
+            <div class="menu-body">
+              <h3>Blueberry Muffin</h3>
+              <p>Moist muffin bursting with fresh blueberries.</p>
+              <div class="price">$2.75</div>
+            </div>
+          </article>
+
+          <article class="menu-item">
+            <img src="assets/iced-mocha.svg" alt="Iced Mocha">
+            <div class="menu-body">
+              <h3>Iced Mocha</h3>
+              <p>Chilled espresso mixed with chocolate and milk over ice.</p>
+              <div class="price">$4.00</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="opening-hours">
+          <h3>Opening Hours</h3>
+          <p>Monday – Friday: 8:00 AM – 8:00 PM</p>
+          <p>Saturday – Sunday: 9:00 AM – 9:00 PM</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <p class="lead">Questions, catering requests, or just want to say hello — drop us a message.</p>
+
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required>
+            <div class="error" id="nameError"></div>
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+            <div class="error" id="emailError"></div>
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <div class="error" id="messageError"></div>
+          </div>
+          <div class="form-actions">
+            <button class="btn primary" type="submit">Send Message</button>
+            <div class="form-success" id="formSuccess" role="status" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Coffee Haven</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
