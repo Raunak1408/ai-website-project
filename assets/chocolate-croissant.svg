@@ -1,0 +1,6 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 140' role='img' aria-label='Chocolate Croissant'>
+  <g transform='translate(10,10)'>
+    <path d='M20 70 q40 -50 100 -30 q30 10 40 30 q-10 30 -50 40 q-60 10 -90 -40' fill='#f7dcc8' stroke='#c07b4b' stroke-width='3'/>
+    <rect x='40' y='60' width='60' height='20' rx='6' fill='#6b3b2a'/>
+  </g>
+</svg>
