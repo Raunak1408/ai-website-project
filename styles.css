@@ -1,0 +1,104 @@
+/* ToyLand World Styles - Vibrant, modern, child-friendly */
+:root{
+  --yellow:#FFE87C; /* soft yellow */
+  --cyan:#A7F3D0; /* pastel cyan */
+  --orange:#FF8A65; /* warm orange */
+  --accent:#F5F6F8; /* muted */
+  --dark:#222;
+  --muted:#666;
+  --radius:12px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:var(--dark);background:white}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+.header{background:linear-gradient(90deg,var(--yellow),#FFF8EA);box-shadow:0 6px 18px rgba(34,34,34,0.06);position:sticky;top:0;z-index:60}
+.header .container{display:flex;align-items:center;gap:20px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{width:48px;height:48px;border-radius:12px;object-fit:cover}
+.logo h1{font-size:20px;margin:0}
+.nav{margin-left:auto;display:flex;gap:14px;align-items:center}
+.nav a{color:var(--dark);text-decoration:none;padding:8px 12px;border-radius:10px}
+.nav a:hover{background:rgba(0,0,0,0.04)}
+.icon-btn{position:relative;background:transparent;border:0;padding:8px 10px;border-radius:10px;cursor:pointer}
+.counter{position:absolute;right:4px;top:4px;background:var(--orange);color:white;border-radius:999px;padding:2px 6px;font-size:12px}
+.mobile-toggle{display:none}
+/* Hero */
+.hero{border-radius:16px;margin:18px 0;padding:40px;color:var(--dark);display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center;background-image:url('https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=1200');background-size:cover;background-position:center;box-shadow:0 10px 30px rgba(0,0,0,0.08)}
+.hero .copy h2{font-size:36px;margin:0 0 12px}
+.hero .copy p{margin:0 0 18px;color:var(--muted)}
+.cta{background:var(--orange);color:white;padding:12px 18px;border-radius:12px;border:0;cursor:pointer;font-weight:700}
+.cta:hover{transform:translateY(-3px)}
+.hero .side{background:rgba(255,255,255,0.9);padding:16px;border-radius:12px}
+/* Categories */
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:20px 0}
+.cat{background:linear-gradient(180deg,#fff,#FFF8EA);padding:18px;border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;gap:12px;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.cat img{width:100%;height:120px;object-fit:cover;border-radius:10px}
+.cat:hover{transform:translateY(-8px);box-shadow:0 10px 24px rgba(34,34,34,0.08)}
+.cat h4{margin:0}
+/* Trending grid */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:20px 0}
+.card{background:white;padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06);display:flex;flex-direction:column;gap:8px}
+.card img{width:100%;height:150px;object-fit:cover;border-radius:10px}
+.card .title{font-weight:700}
+.card .meta{display:flex;justify-content:space-between;align-items:center}
+.btn-row{display:flex;gap:8px}
+.btn{padding:8px 10px;border-radius:10px;border:0;cursor:pointer}
+.btn.primary{background:var(--cyan)}
+.btn.ghost{background:transparent;border:1px solid #eee}
+/* Age filter */
+.age-filter{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0}
+.age-filter button{padding:8px 12px;border-radius:999px;border:1px dashed rgba(0,0,0,0.08);background:white;cursor:pointer}
+.age-filter button.active{background:var(--yellow)}
+/* Testimonials */
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.testimonial{background:var(--accent);padding:12px;border-radius:12px}
+/* Promo & Newsletter */
+.promo{background:linear-gradient(90deg,#FFF1E0,#FFF8EA);padding:16px;border-radius:12px;display:flex;justify-content:space-between;align-items:center;margin:18px 0}
+.newsletter{display:flex;gap:8px}
+.input{padding:10px;border-radius:10px;border:1px solid #e6e6e6}
+.btn.subscribe{background:var(--dark);color:white}
+/* Footer */
+.footer{padding:20px;text-align:center;color:var(--muted)}
+/* Shop & product listings */
+.controls{display:flex;gap:12px;align-items:center;margin:12px 0;flex-wrap:wrap}
+.controls .search{flex:1;display:flex}
+.controls input[type=search]{flex:1;padding:10px;border-radius:10px;border:1px solid #eee}
+.controls select{padding:10px;border-radius:10px;border:1px solid #eee}
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.product-card{background:white;padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+.product-card img{width:100%;height:180px;object-fit:cover;border-radius:10px}
+.rating{color:#F59E0B}
+.wishlist{cursor:pointer}
+/* Product detail */
+.product-detail{display:grid;grid-template-columns:460px 1fr;gap:24px}
+.gallery img{width:100%;height:420px;object-fit:cover;border-radius:12px}
+.qty{display:flex;gap:8px;align-items:center}
+.qty button{width:36px;height:36px;border-radius:8px;border:1px solid #eee;background:white}
+/* Cart */
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:12px;border-bottom:1px solid #f2f2f2;text-align:left}
+.summary{background:#fff3e6;padding:12px;border-radius:12px}
+.form-row{display:flex;gap:8px;margin-bottom:8px}
+.form-row input,.form-row select,textarea{flex:1;padding:10px;border-radius:10px;border:1px solid #e6e6e6}
+.place{background:var(--orange);color:white;padding:12px;border-radius:10px;border:0;cursor:pointer}
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+.faq{background:var(--accent);padding:12px;border-radius:12px}
+.accordion-item{background:white;padding:10px;border-radius:10px;margin-bottom:8px}
+/* responsive */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .categories{grid-template-columns:repeat(2,1fr)}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .products-grid{grid-template-columns:repeat(2,1fr)}
+  .testimonials{grid-template-columns:1fr}
+  .product-detail{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .nav{display:none}
+  .mobile-toggle{display:block;margin-left:auto;background:transparent;border:0}
+  .categories{grid-template-columns:1fr}
+  .products-grid{grid-template-columns:1fr}
+  .hero{padding:18px}
+}
