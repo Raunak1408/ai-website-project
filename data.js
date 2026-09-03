@@ -1,287 +1,199 @@
-// data.js - list of toy products for the site
-// Each product includes: id, name, category, price, ageGroup, rating, description, image, alt, relatedImages
+// data.js - product list for LittleLearners
+// Each product includes: id, name, category, price, ageGroup, rating, description, image, alt, availability, learningBenefits
 window.PRODUCTS = [
   {
     id: 1,
-    name: "Thunderbolt RC Car",
-    category: "Remote Control Toys",
-    price: 2499,
-    ageGroup: "7+",
-    rating: 4.5,
-    description: "High-speed remote control car with rechargeable battery and precision steering — great for outdoor racing.",
-    image: "https://images.unsplash.com/photo-1517638851339-4aa32003c6c6?auto=format&fit=crop&w=800&q=80",
-    alt: "Red remote control race car toy",
-    relatedImages: [
-      "https://images.unsplash.com/photo-1517638851339-4aa32003c6c6?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1542826438-9b0a1f3a2b5a?auto=format&fit=crop&w=800&q=80"
-    ]
+    name: "Solar System Discovery Kit",
+    category: "STEM & Science",
+    price: 34.99,
+    ageGroup: "7–10",
+    rating: 4.8,
+    description: "A hands-on kit with planetary models, facts cards and activities to explore the solar system.",
+    image: "https://images.unsplash.com/photo-1454789548928-9efd52dc4031?auto=format&fit=crop&w=800&q=80",
+    alt: "Solar system model and planets for kids",
+    availability: "In stock",
+    learningBenefits: "Astronomy basics, fine motor skills, vocabulary"
   },
   {
     id: 2,
-    name: "Galaxy Action Hero - 12in",
-    category: "Action Figures",
-    price: 899,
-    ageGroup: "4+",
-    rating: 4.2,
-    description: "Articulated 12-inch action figure with removable accessories and detailed paintwork.",
-    image: "https://images.unsplash.com/photo-1588672937432-7f61e2bb3bcb?auto=format&fit=crop&w=800&q=80",
-    alt: "12 inch articulated action hero toy",
-    relatedImages: [
-      "https://images.unsplash.com/photo-1588672937432-7f61e2bb3bcb?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1585081170070-7c8a1ae0b1b9?auto=format&fit=crop&w=800&q=80"
-    ]
+    name: "Magnetic Science Tiles",
+    category: "STEM & Science",
+    price: 44.00,
+    ageGroup: "3–6",
+    rating: 4.7,
+    description: "Colorful magnetic tiles for open-ended building, early STEM concepts and spatial reasoning.",
+    image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=800&q=80",
+    alt: "Children building with magnetic tiles",
+    availability: "In stock",
+    learningBenefits: "STEM, creativity, spatial awareness"
   },
   {
     id: 3,
-    name: "Cuddly Teddy Bear",
-    category: "Soft Toys",
-    price: 599,
-    ageGroup: "0-3",
-    rating: 4.8,
-    description: "Soft plush teddy bear made from hypoallergenic materials. Perfect for naps and cuddles.",
-    image: "https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=800&q=80",
-    alt: "Brown cuddly teddy bear plush toy",
-    relatedImages: [
-      "https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80"
-    ]
+    name: "Dinosaur Fossil Dig Kit",
+    category: "STEM & Science",
+    price: 22.50,
+    ageGroup: "5–8",
+    rating: 4.6,
+    description: "Excavate realistic 'fossils' and learn paleontology basics with safe digging tools.",
+    image: "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=800&q=80",
+    alt: "Kids uncovering dinosaur fossils in a dig kit",
+    availability: "In stock",
+    learningBenefits: "Scientific method, patience, fine motor skills"
   },
   {
     id: 4,
-    name: "Wooden Building Blocks",
-    category: "Building & Blocks",
-    price: 399,
-    ageGroup: "2-6",
-    rating: 4.8,
-    description: "Classic set of colorful wooden blocks — stack, sort and build. Safe, smooth edges and durable finish.",
-    image: "https://images.unsplash.com/photo-1587886945658-6a3a3b0b2f5f?auto=format&fit=crop&w=800&q=80",
-    alt: "Colorful wooden building blocks set",
-    relatedImages: [
-      "https://images.unsplash.com/photo-1587886945658-6a3a3b0b2f5f?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1602075780894-55fd0f8a1f9f?auto=format&fit=crop&w=800&q=80"
-    ]
+    name: "Wooden Number Puzzle",
+    category: "Math & Numbers",
+    price: 18.00,
+    ageGroup: "3–5",
+    rating: 4.5,
+    description: "Smooth wooden puzzle pieces that teach numbers, counting and number recognition.",
+    image: "https://images.unsplash.com/photo-1517686469429-8c3b7e6a9f90?auto=format&fit=crop&w=800&q=80",
+    alt: "Wooden number puzzle for toddlers",
+    availability: "In stock",
+    learningBenefits: "Counting, number recognition, hand-eye coordination"
   },
   {
     id: 5,
-    name: "Magnetic Building Tiles",
-    category: "Building & Blocks",
-    price: 1299,
-    ageGroup: "3+",
-    rating: 4.4,
-    description: "Magnetic tiles for creative, open-ended building. Great for STEM play and spatial reasoning.",
-    image: "https://images.unsplash.com/photo-1596496053160-1cfc8a3c82d3?auto=format&fit=crop&w=800&q=80",
-    alt: "Colorful magnetic building tiles set",
-    relatedImages: [
-      "https://images.unsplash.com/photo-1596496053160-1cfc8a3c82d3?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1526401485004-ef1f8e4d6bd9?auto=format&fit=crop&w=800&q=80"
-    ]
+    name: "Alphabet Learning Board",
+    category: "Reading & Language",
+    price: 24.99,
+    ageGroup: "3–6",
+    rating: 4.7,
+    description: "Interactive alphabet board with letters, pictures and practice prompts to build early literacy.",
+    image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=800&q=80",
+    alt: "Alphabet learning board for kids",
+    availability: "In stock",
+    learningBenefits: "Letter recognition, phonics, vocabulary"
   },
   {
     id: 6,
-    name: "Dinosaur Explorer Set",
-    category: "Educational Toys",
-    price: 1799,
-    ageGroup: "4-8",
+    name: "Kids Microscope",
+    category: "STEM & Science",
+    price: 39.99,
+    ageGroup: "7–10",
     rating: 4.6,
-    description: "Dinosaur figures and excavation kit for curious paleontologists. Encourages hands-on discovery.",
-    image: "https://images.unsplash.com/photo-1544746270-4f4e6f9f4b1b?auto=format&fit=crop&w=800&q=80",
-    alt: "Toy dinosaur figures and excavation kit",
-    relatedImages: [
-      "https://images.unsplash.com/photo-1544746270-4f4e6f9f4b1b?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=800&q=80"
-    ]
+    description: "Child-friendly microscope with prepared slides and hands-on experiment ideas.",
+    image: "https://images.unsplash.com/photo-1581093588401-3d9f1b18a7ff?auto=format&fit=crop&w=800&q=80",
+    alt: "Children's microscope with slides",
+    availability: "Limited stock",
+    learningBenefits: "Observation skills, biology basics, curiosity"
   },
   {
     id: 7,
-    name: "Remote Control Race Car",
-    category: "Vehicles",
-    price: 3499,
-    ageGroup: "7+",
-    rating: 4.7,
-    description: "High-performance RC race car with long-range controller and rechargeable battery.",
-    image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80",
-    alt: "Red toy race car with remote control",
-    relatedImages: [
-      "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80"
-    ]
+    name: "Build Your Own Robot Kit",
+    category: "STEM & Science",
+    price: 69.00,
+    ageGroup: "8–10",
+    rating: 4.9,
+    description: "A beginner robot kit with snap-together parts, simple circuits and programmable moves.",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+    alt: "Kids building a small robot kit",
+    availability: "In stock",
+    learningBenefits: "Basic engineering, problem solving, sequencing"
   },
   {
     id: 8,
-    name: "Kids Doctor Play Set",
-    category: "Dolls & Pretend Play",
-    price: 599,
-    ageGroup: "3+",
-    rating: 4.5,
-    description: "Pretend doctor kit with safe plastic instruments — encourages empathy and role play.",
-    image: "https://images.unsplash.com/photo-1582719478173-1aa5fa7f1f7a?auto=format&fit=crop&w=800&q=80",
-    alt: "Children's pretend doctor play set",
-    relatedImages: [
-      "https://images.unsplash.com/photo-1582719478173-1aa5fa7f1f7a?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?auto=format&fit=crop&w=800&q=80"
-    ]
+    name: "World Map Puzzle",
+    category: "Puzzles",
+    price: 29.50,
+    ageGroup: "6–10",
+    rating: 4.6,
+    description: "Colorful world map puzzle that introduces continents, countries and cultures.",
+    image: "https://images.unsplash.com/photo-1520975921957-67b6a7f2f6d6?auto=format&fit=crop&w=800&q=80",
+    alt: "Children assembling a world map puzzle",
+    availability: "In stock",
+    learningBenefits: "Geography, spatial reasoning, memory"
   },
   {
     id: 9,
-    name: "Montessori Learning Puzzle",
-    category: "Educational Toys",
-    price: 799,
-    ageGroup: "2-5",
-    rating: 4.7,
-    description: "Montessori-inspired puzzle that develops fine motor skills and early problem solving.",
-    image: "https://images.unsplash.com/photo-1547038570-5a6f4a1b0a53?auto=format&fit=crop&w=800&q=80",
-    alt: "Montessori wooden learning puzzle",
-    relatedImages: [
-      "https://images.unsplash.com/photo-1547038570-5a6f4a1b0a53?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1531750013116-c9e8b2f6b6c0?auto=format&fit=crop&w=800&q=80"
-    ]
+    name: "Watercolor Art Set",
+    category: "Arts & Creativity",
+    price: 19.99,
+    ageGroup: "4–8",
+    rating: 4.5,
+    description: "Non-toxic watercolor set with a brush, palette and thick paper for young artists.",
+    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80",
+    alt: "Children's watercolor art supplies",
+    availability: "In stock",
+    learningBenefits: "Color mixing, creativity, fine motor skills"
   },
   {
     id: 10,
-    name: "Color Matching Game",
-    category: "Puzzles & Games",
-    price: 499,
-    ageGroup: "3-6",
-    rating: 4.4,
-    description: "Bright, colorful matching game that helps with color recognition and early learning.",
-    image: "https://images.unsplash.com/photo-1533779183294-0b5f5c8c8d9b?auto=format&fit=crop&w=800&q=80",
-    alt: "Color matching educational game for kids",
-    relatedImages: [
-      "https://images.unsplash.com/photo-1533779183294-0b5f5c8c8d9b?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1536305030012-6a6e3fba7f6b?auto=format&fit=crop&w=800&q=80"
-    ]
+    name: "Magnetic Math Board",
+    category: "Math & Numbers",
+    price: 27.00,
+    ageGroup: "5–8",
+    rating: 4.6,
+    description: "Magnetic board with number tiles and activity cards to practice sums and patterns.",
+    image: "https://images.unsplash.com/photo-1578926377163-9c7a5a3b8b2b?auto=format&fit=crop&w=800&q=80",
+    alt: "Magnetic math board for kids",
+    availability: "In stock",
+    learningBenefits: "Addition, subtraction, early arithmetic"
   },
   {
     id: 11,
-    name: "Toy Kitchen Set",
-    category: "Dolls & Pretend Play",
-    price: 2299,
-    ageGroup: "3+",
-    rating: 4.6,
-    description: "Wooden toy kitchen with realistic knobs and utensils to encourage imaginative play.",
-    image: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80",
-    alt: "Wooden toy kitchen set with utensils",
-    relatedImages: [
-      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
-    ]
+    name: "Animal Matching Cards",
+    category: "Reading & Language",
+    price: 12.00,
+    ageGroup: "3–6",
+    rating: 4.4,
+    description: "Durable matching cards with animals, words and memory game activities.",
+    image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80",
+    alt: "Animal matching cards for children",
+    availability: "In stock",
+    learningBenefits: "Memory, vocabulary, matching skills"
   },
   {
     id: 12,
-    name: "Outdoor Bubble Machine",
-    category: "Outdoor Toys",
-    price: 1999,
-    ageGroup: "3+",
-    rating: 4.3,
-    description: "Electric bubble machine for outdoor play — fills the yard with bubbles and fun.",
-    image: "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=800&q=80",
-    alt: "Outdoor bubble machine making bubbles",
-    relatedImages: [
-      "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80"
-    ]
+    name: "Junior Coding Robot",
+    category: "STEM & Science",
+    price: 79.00,
+    ageGroup: "6–10",
+    rating: 4.8,
+    description: "Screen-free programmable robot that teaches sequencing and logic with cards.",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+    alt: "Small educational coding robot for kids",
+    availability: "In stock",
+    learningBenefits: "Sequencing, logic, early coding concepts"
   },
   {
     id: 13,
-    name: "Animal Jigsaw Puzzle",
-    category: "Puzzles & Games",
-    price: 699,
-    ageGroup: "4+",
-    rating: 4.5,
-    description: "Colorful animal-themed jigsaw puzzle designed for little hands.",
-    image: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80",
-    alt: "Animal jigsaw puzzle pieces for kids",
-    relatedImages: [
-      "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80"
-    ]
+    name: "Storytelling Card Set",
+    category: "Reading & Language",
+    price: 14.50,
+    ageGroup: "4–8",
+    rating: 4.7,
+    description: "Illustrated cards that prompt imaginative storytelling, sequencing and language skills.",
+    image: "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&w=800&q=80",
+    alt: "Storytelling prompt cards for children",
+    availability: "In stock",
+    learningBenefits: "Narrative skills, vocabulary, creativity"
   },
   {
     id: 14,
-    name: "Mini Construction Truck",
-    category: "Vehicles",
-    price: 499,
-    ageGroup: "2-5",
-    rating: 4.4,
-    description: "Durable mini construction truck with rolling wheels — great for sandbox and playtime.",
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
-    alt: "Yellow toy construction truck",
-    relatedImages: [
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1519741492795-6613f0d9b3d6?auto=format&fit=crop&w=800&q=80"
-    ]
+    name: "Wooden Shape Sorter",
+    category: "Pretend Play",
+    price: 16.00,
+    ageGroup: "3–4",
+    rating: 4.5,
+    description: "Classic wooden shape sorter to teach shapes, colors and hand-eye coordination.",
+    image: "https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=80",
+    alt: "Wooden shape sorter toy for toddlers",
+    availability: "In stock",
+    learningBenefits: "Shape recognition, fine motor, problem solving"
   },
-  // Additional products (15-20) to reach at least 12 on the products page are included below
   {
     id: 15,
-    name: "Puzzle Globe - 3D",
-    category: "Puzzles & Games",
-    price: 1999,
-    ageGroup: "8+",
-    rating: 4.1,
-    description: "Interactive 3D globe puzzle that teaches geography while building fine motor skills.",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
-    alt: "3D puzzle globe educational toy",
-    relatedImages: []
-  },
-  {
-    id: 16,
-    name: "Pirate Ship Playset",
-    category: "Pretend Play",
-    price: 1599,
-    ageGroup: "3+",
-    rating: 4.0,
-    description: "Detailed pirate ship playset with figures and accessories for imaginative play.",
-    image: "https://images.unsplash.com/photo-1520975939634-4b28b2e2f486?auto=format&fit=crop&w=800&q=80",
-    alt: "Toy pirate ship playset with figures",
-    relatedImages: []
-  },
-  {
-    id: 17,
-    name: "Educational Shape Sorter",
-    category: "Educational Toys",
-    price: 699,
-    ageGroup: "0-3",
-    rating: 4.7,
-    description: "Shape sorter that helps toddlers learn shapes and develop hand-eye coordination.",
-    image: "https://images.unsplash.com/photo-1585853750924-2b1b3d3c7b6a?auto=format&fit=crop&w=800&q=80",
-    alt: "Colorful shape sorter toy for toddlers",
-    relatedImages: []
-  },
-  {
-    id: 18,
-    name: "DIY Model Airplane Kit",
-    category: "Educational Toys",
-    price: 549,
-    ageGroup: "10+",
-    rating: 4.1,
-    description: "Glue-free model airplane kit for beginners — builds fine-motor and planning skills.",
-    image: "https://images.unsplash.com/photo-1503786760726-6b5b6b2a1f25?auto=format&fit=crop&w=800&q=80",
-    alt: "DIY wooden model airplane kit",
-    relatedImages: []
-  },
-  {
-    id: 19,
-    name: "Motorized Dino Rover",
-    category: "Vehicles",
-    price: 1699,
-    ageGroup: "5+",
-    rating: 4.2,
-    description: "Motorized dino-themed rover with moving legs and lights — playful and durable.",
-    image: "https://images.unsplash.com/photo-1563225409-8d0b2c6a5ebe?auto=format&fit=crop&w=800&q=80",
-    alt: "Motorized dinosaur rover toy",
-    relatedImages: []
-  },
-  {
-    id: 20,
-    name: "Jigsaw Puzzle - Animal Friends",
-    category: "Puzzles & Games",
-    price: 449,
-    ageGroup: "4+",
-    rating: 4.4,
-    description: "Cute animal friends jigsaw puzzle designed for family puzzle time.",
-    image: "https://images.unsplash.com/photo-1568572933382-74d440642117?auto=format&fit=crop&w=800&q=80",
-    alt: "Animal friends jigsaw puzzle for kids",
-    relatedImages: []
+    name: "Mini Chemistry Lab",
+    category: "STEM & Science",
+    price: 49.99,
+    ageGroup: "8–10",
+    rating: 4.6,
+    description: "Safe, age-appropriate experiments introducing chemical reactions with clear guides.",
+    image: "https://images.unsplash.com/photo-1581091870626-3c8d8f0f5d8e?auto=format&fit=crop&w=800&q=80",
+    alt: "Mini chemistry lab kit for kids",
+    availability: "Limited stock",
+    learningBenefits: "Hands-on chemistry, observation, critical thinking"
   }
 ];
