@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shop — LittleLearners</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="logo"><a href="index.html">LittleLearners</a></div>
+      <nav id="main-navigation" class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="activities.html">Activities</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="shop-controls">
+      <div class="left-controls">
+        <input id="search-box" type="search" placeholder="Search toys, categories or descriptions">
+      </div>
+      <div class="right-controls">
+        <select id="sort-select">
+          <option value="featured">Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="rating">Rating</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="filters">
+      <div id="filter-categories" class="filter-section"></div>
+
+      <div class="filter-section">
+        <label for="age-select">Age</label>
+        <select id="age-select">
+          <option value="">All</option>
+          <option value="3-4">3–4</option>
+          <option value="5-6">5–6</option>
+          <option value="7-8">7–8</option>
+          <option value="9-10">9–10</option>
+        </select>
+      </div>
+
+      <div class="filter-section">
+        <label for="price-range">Price</label>
+        <select id="price-range">
+          <option value="">All</option>
+          <option value="under20">Under $20</option>
+          <option value="20-40">$20–$40</option>
+          <option value="40-70">$40–$70</option>
+          <option value="70+">$70+</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="products-grid" class="grid"></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="about">LittleLearners — premium educational toys for curious kids.</div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
