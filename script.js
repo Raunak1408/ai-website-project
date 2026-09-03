@@ -184,6 +184,31 @@ function setupIndexPage(){
   document.getElementById('newsletter-form').addEventListener('submit',e=>{e.preventDefault();const em=document.getElementById('newsletter-email').value; if(!em.includes('@')){alert('Please enter a valid email')} else{alert('Thanks for subscribing!'); document.getElementById('newsletter-email').value=''}})
 }
 
+// wishlist page
+function setupWishlistPage(){
+  const list = getWish();
+  const container = document.getElementById('wishlist-list'); if(!container) return;
+  if(list.length===0){container.innerHTML='<div class="side">Your wishlist is empty</div>'; return}
+  container.innerHTML='';
+  list.forEach(id=>{
+    const p = getProductById(id);
+    const div = document.createElement('div'); div.className='card';
+    div.innerHTML = `
+      <img src="${p.image}">
+      <div class="title">${p.title}</div>
+      <div class="small">${p.category}</div>
+      <div class="price">$${p.price.toFixed(2)}</div>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button class="btn add" data-id="${p.id}">Add to Cart</button>
+        <button class="btn secondary remove-wish" data-id="${p.id}">Remove</button>
+      </div>
+    `;
+    container.appendChild(div);
+  })
+  document.querySelectorAll('.add').forEach(b=>b.addEventListener('click',e=>{addToCart(Number(e.target.dataset.id));alert('Added to cart')}));
+  document.querySelectorAll('.remove-wish').forEach(b=>b.addEventListener('click',e=>{toggleWish(Number(e.target.dataset.id)); setupWishlistPage();}));
+}
+
 // cart page
 function renderCartTable(){
   const tbody = document.getElementById('cart-body'); if(!tbody) return;
@@ -262,4 +287,5 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(document.body.classList.contains('page-detail')) setupProductDetail();
   if(document.body.classList.contains('page-cart')) setupCartPage();
   if(document.body.classList.contains('page-contact')) setupContactPage();
+  if(document.body.classList.contains('page-wishlist')) setupWishlistPage();
 });
