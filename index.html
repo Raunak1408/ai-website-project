@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coffee Haven</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="home">
+    <div class="container header-inner">
+      <a class="logo" href="#home">Coffee Haven</a>
+      <nav class="nav" id="siteNav">
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero section">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <h1>Fresh Coffee. Warm Moments.</h1>
+          <p>Handcrafted coffee, freshly baked treats, and a cozy place to slow down.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#menu">View Menu</a>
+            <a class="btn" href="#contact">Contact Us</a>
+          </div>
+        </div>
+        <div class="hero-image" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80" alt="Cup of latte with art">
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title">Made With Passion</h2>
+        <p class="section-desc">Coffee Haven serves freshly brewed coffee and simple, delicious food in a welcoming atmosphere.</p>
+        <div class="features">
+          <article class="feature-card">
+            <img src="https://images.unsplash.com/photo-1509408562434-2d0d9f57d7e8?auto=format&fit=crop&w=600&q=80" alt="Freshly roasted coffee beans">
+            <h3>Freshly Roasted</h3>
+          </article>
+          <article class="feature-card">
+            <img src="https://images.unsplash.com/photo-1524594154908-6a3f45b6f42b?auto=format&fit=crop&w=600&q=80" alt="Locally sourced produce">
+            <h3>Locally Sourced</h3>
+          </article>
+          <article class="feature-card">
+            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80" alt="Freshly baked pastries">
+            <h3>Made Daily</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="section" id="menu" aria-labelledby="menu-title">
+      <div class="container">
+        <h2 id="menu-title">Our Menu</h2>
+        <p class="section-desc">A small, thoughtful selection crafted to enjoy with friends or alone.</p>
+        <div class="menu-grid">
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1521302080390-3c9b2b7b3b33?auto=format&fit=crop&w=800&q=80" alt="Cappuccino in a cup">
+            <div class="menu-body">
+              <h3>Cappuccino</h3>
+              <p>Rich espresso topped with silky steamed milk and velvety foam.</p>
+              <div class="price">$3.50</div>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1484981184820-2e84ea0e2f04?auto=format&fit=crop&w=800&q=80" alt="Caramel latte with caramel drizzle">
+            <div class="menu-body">
+              <h3>Caramel Latte</h3>
+              <p>Smooth espresso blended with steamed milk and a ribbon of caramel.</p>
+              <div class="price">$4.25</div>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Americano black coffee">
+            <div class="menu-body">
+              <h3>Americano</h3>
+              <p>Bold espresso balanced with hot water for a clean, classic cup.</p>
+              <div class="price">$2.75</div>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1542834369-f10ebf06d3cb?auto=format&fit=crop&w=800&q=80" alt="Chocolate croissant">
+            <div class="menu-body">
+              <h3>Chocolate Croissant</h3>
+              <p>Buttery, flaky pastry filled with rich dark chocolate.</p>
+              <div class="price">$3.00</div>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?auto=format&fit=crop&w=800&q=80" alt="Blueberry muffin">
+            <div class="menu-body">
+              <h3>Blueberry Muffin</h3>
+              <p>Moist muffin bursting with fresh blueberries and a crumb topping.</p>
+              <div class="price">$2.75</div>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=800&q=80" alt="Iced mocha with whipped cream">
+            <div class="menu-body">
+              <h3>Iced Mocha</h3>
+              <p>Chilled espresso, chocolate, and milk over ice—topped with cream.</p>
+              <div class="price">$4.00</div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="opening-hours">
+          <h3>Opening Hours</h3>
+          <p>Monday – Friday: 8:00 AM – 8:00 PM</p>
+          <p>Saturday – Sunday: 9:00 AM – 9:00 PM</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title">Contact</h2>
+        <p class="section-desc">Questions, catering requests, or just want to say hello — drop us a message.</p>
+
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required>
+            <div class="error" id="nameError"></div>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+            <div class="error" id="emailError"></div>
+          </div>
+
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <div class="error" id="messageError"></div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <div class="form-success" id="formSuccess" role="status" aria-live="polite"></div>
+          </div>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Coffee Haven</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
