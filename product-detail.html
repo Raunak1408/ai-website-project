@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Product Detail — ToyLand World</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">ToyLand World</a>
+      <nav class="nav" id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button id="mobile-menu-btn-3" class="mobile-menu-btn">☰</button>
+        <button class="icon-btn wishlist-btn" title="Wishlist">❤ <span class="badge" id="wishlist-count">0</span></button>
+        <a class="icon-btn cart-link" href="cart.html">🛒 <span class="badge" id="cart-count">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section product-detail">
+    <div class="product-detail-inner" id="product-detail-root">
+      <!-- JS renders product details here based on ?id= param -->
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© ToyLand World</div>
+      <div>Contact: <a href="contact.html">Get in touch</a></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
