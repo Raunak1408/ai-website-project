@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WonderBox Kids — Cart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="cart">
+  <header class="site-header">
+    <div class="container header-row">
+      <div class="logo"><a href="index.html"><img src="assets/logo.svg" alt="WonderBox Kids logo"></a></div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Shop</a>
+        <a href="categories.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="actions">
+        <a href="wishlist.html" class="icon">♡ <span id="wish-count">0</span></a>
+        <a href="cart.html" class="icon">🛒 <span id="cart-count">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div id="cart-summary" class="card muted"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© <span id="year"></span> WonderBox Kids</div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
