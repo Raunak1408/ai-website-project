@@ -7,75 +7,45 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-shop">
-  <header>
-    <div class="container header-inner">
-      <div class="brand"><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=1200" alt="logo" style="width:48px;height:48px;border-radius:10px;object-fit:cover"><h1>ToyLand World</h1></div>
+  <header class="header">
+    <div class="container">
+      <div class="logo"><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=1200" alt="logo"><h1>ToyLand World</h1></div>
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
         <a href="contact.html">Contact</a>
         <a href="cart.html">Cart</a>
+        <button class="icon-btn"><span>♡</span><span class="wish-count">0</span></button>
+        <button class="icon-btn"><span>🛒</span><span class="cart-count">0</span></button>
       </nav>
-      <div style="display:flex;gap:12px;align-items:center">
-        <div class="icon-btn"><a href="wishlist.html" class="link">Wishlist <span class="badge wish-count">0</span></a></div>
-        <div class="icon-btn"><a href="cart.html" class="link">Cart <span class="badge cart-count">0</span></a></div>
-        <button id="mobile-toggle" class="btn">Menu</button>
-      </div>
+      <button id="mobile-toggle" class="mobile-toggle">☰</button>
     </div>
   </header>
 
   <main class="container">
-    <section class="filter-bar">
-      <div class="search">
-        <input id="search" placeholder="Search toys by name...">
-        <button class="btn" onclick="document.getElementById('search').focus()">Search</button>
+    <h2>All Toys</h2>
+    <div class="controls">
+      <div class="search"><input id="search" type="search" placeholder="Search toys by title"></div>
+      <div class="filter">
+        <button data-filter-cat="All">All</button>
+        <button data-filter-cat="Action Figures">Action Figures</button>
+        <button data-filter-cat="Educational">Educational</button>
+        <button data-filter-cat="Board Games">Board Games</button>
+        <button data-filter-cat="Plush">Plush</button>
       </div>
-      <div style="display:flex;gap:8px;align-items:center">
-        <div>
-          <select id="sort">
-            <option value="">Sort</option>
-            <option value="low">Price: Low to High</option>
-            <option value="high">Price: High to Low</option>
-          </select>
-        </div>
-      </div>
-    </section>
+      <select id="sort"><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option></select>
+    </div>
 
-    <section style="display:grid;grid-template-columns:1fr 3fr;gap:16px">
-      <aside>
-        <div class="side">
-          <h4>Categories</h4>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <button data-cat="All" class="cat-active">All</button>
-            <button data-cat="Action Figures">Action Figures</button>
-            <button data-cat="Educational">Educational</button>
-            <button data-cat="Board Games">Board Games</button>
-            <button data-cat="Plush">Plush</button>
-            <button data-cat="Vehicles">Vehicles</button>
-          </div>
-        </div>
-
-        <div class="side" style="margin-top:12px">
-          <h4>Age Filter</h4>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <a href="shop.html?age=0-3" class="link">0-3</a>
-            <a href="shop.html?age=4-7" class="link">4-7</a>
-            <a href="shop.html?age=8-12" class="link">8-12</a>
-            <a href="shop.html?age=12+" class="link">12+</a>
-          </div>
-        </div>
-      </aside>
-
-      <div>
-        <div id="product-list" class="grid products"></div>
-      </div>
-    </section>
-
+    <div class="products-grid"></div>
   </main>
 
   <footer class="footer">&copy; 2026 ToyLand World</footer>
-
-  <div id="mobile-drawer" class="mobile-drawer"><div class="menu"><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a><a href="cart.html">Cart</a></div></div>
   <script src="script.js"></script>
+  <script>
+    // Prepare product list
+    window.PRODUCTS = window.PRODUCTS || [];
+    renderShop(PRODUCTS);
+    attachShopFilters();
+  </script>
 </body>
 </html>
