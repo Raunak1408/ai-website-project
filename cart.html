@@ -26,32 +26,44 @@
     </div>
   </header>
 
-  <main class="container cart-page">
-    <h1>Your Cart</h1>
-    <div class="cart-wrap">
-      <table class="cart-table">
-        <thead>
-          <tr><th>Product</th><th>Price</th><th>Qty</th><th>Line</th><th></th></tr>
-        </thead>
-        <tbody id="cartTableBody">
-          <!-- rows rendered by app.js -->
-        </tbody>
-      </table>
+  <main>
+    <div class="container">
+      <h1>Your Cart</h1>
+      <div class="cart-wrap">
+        <table class="cart-table">
+          <thead>
+            <tr><th>Product</th><th>Price</th><th>Qty</th><th>Line</th></tr>
+          </thead>
+          <tbody id="cartTableBody">
+            <!-- rows rendered by app.js -->
+          </tbody>
+        </table>
 
-      <aside class="cart-totals">
-        <div class="totals-row">Subtotal: <span id="subtotal">$0.00</span></div>
-        <div class="totals-row">Tax (7%): <span id="tax">$0.00</span></div>
-        <div class="totals-row total">Total: <span id="total">$0.00</span></div>
+        <aside class="cart-totals">
+          <div class="totals-row">Subtotal: <span id="subtotal">$0.00</span></div>
+          <div class="totals-row">Tax (7%): <span id="tax">$0.00</span></div>
+          <div class="totals-row total">Total: <span id="total">$0.00</span></div>
 
-        <h2>Checkout</h2>
-        <form id="checkoutForm" class="checkout-form">
-          <label>Name <input id="chkName" type="text" required></label>
-          <label>Email <input id="chkEmail" type="email" required></label>
-          <label>Address <input id="chkAddress" type="text" required></label>
-          <button type="submit" class="btn btn-primary">Place Order</button>
-          <div id="checkoutMsg" class="form-msg"></div>
-        </form>
-      </aside>
+          <h2>Checkout</h2>
+          <form id="checkoutForm" class="checkout-form">
+            <label for="chkName">Name
+              <input id="chkName" type="text" required>
+            </label>
+
+            <label for="chkEmail">Email
+              <input id="chkEmail" type="email" required>
+            </label>
+
+            <label for="chkAddress">Address
+              <input id="chkAddress" type="text" required>
+            </label>
+
+            <button type="submit" class="btn btn-place-order">Place Order</button>
+            <div id="checkoutMsg" class="form-msg"></div>
+          </form>
+        </aside>
+      </div>
+
     </div>
   </main>
 
