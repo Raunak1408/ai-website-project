@@ -1,0 +1,9 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 160' role='img' aria-label='Blueberry Muffin'>
+  <g transform='translate(10,10)'>
+    <ellipse cx='90' cy='60' rx='72' ry='36' fill='#f5d8c2' stroke='#c07b4b' stroke-width='3'/>
+    <rect x='36' y='80' width='108' height='40' rx='8' fill='#f9f1ea' stroke='#8b5e34' stroke-width='3'/>
+    <circle cx='70' cy='55' r='6' fill='#4b5aa6'/>
+    <circle cx='100' cy='48' r='5' fill='#4b5aa6'/>
+    <circle cx='120' cy='60' r='4' fill='#4b5aa6'/>
+  </g>
+</svg>
