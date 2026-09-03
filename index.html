@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WonderBox Kids — Fun Today. Skills for Tomorrow.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+  <header class="header">
+    <div class="container header-row">
+      <a class="logo" href="index.html">WonderBox Kids</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="categories.html">Categories</a>
+        <a href="activities.html">Activities</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="action-link" href="wishlist.html">Wishlist <span id="wish-count">0</span></a>
+        <a class="action-link" href="cart.html">Cart <span id="cart-count">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Fun Today. Skills for Tomorrow.</h1>
+        <p>Explore toys and learning kits designed to help children build creativity, curiosity and confidence through play.</p>
+        <div class="cta-row">
+          <a class="btn-primary" href="shop.html">Shop Toys</a>
+          <a class="btn-ghost" href="categories.html">Explore Categories</a>
+        </div>
+
+        <div class="filters" style="margin-top:24px">
+          <input id="search-box" placeholder="Search products, categories or description" style="flex:1">
+        </div>
+
+        <h2 style="margin-top:28px">Featured Categories</h2>
+        <div class="categories-grid" id="featured-cats"></div>
+
+        <h2 style="margin-top:28px">Best Sellers</h2>
+        <div class="featured-products" id="best-sellers"></div>
+
+        <h2 style="margin-top:28px">Shop by Age</h2>
+        <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap" id="age-buttons"></div>
+
+        <h2 style="margin-top:28px">Why Parents Choose Us</h2>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+          <div class="card" style="flex:1"><h4>Safe & Carefully Selected</h4><p>All products reviewed for safety and quality.</p></div>
+          <div class="card" style="flex:1"><h4>Learning Through Play</h4><p>Every toy supports skill-building and curiosity.</p></div>
+          <div class="card" style="flex:1"><h4>Parent Approved</h4><p>Highly rated by families for value and durability.</p></div>
+          <div class="card" style="flex:1"><h4>Quality Checked</h4><p>We test products for longevity and educational value.</p></div>
+        </div>
+
+        <h2 style="margin-top:28px">Customer Reviews</h2>
+        <div class="grid" id="reviews">
+          <div class="card"><strong>Anna P.</strong><p>My 6-year-old loves the coding robot — easy to use and really helped him understand sequencing.</p></div>
+          <div class="card"><strong>Marcus R.</strong><p>The Magnetic Building Tiles are sturdy and keep my kids busy for hours. Great for creative play.</p></div>
+          <div class="card"><strong>Leah S.</strong><p>Fast shipping and helpful packaging. The wooden number puzzle is perfect for toddler learning.</p></div>
+        </div>
+
+        <h2 style="margin-top:28px">Newsletter</h2>
+        <form id="newsletter-form">
+          <input id="newsletter-email" type="email" placeholder="Email" required>
+          <button class="btn-primary" type="submit">Subscribe</button>
+          <div id="newsletter-feedback" style="margin-top:8px;color:var(--muted)"></div>
+        </form>
+
+      </div>
+      <aside>
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcd" alt="kids playing with learning toys" style="width:100%;border-radius:12px;object-fit:cover;height:420px">
+      </aside>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>WonderBox Kids</h3>
+        <p>Fun Today. Skills for Tomorrow.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="shop.html">Shop</a><br>
+        <a href="categories.html">Categories</a><br>
+        <a href="activities.html">Activities</a><br>
+        <a href="about.html">About</a><br>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="wishlist.html">Wishlist</a><br>
+        <a href="cart.html">Cart</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#">Instagram</a><br>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:18px;color:var(--muted)">© WonderBox Kids — All rights reserved</div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
