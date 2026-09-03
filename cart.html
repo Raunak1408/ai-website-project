@@ -1,65 +1,54 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Cart & Checkout — ToyLand World</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cart - ToyLand World</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">ToyLand World</a>
-      <nav class="nav" id="main-nav">
+  <header class="header">
+    <div class="container">
+      <div class="logo"><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=1200" alt="logo"><h1>ToyLand World</h1></div>
+      <nav class="nav">
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
-        <a href="cart.html">Cart</a>
         <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+        <button class="icon-btn"><span>♡</span><span class="wish-count">0</span></button>
+        <button class="icon-btn"><span>🛒</span><span class="cart-count">0</span></button>
       </nav>
-      <div class="header-actions">
-        <button id="mobile-menu-btn-4" class="mobile-menu-btn">☰</button>
-        <button class="icon-btn wishlist-btn" title="Wishlist">❤ <span class="badge" id="wishlist-count">0</span></button>
-        <a class="icon-btn cart-link" href="cart.html">🛒 <span class="badge" id="cart-count">0</span></a>
-      </div>
+      <button id="mobile-toggle" class="mobile-toggle">☰</button>
     </div>
   </header>
 
-  <main class="container section">
+  <main class="container">
     <h2>Your Cart</h2>
-    <div class="cart-layout">
-      <div class="cart-items" id="cart-items">
-        <!-- Cart items table rendered by JS -->
+    <div style="display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start">
+      <div>
+        <table class="table" id="cart-table"></table>
       </div>
-      <aside class="order-summary">
-        <h3>Order Summary</h3>
-        <div class="summary-line">Subtotal: <span id="summary-subtotal">$0.00</span></div>
-        <div class="summary-line">Tax (8%): <span id="summary-tax">$0.00</span></div>
-        <div class="summary-line">Shipping: <span id="summary-shipping">$0.00</span></div>
-        <div class="summary-total">Total: <span id="summary-total">$0.00</span></div>
-
-        <h4>Checkout</h4>
-        <form id="checkout-form" class="checkout-form">
-          <input type="text" id="chk-name" placeholder="Full Name" required>
-          <input type="text" id="chk-address" placeholder="Shipping Address" required>
-          <input type="email" id="chk-email" placeholder="Email" required>
-          <select id="chk-payment" required>
-            <option value="card">Credit / Debit Card</option>
-            <option value="paypal">PayPal</option>
-            <option value="cod">Cash on Delivery</option>
-          </select>
-          <button class="btn btn-primary" type="submit">Place Order</button>
-        </form>
+      <aside class="summary">
+        <h4>Order Summary</h4>
+        <div>Subtotal: <strong id="subtotal">$0.00</strong></div>
+        <div>Tax: <strong id="tax">$0.00</strong></div>
+        <div>Shipping: <strong id="shipping">$0.00</strong></div>
+        <div style="margin-top:12px">Total: <strong id="total">$0.00</strong></div>
+        <div style="margin-top:12px">
+          <form id="checkout-form">
+            <div class="form-row"><input name="name" placeholder="Full name"></div>
+            <div class="form-row"><input name="email" placeholder="Email"></div>
+            <div class="form-row"><input name="address" placeholder="Shipping address"></div>
+            <div class="form-row"><select name="payment"><option>Credit Card</option><option>PayPal</option><option>Cash on Delivery</option></select></div>
+            <button class="place" type="submit">Place Order</button>
+          </form>
+        </div>
       </aside>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>© ToyLand World</div>
-      <div>Contact: <a href="contact.html">Get in touch</a></div>
-    </div>
-  </footer>
-
-  <script src="js/main.js" defer></script>
+  <footer class="footer">&copy; 2026 ToyLand World</footer>
+  <script src="script.js"></script>
+  <script>renderCart();attachCheckout();</script>
 </body>
 </html>
