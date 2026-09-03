@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WonderBox Kids — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <div class="site-top container">
+      <div class="logo"><img src="assets/logo.svg" alt="WonderBox Kids"></div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="actions">
+        <a href="wishlist.html" class="icon">♡ <span id="wish-count">0</span></a>
+        <a href="cart.html" class="icon">🛒 <span id="cart-count">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="intro">
+        <h1>WonderBox Kids — Play, Learn, Explore</h1>
+        <p>Curated toys that spark imagination, learning, and hands-on discovery. Safe, sustainably sourced, and selected by experts.</p>
+        <p><a class="btn" href="products.html">Browse Toys</a></p>
+      </div>
+      <div class="features">
+        <div class="card" style="width:320px;">
+          <img src="https://images.unsplash.com/photo-1548198145-8f00c3b2f3d9?q=80&w=1200&auto=format&fit=crop" alt="kids playing">
+          <h4>STEM Kits & Science</h4>
+          <p>Hands-on kits for budding scientists and engineers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:28px">
+      <h3>New & Popular</h3>
+      <div id="home-products" class="grid" style="margin-top:12px"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">WonderBox Kids — Playful learning toys • © <span id="year"></span></div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // small home page render
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const grid=document.getElementById('home-products'); if(grid && window.WB_PRODUCTS){ (window.WB_PRODUCTS||[]).slice(0,4).forEach(p=>{const d=document.createElement('div');d.className='card';d.innerHTML=`<img src="${p.image}" alt="${p.name}"><h4>${p.name}</h4><p>${p.category} • ${p.age}</p><p style="font-weight:700">$${p.price.toFixed(2)}</p><p style="margin-top:8px"><a class="btn" href="product.html?id=${encodeURIComponent(p.id)}">View</a></p>`;grid.appendChild(d)})}
+  </script>
+</body>
+</html>
