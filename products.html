@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WonderBox Kids — Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="products">
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="logo" href="index.html">WonderBox Kids</a>
+      <nav class="main-nav">
+        <a href="products.html">Shop</a>
+        <a href="categories.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="actions">
+        <a href="wishlist.html" class="action" id="wish-link">Wishlist <span id="wish-count">0</span></a>
+        <a href="cart.html" class="action" id="cart-link">Cart <span id="cart-count">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="filters">
+      <div class="filters-row">
+        <input id="search-input" class="search" placeholder="Search toys by name or description">
+        <label>Category
+          <select id="filter-category">
+            <option value="All">All</option>
+          </select>
+        </label>
+        <label>Age
+          <select id="filter-age">
+            <option value="All">All</option>
+            <option value="0-2">0-2</option>
+            <option value="3-5">3-5</option>
+            <option value="6-8">6-8</option>
+            <option value="9+">9+</option>
+          </select>
+        </label>
+        <label>Price
+          <select id="filter-price">
+            <option value="All">All</option>
+            <option value="0-20">Under $20</option>
+            <option value="20-50">$20–$50</option>
+            <option value="50-9999">$50+</option>
+          </select>
+        </label>
+        <label>Sort
+          <select id="sort-select">
+            <option value="relevance">Relevance</option>
+            <option value="price-asc">Price: low to high</option>
+            <option value="price-desc">Price: high to low</option>
+            <option value="rating-desc">Top rated</option>
+          </select>
+        </label>
+        <button id="clear-filters" class="btn outline">Clear</button>
+      </div>
+      <div class="results">
+        <div id="results-count">0 results</div>
+      </div>
+    </section>
+
+    <section>
+      <div id="products-grid" class="products-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p>&copy; <span id="year"></span> WonderBox Kids</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
