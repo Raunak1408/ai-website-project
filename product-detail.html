@@ -1,42 +1,46 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Product Detail — ToyLand World</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Product Detail - ToyLand World</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">ToyLand World</a>
-      <nav class="nav" id="main-nav">
+  <header class="header">
+    <div class="container">
+      <div class="logo"><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=1200" alt="logo"><h1>ToyLand World</h1></div>
+      <nav class="nav">
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
-        <a href="cart.html">Cart</a>
         <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+        <button class="icon-btn"><span>♡</span><span class="wish-count">0</span></button>
+        <button class="icon-btn"><span>🛒</span><span class="cart-count">0</span></button>
       </nav>
-      <div class="header-actions">
-        <button id="mobile-menu-btn-3" class="mobile-menu-btn">☰</button>
-        <button class="icon-btn wishlist-btn" title="Wishlist">❤ <span class="badge" id="wishlist-count">0</span></button>
-        <a class="icon-btn cart-link" href="cart.html">🛒 <span class="badge" id="cart-count">0</span></a>
-      </div>
+      <button id="mobile-toggle" class="mobile-toggle">☰</button>
     </div>
   </header>
 
-  <main class="container section product-detail">
-    <div class="product-detail-inner" id="product-detail-root">
-      <!-- JS renders product details here based on ?id= param -->
+  <main class="container">
+    <div class="product-detail">
+      <div class="gallery"><img src="" alt="product" id="pd-img"></div>
+      <div class="info">
+        <h2></h2>
+        <p class="desc"></p>
+        <div class="price"></div>
+        <div class="stock"></div>
+        <div class="qty"><button class="minus">-</button><input type="number" min="1" value="1"><button class="plus">+</button></div>
+        <div style="margin-top:12px"><button class="add-to-cart">Add to Cart</button></div>
+      </div>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>© ToyLand World</div>
-      <div>Contact: <a href="contact.html">Get in touch</a></div>
-    </div>
-  </footer>
-
-  <script src="js/main.js" defer></script>
+  <footer class="footer">&copy; 2026 ToyLand World</footer>
+  <script src="script.js"></script>
+  <script>
+    // PRODUCT list available as window.PRODUCTS
+    loadProductDetail(window.PRODUCTS || []);
+  </script>
 </body>
 </html>
