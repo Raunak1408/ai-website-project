@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ToyLand World — Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">ToyLand World</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="icon-btn">🔍</button>
+        <a class="icon-btn" href="wishlist.html">❤ <span class="badge wish-count">0</span></a>
+        <a class="icon-btn" href="cart.html">🛒 <span class="badge cart-count">0</span></a>
+        <button class="mobile-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Premium Toys for Curious Minds</h1>
+        <p>Discover fun, safe, and educational toys hand-picked for every age. Quality playtime starts at ToyLand World.</p>
+        <div style="display:flex;gap:12px;margin-top:12px;align-items:center">
+          <a class="btn" href="shop.html">Shop Toys Now</a>
+          <a class="btn" href="#featured">Explore Featured</a>
+        </div>
+        <div style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap">
+          <button class="filter-btn">Ages 0-3</button>
+          <button class="filter-btn">Ages 4-7</button>
+          <button class="filter-btn">Ages 8-12</button>
+          <button class="filter-btn">Ages 12+</button>
+        </div>
+      </div>
+      <div class="hero-right" aria-hidden="true"></div>
+    </section>
+
+    <section id="categories" class="categories">
+      <div class="cat-card" data-category="Action Figures">Action Figures</div>
+      <div class="cat-card" data-category="Educational">Educational Toys</div>
+      <div class="cat-card" data-category="Board Games">Board Games</div>
+      <div class="cat-card" data-category="Plush">Plush Toys</div>
+    </section>
+
+    <section id="featured">
+      <h2>Trending Toys</h2>
+      <div class="featured-products" id="featuredGrid">
+        <!-- products injected by JS -->
+      </div>
+    </section>
+
+    <section class="promo">
+      <div>
+        <strong>20% OFF on Educational Toys</strong>
+        <div style="color:var(--muted);">Use code: LEARN20 at checkout</div>
+      </div>
+      <div>
+        <label for="newsletter" style="display:block;color:var(--muted)">Join our newsletter</label>
+        <div class="newsletter">
+          <input id="newsletter" class="input" placeholder="Your email">
+          <button class="btn" id="subscribeBtn">Subscribe</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>What Gamers Say</h2>
+      <div class="testimonials">
+        <div class="testimonial">"Best toy store I've ever used — fast, tactile and looks insane in my setup." <cite>Alex P.</cite></div>
+        <div class="testimonial">"Wireless headset with excellent range and comfort." <cite>Maya R.</cite></div>
+        <div class="testimonial">"Mouse sensor is on point. Can't knock a match now." <cite>Jordan K.</cite></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer container">
+    <div>© ToyLand World — Premium Toy Store</div>
+  </footer>
+
+  <script>
+  // Inline site JS (common functions)
+  const PRODUCTS = [
+    {id:1,title:'Colorful Building Blocks',price:29.99,category:'Educational',age:'4-7',img:'https://images.unsplash.com/photo-1587654562363-6054a493c3d6?w=600',rating:4.7,stock:12,desc:'Stack, sort and build — a perfect starter set for little engineers.'},
+    {id:2,title:'Cuddly Teddy Bear',price:24.50,category:'Plush',age:'0-3',img:'https://images.unsplash.com/photo-1559454403-b8fb88521f11?w=600',rating:4.8,stock:20,desc:'Soft plush bear for hugs and bedtime stories.'},
+    {id:3,title:'Racing Toy Car',price:19.99,category:'Action Figures',age:'4-7',img:'https://images.unsplash.com/photo-1594787318286-3d835c1d207f?w=600',rating:4.5,stock:8,desc:'Fast and durable car for high-speed play.'},
+    {id:4,title:'Family Board Puzzle',price:34.00,category:'Board Games',age:'8-12',img:'https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=600',rating:4.6,stock:6,desc:'Challenging puzzle for family game night.'}
+  ];
+
+  const KEY_CART = 'toyland_cart_v1';
+  const KEY_WISHLIST = 'toyland_wishlist_v1';
+  function loadCart(){return JSON.parse(localStorage.getItem(KEY_CART)||'[]')}
+  function saveCart(c){localStorage.setItem(KEY_CART,JSON.stringify(c))}
+  function loadWishlist(){return JSON.parse(localStorage.getItem(KEY_WISHLIST)||'[]')}
+  function saveWishlist(w){localStorage.setItem(KEY_WISHLIST,JSON.stringify(w))}
+  function updateBadges(){
+    const cart = loadCart(); const w = loadWishlist();
+    document.querySelectorAll('.cart-count').forEach(el=>el.textContent = cart.reduce((s,i)=>s+i.qty,0));
+    document.querySelectorAll('.wish-count').forEach(el=>el.textContent = w.length);
+  }
+  function addToCart(id,qty=1){const c=loadCart();const it=c.find(x=>x.id===id);if(it){it.qty+=qty}else{c.push({id,qty})}saveCart(c);updateBadges();}
+  function toggleWishlist(id){const w=loadWishlist();const i=w.indexOf(id);if(i>-1){w.splice(i,1)}else{w.push(id)}saveWishlist(w);updateBadges();}
+
+  function renderFeatured(){
+    const grid = document.getElementById('featuredGrid');
+    grid.innerHTML='';
+    PRODUCTS.forEach(p=>{
+      const div = document.createElement('div');div.className='product';
+      div.innerHTML = `<img src="${p.img}" alt="${p.title}"><h3>${p.title}</h3><div class="meta">$${p.price.toFixed(2)} · <span class='rating'>${'★'.repeat(Math.round(p.rating))}</span></div><div class='actions'><button class='action-btn add-cart' data-id='${p.id}'>Add to Cart</button><button class='action-btn quick-view' data-id='${p.id}'>Quick View</button></div>`;
+      grid.appendChild(div);
+    });
+    grid.addEventListener('click',e=>{
+      const id = Number(e.target.dataset.id); if(!id) return;
+      if(e.target.classList.contains('add-cart')){addToCart(id,1);alert('Added to cart')}
+      if(e.target.classList.contains('quick-view')){location.href='product-detail.html?id='+id}
+    });
+  }
+
+  // init
+  document.addEventListener('DOMContentLoaded',()=>{
+    renderFeatured(); updateBadges();
+    document.querySelectorAll('.cat-card').forEach(c=>c.addEventListener('click',()=>{const cat=c.dataset.category;location.href='shop.html?category='+encodeURIComponent(cat)}));
+    document.getElementById('subscribeBtn').addEventListener('click',()=>{const v=document.getElementById('newsletter').value.trim();if(!v){alert('Enter email')}else{alert('Subscribed — thank you!');document.getElementById('newsletter').value=''}});
+    document.querySelectorAll('.filter-btn').forEach((b)=>b.addEventListener('click',()=>{alert('Use filters on Shop page for more options');location.href='shop.html'}));
+    // mobile toggle
+    document.querySelectorAll('.mobile-toggle').forEach(btn=>btn.addEventListener('click',()=>{document.querySelector('.nav').classList.toggle('open')}));
+  });
+  </script>
+</body>
+</html>
