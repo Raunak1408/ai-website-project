@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ToyLand World - Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-shop">
+  <header class="header">
+    <div class="container">
+      <div class="logo"><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=1200" alt="logo"><h1>ToyLand World</h1></div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+        <button class="icon-btn"><span>♡</span><span class="wish-count">0</span></button>
+        <button class="icon-btn"><span>🛒</span><span class="cart-count">0</span></button>
+      </nav>
+      <button id="mobile-toggle" class="mobile-toggle">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="copy">
+        <h2>Welcome to ToyLand World</h2>
+        <p>Premium toys that inspire play, learning, and imagination. Safe, fun, and handpicked for kids.</p>
+        <a href="shop.html"><button class="cta">Shop Toys Now</button></a>
+      </div>
+      <div class="side">
+        <div class="promo"><strong>20% OFF on Educational Toys</strong><div>Use code LEARN20</div></div>
+        <div style="margin-top:16px"><h4>Quick Links</h4><div style="display:flex;gap:6px;margin-top:8px"><a class="link" href="shop.html?age=0-3">0-3</a><a class="link" href="shop.html?age=4-7">4-7</a><a class="link" href="shop.html?age=8-12">8-12</a><a class="link" href="shop.html?age=12+">12+</a></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h3>Featured Categories</h3>
+      <div class="categories" id="featured-cats">
+        <div class="cat" data-cat="Action Figures"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600" alt="Action Figures"><h4>Action Figures</h4></div>
+        <div class="cat" data-cat="Educational"><img src="https://images.unsplash.com/photo-1587654562363-6054a493c3d6?w=600" alt="Educational"><h4>Educational Toys</h4></div>
+        <div class="cat" data-cat="Board Games"><img src="https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=600" alt="Board Games"><h4>Board Games</h4></div>
+        <div class="cat" data-cat="Plush"><img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?w=600" alt="Plush Toys"><h4>Plush Toys</h4></div>
+      </div>
+    </section>
+
+    <section>
+      <h3>Trending Toys</h3>
+      <div class="grid" id="trending"></div>
+    </section>
+
+    <section>
+      <h3>Age Filter</h3>
+      <div class="age-filter">
+        <button data-age="0-3">Ages 0-3</button>
+        <button data-age="4-7">Ages 4-7</button>
+        <button data-age="8-12">Ages 8-12</button>
+        <button data-age="12+">Ages 12+</button>
+      </div>
+    </section>
+
+    <section>
+      <h3>Customer Reviews</h3>
+      <div class="testimonials" id="testimonials"></div>
+    </section>
+
+    <section class="promo" style="margin-top:18px">
+      <div>
+        <strong>Join our Newsletter</strong>
+        <p>Get exclusive deals and new toy alerts.</p>
+      </div>
+      <form id="newsletter-form" class="newsletter">
+        <input id="newsletter-email" class="input" type="email" placeholder="Your email">
+        <button class="btn subscribe" type="submit">Subscribe</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 ToyLand World — Playful toys for every child
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Render trending and testimonials from PRODUCTS data
+    const PRODUCTS = window.PRODUCTS || [];
+    const trendingEl = document.getElementById('trending');
+    const testimonialsEl = document.getElementById('testimonials');
+    PRODUCTS.slice(0,4).forEach(p=>{
+      const d=document.createElement('div');d.className='card';d.innerHTML=`<img src="${p.img}" alt="${p.title}"><div class="title">${p.title}</div><div class="meta"><div>$${p.price.toFixed(2)} <span class="rating">${'★'.repeat(Math.round(p.rating))}</span></div><div class="btn-row"><button class="btn primary" onclick='addToCart(${JSON.stringify(p)})'>Add to Cart</button><button class="btn ghost" onclick='goToProduct(${JSON.stringify(p.id)})'>Quick View</button></div></div>`
+      trendingEl.appendChild(d)
+    })
+    const REVIEWS = [
+      {name:'Anna',text:'Loved the building blocks — hours of creative play!'},
+      {name:'Marcus',text:'Great quality plush toy. Fast shipping.'},
+      {name:'Priya',text:'My kids enjoy the board game nights now.'}
+    ];
+    REVIEWS.forEach(r=>{const el=document.createElement('div');el.className='testimonial';el.innerHTML=`<strong>${r.name}</strong><div class="small">${r.text}</div>`;testimonialsEl.appendChild(el)})
+
+    document.getElementById('newsletter-form').addEventListener('submit',e=>{e.preventDefault();const em=document.getElementById('newsletter-email').value.trim();if(!em){alert('Enter email');return}alert('Subscribed!');document.getElementById('newsletter-email').value='';})
+  </script>
+</body>
+</html>
