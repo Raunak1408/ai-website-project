@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WonderBox Kids — Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="products">
+  <header class="site-header">
+    <div class="container header-row">
+      <div class="logo"><a href="index.html"><img src="assets/logo.svg" alt="WonderBox Kids logo"></a></div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Shop</a>
+        <a href="categories.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="actions">
+        <a href="wishlist.html" class="icon">♡ <span id="wish-count">0</span></a>
+        <a href="cart.html" class="icon">🛒 <span id="cart-count">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <div class="filters">
+        <select id="filter-category"><option value="">All categories</option></select>
+        <select id="filter-age"><option value="">All ages</option></select>
+        <select id="sort-select"><option value="relevance">Sort: Relevance</option><option value="price-asc">Price: Low → High</option><option value="price-desc">Price: High → Low</option><option value="rating-desc">Top rated</option></select>
+        <button id="clear-filters" class="btn">Clear</button>
+      </div>
+      <div class="search">
+        <input id="search-input" type="search" placeholder="Search toys by name or description">
+      </div>
+    </section>
+
+    <section>
+      <div id="products-grid" class="grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> WonderBox Kids</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
