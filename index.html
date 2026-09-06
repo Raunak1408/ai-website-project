@@ -3,112 +3,308 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ByteCafe | Artisanal Coffeehouse</title>
+    <title>VeloxDrive | Luxury & Exotic Car Rentals</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                    colors: { gold: '#d4af37', goldHover: '#b89628', darkBg: '#0b0f17', cardBg: '#151c28' }
+                }
+            }
+        }
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: #faf8f5; color: #2d2d2d; line-height: 1.6; }
-        
-        /* Header */
-        header { background: #1e120b; padding: 1.2rem 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        header h1 { font-family: 'Playfair Display', serif; color: #c69244; font-size: 1.8rem; margin: 0; }
-        nav a { color: #f2e9e1; text-decoration: none; margin-left: 2rem; font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
-        nav a:hover, nav a.active { color: #c69244; }
-
-        /* Hero */
-        .hero { background: linear-gradient(rgba(30, 18, 11, 0.75), rgba(30, 18, 11, 0.75)), url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1600&auto=format&fit=crop') center/cover no-repeat; text-align: center; color: #ffffff; padding: 7rem 1.5rem; }
-        .hero h2 { font-family: 'Playfair Display', serif; font-size: 3.2rem; margin-bottom: 1rem; color: #ffffff; }
-        .hero p { font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem auto; color: #e0d0c1; }
-
-        /* Buttons */
-        .gold-btn { background-color: #c69244 !important; color: #ffffff !important; padding: 0.75rem 1.8rem !important; text-decoration: none !important; font-weight: 600 !important; border-radius: 25px !important; display: inline-block !important; transition: all 0.3s ease !important; box-shadow: 0 4px 12px rgba(198, 146, 68, 0.35) !important; border: none !important; cursor: pointer !important; font-size: 0.9rem !important; }
-        .gold-btn:hover { background-color: #a87932 !important; transform: translateY(-2px); }
-
-        /* Main Content */
-        main { max-width: 1200px; margin: 4rem auto; padding: 0 1.5rem; }
-        .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #1e120b; margin-bottom: 2.5rem; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
-        .card { background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.06); display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #f0e6dd; transition: transform 0.3s ease; }
-        .card:hover { transform: translateY(-6px); }
-        .card img { width: 100% !important; height: 220px !important; object-fit: cover !important; display: block; }
-        .card-content { padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .card-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #1e120b; margin-bottom: 0.5rem; }
-        .card-desc { color: #666; font-size: 0.88rem; margin-bottom: 1rem; }
-        .card-price { font-weight: 700; color: #c69244; font-size: 1.15rem; margin-bottom: 1rem; }
-
-        /* Footer */
-        footer { background: #1e120b; color: #a89a8e; text-align: center; padding: 2.5rem 1.5rem; margin-top: 5rem; border-top: 3px solid #c69244; }
-        footer p { margin-bottom: 0.4rem; font-size: 0.9rem; }
+        body { background-color: #0b0f17; color: #f3f4f6; }
+        .glass { background: rgba(21, 28, 40, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .modal-active { overflow: hidden; }
     </style>
 </head>
-<body>
-    <header>
-        <h1>ByteCafe</h1>
-        <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="menu.html">Menu</a>
-            <a href="about.html">Our Story</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+<body class="font-sans antialiased selection:bg-gold selection:text-black">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 glass border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-extrabold tracking-wider text-white flex items-center gap-2">
+                <i class="fa-solid fa-gauge-high text-gold"></i> VELOX<span class="text-gold">DRIVE</span>
+            </a>
+            <nav class="hidden md:flex gap-8 text-sm font-semibold text-gray-300">
+                <a href="#fleet" class="hover:text-gold transition">Our Fleet</a>
+                <a href="#calculator" class="hover:text-gold transition">Price Estimator</a>
+                <a href="#features" class="hover:text-gold transition">Why Us</a>
+                <a href="#reviews" class="hover:text-gold transition">Reviews</a>
+            </nav>
+            <a href="#fleet" class="bg-gold hover:bg-goldHover text-black font-bold px-5 py-2.5 rounded-full text-sm transition transform hover:-translate-y-0.5 shadow-lg shadow-gold/20">
+                Book a Supercar
+            </a>
+        </div>
     </header>
 
-    <section class="hero">
-        <h2>Crafted Perfection in Every Cup</h2>
-        <p>Experience single-origin beans, hand-crafted brews, and artisanal French pastries.</p>
-        <a href="menu.html" class="gold-btn">Explore Full Menu</a>
+    <!-- Hero Section -->
+    <section class="relative py-24 px-6 overflow-hidden bg-gradient-to-b from-darkBg via-cardBg to-darkBg">
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <span class="text-gold font-bold text-xs uppercase tracking-widest bg-gold/10 px-4 py-1.5 rounded-full border border-gold/30">Ultimate Driving Experience</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mt-6 mb-4 tracking-tight leading-tight">
+                Drive the Extraordinary. <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-gold via-yellow-200 to-gold">No Limits, Just Thrill.</span>
+            </h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-base md:text-lg mb-8">
+                Rent world-class exotic, luxury, and sports cars delivered directly to your doorstep with instant confirmation.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#fleet" class="bg-gold hover:bg-goldHover text-black font-bold px-8 py-3.5 rounded-full text-base transition shadow-xl shadow-gold/25">Explore Fleet</a>
+                <a href="#calculator" class="glass hover:bg-white/10 text-white font-semibold px-8 py-3.5 rounded-full text-base transition">Calculate Cost</a>
+            </div>
+        </div>
     </section>
 
-    <main>
-        <h3 class="section-title">Our Signature Specials</h3>
-        <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=600&auto=format&fit=crop" alt="Signature Espresso">
-                <div class="card-content">
-                    <div>
-                        <h4 class="card-title">Signature Espresso</h4>
-                        <p class="card-desc">Rich, full-bodied espresso with notes of dark chocolate and caramel.</p>
-                    </div>
-                    <div>
-                        <div class="card-price">$3.80</div>
-                        <a href="menu.html" class="gold-btn">Order Now</a>
-                    </div>
-                </div>
+    <!-- Interactive Fleet Section -->
+    <section id="fleet" class="max-w-7xl mx-auto px-6 py-16">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+            <div>
+                <h2 class="text-3xl font-bold text-white">Our Exotic Fleet</h2>
+                <p class="text-gray-400 text-sm mt-1">Filter by category or search your dream machine</p>
             </div>
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&auto=format&fit=crop" alt="Silky Cappuccino">
-                <div class="card-content">
-                    <div>
-                        <h4 class="card-title">Silky Cappuccino</h4>
-                        <p class="card-desc">Perfect balance of steamed milk foam and intense espresso roast.</p>
-                    </div>
-                    <div>
-                        <div class="card-price">$4.50</div>
-                        <a href="menu.html" class="gold-btn">Order Now</a>
-                    </div>
+            <!-- Controls: Search & Category Filter -->
+            <div class="flex flex-wrap gap-3 items-center">
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="Search car..." oninput="filterCars()" 
+                           class="bg-cardBg text-sm text-white px-4 py-2.5 pl-10 rounded-xl border border-gray-700 focus:outline-none focus:border-gold w-48 sm:w-64">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-gray-500 text-xs"></i>
                 </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&auto=format&fit=crop" alt="Butter Croissant">
-                <div class="card-content">
-                    <div>
-                        <h4 class="card-title">Butter Croissant</h4>
-                        <p class="card-desc">Flaky, golden-brown French pastry baked fresh every morning.</p>
-                    </div>
-                    <div>
-                        <div class="card-price">$3.50</div>
-                        <a href="menu.html" class="gold-btn">Order Now</a>
-                    </div>
+                <div class="flex gap-2 bg-cardBg p-1 rounded-xl border border-gray-800">
+                    <button onclick="setCategory('all')" class="cat-btn active px-4 py-1.5 text-xs font-semibold rounded-lg text-white bg-gold text-black transition">All</button>
+                    <button onclick="setCategory('Sports')" class="cat-btn px-4 py-1.5 text-xs font-semibold rounded-lg text-gray-400 hover:text-white transition">Sports</button>
+                    <button onclick="setCategory('Luxury')" class="cat-btn px-4 py-1.5 text-xs font-semibold rounded-lg text-gray-400 hover:text-white transition">Luxury</button>
+                    <button onclick="setCategory('SUV')" class="cat-btn px-4 py-1.5 text-xs font-semibold rounded-lg text-gray-400 hover:text-white transition">SUV</button>
                 </div>
             </div>
         </div>
-    </main>
 
-    <footer>
-        <p>&copy; 2026 ByteCafe. All rights reserved.</p>
-        <p>Open Daily: 7:00 AM  9:00 PM</p>
+        <!-- Car Cards Grid -->
+        <div id="carGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Cards generated dynamically via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Instant Price Estimator Widget -->
+    <section id="calculator" class="max-w-5xl mx-auto my-12 px-6">
+        <div class="glass p-8 md:p-12 rounded-3xl border border-gold/20 shadow-2xl relative overflow-hidden">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-2 text-center">Instant Rental Estimator</h2>
+            <p class="text-gray-400 text-center text-sm mb-8">Calculate your total trip cost including insurance option</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Select Vehicle</label>
+                    <select id="calcCarSelect" onchange="calculatePrice()" class="w-full bg-cardBg text-white border border-gray-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold">
+                        <option value="450">Lamborghini Huracán ($450/day)</option>
+                        <option value="380">Ferrari F8 Tributo ($380/day)</option>
+                        <option value="290">Porsche 911 GT3 ($290/day)</option>
+                        <option value="350">Rolls-Royce Ghost ($350/day)</option>
+                        <option value="260">Range Rover Autobiography ($260/day)</option>
+                        <option value="220">Mercedes-AMG G63 ($220/day)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Rental Duration (Days)</label>
+                    <input type="number" id="calcDays" value="3" min="1" max="30" oninput="calculatePrice()" 
+                           class="w-full bg-cardBg text-white border border-gray-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Insurance Package</label>
+                    <select id="calcInsurance" onchange="calculatePrice()" class="w-full bg-cardBg text-white border border-gray-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold">
+                        <option value="0">Basic Coverage (Free)</option>
+                        <option value="45">Full Protection (+ $45/day)</option>
+                        <option value="90">VIP Zero-Deductible (+ $90/day)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Price Breakdown Banner -->
+            <div class="bg-cardBg p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-center border border-gray-800 gap-4">
+                <div>
+                    <span class="text-gray-400 text-xs uppercase font-bold block">Estimated Total Cost</span>
+                    <span id="totalPriceDisplay" class="text-3xl font-extrabold text-gold">$1,485</span>
+                    <span class="text-xs text-gray-500 ml-2">(Taxes & Fees Included)</span>
+                </div>
+                <button onclick="openBookingFromCalc()" class="bg-gold hover:bg-goldHover text-black font-bold px-6 py-3 rounded-xl text-sm transition">
+                    Reserve With This Estimate
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal Popup -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="glass w-full max-w-lg p-8 rounded-3xl border border-gray-700 relative text-left">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <h3 class="text-2xl font-bold text-white mb-1">Confirm Reservation</h3>
+            <p id="modalCarName" class="text-gold font-semibold text-sm mb-6">Lamborghini Huracán EVO</p>
+
+            <form onsubmit="submitReservation(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Full Name</label>
+                    <input type="text" required placeholder="Alex Turner" class="w-full bg-cardBg border border-gray-700 text-white rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-gold">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Email</label>
+                        <input type="email" required placeholder="alex@example.com" class="w-full bg-cardBg border border-gray-700 text-white rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Phone</label>
+                        <input type="tel" required placeholder="+1 (555) 000-0000" class="w-full bg-cardBg border border-gray-700 text-white rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-gold">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Pickup Date</label>
+                    <input type="date" required class="w-full bg-cardBg border border-gray-700 text-white rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-gold">
+                </div>
+
+                <div class="bg-black/40 p-4 rounded-xl border border-gray-800 flex justify-between items-center text-sm mt-4">
+                    <span class="text-gray-400">Total Payable at Pickup:</span>
+                    <span id="modalPrice" class="font-bold text-gold text-base">$1,350</span>
+                </div>
+
+                <button type="submit" class="w-full bg-gold hover:bg-goldHover text-black font-bold py-3.5 rounded-xl transition mt-2">
+                    Confirm & Reserve Now
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 py-10 mt-20 bg-darkBg text-center text-gray-500 text-sm">
+        <p>&copy; 2026 VeloxDrive Luxury Rentals. All rights reserved.</p>
     </footer>
+
+    <!-- Application JavaScript Logic -->
+    <script>
+        const cars = [
+            { id: 1, name: "Lamborghini Huracán EVO", category: "Sports", price: 450, hp: 640, topSpeed: "325 km/h", img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?w=800&auto=format&fit=crop" },
+            { id: 2, name: "Ferrari F8 Tributo", category: "Sports", price: 380, hp: 710, topSpeed: "340 km/h", img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&auto=format&fit=crop" },
+            { id: 3, name: "Porsche 911 GT3", category: "Sports", price: 290, hp: 502, topSpeed: "318 km/h", img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=800&auto=format&fit=crop" },
+            { id: 4, name: "Rolls-Royce Ghost", category: "Luxury", price: 350, hp: 563, topSpeed: "250 km/h", img: "https://images.unsplash.com/photo-1631295868223-63265b40d9e4?w=800&auto=format&fit=crop" },
+            { id: 5, name: "Range Rover Autobiography", category: "SUV", price: 260, hp: 523, topSpeed: "250 km/h", img: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&auto=format&fit=crop" },
+            { id: 6, name: "Mercedes-AMG G63", category: "SUV", price: 220, hp: 577, topSpeed: "240 km/h", img: "https://images.unsplash.com/photo-1520050206274-a1ae44613e6d?w=800&auto=format&fit=crop" }
+        ];
+
+        let currentCategory = 'all';
+
+        function renderCars(data) {
+            const grid = document.getElementById('carGrid');
+            grid.innerHTML = '';
+
+            if(data.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500">No vehicles match your search query.</div>`;
+                return;
+            }
+
+            data.forEach(car => {
+                grid.innerHTML += `
+                    <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-gold/40 transition duration-300 group flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-52 overflow-hidden">
+                                <img src="${car.img}" alt="${car.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-gold font-bold text-xs px-3 py-1 rounded-full border border-gold/30">${car.category}</span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-white mb-2">${car.name}</h3>
+                                <div class="flex justify-between text-xs text-gray-400 py-3 border-y border-gray-800 mb-4">
+                                    <span><i class="fa-solid fa-horse-head text-gold mr-1"></i> ${car.hp} HP</span>
+                                    <span><i class="fa-solid fa-gauge text-gold mr-1"></i> ${car.topSpeed}</span>
+                                    <span><i class="fa-solid fa-shield-halved text-gold mr-1"></i> Full Insurance</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6 flex justify-between items-center">
+                            <div>
+                                <span class="text-2xl font-extrabold text-gold">$${car.price}</span>
+                                <span class="text-xs text-gray-500"> / day</span>
+                            </div>
+                            <button onclick="openModal('${car.name}', ${car.price})" class="bg-gold hover:bg-goldHover text-black font-bold px-4 py-2 rounded-xl text-xs transition">
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function filterCars() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = cars.filter(car => {
+                const matchesCat = currentCategory === 'all' || car.category === currentCategory;
+                const matchesSearch = car.name.toLowerCase().includes(query);
+                return matchesCat && matchesSearch;
+            });
+            renderCars(filtered);
+        }
+
+        function setCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if(btn.innerText.toLowerCase() === cat.toLowerCase() || (cat === 'all' && btn.innerText === 'All')) {
+                    btn.className = "cat-btn active px-4 py-1.5 text-xs font-semibold rounded-lg text-black bg-gold transition";
+                } else {
+                    btn.className = "cat-btn px-4 py-1.5 text-xs font-semibold rounded-lg text-gray-400 hover:text-white transition";
+                }
+            });
+            filterCars();
+        }
+
+        function calculatePrice() {
+            const daily = parseFloat(document.getElementById('calcCarSelect').value);
+            const days = parseInt(document.getElementById('calcDays').value) || 1;
+            const insurance = parseFloat(document.getElementById('calcInsurance').value);
+            
+            const total = (daily + insurance) * days;
+            document.getElementById('totalPriceDisplay').innerText = `$${total.toLocaleString()}`;
+        }
+
+        function openModal(name, price) {
+            document.getElementById('modalCarName').innerText = name;
+            document.getElementById('modalPrice').innerText = `$${(price * 3).toLocaleString()} (3 Days Default)`;
+            document.getElementById('bookingModal').classList.remove('hidden');
+            document.body.classList.add('modal-active');
+        }
+
+        function openBookingFromCalc() {
+            const select = document.getElementById('calcCarSelect');
+            const name = select.options[select.selectedIndex].text.split(' ($')[0];
+            const price = document.getElementById('totalPriceDisplay').innerText;
+            
+            document.getElementById('modalCarName').innerText = name;
+            document.getElementById('modalPrice').innerText = price;
+            document.getElementById('bookingModal').classList.remove('hidden');
+            document.body.classList.add('modal-active');
+        }
+
+        function closeModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+            document.body.classList.remove('modal-active');
+        }
+
+        function submitReservation(e) {
+            e.preventDefault();
+            alert('🎉 Reservation Request Received! Our VIP Concierge team will contact you shortly.');
+            closeModal();
+        }
+
+        // Initialize App
+        renderCars(cars);
+        calculatePrice();
+    </script>
 </body>
 </html>
