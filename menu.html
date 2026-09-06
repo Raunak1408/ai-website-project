@@ -5,6 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu | ByteCafe</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        body { font-family: 'Poppins', sans-serif; background-color: #faf8f5; color: #2d2d2d; margin: 0; padding: 0; }
+        
+        /* Header Fix */
+        header { background: #1e120b; padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        header h1 { font-family: 'Playfair Display', serif; color: #c69244; font-size: 1.8rem; margin: 0; }
+        nav a { color: #f2e9e1; text-decoration: none; margin-left: 2rem; font-weight: 500; font-size: 0.95rem; }
+        nav a:hover { color: #c69244; }
+
+        /* Title */
+        .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.3rem; color: #1e120b; margin: 3rem 0 2rem 0; }
+
+        /* Grid & Cards */
+        main { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
+        .card { background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.06); display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #f0e6dd; transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-6px); }
+        .card img { width: 100%; height: 210px; object-fit: cover; display: block; }
+        .card-content { padding: 1.5rem; text-align: left; }
+        .card-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: #1e120b; margin: 0 0 0.5rem 0; }
+        .card-price { font-weight: 700; color: #c69244; font-size: 1.15rem; margin-bottom: 1rem; }
+
+        /* HARD-FIXED GOLD CAPSULE BUTTONS */
+        .gold-btn {
+            background-color: #c69244 !important;
+            color: #ffffff !important;
+            border: none !important;
+            padding: 10px 22px !important;
+            border-radius: 25px !important;
+            font-family: 'Poppins', sans-serif !important;
+            font-weight: 600 !important;
+            font-size: 0.85rem !important;
+            cursor: pointer !important;
+            display: inline-block !important;
+            text-decoration: none !important;
+            box-shadow: 0 4px 12px rgba(198, 146, 68, 0.35) !important;
+            transition: all 0.3s ease !important;
+        }
+        .gold-btn:hover {
+            background-color: #a87932 !important;
+            box-shadow: 0 6px 15px rgba(198, 146, 68, 0.5) !important;
+        }
+
+        footer { background: #1e120b; color: #a89a8e; text-align: center; padding: 2rem; margin-top: 3rem; border-top: 3px solid #c69244; }
+    </style>
 </head>
 <body>
     <header>
@@ -24,8 +71,8 @@
                 <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=600&auto=format&fit=crop" alt="Signature Espresso">
                 <div class="card-content">
                     <h3 class="card-title">Signature Espresso</h3>
-                    <p class="card-price">$4.50</p>
-                    <button class="order-btn">Order Now</button>
+                    <div class="card-price">$4.50</div>
+                    <button class="gold-btn">Order Now</button>
                 </div>
             </div>
 
@@ -33,8 +80,8 @@
                 <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&auto=format&fit=crop" alt="Silky Cappuccino">
                 <div class="card-content">
                     <h3 class="card-title">Silky Cappuccino</h3>
-                    <p class="card-price">$5.00</p>
-                    <button class="order-btn">Order Now</button>
+                    <div class="card-price">$5.00</div>
+                    <button class="gold-btn">Order Now</button>
                 </div>
             </div>
 
@@ -42,8 +89,8 @@
                 <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=600&auto=format&fit=crop" alt="Caffe Latte">
                 <div class="card-content">
                     <h3 class="card-title">Caffe Latte</h3>
-                    <p class="card-price">$5.00</p>
-                    <button class="order-btn">Order Now</button>
+                    <div class="card-price">$5.00</div>
+                    <button class="gold-btn">Order Now</button>
                 </div>
             </div>
 
@@ -51,8 +98,8 @@
                 <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=600&auto=format&fit=crop" alt="Iced Caramel Macchiato">
                 <div class="card-content">
                     <h3 class="card-title">Iced Caramel Macchiato</h3>
-                    <p class="card-price">$5.50</p>
-                    <button class="order-btn">Order Now</button>
+                    <div class="card-price">$5.50</div>
+                    <button class="gold-btn">Order Now</button>
                 </div>
             </div>
 
@@ -60,8 +107,8 @@
                 <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=600&auto=format&fit=crop" alt="Velvet Mocha">
                 <div class="card-content">
                     <h3 class="card-title">Velvet Mocha</h3>
-                    <p class="card-price">$5.75</p>
-                    <button class="order-btn">Order Now</button>
+                    <div class="card-price">$5.75</div>
+                    <button class="gold-btn">Order Now</button>
                 </div>
             </div>
 
@@ -69,8 +116,8 @@
                 <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600&auto=format&fit=crop" alt="Nitro Cold Brew">
                 <div class="card-content">
                     <h3 class="card-title">Nitro Cold Brew</h3>
-                    <p class="card-price">$6.00</p>
-                    <button class="order-btn">Order Now</button>
+                    <div class="card-price">$6.00</div>
+                    <button class="gold-btn">Order Now</button>
                 </div>
             </div>
         </div>
