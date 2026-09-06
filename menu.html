@@ -4,53 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu | ByteCafe</title>
-    <link rel="stylesheet" href="style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: #faf8f5; color: #2d2d2d; line-height: 1.6; }
         
-        body { font-family: 'Poppins', sans-serif; background-color: #faf8f5; color: #2d2d2d; margin: 0; padding: 0; }
-        
-        /* Header Fix */
-        header { background: #1e120b; padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        header { background: #1e120b; padding: 1.2rem 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
         header h1 { font-family: 'Playfair Display', serif; color: #c69244; font-size: 1.8rem; margin: 0; }
-        nav a { color: #f2e9e1; text-decoration: none; margin-left: 2rem; font-weight: 500; font-size: 0.95rem; }
-        nav a:hover { color: #c69244; }
+        nav a { color: #f2e9e1; text-decoration: none; margin-left: 2rem; font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
+        nav a:hover, nav a.active { color: #c69244; }
 
-        /* Title */
-        .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.3rem; color: #1e120b; margin: 3rem 0 2rem 0; }
-
-        /* Grid & Cards */
-        main { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; }
+        main { max-width: 1200px; margin: 3rem auto; padding: 0 1.5rem 4rem 1.5rem; }
+        .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.3rem; color: #1e120b; margin-bottom: 2.5rem; }
+        
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
         .card { background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.06); display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #f0e6dd; transition: transform 0.3s ease; }
         .card:hover { transform: translateY(-6px); }
-        .card img { width: 100%; height: 210px; object-fit: cover; display: block; }
-        .card-content { padding: 1.5rem; text-align: left; }
-        .card-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: #1e120b; margin: 0 0 0.5rem 0; }
+        .card img { width: 100% !important; height: 210px !important; object-fit: cover !important; display: block; }
+        .card-content { padding: 1.5rem; text-align: center; }
+        .card-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: #1e120b; margin-bottom: 0.4rem; }
         .card-price { font-weight: 700; color: #c69244; font-size: 1.15rem; margin-bottom: 1rem; }
 
-        /* HARD-FIXED GOLD CAPSULE BUTTONS */
-        .gold-btn {
-            background-color: #c69244 !important;
-            color: #ffffff !important;
-            border: none !important;
-            padding: 10px 22px !important;
-            border-radius: 25px !important;
-            font-family: 'Poppins', sans-serif !important;
-            font-weight: 600 !important;
-            font-size: 0.85rem !important;
-            cursor: pointer !important;
-            display: inline-block !important;
-            text-decoration: none !important;
-            box-shadow: 0 4px 12px rgba(198, 146, 68, 0.35) !important;
-            transition: all 0.3s ease !important;
-        }
-        .gold-btn:hover {
-            background-color: #a87932 !important;
-            box-shadow: 0 6px 15px rgba(198, 146, 68, 0.5) !important;
-        }
+        .gold-btn { background-color: #c69244 !important; color: #ffffff !important; padding: 0.65rem 1.6rem !important; text-decoration: none !important; font-weight: 600 !important; border-radius: 25px !important; display: inline-block !important; transition: all 0.3s ease !important; box-shadow: 0 4px 12px rgba(198, 146, 68, 0.35) !important; border: none !important; cursor: pointer !important; font-size: 0.85rem !important; }
+        .gold-btn:hover { background-color: #a87932 !important; transform: translateY(-2px); }
 
-        footer { background: #1e120b; color: #a89a8e; text-align: center; padding: 2rem; margin-top: 3rem; border-top: 3px solid #c69244; }
+        footer { background: #1e120b; color: #a89a8e; text-align: center; padding: 2.5rem 1.5rem; margin-top: 5rem; border-top: 3px solid #c69244; }
+        footer p { margin-bottom: 0.4rem; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -58,14 +37,14 @@
         <h1>ByteCafe</h1>
         <nav>
             <a href="index.html">Home</a>
-            <a href="menu.html">Menu</a>
+            <a href="menu.html" class="active">Menu</a>
             <a href="about.html">Our Story</a>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
 
     <main>
-        <h2 class="section-title">Our Luxurious Coffee & Treats</h2>
+        <h2 class="section-title">Our Handcrafted Menu</h2>
         <div class="grid">
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=600&auto=format&fit=crop" alt="Signature Espresso">
