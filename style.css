@@ -1,0 +1,218 @@
+/* Style.css for ByteCafe - Artisanal Coffee & Bakery */
+
+/* Color Palette */
+:root {
+  --primary-color: #2c1810; /* Deep Espresso */
+  --secondary-color: #d4a373; /* Warm Amber */
+  --background-color: #fefae0; /* Soft Cream */
+  --text-color: #1f1f1f;
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Header & Navbar */
+header {
+  position: sticky;
+  top: 0;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+header .logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  letter-spacing: 2px;
+  cursor: default;
+}
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+nav a {
+  color: var(--background-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+nav a:hover, nav a:focus {
+  color: var(--secondary-color);
+}
+
+/* Hero Section */
+.hero {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  text-align: center;
+  padding: 6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hero h1 {
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+.hero .cta-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.hero .cta-buttons a {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.hero .cta-buttons a:hover, .hero .cta-buttons a:focus {
+  background-color: #b58959;
+}
+
+/* Featured Highlights Section */
+.featured {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.featured .card {
+  background-color: var(--background-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.featured .card:hover {
+  transform: translateY(-5px);
+}
+.featured .card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+.featured .card p {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Product/Menu Grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Card Styling */
+.card {
+  background-color: var(--background-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+}
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.card img {
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+}
+.card-content {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-content h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--primary-color);
+}
+.card-content p {
+  flex-grow: 1;
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+.card-content .price {
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 0.75rem;
+}
+.card-content button {
+  background-color: var(--secondary-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.card-content button:hover, .card-content button:focus {
+  background-color: #b58959;
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+footer .hours, footer .social {
+  margin: 0.5rem 0;
+}
+footer .social a {
+  color: var(--secondary-color);
+  margin: 0 0.5rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+footer .social a:hover, footer .social a:focus {
+  color: #b58959;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+  nav {
+    gap: 1rem;
+  }
+  .featured, .menu-grid {
+    grid-template-columns: 1fr;
+    margin: 1.5rem auto;
+  }
+}
