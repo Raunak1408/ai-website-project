@@ -1,59 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contact - ToyLand World</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ToyLand World</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <div class="logo"><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=1200" alt="logo"><h1>ToyLand World</h1></div>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="contact.html">Contact</a>
-        <a href="cart.html">Cart</a>
-        <button class="icon-btn"><span>♡</span><span class="wish-count">0</span></button>
-        <button class="icon-btn"><span>🛒</span><span class="cart-count">0</span></button>
-      </nav>
-      <button id="mobile-toggle" class="mobile-toggle">☰</button>
-    </div>
-  </header>
+    <header>
+        <h1>ToyLand World</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-  <main class="container">
-    <h2>Contact Us</h2>
-    <div class="contact-grid">
-      <div>
-        <form id="contact-form">
-          <div class="form-row"><input name="name" placeholder="Your name"></div>
-          <div class="form-row"><input name="email" placeholder="Email"></div>
-          <div class="form-row"><input name="subject" placeholder="Subject"></div>
-          <div class="form-row"><textarea name="message" placeholder="Message"></textarea></div>
-          <button class="btn" type="submit">Send Message</button>
-        </form>
-        <div style="margin-top:12px">
-          <h4>FAQ</h4>
-          <div class="faq">
-            <div class="accordion-item"><strong>Shipping times</strong><p style="display:none">We deliver within 3-7 business days.</p></div>
-            <div class="accordion-item"><strong>Returns</strong><p style="display:none">30-day returns for unopened items.</p></div>
-          </div>
-        </div>
-      </div>
-      <aside>
-        <div class="contact-info">
-          <h4>Store Location</h4>
-          <div>123 Playful Ave, Fun City</div>
-          <h4>Working Hours</h4>
-          <div>Mon-Sat 9am - 6pm</div>
-        </div>
-      </aside>
-    </div>
-  </main>
+    <section class="hero">
+        <h2>Get in Touch</h2>
+        <p>We'd love to hear from you! Reach out for any inquiries or support.</p>
+    </section>
 
-  <footer class="footer">&copy; 2026 ToyLand World</footer>
-  <script src="script.js"></script>
-  <script>attachContact();attachFAQ();</script>
+    <main style="max-width: 600px; margin: 3rem auto; padding: 0 1.5rem; flex: 1;">
+        <div class="card" style="text-align: left;">
+            <h3 style="margin-bottom: 1rem; text-align: center;">Send Us a Message</h3>
+            <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; font-weight: 500; margin-bottom: 0.5rem;">Your Name</label>
+                    <input type="text" required placeholder="Enter your name" style="width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 8px;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; font-weight: 500; margin-bottom: 0.5rem;">Email Address</label>
+                    <input type="email" required placeholder="Enter your email" style="width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 8px;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; font-weight: 500; margin-bottom: 0.5rem;">Message</label>
+                    <textarea rows="4" required placeholder="How can we help you?" style="width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 8px;"></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ToyLand World. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
