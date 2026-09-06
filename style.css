@@ -1,5 +1,3 @@
-/* General styles */
-
 body {
   background: #f8fafc;
   color: #1e293b;
@@ -59,59 +57,77 @@ nav a:hover {
 }
 
 .btn {
-  background-color: #f97316;
+  width: 100%;
+  max-width: 200px;
+  background: #f97316;
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  font-weight: 700;
-  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  display: inline-block;
+}
+
+.product-cards {
+  max-width: 1200px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   text-align: center;
-  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 180px !important;
+  object-fit: cover !important;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.btn {
+  width: 100%;
+  max-width: 200px;
+  background: #f97316;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .btn:hover {
   background-color: #ea580c;
 }
 
-.product-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 1.5rem auto 3rem auto;
-  padding: 0 1rem;
-}
-
-.card {
-  background-color: white;
-  border-radius: 16px;
-  padding: 1rem;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 0.5rem;
-}
-
-.card h3 {
+h3 {
   margin: 0.5rem 0 0.25rem 0;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: #0284c7;
 }
 
@@ -119,7 +135,7 @@ nav a:hover {
   font-size: 1.1rem;
   color: #ea580c;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 footer {
@@ -171,27 +187,4 @@ input:focus, textarea:focus {
   outline: none;
   border-color: #ea580c;
   box-shadow: 0 0 5px #ea580c;
-}
-
-.store-address {
-  max-width: 600px;
-  margin: 0 auto 3rem auto;
-  padding: 1rem;
-  background-color: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
-  text-align: center;
-}
-
-.about-card {
-  max-width: 600px;
-  margin: 2rem auto 3rem auto;
-  padding: 1.5rem;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 15px rgba(0,0,0,0.05);
-  font-size: 1.1rem;
-  color: #334155;
-  line-height: 1.6;
-  text-align: center;
 }
