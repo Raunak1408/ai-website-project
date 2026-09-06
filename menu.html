@@ -1,99 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ByteCafe Menu</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | ByteCafe</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo"><a href="index.html">ByteCafe</a></div>
-        <div class="nav-links">
+    <header>
+        <h1>ByteCafe</h1>
+        <nav>
             <a href="index.html">Home</a>
-            <a href="about.html">About</a>
+            <a href="menu.html">Menu</a>
+            <a href="about.html">Our Story</a>
             <a href="contact.html">Contact</a>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <main class="menu-container" style="padding: 2rem 4rem; max-width: 1200px; margin: auto;">
-        <h1 style="font-family: 'Playfair Display', serif; color: #11e120b; text-align: center; margin-bottom: 2rem;">Our Luxurious Coffee &amp; Treats</h1>
-        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem;">
-            <!-- Coffee & Treats Cards -->
+    <main>
+        <h2 class="section-title">Our Luxurious Coffee & Treats</h2>
+        <div class="grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=600&auto=format&fit=crop" alt="Signature Espresso" />
-                <div class="card-body">
-                    <h2 class="card-title">Signature Espresso</h2>
+                <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=600&auto=format&fit=crop" alt="Signature Espresso">
+                <div class="card-content">
+                    <h3 class="card-title">Signature Espresso</h3>
                     <p class="card-price">$4.50</p>
-                    <button class="card-button">Order Now</button>
+                    <button class="order-btn">Order Now</button>
                 </div>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&auto=format&fit=crop" alt="Silky Cappuccino" />
-                <div class="card-body">
-                    <h2 class="card-title">Silky Cappuccino</h2>
+                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&auto=format&fit=crop" alt="Silky Cappuccino">
+                <div class="card-content">
+                    <h3 class="card-title">Silky Cappuccino</h3>
                     <p class="card-price">$5.00</p>
-                    <button class="card-button">Order Now</button>
+                    <button class="order-btn">Order Now</button>
                 </div>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=600&auto=format&fit=crop" alt="Caffe Latte" />
-                <div class="card-body">
-                    <h2 class="card-title">Caffe Latte</h2>
+                <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=600&auto=format&fit=crop" alt="Caffe Latte">
+                <div class="card-content">
+                    <h3 class="card-title">Caffe Latte</h3>
                     <p class="card-price">$5.00</p>
-                    <button class="card-button">Order Now</button>
+                    <button class="order-btn">Order Now</button>
                 </div>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=600&auto=format&fit=crop" alt="Iced Caramel Macchiato" />
-                <div class="card-body">
-                    <h2 class="card-title">Iced Caramel Macchiato</h2>
+                <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=600&auto=format&fit=crop" alt="Iced Caramel Macchiato">
+                <div class="card-content">
+                    <h3 class="card-title">Iced Caramel Macchiato</h3>
                     <p class="card-price">$5.50</p>
-                    <button class="card-button">Order Now</button>
+                    <button class="order-btn">Order Now</button>
                 </div>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=600&auto=format&fit=crop" alt="Velvet Mocha" />
-                <div class="card-body">
-                    <h2 class="card-title">Velvet Mocha</h2>
+                <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=600&auto=format&fit=crop" alt="Velvet Mocha">
+                <div class="card-content">
+                    <h3 class="card-title">Velvet Mocha</h3>
                     <p class="card-price">$5.75</p>
-                    <button class="card-button">Order Now</button>
+                    <button class="order-btn">Order Now</button>
                 </div>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600&auto=format&fit=crop" alt="Nitro Cold Brew" />
-                <div class="card-body">
-                    <h2 class="card-title">Nitro Cold Brew</h2>
+                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600&auto=format&fit=crop" alt="Nitro Cold Brew">
+                <div class="card-content">
+                    <h3 class="card-title">Nitro Cold Brew</h3>
                     <p class="card-price">$6.00</p>
-                    <button class="card-button">Order Now</button>
+                    <button class="order-btn">Order Now</button>
                 </div>
             </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&auto=format&fit=crop" alt="Butter Croissant" />
-                <div class="card-body">
-                    <h2 class="card-title">Butter Croissant</h2>
-                    <p class="card-price">$3.50</p>
-                    <button class="card-button">Order Now</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1607958996333-41aef7caefcc?w=600&auto=format&fit=crop" alt="Blueberry Muffin" />
-                <div class="card-body">
-                    <h2 class="card-title">Blueberry Muffin</h2>
-                    <p class="card-price">$3.00</p>
-                    <button class="card-button">Order Now</button>
-                </div>
-            </div>
-
         </div>
     </main>
+
+    <footer>
+        <p>&copy; 2026 ByteCafe. All rights reserved.</p>
+    </footer>
 </body>
 </html>
