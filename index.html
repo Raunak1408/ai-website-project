@@ -3,35 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ByteCafe - Home</title>
+    <title>ByteCafe | Artisanal Coffeehouse</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo"><a href="index.html">ByteCafe</a></div>
-        <div class="nav-links">
+    <header>
+        <h1>ByteCafe</h1>
+        <nav>
+            <a href="index.html">Home</a>
             <a href="menu.html">Menu</a>
-            <a href="about.html">About</a>
+            <a href="about.html">Our Story</a>
             <a href="contact.html">Contact</a>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Crafted Perfection in Every Cup</h1>
-            <button class="cta-button" onclick="window.location.href='menu.html'">Explore Our Menu</button>
-        </div>
+        <h2>Crafted Perfection in Every Cup</h2>
+        <p>Experience the luxury of single-origin beans, hand-crafted brews, and freshly baked French pastries.</p>
+        <a href="menu.html" class="btn-primary">Explore Our Menu</a>
     </section>
 
     <main>
-        <section class="intro">
-            <div class="container">
-                <h2>Welcome to ByteCafe</h2>
-                <p>Discover the luxury taste of expertly crafted coffee and exquisite pastries in an ambiance that feels just right.</p>
+        <h3 class="section-title">Our Signature Specials</h3>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=600&auto=format&fit=crop" alt="Signature Espresso">
+                <div class="card-content">
+                    <div>
+                        <h4 class="card-title">Signature Espresso</h4>
+                        <p class="card-desc">Rich, full-bodied espresso with notes of dark chocolate and caramel.</p>
+                    </div>
+                    <div>
+                        <div class="card-price">$3.80</div>
+                        <a href="menu.html" class="btn-primary">Order Now</a>
+                    </div>
+                </div>
             </div>
-        </section>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop" alt="Silky Cappuccino">
+                <div class="card-content">
+                    <div>
+                        <h4 class="card-title">Silky Cappuccino</h4>
+                        <p class="card-desc">Perfect balance of steamed milk foam and intense espresso roast.</p>
+                    </div>
+                    <div>
+                        <div class="card-price">$4.50</div>
+                        <a href="menu.html" class="btn-primary">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&auto=format&fit=crop" alt="Butter Croissant">
+                <div class="card-content">
+                    <div>
+                        <h4 class="card-title">Butter Croissant</h4>
+                        <p class="card-desc">Flaky, golden-brown French pastry baked fresh every morning.</p>
+                    </div>
+                    <div>
+                        <div class="card-price">$3.50</div>
+                        <a href="menu.html" class="btn-primary">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
+    <footer>
+        <p>&copy; 2026 ByteCafe. All rights reserved.</p>
+        <p>Open Daily: 7:00 AM 	6:00 PM</p>
+    </footer>
 </body>
 </html>
