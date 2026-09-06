@@ -3,308 +3,411 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VeloxDrive | Luxury & Exotic Car Rentals</title>
+    <title>ByteCart | Online Shopping for Electronics, Fashion & More</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome & Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
-                    colors: { gold: '#d4af37', goldHover: '#b89628', darkBg: '#0b0f17', cardBg: '#151c28' }
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: '#2874f0', /* Flipkart Blue */
+                        brandYellow: '#ff9f00',
+                        brandOrange: '#fb641b',
+                        darkNav: '#172337'
+                    }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #0b0f17; color: #f3f4f6; }
-        .glass { background: rgba(21, 28, 40, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .modal-active { overflow: hidden; }
+        body { background-color: #f1f2f6; color: #212121; }
+        .cart-slide { transition: transform 0.3s ease-in-out; }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-gold selection:text-black">
+<body class="font-sans antialiased">
 
-    <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 glass border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-extrabold tracking-wider text-white flex items-center gap-2">
-                <i class="fa-solid fa-gauge-high text-gold"></i> VELOX<span class="text-gold">DRIVE</span>
+    <!-- Top Navigation Bar -->
+    <header class="bg-brand text-white sticky top-0 z-40 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+            <!-- Brand Logo -->
+            <a href="#" class="text-2xl font-black italic tracking-wide flex items-center gap-1">
+                Byte<span class="text-brandYellow">Cart</span>
+                <i class="fa-solid fa-bolt text-brandYellow text-lg"></i>
             </a>
-            <nav class="hidden md:flex gap-8 text-sm font-semibold text-gray-300">
-                <a href="#fleet" class="hover:text-gold transition">Our Fleet</a>
-                <a href="#calculator" class="hover:text-gold transition">Price Estimator</a>
-                <a href="#features" class="hover:text-gold transition">Why Us</a>
-                <a href="#reviews" class="hover:text-gold transition">Reviews</a>
-            </nav>
-            <a href="#fleet" class="bg-gold hover:bg-goldHover text-black font-bold px-5 py-2.5 rounded-full text-sm transition transform hover:-translate-y-0.5 shadow-lg shadow-gold/20">
-                Book a Supercar
-            </a>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="relative py-24 px-6 overflow-hidden bg-gradient-to-b from-darkBg via-cardBg to-darkBg">
-        <div class="max-w-7xl mx-auto text-center relative z-10">
-            <span class="text-gold font-bold text-xs uppercase tracking-widest bg-gold/10 px-4 py-1.5 rounded-full border border-gold/30">Ultimate Driving Experience</span>
-            <h1 class="text-4xl md:text-6xl font-extrabold mt-6 mb-4 tracking-tight leading-tight">
-                Drive the Extraordinary. <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-gold via-yellow-200 to-gold">No Limits, Just Thrill.</span>
-            </h1>
-            <p class="text-gray-400 max-w-2xl mx-auto text-base md:text-lg mb-8">
-                Rent world-class exotic, luxury, and sports cars delivered directly to your doorstep with instant confirmation.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#fleet" class="bg-gold hover:bg-goldHover text-black font-bold px-8 py-3.5 rounded-full text-base transition shadow-xl shadow-gold/25">Explore Fleet</a>
-                <a href="#calculator" class="glass hover:bg-white/10 text-white font-semibold px-8 py-3.5 rounded-full text-base transition">Calculate Cost</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Fleet Section -->
-    <section id="fleet" class="max-w-7xl mx-auto px-6 py-16">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
-            <div>
-                <h2 class="text-3xl font-bold text-white">Our Exotic Fleet</h2>
-                <p class="text-gray-400 text-sm mt-1">Filter by category or search your dream machine</p>
+            <!-- Search Bar -->
+            <div class="flex-1 max-w-2xl relative">
+                <input type="text" id="searchInput" oninput="filterProducts()" 
+                       placeholder="Search for products, brands and more..." 
+                       class="w-full bg-white text-gray-800 text-sm py-2.5 pl-4 pr-10 rounded-sm focus:outline-none shadow-inner">
+                <button class="absolute right-3 top-2.5 text-brand">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
             </div>
 
-            <!-- Controls: Search & Category Filter -->
-            <div class="flex flex-wrap gap-3 items-center">
-                <div class="relative">
-                    <input type="text" id="searchInput" placeholder="Search car..." oninput="filterCars()" 
-                           class="bg-cardBg text-sm text-white px-4 py-2.5 pl-10 rounded-xl border border-gray-700 focus:outline-none focus:border-gold w-48 sm:w-64">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-gray-500 text-xs"></i>
-                </div>
-                <div class="flex gap-2 bg-cardBg p-1 rounded-xl border border-gray-800">
-                    <button onclick="setCategory('all')" class="cat-btn active px-4 py-1.5 text-xs font-semibold rounded-lg text-white bg-gold text-black transition">All</button>
-                    <button onclick="setCategory('Sports')" class="cat-btn px-4 py-1.5 text-xs font-semibold rounded-lg text-gray-400 hover:text-white transition">Sports</button>
-                    <button onclick="setCategory('Luxury')" class="cat-btn px-4 py-1.5 text-xs font-semibold rounded-lg text-gray-400 hover:text-white transition">Luxury</button>
-                    <button onclick="setCategory('SUV')" class="cat-btn px-4 py-1.5 text-xs font-semibold rounded-lg text-gray-400 hover:text-white transition">SUV</button>
-                </div>
-            </div>
-        </div>
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-6 text-sm font-semibold">
+                <button onclick="toggleWishlistModal()" class="relative flex items-center gap-1 hover:text-yellow-200 transition">
+                    <i class="fa-regular fa-heart text-lg"></i>
+                    <span class="hidden md:inline">Wishlist</span>
+                    <span id="wishlistCount" class="bg-red-500 text-white text-xs px-1.5 py-0.2 rounded-full hidden">0</span>
+                </button>
 
-        <!-- Car Cards Grid -->
-        <div id="carGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Cards generated dynamically via JavaScript -->
-        </div>
-    </section>
-
-    <!-- Instant Price Estimator Widget -->
-    <section id="calculator" class="max-w-5xl mx-auto my-12 px-6">
-        <div class="glass p-8 md:p-12 rounded-3xl border border-gold/20 shadow-2xl relative overflow-hidden">
-            <h2 class="text-2xl md:text-3xl font-bold text-white mb-2 text-center">Instant Rental Estimator</h2>
-            <p class="text-gray-400 text-center text-sm mb-8">Calculate your total trip cost including insurance option</p>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div>
-                    <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Select Vehicle</label>
-                    <select id="calcCarSelect" onchange="calculatePrice()" class="w-full bg-cardBg text-white border border-gray-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold">
-                        <option value="450">Lamborghini Huracán ($450/day)</option>
-                        <option value="380">Ferrari F8 Tributo ($380/day)</option>
-                        <option value="290">Porsche 911 GT3 ($290/day)</option>
-                        <option value="350">Rolls-Royce Ghost ($350/day)</option>
-                        <option value="260">Range Rover Autobiography ($260/day)</option>
-                        <option value="220">Mercedes-AMG G63 ($220/day)</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Rental Duration (Days)</label>
-                    <input type="number" id="calcDays" value="3" min="1" max="30" oninput="calculatePrice()" 
-                           class="w-full bg-cardBg text-white border border-gray-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Insurance Package</label>
-                    <select id="calcInsurance" onchange="calculatePrice()" class="w-full bg-cardBg text-white border border-gray-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold">
-                        <option value="0">Basic Coverage (Free)</option>
-                        <option value="45">Full Protection (+ $45/day)</option>
-                        <option value="90">VIP Zero-Deductible (+ $90/day)</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Price Breakdown Banner -->
-            <div class="bg-cardBg p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-center border border-gray-800 gap-4">
-                <div>
-                    <span class="text-gray-400 text-xs uppercase font-bold block">Estimated Total Cost</span>
-                    <span id="totalPriceDisplay" class="text-3xl font-extrabold text-gold">$1,485</span>
-                    <span class="text-xs text-gray-500 ml-2">(Taxes & Fees Included)</span>
-                </div>
-                <button onclick="openBookingFromCalc()" class="bg-gold hover:bg-goldHover text-black font-bold px-6 py-3 rounded-xl text-sm transition">
-                    Reserve With This Estimate
+                <!-- Cart Button -->
+                <button onclick="toggleCart()" class="flex items-center gap-2 bg-white text-brand px-4 py-2 rounded-sm font-bold shadow hover:bg-gray-100 transition">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Cart</span>
+                    <span id="cartBadge" class="bg-brandOrange text-white text-xs px-2 py-0.5 rounded-full">0</span>
                 </button>
             </div>
         </div>
-    </section>
 
-    <!-- Booking Modal Popup -->
-    <div id="bookingModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="glass w-full max-w-lg p-8 rounded-3xl border border-gray-700 relative text-left">
-            <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+        <!-- Categories Sub-Header -->
+        <nav class="bg-darkNav text-gray-300 text-xs font-medium border-t border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 py-2.5 flex gap-6 overflow-x-auto whitespace-nowrap">
+                <button onclick="setCategory('all')" class="cat-tab font-bold text-white border-b-2 border-brandYellow pb-0.5">All Categories</button>
+                <button onclick="setCategory('electronics')" class="cat-tab hover:text-white transition">Electronics</button>
+                <button onclick="setCategory('fashion')" class="cat-tab hover:text-white transition">Fashion</button>
+                <button onclick="setCategory('gaming')" class="cat-tab hover:text-white transition">Gaming</button>
+                <button onclick="setCategory('accessories')" class="cat-tab hover:text-white transition">Accessories</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row gap-6">
+        
+        <!-- Sidebar Filters -->
+        <aside class="w-full md:w-64 bg-white p-5 rounded-sm shadow-sm h-fit">
+            <h3 class="font-bold text-gray-800 border-b pb-3 mb-4 text-base">Filters</h3>
             
-            <h3 class="text-2xl font-bold text-white mb-1">Confirm Reservation</h3>
-            <p id="modalCarName" class="text-gold font-semibold text-sm mb-6">Lamborghini Huracán EVO</p>
+            <!-- Sort By -->
+            <div class="mb-6">
+                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Sort By Price</label>
+                <select id="sortSelect" onchange="filterProducts()" class="w-full bg-gray-50 border text-sm rounded-sm p-2 text-gray-700 focus:outline-none">
+                    <option value="default">Relevance</option>
+                    <option value="low-high">Price: Low to High</option>
+                    <option value="high-low">Price: High to Low</option>
+                </select>
+            </div>
 
-            <form onsubmit="submitReservation(event)" class="space-y-4">
+            <!-- Price Range Filter -->
+            <div class="mb-6">
+                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Max Price: <span id="priceVal" class="text-brand font-bold">$2,000</span></label>
+                <input type="range" id="priceRange" min="50" max="2000" step="50" value="2000" oninput="updatePriceFilter(this.value)" class="w-full accent-brand">
+            </div>
+
+            <!-- Perks -->
+            <div class="space-y-3 text-xs text-gray-600 border-t pt-4">
+                <div class="flex items-center gap-2"><i class="fa-solid fa-truck-fast text-brand"></i> Free Shipping on $50+</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-rotate-left text-brand"></i> 7 Days Replacement</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-brand"></i> 100% Original Products</div>
+            </div>
+        </aside>
+
+        <!-- Product Grid Section -->
+        <section class="flex-1">
+            <div class="bg-white p-4 rounded-sm shadow-sm mb-4 flex justify-between items-center">
+                <h2 class="font-bold text-lg text-gray-800" id="sectionHeading">All Products</h2>
+                <span class="text-xs text-gray-500"><span id="productCount">0</span> Items found</span>
+            </div>
+
+            <!-- Grid -->
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Products dynamically rendered via JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Slide-over Cart Drawer -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 pointer-events-none">
+        <div id="cartBackdrop" onclick="toggleCart()" class="absolute inset-0 bg-black/50 opacity-0 transition-opacity pointer-events-auto hidden"></div>
+        <div id="cartContent" class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl p-6 flex flex-col justify-between transform translate-x-full cart-slide pointer-events-auto">
+            <div>
+                <div class="flex justify-between items-center border-b pb-4 mb-4">
+                    <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-brand"></i> My Shopping Cart
+                    </h3>
+                    <button onclick="toggleCart()" class="text-gray-400 hover:text-black text-xl"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div id="cartItemsContainer" class="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
+                    <!-- Cart items rendered via JS -->
+                </div>
+            </div>
+
+            <!-- Cart Footer -->
+            <div class="border-t pt-4">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-600 font-medium">Subtotal:</span>
+                    <span id="cartSubtotal" class="text-2xl font-extrabold text-gray-900">$0.00</span>
+                </div>
+                <button onclick="openCheckout()" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-3.5 rounded-sm transition shadow-lg uppercase text-sm tracking-wider">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Quick View Modal -->
+    <div id="productModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-md max-w-2xl w-full p-6 relative flex flex-col md:flex-row gap-6 shadow-2xl">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <img id="modalImg" src="" class="w-full md:w-1/2 h-64 object-contain bg-gray-50 rounded-sm">
+            <div class="flex-1 flex flex-col justify-between">
                 <div>
-                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Full Name</label>
-                    <input type="text" required placeholder="Alex Turner" class="w-full bg-cardBg border border-gray-700 text-white rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-gold">
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Email</label>
-                        <input type="email" required placeholder="alex@example.com" class="w-full bg-cardBg border border-gray-700 text-white rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-gold">
+                    <span id="modalCategory" class="text-xs font-bold uppercase text-brand">Category</span>
+                    <h3 id="modalTitle" class="text-xl font-bold text-gray-900 mt-1 mb-2">Product Title</h3>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-green-600 text-white text-xs font-bold px-2 py-0.5 rounded flex items-center gap-1">
+                            <span id="modalRating">4.5</span> <i class="fa-solid fa-star text-[10px]"></i>
+                        </span>
+                        <span class="text-xs text-gray-500">(1,240 Ratings & Reviews)</span>
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Phone</label>
-                        <input type="tel" required placeholder="+1 (555) 000-0000" class="w-full bg-cardBg border border-gray-700 text-white rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-gold">
-                    </div>
+                    <p id="modalDesc" class="text-gray-600 text-sm mb-4">Description goes here...</p>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Pickup Date</label>
-                    <input type="date" required class="w-full bg-cardBg border border-gray-700 text-white rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-gold">
+                    <div id="modalPrice" class="text-3xl font-extrabold text-gray-900 mb-4">$0.00</div>
+                    <button id="modalAddBtn" class="w-full bg-brandYellow hover:bg-yellow-500 text-black font-bold py-3 rounded-sm transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                <div class="bg-black/40 p-4 rounded-xl border border-gray-800 flex justify-between items-center text-sm mt-4">
-                    <span class="text-gray-400">Total Payable at Pickup:</span>
-                    <span id="modalPrice" class="font-bold text-gold text-base">$1,350</span>
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="fixed inset-0 z-50 hidden bg-black/60 flex items-center justify-center p-4">
+        <div class="bg-white rounded-md max-w-md w-full p-6 relative">
+            <button onclick="closeCheckout()" class="absolute top-4 right-4 text-gray-400 hover:text-black text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Complete Order</h3>
+            <form onsubmit="confirmOrder(event)" class="space-y-3">
+                <input type="text" placeholder="Full Name" required class="w-full p-2.5 text-sm border rounded-sm focus:outline-none focus:border-brand">
+                <input type="email" placeholder="Email Address" required class="w-full p-2.5 text-sm border rounded-sm focus:outline-none focus:border-brand">
+                <textarea placeholder="Delivery Address" required rows="2" class="w-full p-2.5 text-sm border rounded-sm focus:outline-none focus:border-brand"></textarea>
+                <div class="bg-gray-50 p-3 rounded text-sm flex justify-between font-bold border">
+                    <span>Amount Payable:</span>
+                    <span id="checkoutTotal" class="text-brand">$0.00</span>
                 </div>
-
-                <button type="submit" class="w-full bg-gold hover:bg-goldHover text-black font-bold py-3.5 rounded-xl transition mt-2">
-                    Confirm & Reserve Now
+                <button type="submit" class="w-full bg-brandOrange text-white font-bold py-3 rounded-sm hover:bg-orange-600 transition">
+                    Place Order (Cash On Delivery)
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="border-t border-gray-800 py-10 mt-20 bg-darkBg text-center text-gray-500 text-sm">
-        <p>&copy; 2026 VeloxDrive Luxury Rentals. All rights reserved.</p>
-    </footer>
-
-    <!-- Application JavaScript Logic -->
+    <!-- Application JavaScript Engine -->
     <script>
-        const cars = [
-            { id: 1, name: "Lamborghini Huracán EVO", category: "Sports", price: 450, hp: 640, topSpeed: "325 km/h", img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?w=800&auto=format&fit=crop" },
-            { id: 2, name: "Ferrari F8 Tributo", category: "Sports", price: 380, hp: 710, topSpeed: "340 km/h", img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&auto=format&fit=crop" },
-            { id: 3, name: "Porsche 911 GT3", category: "Sports", price: 290, hp: 502, topSpeed: "318 km/h", img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=800&auto=format&fit=crop" },
-            { id: 4, name: "Rolls-Royce Ghost", category: "Luxury", price: 350, hp: 563, topSpeed: "250 km/h", img: "https://images.unsplash.com/photo-1631295868223-63265b40d9e4?w=800&auto=format&fit=crop" },
-            { id: 5, name: "Range Rover Autobiography", category: "SUV", price: 260, hp: 523, topSpeed: "250 km/h", img: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&auto=format&fit=crop" },
-            { id: 6, name: "Mercedes-AMG G63", category: "SUV", price: 220, hp: 577, topSpeed: "240 km/h", img: "https://images.unsplash.com/photo-1520050206274-a1ae44613e6d?w=800&auto=format&fit=crop" }
+        const products = [
+            { id: 1, name: "Sony WH-1000XM5 Wireless Headphones", category: "electronics", price: 399, rating: 4.8, img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop", desc: "Industry-leading noise canceling with two processors and 8 microphones." },
+            { id: 2, name: "Apple Watch Series 9 GPS", category: "electronics", price: 429, rating: 4.7, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop", desc: "Smarter, brighter, and mightier with Double Tap gesture control." },
+            { id: 3, name: "PlayStation 5 DualSense Controller", category: "gaming", price: 69, rating: 4.9, img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=600&auto=format&fit=crop", desc: "Discover a deeper, highly immersive gaming experience with haptic feedback." },
+            { id: 4, name: "Nike Air Max 270 Sneakers", category: "fashion", price: 150, rating: 4.5, img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop", desc: "Boasts Nike's biggest heel Air unit yet for a super-soft ride." },
+            { id: 5, name: "Mechanical RGB Gaming Keyboard", category: "gaming", price: 119, rating: 4.6, img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&auto=format&fit=crop", desc: "Tactile mechanical switches with customizable per-key RGB backlighting." },
+            { id: 6, name: "Minimalist Leather Backpack", category: "accessories", price: 89, rating: 4.4, img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop", desc: "Premium water-resistant leather crafted for everyday commute." },
+            { id: 7, name: "Ray-Ban Aviator Classic Sunglasses", category: "fashion", price: 163, rating: 4.7, img: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&auto=format&fit=crop", desc: "Timeless style with crystal lenses providing 100% UV protection." },
+            { id: 8, name: "Logitech MX Master 3S Wireless Mouse", category: "accessories", price: 99, rating: 4.9, img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=600&auto=format&fit=crop", desc: "Quiet clicks and 8K DPI tracking on any surface including glass." }
         ];
 
-        let currentCategory = 'all';
+        let cart = [];
+        let wishlist = [];
+        let currentCat = 'all';
 
-        function renderCars(data) {
-            const grid = document.getElementById('carGrid');
+        function renderProducts(data) {
+            const grid = document.getElementById('productGrid');
+            document.getElementById('productCount').innerText = data.length;
             grid.innerHTML = '';
 
-            if(data.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500">No vehicles match your search query.</div>`;
+            if (data.length === 0) {
+                grid.innerHTML = `<div class="col-span-full bg-white p-12 text-center text-gray-500 rounded-sm">No products found.</div>`;
                 return;
             }
 
-            data.forEach(car => {
+            data.forEach(p => {
+                const isFav = wishlist.includes(p.id);
                 grid.innerHTML += `
-                    <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-gold/40 transition duration-300 group flex flex-col justify-between">
-                        <div>
-                            <div class="relative h-52 overflow-hidden">
-                                <img src="${car.img}" alt="${car.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                <span class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-gold font-bold text-xs px-3 py-1 rounded-full border border-gold/30">${car.category}</span>
+                    <div class="bg-white rounded-sm p-4 border border-gray-100 hover:shadow-lg transition flex flex-col justify-between relative group">
+                        <button onclick="toggleWishlist(${p.id})" class="absolute top-3 right-3 z-10 text-gray-300 hover:text-red-500 text-lg ${isFav ? 'text-red-500' : ''}">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                        <div onclick="openProductModal(${p.id})" class="cursor-pointer">
+                            <img src="${p.img}" alt="${p.name}" class="w-full h-44 object-contain mb-3 group-hover:scale-105 transition">
+                            <h3 class="text-sm font-semibold text-gray-800 line-clamp-2 hover:text-brand mb-1">${p.name}</h3>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="bg-green-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded flex items-center gap-0.5">
+                                    ${p.rating} <i class="fa-solid fa-star text-[8px]"></i>
+                                </span>
                             </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-white mb-2">${car.name}</h3>
-                                <div class="flex justify-between text-xs text-gray-400 py-3 border-y border-gray-800 mb-4">
-                                    <span><i class="fa-solid fa-horse-head text-gold mr-1"></i> ${car.hp} HP</span>
-                                    <span><i class="fa-solid fa-gauge text-gold mr-1"></i> ${car.topSpeed}</span>
-                                    <span><i class="fa-solid fa-shield-halved text-gold mr-1"></i> Full Insurance</span>
-                                </div>
-                            </div>
+                            <div class="text-lg font-extrabold text-gray-900">$${p.price}</div>
                         </div>
-                        <div class="px-6 pb-6 flex justify-between items-center">
-                            <div>
-                                <span class="text-2xl font-extrabold text-gold">$${car.price}</span>
-                                <span class="text-xs text-gray-500"> / day</span>
-                            </div>
-                            <button onclick="openModal('${car.name}', ${car.price})" class="bg-gold hover:bg-goldHover text-black font-bold px-4 py-2 rounded-xl text-xs transition">
-                                Book Now
-                            </button>
-                        </div>
+                        <button onclick="addToCart(${p.id})" class="w-full mt-3 bg-brandYellow hover:bg-yellow-500 text-black font-bold py-2 rounded-sm text-xs transition flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
                     </div>
                 `;
             });
         }
 
-        function filterCars() {
+        function filterProducts() {
             const query = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = cars.filter(car => {
-                const matchesCat = currentCategory === 'all' || car.category === currentCategory;
-                const matchesSearch = car.name.toLowerCase().includes(query);
-                return matchesCat && matchesSearch;
+            const sort = document.getElementById('sortSelect').value;
+            const maxPrice = parseFloat(document.getElementById('priceRange').value);
+
+            let filtered = products.filter(p => {
+                const matchCat = currentCat === 'all' || p.category === currentCat;
+                const matchSearch = p.name.toLowerCase().includes(query);
+                const matchPrice = p.price <= maxPrice;
+                return matchCat && matchSearch && matchPrice;
             });
-            renderCars(filtered);
+
+            if (sort === 'low-high') filtered.sort((a, b) => a.price - b.price);
+            if (sort === 'high-low') filtered.sort((a, b) => b.price - a.price);
+
+            renderProducts(filtered);
         }
 
         function setCategory(cat) {
-            currentCategory = cat;
-            document.querySelectorAll('.cat-btn').forEach(btn => {
-                if(btn.innerText.toLowerCase() === cat.toLowerCase() || (cat === 'all' && btn.innerText === 'All')) {
-                    btn.className = "cat-btn active px-4 py-1.5 text-xs font-semibold rounded-lg text-black bg-gold transition";
-                } else {
-                    btn.className = "cat-btn px-4 py-1.5 text-xs font-semibold rounded-lg text-gray-400 hover:text-white transition";
-                }
+            currentCat = cat;
+            document.querySelectorAll('.cat-tab').forEach(b => {
+                b.className = "cat-tab hover:text-white transition";
             });
-            filterCars();
+            event.target.className = "cat-tab font-bold text-white border-b-2 border-brandYellow pb-0.5";
+            document.getElementById('sectionHeading').innerText = cat === 'all' ? 'All Products' : cat.toUpperCase();
+            filterProducts();
         }
 
-        function calculatePrice() {
-            const daily = parseFloat(document.getElementById('calcCarSelect').value);
-            const days = parseInt(document.getElementById('calcDays').value) || 1;
-            const insurance = parseFloat(document.getElementById('calcInsurance').value);
+        function updatePriceFilter(val) {
+            document.getElementById('priceVal').innerText = `$${val}`;
+            filterProducts();
+        }
+
+        function addToCart(id) {
+            const existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.qty++;
+            } else {
+                const prod = products.find(p => p.id === id);
+                cart.push({ ...prod, qty: 1 });
+            }
+            updateCartUI();
+            toggleCart(true);
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cartItemsContainer');
+            const badge = document.getElementById('cartBadge');
+            const subtotalEl = document.getElementById('cartSubtotal');
             
-            const total = (daily + insurance) * days;
-            document.getElementById('totalPriceDisplay').innerText = `$${total.toLocaleString()}`;
+            container.innerHTML = '';
+            let total = 0;
+            let count = 0;
+
+            cart.forEach(item => {
+                total += item.price * item.qty;
+                count += item.qty;
+                container.innerHTML += `
+                    <div class="flex items-center gap-3 border-b pb-3">
+                        <img src="${item.img}" class="w-14 h-14 object-contain bg-gray-50 p-1 border">
+                        <div class="flex-1">
+                            <h4 class="text-xs font-semibold line-clamp-1">${item.name}</h4>
+                            <div class="text-xs font-bold text-gray-800 mt-1">$${item.price}</div>
+                            <div class="flex items-center gap-2 mt-1">
+                                <button onclick="changeQty(${item.id}, -1)" class="w-5 h-5 bg-gray-200 text-xs font-bold rounded">-</button>
+                                <span class="text-xs font-bold">${item.qty}</span>
+                                <button onclick="changeQty(${item.id}, 1)" class="w-5 h-5 bg-gray-200 text-xs font-bold rounded">+</button>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="text-red-500 text-xs"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `;
+            });
+
+            badge.innerText = count;
+            subtotalEl.innerText = `$${total.toFixed(2)}`;
         }
 
-        function openModal(name, price) {
-            document.getElementById('modalCarName').innerText = name;
-            document.getElementById('modalPrice').innerText = `$${(price * 3).toLocaleString()} (3 Days Default)`;
-            document.getElementById('bookingModal').classList.remove('hidden');
-            document.body.classList.add('modal-active');
+        function changeQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+            }
+            updateCartUI();
         }
 
-        function openBookingFromCalc() {
-            const select = document.getElementById('calcCarSelect');
-            const name = select.options[select.selectedIndex].text.split(' ($')[0];
-            const price = document.getElementById('totalPriceDisplay').innerText;
-            
-            document.getElementById('modalCarName').innerText = name;
-            document.getElementById('modalPrice').innerText = price;
-            document.getElementById('bookingModal').classList.remove('hidden');
-            document.body.classList.add('modal-active');
+        function removeFromCart(id) {
+            cart = cart.filter(i => i.id !== id);
+            updateCartUI();
         }
 
-        function closeModal() {
-            document.getElementById('bookingModal').classList.add('hidden');
-            document.body.classList.remove('modal-active');
+        function toggleCart(forceOpen = false) {
+            const drawer = document.getElementById('cartContent');
+            const backdrop = document.getElementById('cartBackdrop');
+            if (forceOpen || drawer.classList.contains('translate-x-full')) {
+                drawer.classList.remove('translate-x-full');
+                backdrop.classList.remove('hidden');
+                setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
+            } else {
+                drawer.classList.add('translate-x-full');
+                backdrop.classList.add('opacity-0');
+                setTimeout(() => backdrop.classList.add('hidden'), 300);
+            }
         }
 
-        function submitReservation(e) {
+        function openProductModal(id) {
+            const p = products.find(x => x.id === id);
+            document.getElementById('modalImg').src = p.img;
+            document.getElementById('modalTitle').innerText = p.name;
+            document.getElementById('modalCategory').innerText = p.category;
+            document.getElementById('modalDesc').innerText = p.desc;
+            document.getElementById('modalRating').innerText = p.rating;
+            document.getElementById('modalPrice').innerText = `$${p.price}`;
+            document.getElementById('modalAddBtn').onclick = () => { addToCart(p.id); closeProductModal(); };
+            document.getElementById('productModal').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').classList.add('hidden');
+        }
+
+        function toggleWishlist(id) {
+            if (wishlist.includes(id)) {
+                wishlist = wishlist.filter(x => x !== id);
+            } else {
+                wishlist.push(id);
+            }
+            document.getElementById('wishlistCount').innerText = wishlist.length;
+            document.getElementById('wishlistCount').classList.toggle('hidden', wishlist.length === 0);
+            filterProducts();
+        }
+
+        function openCheckout() {
+            if (cart.length === 0) return alert('Your cart is empty!');
+            const subtotal = document.getElementById('cartSubtotal').innerText;
+            document.getElementById('checkoutTotal').innerText = subtotal;
+            toggleCart();
+            document.getElementById('checkoutModal').classList.remove('hidden');
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').classList.add('hidden');
+        }
+
+        function confirmOrder(e) {
             e.preventDefault();
-            alert('🎉 Reservation Request Received! Our VIP Concierge team will contact you shortly.');
-            closeModal();
+            alert('🎉 Order Placed Successfully! Thank you for shopping with ByteCart.');
+            cart = [];
+            updateCartUI();
+            closeCheckout();
         }
 
         // Initialize App
-        renderCars(cars);
-        calculatePrice();
+        renderProducts(products);
     </script>
 </body>
 </html>
