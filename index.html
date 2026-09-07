@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VERDANT HAVEN | Premium Botanical Nursery</title>
+    <title>KOLIUS HAVEN | Premier Coleus Botanical Nursery</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,17 +12,17 @@
             theme: {
                 extend: {
                     fontFamily: { heading: ['Playfair Display', 'serif'], sans: ['Plus Jakarta Sans', 'sans-serif'] },
-                    colors: { leafDark: '#0D1F12', leafCard: '#132819', leafBorder: '#23422A', leafAccent: '#A3E635', leafSoft: '#ECFDF5' }
+                    colors: { leafDark: '#0D1F12', leafCard: '#132819', leafBorder: '#23422A', leafAccent: '#A3E635', coleusMagenta: '#E11D48' }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-leafDark text-slate-100 font-sans min-h-screen flex flex-col selection:bg-leafAccent selection:text-black">
+<body class="bg-leafDark text-slate-100 font-sans min-h-screen flex flex-col selection:bg-coleusMagenta selection:text-white">
 
     <!-- Top Announcement Bar -->
-    <div class="bg-gradient-to-r from-emerald-950 via-green-900 to-emerald-950 text-leafAccent text-[11px] font-extrabold uppercase py-2 tracking-widest text-center shadow-md">
-        FREE INSURED EXPRESS PLANT SHIPPING & 30-DAY HAPPY PLANT GUARANTEE 
+    <div class="bg-gradient-to-r from-pink-950 via-emerald-950 to-pink-950 text-leafAccent text-[11px] font-extrabold uppercase py-2 tracking-widest text-center shadow-md">
+        33F SPECIALIST COLEUS NURSERY: OVER 50 COLORED CULTIVARS & FREE EXPRESS INSURED SHIPPING 33F
     </div>
 
     <!-- Header Navigation -->
@@ -30,24 +30,24 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
             <!-- Logo -->
             <a href="#" onclick="showTab('home')" class="flex items-center gap-2">
-                <i class="fa-solid fa-leaf text-leafAccent text-2xl sm:text-3xl"></i>
-                <span class="font-heading text-2xl sm:text-3xl font-extrabold tracking-widest text-white">VERDANT<span class="text-leafAccent">HAVEN</span></span>
+                <i class="fa-solid fa-leaf text-coleusMagenta text-2xl sm:text-3xl"></i>
+                <span class="font-heading text-2xl sm:text-3xl font-extrabold tracking-widest text-white">KOLIUS<span class="text-leafAccent">HAVEN</span></span>
             </a>
 
             <!-- Desktop Nav Links -->
             <nav class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-widest uppercase">
-                <button onclick="showTab('home')" id="nav-home" class="nav-btn text-leafAccent border-b-2 border-leafAccent pb-1">Boutique</button>
-                <button onclick="showTab('collection')" id="nav-collection" class="nav-btn text-slate-400 hover:text-white transition">All 50 Plants</button>
-                <button onclick="showTab('categories')" id="nav-categories" class="nav-btn text-slate-400 hover:text-white transition">Categories</button>
-                <button onclick="showTab('about')" id="nav-about" class="nav-btn text-slate-400 hover:text-white transition">Eco Mission</button>
-                <button onclick="showTab('contact')" id="nav-contact" class="nav-btn text-slate-400 hover:text-white transition">Plant Doctor</button>
+                <button onclick="showTab('home')" id="nav-home" class="nav-btn text-leafAccent border-b-2 border-leafAccent pb-1">Home</button>
+                <button onclick="showTab('collection')" id="nav-collection" class="nav-btn text-slate-400 hover:text-white transition">All 50 Coleus</button>
+                <button onclick="showTab('categories')" id="nav-categories" class="nav-btn text-slate-400 hover:text-white transition">Coleus Types</button>
+                <button onclick="showTab('about')" id="nav-about" class="nav-btn text-slate-400 hover:text-white transition">Care & Info</button>
+                <button onclick="showTab('contact')" id="nav-contact" class="nav-btn text-slate-400 hover:text-white transition">Coleus Expert</button>
             </nav>
 
             <!-- Actions -->
             <div class="flex items-center gap-4">
                 <button onclick="toggleWishlist()" class="relative text-slate-300 hover:text-leafAccent text-lg transition hidden sm:block">
                     <i class="fa-regular fa-heart"></i>
-                    <span id="wishlistBadge" class="absolute -top-2 -right-2 bg-leafAccent text-black font-bold text-[9px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    <span id="wishlistBadge" class="absolute -top-2 -right-2 bg-coleusMagenta text-white font-bold text-[9px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
                 </button>
                 
                 <button onclick="toggleCart()" class="relative bg-leafCard border border-leafBorder hover:border-leafAccent text-white font-bold px-4 py-2 rounded-full text-xs transition flex items-center gap-2">
@@ -65,34 +65,34 @@
         <section class="relative bg-gradient-to-b from-black via-leafDark to-leafDark border-b border-leafBorder py-16 sm:py-24 px-6 overflow-hidden">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="z-10">
-                    <span class="bg-leafCard text-leafAccent text-xs font-bold px-4 py-1.5 rounded-full border border-leafBorder uppercase tracking-widest inline-block mb-4">Certified Organic Botanical Nursery</span>
+                    <span class="bg-leafCard text-coleusMagenta text-xs font-bold px-4 py-1.5 rounded-full border border-leafBorder uppercase tracking-widest inline-block mb-4">Dedicated Coleus (Kolius) Boutique</span>
                     <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase leading-tight tracking-tight mb-6">
-                        BRING NATURE <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-leafAccent via-emerald-200 to-leafAccent">INTO YOUR HOME</span>
+                        EXPLORE THE <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-coleusMagenta via-pink-400 to-leafAccent">RAINBOW OF COLEUS</span>
                     </h1>
                     <p class="text-slate-400 text-sm sm:text-base mb-8 max-w-lg leading-relaxed">
-                        Explore 50 distinct indoor and outdoor plant species cultivated with peat-free soil and organic care. Sustainable greenery delivered straight to your door.
+                        Discover 50 breathtaking Coleus cultivars featuring vivid magenta, neon lime, velvet crimson, and deep mahogany leaf patterns for indoors and shade gardens.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <button onclick="showTab('collection')" class="bg-gradient-to-r from-leafAccent to-emerald-500 hover:from-emerald-400 hover:to-leafAccent text-black font-extrabold text-xs uppercase tracking-widest px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5">
-                            Browse 50 Categories
+                        <button onclick="showTab('collection')" class="bg-gradient-to-r from-coleusMagenta to-pink-600 hover:from-pink-500 hover:to-coleusMagenta text-white font-extrabold text-xs uppercase tracking-widest px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5">
+                            Browse All 50 Varieties
                         </button>
                         <button onclick="showTab('categories')" class="bg-leafCard hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-xl border border-leafBorder transition">
-                            Explore Collections
+                            View Categories
                         </button>
                     </div>
                 </div>
 
                 <!-- Showcase Image -->
                 <div class="relative flex justify-center">
-                    <div class="absolute w-80 h-80 bg-leafAccent/10 rounded-full blur-3xl"></div>
+                    <div class="absolute w-80 h-80 bg-coleusMagenta/20 rounded-full blur-3xl"></div>
                     <div class="relative bg-leafCard p-4 rounded-3xl border border-leafBorder shadow-2xl max-w-md w-full">
-                        <img id="heroImage" src="https://images.pexels.com/photos/3097770/pexels-photo-3097770.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hero Plant" class="rounded-2xl h-80 w-full object-cover">
+                        <img id="heroImage" src="https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=800&q=80" alt="Coleus Main Street" class="rounded-2xl h-80 w-full object-cover">
                         <div class="mt-4 flex justify-between items-center px-2">
                             <div>
-                                <p class="text-[10px] text-leafAccent font-bold uppercase tracking-widest">TROPICAL FOLIAGE</p>
-                                <h3 class="font-heading text-lg font-bold text-white">Swiss Cheese Plant (Monstera Deliciosa)</h3>
+                                <p class="text-[10px] text-coleusMagenta font-bold uppercase tracking-widest">FEATURED CULTIVAR</p>
+                                <h3 class="font-heading text-lg font-bold text-white">Coleus 'Main Street Sunset'</h3>
                             </div>
-                            <span class="font-heading text-leafAccent font-bold text-lg">$45.00</span>
+                            <span class="font-heading text-leafAccent font-bold text-lg">$18.00</span>
                         </div>
                     </div>
                 </div>
@@ -102,16 +102,15 @@
         <!-- Quick Categories Strip -->
         <section class="bg-black/50 border-b border-leafBorder py-8 px-6">
             <div class="max-w-7xl mx-auto">
-                <p class="text-center text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-6">POPULAR BOTANICAL SPECIES</p>
+                <p class="text-center text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-6">COLEUS SPECIALTY TYPES</p>
                 <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-10 text-slate-400 font-heading text-sm sm:text-base font-bold">
-                    <button onclick="filterByCategory('Monstera')" class="hover:text-leafAccent transition">MONSTERA</button>
-                    <button onclick="filterByCategory('Ficus')" class="hover:text-leafAccent transition">FICUS</button>
-                    <button onclick="filterByCategory('Sansevieria')" class="hover:text-leafAccent transition">SANSEVIERIA</button>
-                    <button onclick="filterByCategory('Succulent')" class="hover:text-leafAccent transition">SUCCULENTS</button>
-                    <button onclick="filterByCategory('Fern')" class="hover:text-leafAccent transition">FERNS</button>
-                    <button onclick="filterByCategory('Orchid')" class="hover:text-leafAccent transition">ORCHIDS</button>
-                    <button onclick="filterByCategory('Palm')" class="hover:text-leafAccent transition">PALMS</button>
-                    <button onclick="filterByCategory('Herb')" class="hover:text-leafAccent transition">HERBS</button>
+                    <button onclick="filterByCategory('Sun Coleus')" class="hover:text-coleusMagenta transition">SUN TOLERANT</button>
+                    <button onclick="filterByCategory('Shade Coleus')" class="hover:text-coleusMagenta transition">SHADE LOVERS</button>
+                    <button onclick="filterByCategory('Variegated')" class="hover:text-coleusMagenta transition">VARIEGATED</button>
+                    <button onclick="filterByCategory('Trailing')" class="hover:text-coleusMagenta transition">TRAILING</button>
+                    <button onclick="filterByCategory('Velvet')" class="hover:text-coleusMagenta transition">DARK VELVET</button>
+                    <button onclick="filterByCategory('Giant')" class="hover:text-coleusMagenta transition">GIANT LEAF</button>
+                    <button onclick="filterByCategory('Micro')" class="hover:text-coleusMagenta transition">MICRO / MINI</button>
                 </div>
             </div>
         </section>
@@ -120,11 +119,11 @@
         <section class="max-w-7xl mx-auto px-6 py-16">
             <div class="flex flex-col sm:flex-row justify-between sm:items-end mb-10 gap-4">
                 <div>
-                    <span class="text-leafAccent text-xs font-extrabold uppercase tracking-widest">Curated Plants</span>
-                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold uppercase mt-1">FEATURED GREENERY</h2>
+                    <span class="text-coleusMagenta text-xs font-extrabold uppercase tracking-widest">Handpicked Favorites</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold uppercase mt-1">POPULAR COLEUS SPECIES</h2>
                 </div>
                 <button onclick="showTab('collection')" class="text-leafAccent text-xs font-extrabold uppercase tracking-widest hover:underline flex items-center gap-2">
-                    View All 50 Plants <i class="fa-solid fa-arrow-right"></i>
+                    View All 50 Coleus <i class="fa-solid fa-arrow-right"></i>
                 </button>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="homeFeaturedGrid"></div>
@@ -135,18 +134,18 @@
     <main id="tab-collection" class="tab-content hidden max-w-7xl mx-auto px-4 sm:px-6 py-12 flex-1 w-full">
         <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 gap-6 border-b border-leafBorder pb-8">
             <div>
-                <h1 class="font-heading text-3xl sm:text-4xl font-extrabold uppercase">BOTANICAL CATALOG</h1>
-                <p class="text-slate-400 text-xs uppercase tracking-widest mt-1">Explore 50 Organic Plant Species & Categories</p>
+                <h1 class="font-heading text-3xl sm:text-4xl font-extrabold uppercase">COLEUS COLLECTION</h1>
+                <p class="text-slate-400 text-xs uppercase tracking-widest mt-1">50 Unique Coleus Cultivars & Foliage Patterns</p>
             </div>
 
             <!-- Controls (Search + Sort) -->
             <div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
                 <div class="relative flex-1 sm:w-64">
                     <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-500 text-xs"></i>
-                    <input type="text" id="searchInput" oninput="applyFilters()" placeholder="Search Monstera, Fern, Aloe, Cactus..." class="w-full bg-leafCard border border-leafBorder rounded-xl pl-9 pr-4 py-2.5 text-xs text-white focus:outline-none focus:border-leafAccent">
+                    <input type="text" id="searchInput" oninput="applyFilters()" placeholder="Search Wasabi, Dragon, Sunset, Velvet..." class="w-full bg-leafCard border border-leafBorder rounded-xl pl-9 pr-4 py-2.5 text-xs text-white focus:outline-none focus:border-coleusMagenta">
                 </div>
 
-                <select id="sortSelect" onchange="applyFilters()" class="bg-leafCard border border-leafBorder text-slate-300 text-xs rounded-xl px-4 py-2.5 focus:outline-none focus:border-leafAccent">
+                <select id="sortSelect" onchange="applyFilters()" class="bg-leafCard border border-leafBorder text-slate-300 text-xs rounded-xl px-4 py-2.5 focus:outline-none focus:border-coleusMagenta">
                     <option value="default">Sort By: Featured</option>
                     <option value="low">Price: Low to High</option>
                     <option value="high">Price: High to Low</option>
@@ -165,61 +164,61 @@
     <!-- PAGE 3: CATEGORIES -->
     <main id="tab-categories" class="tab-content hidden max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
         <div class="text-center max-w-2xl mx-auto mb-12">
-            <span class="text-leafAccent text-xs font-bold uppercase tracking-widest">Organized Collections</span>
-            <h1 class="font-heading text-4xl font-extrabold uppercase mt-1 mb-3">50 PLANT CATEGORIES</h1>
-            <p class="text-slate-400 text-xs leading-relaxed uppercase tracking-wider">Categorized by light requirements, species families, and interior suitability.</p>
+            <span class="text-coleusMagenta text-xs font-bold uppercase tracking-widest">Classification</span>
+            <h1 class="font-heading text-4xl font-extrabold uppercase mt-1 mb-3">COLEUS CATEGORIES</h1>
+            <p class="text-slate-400 text-xs leading-relaxed uppercase tracking-wider">Grouped by light tolerance, growth habit, leaf size, and pigment contrast.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="categoryCardsGrid"></div>
     </main>
 
-    <!-- PAGE 4: ECO MISSION / ABOUT -->
+    <!-- PAGE 4: CARE & INFO -->
     <main id="tab-about" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 text-center flex-1">
-        <span class="text-leafAccent text-xs font-bold uppercase tracking-widest">Sustainably Grown</span>
-        <h1 class="font-heading text-4xl font-extrabold uppercase mt-2 mb-6">PEAT-FREE & SUSTAINABLE NURSERY</h1>
+        <span class="text-coleusMagenta text-xs font-bold uppercase tracking-widest">Expert Cultivation</span>
+        <h1 class="font-heading text-4xl font-extrabold uppercase mt-2 mb-6">HOW TO THRIVE WITH COLEUS</h1>
         <p class="text-slate-400 text-sm leading-relaxed mb-12">
-            At Verdant Haven, every plant is nurtured using 100% peat-free soil mixes, organic fertilizer, and zero harmful chemicals. Our packaging is fully recyclable and biodegradable.
+            Coleus (Plectranthus scutellarioides) are renowned for their extraordinary leaf variations. With proper pinching, well-draining moist soil, and soft ambient lighting, your Coleus plants will display intense magenta, lime, burgundy, and golden shades year-round.
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
             <div class="bg-leafCard p-6 rounded-2xl border border-leafBorder">
-                <i class="fa-solid fa-seedling text-3xl text-leafAccent mb-3"></i>
-                <h3 class="font-heading font-bold text-base mb-1 uppercase">100% Peat-Free</h3>
-                <p class="text-xs text-slate-400">Protecting natural peatlands through coconut coir and organic compost blends.</p>
+                <i class="fa-solid fa-sun text-3xl text-coleusMagenta mb-3"></i>
+                <h3 class="font-heading font-bold text-base mb-1 uppercase">Light Control</h3>
+                <p class="text-xs text-slate-400">Sun Coleus handle direct rays; shade varieties prefer filtered morning light for vibrant leaves.</p>
             </div>
             <div class="bg-leafCard p-6 rounded-2xl border border-leafBorder">
-                <i class="fa-solid fa-box-open text-3xl text-leafAccent mb-3"></i>
-                <h3 class="font-heading font-bold text-base mb-1 uppercase">Eco Packaging</h3>
-                <p class="text-xs text-slate-400">Plastic-free, fully recyclable straw and cardboard shipping boxes.</p>
+                <i class="fa-solid fa-droplet text-3xl text-leafAccent mb-3"></i>
+                <h3 class="font-heading font-bold text-base mb-1 uppercase">Moisture Balance</h3>
+                <p class="text-xs text-slate-400">Keep soil consistently damp, never soggy. Pinch flower spikes early to maintain foliage lushness.</p>
             </div>
             <div class="bg-leafCard p-6 rounded-2xl border border-leafBorder">
-                <i class="fa-solid fa-heart-pulse text-3xl text-leafAccent mb-3"></i>
-                <h3 class="font-heading font-bold text-base mb-1 uppercase">30-Day Guarantee</h3>
-                <p class="text-xs text-slate-400">Free replacement or expert advice if your plant suffers within 30 days.</p>
+                <i class="fa-solid fa-scissors text-3xl text-pink-400 mb-3"></i>
+                <h3 class="font-heading font-bold text-base mb-1 uppercase">Pinching & Pruning</h3>
+                <p class="text-xs text-slate-400">Pinch off leaf stem tips regularly to encourage bushy, dense growth and prevent leggy stems.</p>
             </div>
         </div>
     </main>
 
-    <!-- PAGE 5: PLANT DOCTOR / CONTACT -->
+    <!-- PAGE 5: COLEUS EXPERT / CONTACT -->
     <main id="tab-contact" class="tab-content hidden max-w-xl mx-auto px-6 py-16 flex-1 w-full">
         <div class="bg-leafCard p-8 rounded-3xl border border-leafBorder shadow-2xl">
-            <h1 class="font-heading text-3xl font-extrabold uppercase text-center mb-2">PLANT DOCTOR CONCIERGE</h1>
-            <p class="text-xs text-slate-400 text-center uppercase tracking-widest mb-8">Get expert horticulturist advice on care, watering, or pests</p>
+            <h1 class="font-heading text-3xl font-extrabold uppercase text-center mb-2">COLEUS SPECIALIST ADVICE</h1>
+            <p class="text-xs text-slate-400 text-center uppercase tracking-widest mb-8">Consult with our expert Coleus botanist on propagation or color enhancement</p>
 
-            <form onsubmit="event.preventDefault(); alert('Inquiry submitted! Our Horticulturist will email you shortly.');" class="space-y-4">
+            <form onsubmit="event.preventDefault(); alert('Query submitted! Our Coleus specialist will contact you shortly.');" class="space-y-4">
                 <div>
                     <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Your Name</label>
-                    <input type="text" required placeholder="John Doe" class="w-full bg-leafDark border border-leafBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-leafAccent">
+                    <input type="text" required placeholder="Jane Doe" class="w-full bg-leafDark border border-leafBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-coleusMagenta">
                 </div>
                 <div>
                     <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Email Address</label>
-                    <input type="email" required placeholder="john@domain.com" class="w-full bg-leafDark border border-leafBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-leafAccent">
+                    <input type="email" required placeholder="jane@domain.com" class="w-full bg-leafDark border border-leafBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-coleusMagenta">
                 </div>
                 <div>
-                    <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Plant Issue / Question</label>
-                    <textarea rows="4" required placeholder="Describe your plant species and symptoms..." class="w-full bg-leafDark border border-leafBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-leafAccent"></textarea>
+                    <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Coleus Variety / Care Question</label>
+                    <textarea rows="4" required placeholder="Specify your Coleus cultivar and your question..." class="w-full bg-leafDark border border-leafBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-coleusMagenta"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-gradient-to-r from-leafAccent to-emerald-500 text-black font-extrabold text-xs uppercase tracking-widest py-4 rounded-xl transition hover:opacity-90">Send to Horticulturist</button>
+                <button type="submit" class="w-full bg-gradient-to-r from-coleusMagenta to-pink-600 text-white font-extrabold text-xs uppercase tracking-widest py-4 rounded-xl transition hover:opacity-90">Submit To Specialist</button>
             </form>
         </div>
     </main>
@@ -238,7 +237,7 @@
         <div id="wishlistContent" class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-leafCard border-l border-leafBorder p-6 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 pointer-events-auto">
             <div>
                 <div class="flex justify-between items-center border-b border-leafBorder pb-4 mb-4">
-                    <h3 class="font-heading text-xl font-bold uppercase text-white">SAVED PLANTS</h3>
+                    <h3 class="font-heading text-xl font-bold uppercase text-white">SAVED COLEUS VARIETIES</h3>
                     <button onclick="toggleWishlist()" class="text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
                 </div>
                 <div id="wishlistItems" class="space-y-4 max-h-[70vh] overflow-y-auto"></div>
@@ -252,7 +251,7 @@
         <div id="cartContent" class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-leafCard border-l border-leafBorder p-6 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 pointer-events-auto">
             <div>
                 <div class="flex justify-between items-center border-b border-leafBorder pb-4 mb-4">
-                    <h3 class="font-heading text-xl font-bold uppercase text-white">YOUR GREEN BAG</h3>
+                    <h3 class="font-heading text-xl font-bold uppercase text-white">YOUR PLANT BAG</h3>
                     <button onclick="toggleCart()" class="text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
                 </div>
                 <div id="cartItems" class="space-y-4 max-h-[60vh] overflow-y-auto"></div>
@@ -262,81 +261,82 @@
                     <span class="text-xs font-bold uppercase text-slate-400">Total:</span>
                     <span id="cartTotal" class="font-heading text-2xl font-bold text-leafAccent">$0.00</span>
                 </div>
-                <button onclick="alert('Order Placed Successfully!')" class="w-full bg-gradient-to-r from-leafAccent to-emerald-500 text-black font-extrabold text-xs uppercase tracking-widest py-4 rounded-xl shadow transition hover:opacity-90">Checkout Now</button>
+                <button onclick="alert('Coleus Order Placed Successfully!')" class="w-full bg-gradient-to-r from-coleusMagenta to-pink-600 text-white font-extrabold text-xs uppercase tracking-widest py-4 rounded-xl shadow transition hover:opacity-90">Checkout Now</button>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
     <footer class="bg-black border-t border-leafBorder py-12 mt-16 text-center text-xs text-slate-500">
-        <div class="font-heading text-2xl font-bold text-white mb-2 tracking-widest">VERDANT<span class="text-leafAccent">HAVEN</span></div>
-        <p class="mb-4 text-slate-400">Certified Organic Botanical Nursery & Plant Boutique.</p>
-        <p>9 2026 Verdant Haven Inc. All rights reserved.</p>
+        <div class="font-heading text-2xl font-bold text-white mb-2 tracking-widest">KOLIUS<span class="text-leafAccent">HAVEN</span></div>
+        <p class="mb-4 text-slate-400">Specialist Nursery dedicated strictly to Coleus Cultivars.</p>
+        <p> copy; 2026 Kolius Haven Nursery. All rights reserved.</p>
     </footer>
 
     <script>
-        const defaultImg = "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600";
+        // High quality botanical Coleus fallback image
+        const defaultImg = "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80";
         function handleImgError(img) { img.onerror = null; img.src = defaultImg; }
 
-        // 50 Plant Species
+        // 50 Specific Coleus Cultivars paired with matching accurate stock images
         const plants = [
-            { id: 1, category: "Monstera", name: "Swiss Cheese Plant (Monstera Deliciosa)", price: 45, light: "Bright Indirect", img: "https://images.pexels.com/photos/3097770/pexels-photo-3097770.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Iconic split leaves, fast growing indoor tropical staple." },
-            { id: 2, category: "Ficus", name: "Fiddle Leaf Fig (Ficus Lyrata)", price: 65, light: "Bright Light", img: "https://images.pexels.com/photos/7084309/pexels-photo-7084309.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Large violin-shaped glossy green leaves." },
-            { id: 3, category: "Sansevieria", name: "Snake Plant (Sansevieria Trifasciata)", price: 28, light: "Low Light", img: "https://images.pexels.com/photos/2123482/pexels-photo-2123482.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Indestructible air purifier with upright sword leaves." },
-            { id: 4, category: "Epipremnum", name: "Golden Pothos Vine", price: 22, light: "Low to Medium", img: "https://images.pexels.com/photos/7663988/pexels-photo-7663988.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Heart-shaped variegated green & yellow trailing vine." },
-            { id: 5, category: "Zamioculcas", name: "ZZ Plant (Zamioculcas Zamiifolia)", price: 34, light: "Low Light", img: "https://images.pexels.com/photos/793012/pexels-photo-793012.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Smooth waxy leaves, extremely drought tolerant." },
-            { id: 6, category: "Spathiphyllum", name: "Peace Lily", price: 30, light: "Medium Indirect", img: "https://images.pexels.com/photos/4503751/pexels-photo-4503751.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Deep green leaves with beautiful white spathe flowers." },
-            { id: 7, category: "Succulent", name: "Medicinal Aloe Vera", price: 18, light: "Direct Sun", img: "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Fleshy soothing gel leaves, perfect windowsill succulent." },
-            { id: 8, category: "Ficus", name: "Rubber Tree Burgundy", price: 42, light: "Bright Indirect", img: "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Deep dark burgundy glossy foliage." },
-            { id: 9, category: "Calathea", name: "Calathea Orbifolia", price: 38, light: "Medium Indirect", img: "https://images.pexels.com/photos/6208087/pexels-photo-6208087.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Oversized round striped foliage, prayer plant family." },
-            { id: 10, category: "Succulent", name: "String of Pearls", price: 26, light: "Bright Light", img: "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Cascading pea-shaped succulent pearls." },
-            { id: 11, category: "Fern", name: "Boston Fern", price: 29, light: "High Humidity", img: "https://images.pexels.com/photos/970089/pexels-photo-970089.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Feathery lush green fronds for hanging baskets." },
-            { id: 12, category: "Orchid", name: "Moth Orchid (Phalaenopsis)", price: 48, light: "Filtered Sun", img: "https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Long-lasting elegant blooms for modern interiors." },
-            { id: 13, category: "Succulent", name: "Jade Plant", price: 24, light: "Full Sun", img: "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Tree-like woody succulent representing good fortune." },
-            { id: 14, category: "Palm", name: "Bird of Paradise", price: 85, light: "Bright Sunlight", img: "https://images.pexels.com/photos/3097770/pexels-photo-3097770.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Dramatic banana-like leaves for bold indoor statements." },
-            { id: 15, category: "Monstera", name: "Monkey Mask (Adansonii)", price: 32, light: "Bright Indirect", img: "https://images.pexels.com/photos/3097770/pexels-photo-3097770.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Swiss cheese trailing vine with fenestrated leaves." },
-            { id: 16, category: "Philodendron", name: "Philodendron Birkin", price: 36, light: "Medium Indirect", img: "https://images.pexels.com/photos/7663988/pexels-photo-7663988.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Striking white pinstripes on dark green leaves." },
-            { id: 17, category: "Pilea", name: "Chinese Money Plant", price: 25, light: "Bright Indirect", img: "https://images.pexels.com/photos/793012/pexels-photo-793012.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Pancake-shaped leaves on upright stems." },
-            { id: 18, category: "Ficus", name: "Ficus Audrey", price: 72, light: "Bright Indirect", img: "https://images.pexels.com/photos/7084309/pexels-photo-7084309.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Velvety leaves with pale white trunk structure." },
-            { id: 19, category: "Bonsai", name: "Japanese Juniper Bonsai", price: 95, light: "Outdoor Sun", img: "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Traditional sculpted miniature evergreen tree." },
-            { id: 20, category: "Palm", name: "Ponytail Palm", price: 44, light: "Direct Light", img: "https://images.pexels.com/photos/3097770/pexels-photo-3097770.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Bulbous trunk storing water with curly palm leaves." },
-            { id: 21, category: "Aglaonema", name: "Pink Chinese Evergreen", price: 39, light: "Low Light", img: "https://images.pexels.com/photos/6208087/pexels-photo-6208087.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Vibrant pink & green patterned foliage." },
-            { id: 22, category: "Anthurium", name: "Velvet Cardboard Anthurium", price: 88, light: "Bright Humidity", img: "https://images.pexels.com/photos/6208087/pexels-photo-6208087.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Heart-shaped velvety leaves with bright white veins." },
-            { id: 23, category: "Succulent", name: "Zebra Haworthia", price: 16, light: "Bright Partial", img: "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Compact succulent with white bumpy stripes." },
-            { id: 24, category: "Peperomia", name: "String of Turtles", price: 28, light: "Medium Indirect", img: "https://images.pexels.com/photos/7663988/pexels-photo-7663988.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Tiny shell-patterned leaves on cascading vines." },
-            { id: 25, category: "Aspidistra", name: "Cast Iron Plant", price: 46, light: "Deep Shade", img: "https://images.pexels.com/photos/2123482/pexels-photo-2123482.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Thrives in neglect, dark corners, and deep shade." },
-            { id: 26, category: "Dracaena", name: "Madagascar Dragon Tree", price: 52, light: "Medium Light", img: "https://images.pexels.com/photos/7084309/pexels-photo-7084309.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Slim reddish-edged leaves atop slender stems." },
-            { id: 27, category: "Fern", name: "Maidenhair Fern", price: 27, light: "High Moisture", img: "https://images.pexels.com/photos/970089/pexels-photo-970089.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Delicate fan-shaped pinnules on black stems." },
-            { id: 28, category: "Palm", name: "Majesty Palm", price: 58, light: "Bright Moisture", img: "https://images.pexels.com/photos/3097770/pexels-photo-3097770.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Tropical feather-like fronds for bright rooms." },
-            { id: 29, category: "Herb", name: "Genovese Sweet Basil", price: 12, light: "Full Sunlight", img: "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Aromatic culinary herb for sunny kitchen counters." },
-            { id: 30, category: "Herb", name: "Tuscan Blue Rosemary", price: 15, light: "Full Sun Outdoor", img: "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Fragrant needle foliage with blue edible flowers." },
-            { id: 31, category: "Herb", name: "English Lavender", price: 19, light: "Full Bright Sun", img: "https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Calming purple aromatic herb spikes." },
-            { id: 32, category: "Succulent", name: "String of Dolphins", price: 27, light: "Bright Light", img: "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Dolphin-shaped leaves trailing on delicate stems." },
-            { id: 33, category: "Alocasia", name: "African Mask (Alocasia)", price: 42, light: "Filtered Bright", img: "https://images.pexels.com/photos/6208087/pexels-photo-6208087.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Arrowhead foliage with silvery white veins." },
-            { id: 34, category: "Calathea", name: "Rattlesnake Plant", price: 34, light: "Medium Shade", img: "https://images.pexels.com/photos/6208087/pexels-photo-6208087.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Wavy spotted foliage with deep purple undersides." },
-            { id: 35, category: "Syngonium", name: "Neon Robusta Arrowhead", price: 23, light: "Medium Light", img: "https://images.pexels.com/photos/7663988/pexels-photo-7663988.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Soft pastel pink arrowhead foliage." },
-            { id: 36, category: "Cactus", name: "Starfish Cactus", price: 29, light: "Sunlight", img: "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Unique star-patterned desert succulent." },
-            { id: 37, category: "Bonsai", name: "Ficus Ginseng Microcarpa", price: 49, light: "Bright Indirect", img: "https://images.pexels.com/photos/7084309/pexels-photo-7084309.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Thick aerial roots forming a miniature tree." },
-            { id: 38, category: "Cactus", name: "Golden Barrel Cactus", price: 35, light: "Full Sun", img: "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Spherical desert cactus covered in yellow spines." },
-            { id: 39, category: "Fern", name: "Staghorn Fern", price: 54, light: "Filtered Moisture", img: "https://images.pexels.com/photos/970089/pexels-photo-970089.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Antler-like mounted fronds for wall displays." },
-            { id: 40, category: "Hoya", name: "Hindu Rope (Hoya Carnosa)", price: 39, light: "Bright Light", img: "https://images.pexels.com/photos/7663988/pexels-photo-7663988.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Twisted contorted waxy trailing foliage." },
-            { id: 41, category: "Philodendron", name: "Philodendron Brasil", price: 25, light: "Low-Bright", img: "https://images.pexels.com/photos/7663988/pexels-photo-7663988.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Heartleaf with lime green center stripes." },
-            { id: 42, category: "Palm", name: "Parlor Palm", price: 28, light: "Low Light", img: "https://images.pexels.com/photos/3097770/pexels-photo-3097770.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Classic low-light tolerant indoor palm." },
-            { id: 43, category: "Euphorbia", name: "Crown of Thorns", price: 22, light: "Direct Sun", img: "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Spiny stems with continuous bright red blooms." },
-            { id: 44, category: "Herb", name: "Fresh Peppermint", price: 10, light: "Moist Sunlight", img: "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Refreshing mint leaves for tea and cooking." },
-            { id: 45, category: "Ceropegia", name: "String of Hearts", price: 32, light: "Bright Indirect", img: "https://images.pexels.com/photos/7663988/pexels-photo-7663988.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Purple-backed heart leaves on thin trailing stems." },
-            { id: 46, category: "Tradescantia", name: "Wandering Dude", price: 18, light: "Bright Light", img: "https://images.pexels.com/photos/7663988/pexels-photo-7663988.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Shimmering purple and silver striped vine." },
-            { id: 47, category: "Carnivorous", name: "Venus Flytrap", price: 26, light: "Full Wet Sun", img: "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Fascinating insect-catching leaf traps." },
-            { id: 48, category: "Carnivorous", name: "Trumpet Pitcher Plant", price: 34, light: "Full Wet Sun", img: "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Tubular pitcher traps catching flying insects." },
-            { id: 49, category: "Tree", name: "Arbequina Olive Tree", price: 89, light: "Direct Sun", img: "https://images.pexels.com/photos/7084309/pexels-photo-7084309.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Silvery Mediterranean foliage producing edible olives." },
-            { id: 50, category: "Tree", name: "Silver Dollar Eucalyptus", price: 38, light: "Full Bright Sun", img: "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Aromatic rounded blue-gray coin leaves." }
+            { id: 1, category: "Sun Coleus", name: "Coleus 'Main Street Sunset'", price: 18, light: "Full Sun to Part Shade", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Bold magenta centers edged with electric lime borders." },
+            { id: 2, category: "Sun Coleus", name: "Coleus 'Wasabi'", price: 16, light: "Full Sun", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Vibrant chartreuse chart-topping serrated green foliage." },
+            { id: 3, category: "Sun Coleus", name: "Coleus 'Campfire'", price: 19, light: "Full Sun", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Glowing copper-orange foliage with velvety bronze undertones." },
+            { id: 4, category: "Velvet", name: "Coleus 'Black Dragon'", price: 17, light: "Partial Shade", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80", desc: "Deep purplish-black leaves with dark red ruffled centers." },
+            { id: 5, category: "Variegated", name: "Coleus 'Chocolate Covered Cherry'", price: 21, light: "Partial Sun", img: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80", desc: "Rose-red center framed by dark mahogany and thin lime margin." },
+            { id: 6, category: "Shade Coleus", name: "Coleus 'Kong Red'", price: 22, light: "Full Shade", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Massive oversized leaves with fiery red centers." },
+            { id: 7, category: "Trailing", name: "Coleus 'Trailing Burgundy'", price: 15, light: "Partial Shade", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Cascading rich burgundy vines suitable for hanging pots." },
+            { id: 8, category: "Variegated", name: "Coleus 'Watermelon'", price: 18, light: "Medium Light", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Watermelon pink core with green ruffled margins." },
+            { id: 9, category: "Sun Coleus", name: "Coleus 'Inferno'", price: 20, light: "Full Sun", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Textured fiery terracotta red foliage." },
+            { id: 10, category: "Micro", name: "Coleus 'Mini Me'", price: 14, light: "Bright Indirect", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80", desc: "Compact micro-leaf variety with tight pink and green clusters." },
+            { id: 11, category: "Variegated", name: "Coleus 'Pineapple'", price: 16, light: "Part Shade", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Golden yellow leaves accented with lime splashes." },
+            { id: 12, category: "Giant", name: "Coleus 'Kong Salmon Pink'", price: 24, light: "Shade", img: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80", desc: "Huge spade leaves with delicate salmon pink centers." },
+            { id: 13, category: "Trailing", name: "Coleus 'Trailing Plum'", price: 17, light: "Filtered Sun", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Spilling deep purple stems with ruffled leaf edges." },
+            { id: 14, category: "Velvet", name: "Coleus 'Dark Star'", price: 18, light: "Partial Sun", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80", desc: "Uniform rich purple velvet leaves." },
+            { id: 15, category: "Sun Coleus", name: "Coleus 'Redhead'", price: 19, light: "Full Sun", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Bright crimson red leaves that stay intense in full sun." },
+            { id: 16, category: "Variegated", name: "Coleus 'Henna'", price: 20, light: "Full Sun to Shade", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Serrated gold copper leaves with magenta undersides." },
+            { id: 17, category: "Shade Coleus", name: "Coleus 'Wizard Velvet Red'", price: 15, light: "Shade", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80", desc: "Classic shade bedding coleus with narrow white borders." },
+            { id: 18, category: "Micro", name: "Coleus 'Fingerpaint'", price: 16, light: "Part Sun", img: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80", desc: "Narrow fringed leaves splashed with red and yellow." },
+            { id: 19, category: "Giant", name: "Coleus 'Big Blonde'", price: 23, light: "Partial Sun", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Sweeping chartreuse yellow leaves with dark burgundy stems." },
+            { id: 20, category: "Trailing", name: "Coleus 'Trailing Queen'", price: 18, light: "Shade", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Prostrate trailing habit with tricolor leaf markings." },
+            { id: 21, category: "Sun Coleus", name: "Coleus 'Electric Lime'", price: 17, light: "Full Sun", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Lemon-lime foliage with fine ivory veining." },
+            { id: 22, category: "Velvet", name: "Coleus 'Palisandra'", price: 20, light: "Part Shade", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80", desc: "Near-black jet foliage with velvety luster." },
+            { id: 23, category: "Variegated", name: "Coleus 'Fishnet Stockings'", price: 25, light: "Filtered Light", img: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80", desc: "Bright green leaves covered in dark purple net veining." },
+            { id: 24, category: "Shade Coleus", name: "Coleus 'Wizard Jade'", price: 14, light: "Shade", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Ivory center surrounded by crisp jade green borders." },
+            { id: 25, category: "Sun Coleus", name: "Coleus 'Trusty Rusty'", price: 18, light: "Full Sun", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Copper-red leaves bordered by yellow outline." },
+            { id: 26, category: "Variegated", name: "Coleus 'Gay's Delight'", price: 17, light: "Bright Light", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Chartreuse foliage accented with deep black veins." },
+            { id: 27, category: "Giant", name: "Coleus 'Kong Rose'", price: 22, light: "Shade", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Massive foliage with vivid rose-pink highlights." },
+            { id: 28, category: "Micro", name: "Coleus 'Under the Sea Goldfish'", price: 19, light: "Part Shade", img: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80", desc: "Unique fish-tail leaf shapes in orange and gold." },
+            { id: 29, category: "Trailing", name: "Coleus 'Meandering Linda'", price: 18, light: "Part Sun", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Trailing habit with ruffled pink and purple foliage." },
+            { id: 30, category: "Sun Coleus", name: "Coleus 'Solar Sunrise'", price: 19, light: "Full Sun", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Multicolor splashes of yellow, magenta, and green." },
+            { id: 31, category: "Velvet", name: "Coleus 'Chocolate Drop'", price: 16, light: "Filtered Sun", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80", desc: "Small rounded chocolate brown leaves with crimson center." },
+            { id: 32, category: "Variegated", name: "Coleus 'Tilt a Whirl'", price: 21, light: "Partial Shade", img: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80", desc: "Swirling, ruffled leaves in red, bronze, and yellow." },
+            { id: 33, category: "Shade Coleus", name: "Coleus 'Wizard Coral Sunrise'", price: 15, light: "Full Shade", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Soft salmon coral central coloring." },
+            { id: 34, category: "Sun Coleus", name: "Coleus 'Sedona Sun'", price: 18, light: "Full Sun", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Warm rust and burnt-amber sun-tolerant foliage." },
+            { id: 35, category: "Micro", name: "Coleus 'Under the Sea Bonefish'", price: 20, light: "Partial Shade", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Serrated skeletal leaves with lime green tips." },
+            { id: 36, category: "Giant", name: "Coleus 'Kong Mosaic'", price: 23, light: "Shade", img: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80", desc: "Mosaic pattern of red, green, and cream on massive leaves." },
+            { id: 37, category: "Trailing", name: "Coleus 'Trailing Strawberry'", price: 17, light: "Bright Indirect", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Pink strawberry centers on creeping garden stems." },
+            { id: 38, category: "Variegated", name: "Coleus 'Alabama Sunset'", price: 19, light: "Full Sun to Shade", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Changes color from pink to yellow gold depending on light." },
+            { id: 39, category: "Velvet", name: "Coleus 'Midnight Train'", price: 18, light: "Part Shade", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80", desc: "Dark velvety purple notched foliage." },
+            { id: 40, category: "Sun Coleus", name: "Coleus 'Gator Glory'", price: 20, light: "Full Sun", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Deep golden chartreuse with scalloped edges." },
+            { id: 41, category: "Shade Coleus", name: "Coleus 'Wizard Golden'", price: 14, light: "Shade", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Pure golden yellow leaves for dark shady nooks." },
+            { id: 42, category: "Micro", name: "Coleus 'Bantam Red'", price: 15, light: "Bright Filtered", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Miniature compact crimson foliage for terrariums." },
+            { id: 43, category: "Variegated", name: "Coleus 'Pineapple Splash'", price: 17, light: "Part Sun", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Yellow leaves with crimson splashes down the center." },
+            { id: 44, category: "Giant", name: "Coleus 'Kong Lime'", price: 22, light: "Full Shade", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Huge light lime leaves with white central vein." },
+            { id: 45, category: "Sun Coleus", name: "Coleus 'Mariposa'", price: 19, light: "Full Sun", img: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80", desc: "Butterfly-shaped deep magenta and pink leaves." },
+            { id: 46, category: "Trailing", name: "Coleus 'Trailing Garnet'", price: 16, light: "Part Shade", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Garnet red weeping stems with bright green edge." },
+            { id: 47, category: "Velvet", name: "Coleus 'Royal Glissade'", price: 21, light: "Partial Sun", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80", desc: "Raspberry red velvet centers with subtle bronze dusting." },
+            { id: 48, category: "Variegated", name: "Coleus 'French Quarter'", price: 20, light: "Full Sun to Shade", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Pink, magenta, yellow, and green kaleidoscope foliage." },
+            { id: 49, category: "Shade Coleus", name: "Coleus 'Wizard Scarlet'", price: 15, light: "Shade", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Scarlet core surrounded by chartreuse trim." },
+            { id: 50, category: "Sun Coleus", name: "Coleus 'Saturn'", price: 18, light: "Full Sun", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Deep red center with lime rings resembling planetary rings." }
         ];
 
         let cart = [];
         let wishlist = [];
         let selectedCategoryFilter = 'All';
 
-        const categoriesList = ["All", "Monstera", "Ficus", "Sansevieria", "Succulent", "Fern", "Orchid", "Palm", "Philodendron", "Bonsai", "Herb", "Cactus", "Tree"];
+        const categoriesList = ["All", "Sun Coleus", "Shade Coleus", "Variegated", "Trailing", "Velvet", "Giant", "Micro"];
 
         function showTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
@@ -354,7 +354,7 @@
             const pillsContainer = document.getElementById('categoryPills');
             if(!pillsContainer) return;
             pillsContainer.innerHTML = categoriesList.map(c => `
-                <button onclick="filterByCategory('${c}')" class="text-xs uppercase font-bold px-4 py-2 rounded-xl border transition ${selectedCategoryFilter === c ? 'bg-leafAccent text-black border-leafAccent' : 'bg-leafCard text-slate-300 border-leafBorder hover:border-leafAccent'}">${c}</button>
+                <button onclick="filterByCategory('${c}')" class="text-xs uppercase font-bold px-4 py-2 rounded-xl border transition ${selectedCategoryFilter === c ? 'bg-coleusMagenta text-white border-coleusMagenta' : 'bg-leafCard text-slate-300 border-leafBorder hover:border-coleusMagenta'}">${c}</button>
             `).join('');
         }
 
@@ -371,7 +371,7 @@
 
             let filtered = plants.filter(p => {
                 const matchCategory = selectedCategoryFilter === 'All' || p.category === selectedCategoryFilter;
-                const matchSearch = p.name.toLowerCase().includes(search) || p.category.toLowerCase().includes(search);
+                const matchSearch = p.name.toLowerCase().includes(search) || p.category.toLowerCase().includes(search) || p.desc.toLowerCase().includes(search);
                 return matchCategory && matchSearch;
             });
 
@@ -382,15 +382,15 @@
             const grid = document.getElementById('plantGrid');
             if(grid) {
                 grid.innerHTML = filtered.map(p => `
-                    <div class="bg-leafCard rounded-2xl p-4 border border-leafBorder flex flex-col justify-between hover:border-leafAccent/50 transition">
+                    <div class="bg-leafCard rounded-2xl p-4 border border-leafBorder flex flex-col justify-between hover:border-coleusMagenta/50 transition">
                         <div>
                             <div class="relative mb-3">
                                 <img src="${p.img}" onerror="handleImgError(this)" class="w-full h-52 object-cover rounded-xl">
-                                <button onclick="toggleWishlistItem(${p.id})" class="absolute top-2 right-2 bg-black/60 text-white w-8 h-8 rounded-full flex items-center justify-center hover:text-leafAccent">
-                                    <i class="${wishlist.includes(p.id) ? 'fa-solid text-leafAccent' : 'fa-regular'} fa-heart"></i>
+                                <button onclick="toggleWishlistItem(${p.id})" class="absolute top-2 right-2 bg-black/60 text-white w-8 h-8 rounded-full flex items-center justify-center hover:text-coleusMagenta">
+                                    <i class="${wishlist.includes(p.id) ? 'fa-solid text-coleusMagenta' : 'fa-regular'} fa-heart"></i>
                                 </button>
                             </div>
-                            <span class="text-[9px] text-leafAccent font-bold uppercase tracking-widest">${p.category}</span>
+                            <span class="text-[9px] text-coleusMagenta font-bold uppercase tracking-widest">${p.category}</span>
                             <h3 class="font-heading font-bold text-sm text-white uppercase mt-1">${p.name}</h3>
                             <p class="text-xs text-slate-400 mt-1 line-clamp-2">${p.desc}</p>
                         </div>
@@ -398,7 +398,7 @@
                             <span class="font-heading font-bold text-leafAccent text-base">$${p.price.toFixed(2)}</span>
                             <div class="flex gap-2">
                                 <button onclick="openQuickView(${p.id})" class="bg-leafDark hover:bg-zinc-800 text-white p-2 rounded-lg text-xs"><i class="fa-solid fa-eye"></i></button>
-                                <button onclick="addToCart(${p.id})" class="bg-leafAccent text-black font-extrabold text-[10px] uppercase px-3 py-1.5 rounded-lg">+ Bag</button>
+                                <button onclick="addToCart(${p.id})" class="bg-coleusMagenta text-white font-extrabold text-[10px] uppercase px-3 py-1.5 rounded-lg hover:bg-pink-600 transition">+ Bag</button>
                             </div>
                         </div>
                     </div>
@@ -410,15 +410,15 @@
             const grid = document.getElementById('homeFeaturedGrid');
             if(!grid) return;
             grid.innerHTML = plants.slice(0, 8).map(p => `
-                <div class="bg-leafCard rounded-2xl p-4 border border-leafBorder flex flex-col justify-between hover:border-leafAccent/50 transition">
+                <div class="bg-leafCard rounded-2xl p-4 border border-leafBorder flex flex-col justify-between hover:border-coleusMagenta/50 transition">
                     <div>
                         <img src="${p.img}" onerror="handleImgError(this)" class="w-full h-48 object-cover rounded-xl mb-3">
-                        <span class="text-[9px] text-leafAccent font-bold uppercase">${p.category}</span>
+                        <span class="text-[9px] text-coleusMagenta font-bold uppercase">${p.category}</span>
                         <h3 class="font-heading font-bold text-sm text-white uppercase">${p.name}</h3>
                     </div>
                     <div class="mt-4 pt-3 border-t border-leafBorder flex items-center justify-between">
                         <span class="font-heading font-bold text-leafAccent">$${p.price.toFixed(2)}</span>
-                        <button onclick="addToCart(${p.id})" class="bg-leafAccent text-black font-extrabold text-[10px] uppercase px-3 py-1.5 rounded-lg">+ Add</button>
+                        <button onclick="addToCart(${p.id})" class="bg-coleusMagenta text-white font-extrabold text-[10px] uppercase px-3 py-1.5 rounded-lg hover:bg-pink-600 transition">+ Add</button>
                     </div>
                 </div>
             `).join('');
@@ -431,11 +431,11 @@
             grid.innerHTML = uniqueCats.map(cat => {
                 const samplePlant = plants.find(p => p.category === cat) || plants[0];
                 return `
-                    <div onclick="filterByCategory('${cat}')" class="bg-leafCard p-5 rounded-2xl border border-leafBorder hover:border-leafAccent transition cursor-pointer flex items-center gap-4">
+                    <div onclick="filterByCategory('${cat}')" class="bg-leafCard p-5 rounded-2xl border border-leafBorder hover:border-coleusMagenta transition cursor-pointer flex items-center gap-4">
                         <img src="${samplePlant.img}" onerror="handleImgError(this)" class="w-20 h-20 rounded-xl object-cover">
                         <div>
                             <h3 class="font-heading font-bold text-lg text-white uppercase">${cat}</h3>
-                            <p class="text-xs text-leafAccent">Browse Collection &rarr;</p>
+                            <p class="text-xs text-coleusMagenta">Browse Cultivars &rarr;</p>
                         </div>
                     </div>
                 `;
@@ -448,12 +448,12 @@
             document.getElementById('modalContent').innerHTML = `
                 <img src="${p.img}" onerror="handleImgError(this)" class="w-full h-64 object-cover rounded-2xl">
                 <div>
-                    <span class="text-xs text-leafAccent font-bold uppercase">${p.category}</span>
+                    <span class="text-xs text-coleusMagenta font-bold uppercase">${p.category}</span>
                     <h2 class="font-heading text-2xl font-bold uppercase mt-1 text-white">${p.name}</h2>
                     <p class="text-xs text-slate-400 mt-2 leading-relaxed">${p.desc}</p>
-                    <div class="my-4 text-xs text-slate-300"><strong>Light:</strong> ${p.light}</div>
+                    <div class="my-4 text-xs text-slate-300"><strong>Sunlight Preference:</strong> ${p.light}</div>
                     <div class="text-2xl font-heading font-bold text-leafAccent mb-4">$${p.price.toFixed(2)}</div>
-                    <button onclick="addToCart(${p.id}); closeModal();" class="w-full bg-leafAccent text-black font-extrabold text-xs uppercase py-3 rounded-xl">Add to Bag</button>
+                    <button onclick="addToCart(${p.id}); closeModal();" class="w-full bg-coleusMagenta text-white font-extrabold text-xs uppercase py-3 rounded-xl hover:bg-pink-600 transition">Add to Bag</button>
                 </div>
             `;
             document.getElementById('quickModal').classList.remove('hidden');
@@ -480,7 +480,7 @@
                             <div class="text-leafAccent">$${i.price.toFixed(2)}</div>
                         </div>
                     </div>
-                    <button onclick="addToCart(${i.id})" class="bg-leafAccent text-black font-bold px-3 py-1 rounded text-[10px]">ADD</button>
+                    <button onclick="addToCart(${i.id})" class="bg-coleusMagenta text-white font-bold px-3 py-1 rounded text-[10px]">ADD</button>
                 </div>
             `).join('');
         }
