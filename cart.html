@@ -1,55 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>WonderToys - Cart</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WonderToys - Cart & Checkout</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
 </head>
 <body>
-    <header class="header">
-        <div class="logo">WonderToys</div>
-        <nav class="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="cart.html">Cart</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1>Your Cart</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Product 1</td>
-                    <td>1</td>
-                    <td>$19.99</td>
-                </tr>
-            </tbody>
-        </table>
-        <h2>Total: $19.99</h2>
-        <form>
-            <h3>Checkout</h3>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required />
-            <label for="address">Address</label>
-            <input type="text" id="address" name="address" required />
-            <label for="payment">Payment Method</label>
-            <select id="payment" name="payment">
-                <option value="credit">Credit Card</option>
-                <option value="paypal">PayPal</option>
-            </select>
-            <button type="submit">Place Order</button>
-        </form>
-    </main>
+  <header class="header">
+    <div class="header-container container">
+      <div class="logo">WonderToys</div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="cart.html" class="active">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="search-bar">
+        <input type="text" placeholder="Search toys..." />
+        <button aria-label="Search">🔍</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container cart-container">
+    <h1>Your Cart</h1>
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items">
+        <!-- Dynamically filled by JavaScript -->
+      </tbody>
+    </table>
+
+    <aside class="order-summary">
+      <h2>Order Summary</h2>
+      <p>Subtotal: $<span id="subtotal">0.00</span></p>
+      <p>
+        Shipping Cost:
+        <select id="shipping-options">
+          <option value="5.00">Standard - $5.00</option>
+          <option value="10.00">Express - $10.00</option>
+          <option value="0.00">Free Shipping</option>
+        </select>
+      </p>
+      <p>
+        Promo Code: <input type="text" id="promo-code" placeholder="Enter code" />
+        <button id="apply-promo">Apply</button>
+      </p>
+      <p>Total: $<span id="total">0.00</span></p>
+
+      <h2>Checkout</h2>
+      <form id="checkout-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="address">Shipping Address:</label>
+        <textarea id="address" name="address" required></textarea>
+
+        <label for="payment">Payment Method:</label>
+        <select id="payment" name="payment" required>
+          <option value="credit-card">Credit Card</option>
+          <option value="paypal">PayPal</option>
+          <option value="cod">Cash on Delivery</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary">Complete Purchase</button>
+      </form>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-socials">
+      <a href="#" aria-label="Facebook">
+        <img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png" alt="Facebook" />
+      </a>
+      <a href="#" aria-label="Twitter">
+        <img src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png" alt="Twitter" />
+      </a>
+      <a href="#" aria-label="Instagram">
+        <img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png" alt="Instagram" />
+      </a>
+    </div>
+    <p>&copy; 2024 WonderToys. All rights reserved.</p>
+  </footer>
 </body>
 </html>
