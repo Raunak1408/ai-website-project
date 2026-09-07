@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TOYLAND - Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka&family=Poppins&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fffbe6;
+      color: #1e293b;
+    }
+    h1,h2,h3,h4,h5,h6 {
+      font-family: 'Fredoka', cursive;
+    }
+    .max-w-container {
+      max-width: 900px;
+    }
+  </style>
+</head>
+<body class="relative">
+  <!-- Navbar -->
+  <nav class="bg-blue-900 text-white shadow-md sticky top-0 z-40">
+    <div class="max-w-container mx-auto flex items-center justify-between p-4">
+      <a href="index.html" class="flex items-center space-x-2 font-fredoka text-2xl text-yellow-400 font-bold">
+        <i class="fas fa-puzzle-piece"></i><span>TOYLAND</span>
+      </a>
+      <ul class="hidden md:flex space-x-8 font-semibold">
+        <li><a href="index.html" class="hover:text-yellow-400 transition">Home</a></li>
+        <li><a href="shop.html" class="hover:text-yellow-400 transition">Shop</a></li>
+        <li><a href="about.html" class="hover:text-yellow-400 transition">About</a></li>
+        <li><a href="contact.html" class="hover:text-yellow-400 transition">Contact</a></li>
+      </ul>
+      <div class="flex items-center space-x-4">
+        <button id="wishlist-btn" aria-label="Wishlist" class="relative text-yellow-400 hover:text-yellow-300 focus:outline-none">
+          <i class="fas fa-heart fa-lg"></i>
+          <span id="wishlist-count" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs h-5 w-5 flex items-center justify-center">0</span>
+        </button>
+        <button id="cart-btn" aria-label="Cart" class="relative text-yellow-400 hover:text-yellow-300 focus:outline-none">
+          <i class="fas fa-shopping-bag fa-lg"></i>
+          <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs h-5 w-5 flex items-center justify-center">0</span>
+        </button>
+        <button id="mobile-menu-btn" class="md:hidden text-yellow-400 focus:outline-none">
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-blue-800 text-yellow-400 p-4 space-y-3">
+      <a href="index.html" class="block hover:text-yellow-300">Home</a>
+      <a href="shop.html" class="block hover:text-yellow-300">Shop</a>
+      <a href="about.html" class="block hover:text-yellow-300">About</a>
+      <a href="contact.html" class="block hover:text-yellow-300">Contact</a>
+    </div>
+  </nav>
+
+  <main class="max-w-container mx-auto py-10 px-6 space-y-12">
+    <section>
+      <h1 class="text-4xl font-fredoka text-blue-900 font-bold mb-6 text-center">Contact Us</h1>
+      <form id="contact-form" class="max-w-lg mx-auto bg-yellow-200 p-6 rounded-lg shadow space-y-6">
+        <div>
+          <label for="name" class="block mb-2 font-semibold">Name</label>
+          <input type="text" id="name" name="name" required class="w-full p-3 rounded border border-yellow-400 focus:outline-none focus:ring-2 focus:ring-red-400" aria-required="true" aria-describedby="name-error" />
+          <p id="name-error" class="text-red-600 text-sm mt-1 hidden">Please enter your name.</p>
+        </div>
+        <div>
+          <label for="email" class="block mb-2 font-semibold">Email</label>
+          <input type="email" id="email" name="email" required class="w-full p-3 rounded border border-yellow-400 focus:outline-none focus:ring-2 focus:ring-red-400" aria-required="true" aria-describedby="email-error" />
+          <p id="email-error" class="text-red-600 text-sm mt-1 hidden">Please enter a valid email.</p>
+        </div>
+        <div>
+          <label for="message" class="block mb-2 font-semibold">Message</label>
+          <textarea id="message" name="message" rows="4" required class="w-full p-3 rounded border border-yellow-400 focus:outline-none focus:ring-2 focus:ring-red-400" aria-required="true" aria-describedby="message-error"></textarea>
+          <p id="message-error" class="text-red-600 text-sm mt-1 hidden">Please enter your message.</p>
+        </div>
+        <button type="submit" class="bg-red-500 text-white font-bold rounded px-6 py-3 hover:bg-red-600 transition">Send Message</button>
+      </form>
+    </section>
+
+    <section>
+      <h2 class="text-3xl font-fredoka text-blue-900 font-bold mb-6 text-center">Store Locator</h2>
+      <div class="max-w-lg mx-auto bg-yellow-200 rounded-lg p-6 shadow space-y-4 text-center">
+        <p><i class="fas fa-map-marker-alt text-red-500 mr-2"></i>123 Toyland Avenue, Play City, Fun State, 12345</p>
+        <p><i class="fas fa-phone-alt text-red-500 mr-2"></i>(123) 456-7890</p>
+        <p><i class="fas fa-clock text-red-500 mr-2"></i>Mon - Sat: 9:00 AM - 7:00 PM</p>
+        <p><i class="fas fa-envelope text-red-500 mr-2"></i>support@toyland.com</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-3xl font-fredoka text-blue-900 font-bold mb-6 text-center">Frequently Asked Questions</h2>
+      <div class="max-w-lg mx-auto space-y-4">
+        <div class="border border-yellow-400 rounded-lg">
+          <button class="w-full text-left px-4 py-3 font-semibold flex justify-between items-center focus:outline-none faq-toggle">
+            What age range are TOYLAND toys suitable for?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="px-6 py-3 hidden faq-answer">
+            TOYLAND offers toys suitable for ages 0 and up. Every product lists an age recommendation.
+          </div>
+        </div>
+        <div class="border border-yellow-400 rounded-lg">
+          <button class="w-full text-left px-4 py-3 font-semibold flex justify-between items-center focus:outline-none faq-toggle">
+            How do I track my order?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="px-6 py-3 hidden faq-answer">
+            After purchase, you will receive email updates with tracking information.
+          </div>
+        </div>
+        <div class="border border-yellow-400 rounded-lg">
+          <button class="w-full text-left px-4 py-3 font-semibold flex justify-between items-center focus:outline-none faq-toggle">
+            What is the return policy?
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="px-6 py-3 hidden faq-answer">
+            Returns accepted within 30 days with receipt and product in original condition.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart Drawer -->
+  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform z-50 flex flex-col">
+    <div class="p-4 bg-blue-900 text-white flex justify-between items-center">
+      <h3 class="font-fredoka text-xl">Your Cart</h3>
+      <button id="cart-close-btn" aria-label="Close Cart" class="text-yellow-400 hover:text-yellow-300 focus:outline-none"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-4">
+      <!-- Cart items go here dynamically -->
+    </div>
+    <div class="p-4 border-t">
+      <div class="flex justify-between text-lg font-bold mb-3">
+        <span>Subtotal:</span>
+        <span id="cart-subtotal">$0.00</span>
+      </div>
+      <button id="checkout-btn" class="w-full bg-red-500 text-white py-3 rounded-lg font-semibold hover:bg-red-600 transition">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Wishlist Drawer -->
+  <div id="wishlist-drawer" class="fixed top-0 left-0 h-full w-80 bg-white shadow-lg transform -translate-x-full transition-transform z-50 flex flex-col">
+    <div class="p-4 bg-blue-900 text-white flex justify-between items-center">
+      <h3 class="font-fredoka text-xl">Your Wishlist</h3>
+      <button id="wishlist-close-btn" aria-label="Close Wishlist" class="text-yellow-400 hover:text-yellow-300 focus:outline-none"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="wishlist-items" class="flex-1 overflow-y-auto p-4 space-y-4">
+      <!-- Wishlist items rendered dynamically -->
+    </div>
+  </div>
+
+  <!-- Quick View Modal -->
+  <div id="quick-view-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity z-60">
+    <div class="bg-white rounded-lg shadow-lg max-w-lg w-full max-h-[80vh] overflow-y-auto relative p-6">
+      <button id="quick-view-close" aria-label="Close Quick View" class="absolute top-3 right-3 text-gray-600 hover:text-gray-800 focus:outline-none">
+        <i class="fas fa-times fa-lg"></i>
+      </button>
+      <div id="quick-view-content">
+        <!-- Dynamic quick view toy details -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const toys = [
+      { id: 1, name: 'Superhero Action Figure', category: 'action-figures', price: 24.99, img: 'https://images.unsplash.com/photo-1560869492-1b0f1d2152c9?auto=format&fit=crop&w=600&q=60', age: '5+', stock: 10, description: 'An exciting superhero action figure with moveable joints and accessories.', specs: ['Height: 6 inches', 'Material: Plastic', 'Battery: None'] },
+      { id: 2, name: 'Educational Blocks Set', category: 'educational', price: 19.99, img: 'https://images.unsplash.com/photo-1581145643826-b1e84df7693b?auto=format&fit=crop&w=600&q=60', age: '3+', stock: 15, description: 'Colorful blocks set that teaches shapes, colors, and balance.', specs: ['50 pieces', 'Material: Wood', 'Non-toxic paint'] },
+      { id: 3, name: 'Plush Teddy Bear', category: 'plushies', price: 15.99, img: 'https://images.unsplash.com/photo-1515802074687-e1f2ea4129b9?auto=format&fit=crop&w=600&q=60', age: '0+', stock: 20, description: 'Soft and cuddly plush teddy bear with embroidered features.', specs: ['Height: 10 inches', 'Material: Plush fabric', 'Machine washable'] },
+      { id: 4, name: 'Wooden Building Blocks', category: 'wooden-toys', price: 29.99, img: 'https://images.unsplash.com/photo-1512898592424-cb57b50dca26?auto=format&fit=crop&w=600&q=60', age: '2+', stock: 12, description: 'Classic wooden blocks for creative building and stacking.', specs: ['100 pieces', 'Material: Wood', 'Smooth edges'] },
+      { id: 5, name: 'Colorful Board Game', category: 'board-games', price: 22.99, img: 'https://images.unsplash.com/photo-1607904856763-197d9ed88fea?auto=format&fit=crop&w=600&q=60', age: '6+', stock: 8, description: 'Fun and vibrant board game for family and friends.', specs: ['Plays 2-6 players', 'Duration: 30 mins', 'Age 6+'] },
+      { id: 6, name: 'Dragon Action Figure', category: 'action-figures', price: 27.99, img: 'https://images.unsplash.com/photo-1583337130417-2e10f499f680?auto=format&fit=crop&w=600&q=60', age: '7+', stock: 7, description: 'Ferocious dragon-themed action figure with flame effects.', specs: ['Height: 7 inches', 'Material: Plastic', 'Battery: None'] },
+      { id: 7, name: 'Puzzle Educational Set', category: 'educational', price: 17.49, img: 'https://images.unsplash.com/photo-1553532071-82b2a40a620b?auto=format&fit=crop&w=600&q=60', age: '4+', stock: 14, description: 'Fun puzzles that help cognitive skills and spatial awareness.', specs: ['25 pieces', 'Material: Cardboard', 'Non-toxic inks'] },
+      { id: 8, name: 'Giant Plush Elephant', category: 'plushies', price: 45.99, img: 'https://images.unsplash.com/photo-1555243896-f7dcb44a635f?auto=format&fit=crop&w=600&q=60', age: '0+', stock: 5, description: 'Huge soft elephant plush for endless cuddles.', specs: ['Height: 24 inches', 'Material: Plush fabric', 'Machine washable'] },
+      { id: 9, name: 'Wooden Train Set', category: 'wooden-toys', price: 34.99, img: 'https://images.unsplash.com/photo-1528756514091-dee4ce12948d?auto=format&fit=crop&w=600&q=60', age: '3+', stock: 9, description: 'Classic wooden train set for imaginative play.', specs: ['Track length: 1.5 meters', 'Material: Wood', 'Smooth finish'] },
+      { id: 10, name: 'Strategy Board Game', category: 'board-games', price: 29.49, img: 'https://images.unsplash.com/photo-1542131599-9aa6b83a1e4a?auto=format&fit=crop&w=600&q=60', age: '8+', stock: 6, description: 'Strategy-based board game for older kids.', specs: ['Plays 2-4 players', 'Duration: 45 mins', 'Age 8+'] },
+      { id: 11, name: 'Robot Action Figure', category: 'action-figures', price: 32.5, img: 'https://images.unsplash.com/photo-1595727477137-aaa66ca53c41?auto=format&fit=crop&w=600&q=60', age: '6+', stock: 10, description: 'Robotic figure with lights and sounds.', specs: ['Height: 5.5 inches', 'Material: Plastic', 'Battery: Included'] },
+      { id: 12, name: 'Math Learning Kit', category: 'educational', price: 21.99, img: 'https://images.unsplash.com/photo-1573844116009-3c6a7c2927b0?auto=format&fit=crop&w=600&q=60', age: '4+', stock: 11, description: 'Hands-on math learning tools for kids.', specs: ['Includes number blocks', 'Material: Plastic', 'Educational'] },
+      { id: 13, name: 'Plush Bunny', category: 'plushies', price: 19.99, img: 'https://images.unsplash.com/photo-1575447491465-47c0e9be5db3?auto=format&fit=crop&w=600&q=60', age: '0+', stock: 18, description: 'Adorable plush bunny with soft fur.', specs: ['Height: 12 inches', 'Material: Plush fabric', 'Machine washable'] },
+      { id: 14, name: 'Wooden Puzzle Set', category: 'wooden-toys', price: 26.49, img: 'https://images.unsplash.com/photo-1508061255005-0e44fa62eb90?auto=format&fit=crop&w=600&q=60', age: '3+', stock: 13, description: 'Set of wooden puzzles for shape matching.', specs: ['10 pieces', 'Material: Wood', 'Non-toxic finish'] },
+      { id: 15, name: 'Kids Party Board Game', category: 'board-games', price: 20.99, img: 'https://images.unsplash.com/photo-1562768167-5e9a1dd3ae60?auto=format&fit=crop&w=600&q=60', age: '5+', stock: 13, description: 'Fun party-themed board game for all ages.', specs: ['Plays 2-8 players', 'Duration: 25 mins', 'Age 5+'] }
+    ];
+
+    // Contact form validation and submission simulation
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Validation
+      let valid = true;
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const messageInput = document.getElementById('message');
+
+      // Name validation
+      if (!nameInput.value.trim()) {
+        document.getElementById('name-error').classList.remove('hidden');
+        valid = false;
+      } else {
+        document.getElementById('name-error').classList.add('hidden');
+      }
+
+      // Email validation (simple regex)
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailInput.value.trim())) {
+        document.getElementById('email-error').classList.remove('hidden');
+        valid = false;
+      } else {
+        document.getElementById('email-error').classList.add('hidden');
+      }
+
+      // Message validation
+      if (!messageInput.value.trim()) {
+        document.getElementById('message-error').classList.remove('hidden');
+        valid = false;
+      } else {
+        document.getElementById('message-error').classList.add('hidden');
+      }
+
+      if (valid) {
+        alert('Thank you for contacting TOYLAND. We will get back to you shortly!');
+        form.reset();
+      }
+    });
+
+    // Reuse cart, wishlist, quickview and menu toggle scripts from other pages
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Cart and Wishlist DOM elements
+    const cartBtn = document.getElementById('cart-btn');
+    const cartDrawer = document.getElementById('cart-drawer');
+    const cartCloseBtn = document.getElementById('cart-close-btn');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartSubtotalEl = document.getElementById('cart-subtotal');
+    const checkoutBtn = document.getElementById('checkout-btn');
+
+    const wishlistBtn = document.getElementById('wishlist-btn');
+    const wishlistDrawer = document.getElementById('wishlist-drawer');
+    const wishlistCloseBtn = document.getElementById('wishlist-close-btn');
+    const wishlistItemsContainer = document.getElementById('wishlist-items');
+    const wishlistCount = document.getElementById('wishlist-count');
+
+    const quickViewModal = document.getElementById('quick-view-modal');
+    const quickViewClose = document.getElementById('quick-view-close');
+    const quickViewContent = document.getElementById('quick-view-content');
+
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem('toyland_cart')) || [];
+      cartItemsContainer.innerHTML = '';
+      let subtotal = 0;
+
+      cart.forEach(item => {
+        const toy = toys.find(t => t.id === item.id);
+        if (!toy) return;
+        subtotal += toy.price * item.qty;
+
+        const div = document.createElement('div');
+        div.className = 'flex items-center space-x-3';
+        div.innerHTML = `
+          <img src="${toy.img}" alt="${toy.name}" onerror="this.onerror=null;this.src='https://via.placeholder.com/60?text=Toy';" class="w-16 h-16 rounded-lg">
+          <div class="flex-1">
+            <h4 class="font-semibold">${toy.name}</h4>
+            <p class="text-red-500 font-bold">$${toy.price.toFixed(2)}</p>
+            <div class="flex items-center space-x-1 mt-1">
+              <button class="cart-qty-btn bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold rounded px-2" data-id="${toy.id}" data-action="decrease">-</button>
+              <span class="px-2 font-bold text-blue-900">${item.qty}</span>
+              <button class="cart-qty-btn bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold rounded px-2" data-id="${toy.id}" data-action="increase">+</button>
+              <button class="cart-remove-btn text-red-500 hover:text-red-700 ml-4" data-id="${toy.id}"><i class="fas fa-trash-alt"></i></button>
+            </div>
+          </div>
+        `;
+        cartItemsContainer.appendChild(div);
+      });
+
+      cartSubtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById('cart-count').textContent = cart.reduce((a,b) => a + b.qty, 0);
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem('toyland_cart', JSON.stringify(cart));
+    }
+
+    cartBtn.addEventListener('click', () => {
+      cartDrawer.classList.remove('translate-x-full');
+    });
+    cartCloseBtn.addEventListener('click', () => {
+      cartDrawer.classList.add('translate-x-full');
+    });
+
+    checkoutBtn.addEventListener('click', () => {
+      alert('Thank you for your purchase! (Simulation)');
+      localStorage.removeItem('toyland_cart');
+      loadCart();
+      cartDrawer.classList.add('translate-x-full');
+    });
+
+    cartItemsContainer.addEventListener('click', e => {
+      if (e.target.closest('.cart-qty-btn')) {
+        const btn = e.target.closest('.cart-qty-btn');
+        const id = parseInt(btn.getAttribute('data-id'));
+        const action = btn.getAttribute('data-action');
+        let cart = JSON.parse(localStorage.getItem('toyland_cart')) || [];
+        let item = cart.find(i => i.id === id);
+        if (!item) return;
+        if (action === 'increase') {
+          item.qty++;
+        } else if (action === 'decrease' && item.qty > 1) {
+          item.qty--;
+        }
+        saveCart(cart);
+        loadCart();
+      } else if (e.target.closest('.cart-remove-btn')) {
+        const btn = e.target.closest('.cart-remove-btn');
+        const id = parseInt(btn.getAttribute('data-id'));
+        let cart = JSON.parse(localStorage.getItem('toyland_cart')) || [];
+        cart = cart.filter(i => i.id !== id);
+        saveCart(cart);
+        loadCart();
+      }
+    });
+
+    function loadWishlist() {
+      const wishlist = JSON.parse(localStorage.getItem('toyland_wishlist')) || [];
+      wishlistItemsContainer.innerHTML = '';
+
+      wishlist.forEach(id => {
+        const toy = toys.find(t => t.id === id);
+        if (!toy) return;
+
+        const div = document.createElement('div');
+        div.className = 'flex items-center space-x-3';
+        div.innerHTML = `
+          <img src="${toy.img}" alt="${toy.name}" onerror="this.onerror=null;this.src='https://via.placeholder.com/60?text=Toy';" class="w-16 h-16 rounded-lg">
+          <div class="flex-1">
+            <h4 class="font-semibold">${toy.name}</h4>
+            <p class="text-red-500 font-bold">$${toy.price.toFixed(2)}</p>
+            <button class="wishlist-remove-btn text-red-500 hover:text-red-700 mt-1" data-id="${toy.id}"><i class="fas fa-trash-alt"></i> Remove</button>
+          </div>
+        `;
+
+        wishlistItemsContainer.appendChild(div);
+      });
+
+      wishlistCount.textContent = wishlist.length;
+    }
+
+    wishlistBtn.addEventListener('click', () => {
+      wishlistDrawer.classList.remove('-translate-x-full');
+    });
+    wishlistCloseBtn.addEventListener('click', () => {
+      wishlistDrawer.classList.add('-translate-x-full');
+    });
+
+    wishlistItemsContainer.addEventListener('click', e => {
+      if (e.target.closest('.wishlist-remove-btn')) {
+        const btn = e.target.closest('.wishlist-remove-btn');
+        const id = parseInt(btn.getAttribute('data-id'));
+        let wishlist = JSON.parse(localStorage.getItem('toyland_wishlist')) || [];
+        wishlist = wishlist.filter(i => i !== id);
+        localStorage.setItem('toyland_wishlist', JSON.stringify(wishlist));
+        loadWishlist();
+      }
+    });
+
+    function showQuickView(id) {
+      const toy = toys.find(t => t.id === id);
+      if (!toy) return;
+
+      quickViewContent.innerHTML = `
+        <div class="flex flex-col md:flex-row gap-6">
+          <img src="${toy.img}" alt="${toy.name}" onerror="this.onerror=null;this.src='https://via.placeholder.com/300?text=Toy';" class="w-full md:w-48 rounded-lg shadow-lg">
+          <div class="flex-1">
+            <h3 class="text-2xl font-fredoka font-bold mb-3">${toy.name}</h3>
+            <p class="text-red-500 font-bold text-xl mb-3">$${toy.price.toFixed(2)}</p>
+            <p class="mb-3">${toy.description}</p>
+            <p><strong>Recommended Age:</strong> ${toy.age}</p>
+            <p><strong>Stock:</strong> ${toy.stock > 0 ? '<span class="text-green-600 font-semibold">In Stock</span>' : '<span class="text-red-600 font-semibold">Out of Stock</span>'}</p>
+            <ul class="list-disc list-inside mt-2 mb-4">
+              ${toy.specs.map(spec => `<li>${spec}</li>`).join('')}
+            </ul>
+            <div class="flex space-x-3">
+              <button id="quick-view-add-cart" class="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold rounded px-4 py-2">Add to Cart</button>
+              <button id="quick-view-wishlist" class="text-red-500 hover:text-red-700 font-bold px-4 py-2 flex items-center">
+                <i class="fas fa-heart mr-2"></i> Wishlist
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('quick-view-add-cart').onclick = () => {
+        addToCart(toy.id);
+        closeQuickView();
+        cartDrawer.classList.remove('translate-x-full');
+      };
+      document.getElementById('quick-view-wishlist').onclick = () => {
+        toggleWishlist(toy.id);
+      };
+
+      quickViewModal.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function closeQuickView() {
+      quickViewModal.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    quickViewClose.addEventListener('click', closeQuickView);
+    quickViewModal.addEventListener('click', e => {
+      if (e.target === quickViewModal) {
+        closeQuickView();
+      }
+    });
+
+    function addToCart(toyId) {
+      let cart = JSON.parse(localStorage.getItem('toyland_cart')) || [];
+      let item = cart.find(i => i.id === toyId);
+      if (item) {
+        item.qty++;
+      } else {
+        cart.push({id: toyId, qty: 1});
+      }
+      localStorage.setItem('toyland_cart', JSON.stringify(cart));
+      loadCart();
+    }
+
+    function toggleWishlist(toyId) {
+      let wishlist = JSON.parse(localStorage.getItem('toyland_wishlist')) || [];
+      if (wishlist.includes(toyId)) {
+        wishlist = wishlist.filter(i => i !== toyId);
+      } else {
+        wishlist.push(toyId);
+      }
+      localStorage.setItem('toyland_wishlist', JSON.stringify(wishlist));
+      loadWishlist();
+    }
+
+    // Initial loads
+    loadCart();
+    loadWishlist();
+  </script>
+</body>
+</html>
