@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TOYLAND - Wonder & Play Emporium</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka&family=Poppins&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fffbe6;
+      color: #1e293b;
+    }
+    h1,h2,h3,h4,h5,h6 {
+      font-family: 'Fredoka', cursive;
+    }
+    .max-w-container {
+      max-width: 1200px;
+    }
+    /* Scrollbar for carts drawer and wishlist */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #f97316;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="relative">
+  <!-- Navbar -->
+  <nav class="bg-blue-900 text-white shadow-md sticky top-0 z-40">
+    <div class="max-w-container mx-auto flex items-center justify-between p-4">
+      <a href="index.html" class="flex items-center space-x-2 font-fredoka text-2xl text-yellow-400 font-bold">
+        <i class="fas fa-puzzle-piece"></i><span>TOYLAND</span>
+      </a>
+      <ul class="hidden md:flex space-x-8 font-semibold">
+        <li><a href="index.html" class="hover:text-yellow-400 transition">Home</a></li>
+        <li><a href="shop.html" class="hover:text-yellow-400 transition">Shop</a></li>
+        <li><a href="about.html" class="hover:text-yellow-400 transition">About</a></li>
+        <li><a href="contact.html" class="hover:text-yellow-400 transition">Contact</a></li>
+      </ul>
+      <div class="flex items-center space-x-4">
+        <button id="wishlist-btn" aria-label="Wishlist" class="relative text-yellow-400 hover:text-yellow-300 focus:outline-none">
+          <i class="fas fa-heart fa-lg"></i>
+          <span id="wishlist-count" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs h-5 w-5 flex items-center justify-center">0</span>
+        </button>
+        <button id="cart-btn" aria-label="Cart" class="relative text-yellow-400 hover:text-yellow-300 focus:outline-none">
+          <i class="fas fa-shopping-bag fa-lg"></i>
+          <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs h-5 w-5 flex items-center justify-center">0</span>
+        </button>
+        <button id="mobile-menu-btn" class="md:hidden text-yellow-400 focus:outline-none">
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-blue-800 text-yellow-400 p-4 space-y-3">
+      <a href="index.html" class="block hover:text-yellow-300">Home</a>
+      <a href="shop.html" class="block hover:text-yellow-300">Shop</a>
+      <a href="about.html" class="block hover:text-yellow-300">About</a>
+      <a href="contact.html" class="block hover:text-yellow-300">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-yellow-300 text-blue-900 py-20 px-6 text-center relative overflow-hidden">
+    <h1 class="text-5xl md:text-6xl font-bold mb-6">Welcome to TOYLAND</h1>
+    <p class="max-w-lg mx-auto mb-8 text-xl font-semibold">Wonder & Play Emporium - Bringing joy & imagination to every child.</p>
+    <a href="shop.html" class="inline-block bg-red-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-red-600 transition">Shop Now</a>
+    <div class="absolute right-0 bottom-0 max-w-sm opacity-40 select-none">
+      <img src="https://images.unsplash.com/photo-1556185781-bd13e60ae311?auto=format&fit=crop&w=400&q=60" alt="Children playing with toys" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Toy+Image';" class="rounded-lg shadow-lg mx-auto" />
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section class="max-w-container mx-auto p-8">
+    <h2 class="text-3xl font-fredoka font-bold mb-6 text-center text-blue-900">Featured Categories</h2>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+      <a href="shop.html#action-figures" class="bg-red-400 hover:bg-red-500 text-white rounded-lg p-6 flex flex-col items-center shadow-lg transition">
+        <img src="https://images.unsplash.com/photo-1560015720-fbbf8f4057e7?auto=format&fit=crop&w=200&q=60" alt="Action Figures" onerror="this.onerror=null;this.src='https://via.placeholder.com/150?text=Action+Figures';" class="h-24 w-auto mb-3" />
+        <span class="text-lg font-semibold">Action Figures</span>
+      </a>
+      <a href="shop.html#educational" class="bg-yellow-400 hover:bg-yellow-500 text-white rounded-lg p-6 flex flex-col items-center shadow-lg transition">
+        <img src="https://images.unsplash.com/photo-1590080877777-c3747ac26919?auto=format&fit=crop&w=200&q=60" alt="Educational Toys" onerror="this.onerror=null;this.src='https://via.placeholder.com/150?text=Educational';" class="h-24 w-auto mb-3" />
+        <span class="text-lg font-semibold">Educational</span>
+      </a>
+      <a href="shop.html#plushies" class="bg-pink-400 hover:bg-pink-500 text-white rounded-lg p-6 flex flex-col items-center shadow-lg transition">
+        <img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?auto=format&fit=crop&w=200&q=60" alt="Plushies" onerror="this.onerror=null;this.src='https://via.placeholder.com/150?text=Plush+Toys';" class="h-24 w-auto mb-3" />
+        <span class="text-lg font-semibold">Plushies</span>
+      </a>
+      <a href="shop.html#wooden-toys" class="bg-green-400 hover:bg-green-500 text-white rounded-lg p-6 flex flex-col items-center shadow-lg transition">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=200&q=60" alt="Wooden Toys" onerror="this.onerror=null;this.src='https://via.placeholder.com/150?text=Wooden+Toys';" class="h-24 w-auto mb-3" />
+        <span class="text-lg font-semibold">Wooden Toys</span>
+      </a>
+      <a href="shop.html#board-games" class="bg-blue-400 hover:bg-blue-500 text-white rounded-lg p-6 flex flex-col items-center shadow-lg transition">
+        <img src="https://images.unsplash.com/photo-1603062096333-d3e5723510bd?auto=format&fit=crop&w=200&q=60" alt="Board Games" onerror="this.onerror=null;this.src='https://via.placeholder.com/150?text=Board+Games';" class="h-24 w-auto mb-3" />
+        <span class="text-lg font-semibold">Board Games</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Top Sellers Carousel / Grid -->
+  <section class="bg-yellow-50 py-12">
+    <div class="max-w-container mx-auto px-6">
+      <h2 class="text-3xl font-fredoka font-bold mb-8 text-center text-blue-900">Top Sellers</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8">
+        <!-- Top seller items -->
+        <div class="bg-white p-4 rounded-xl shadow hover:shadow-lg transition cursor-pointer quick-view-trigger" data-id="1">
+          <img src="https://images.unsplash.com/photo-1560869492-1b0f1d2152c9?auto=format&fit=crop&w=300&q=60" alt="Superhero Action Figure" onerror="this.onerror=null;this.src='https://via.placeholder.com/300?text=Toy';" class="rounded-lg mb-3" />
+          <h3 class="font-semibold text-lg mb-1">Superhero Action Figure</h3>
+          <p class="text-red-500 font-bold">$24.99</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow hover:shadow-lg transition cursor-pointer quick-view-trigger" data-id="2">
+          <img src="https://images.unsplash.com/photo-1581145643826-b1e84df7693b?auto=format&fit=crop&w=300&q=60" alt="Educational Blocks Set" onerror="this.onerror=null;this.src='https://via.placeholder.com/300?text=Toy';" class="rounded-lg mb-3" />
+          <h3 class="font-semibold text-lg mb-1">Educational Blocks Set</h3>
+          <p class="text-red-500 font-bold">$19.99</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow hover:shadow-lg transition cursor-pointer quick-view-trigger" data-id="3">
+          <img src="https://images.unsplash.com/photo-1515802074687-e1f2ea4129b9?auto=format&fit=crop&w=300&q=60" alt="Plush Teddy Bear" onerror="this.onerror=null;this.src='https://via.placeholder.com/300?text=Toy';" class="rounded-lg mb-3" />
+          <h3 class="font-semibold text-lg mb-1">Plush Teddy Bear</h3>
+          <p class="text-red-500 font-bold">$15.99</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow hover:shadow-lg transition cursor-pointer quick-view-trigger" data-id="4">
+          <img src="https://images.unsplash.com/photo-1512898592424-cb57b50dca26?auto=format&fit=crop&w=300&q=60" alt="Wooden Building Blocks" onerror="this.onerror=null;this.src='https://via.placeholder.com/300?text=Toy';" class="rounded-lg mb-3" />
+          <h3 class="font-semibold text-lg mb-1">Wooden Building Blocks</h3>
+          <p class="text-red-500 font-bold">$29.99</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow hover:shadow-lg transition cursor-pointer quick-view-trigger" data-id="5">
+          <img src="https://images.unsplash.com/photo-1607904856763-197d9ed88fea?auto=format&fit=crop&w=300&q=60" alt="Colorful Board Game" onerror="this.onerror=null;this.src='https://via.placeholder.com/300?text=Toy';" class="rounded-lg mb-3" />
+          <h3 class="font-semibold text-lg mb-1">Colorful Board Game</h3>
+          <p class="text-red-500 font-bold">$22.99</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews Section -->
+  <section class="max-w-container mx-auto p-8">
+    <h2 class="text-3xl font-fredoka font-bold mb-8 text-center text-blue-900">What Our Customers Say</h2>
+    <div class="grid md:grid-cols-3 gap-6 text-center">
+      <div class="bg-yellow-200 p-6 rounded-lg shadow">
+        <p class="italic mb-4">"Amazing quality and quick delivery. My kids love TOYLAND!"</p>
+        <h3 class="font-bold">Jenny R.</h3>
+      </div>
+      <div class="bg-yellow-200 p-6 rounded-lg shadow">
+        <p class="italic mb-4">"Fantastic selection and friendly customer service."</p>
+        <h3 class="font-bold">Carlos M.</h3>
+      </div>
+      <div class="bg-yellow-200 p-6 rounded-lg shadow">
+        <p class="italic mb-4">"The perfect place for safe and fun toys."</p>
+        <h3 class="font-bold">Anita L.</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Drawer -->
+  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform z-50 flex flex-col">
+    <div class="p-4 bg-blue-900 text-white flex justify-between items-center">
+      <h3 class="font-fredoka text-xl">Your Cart</h3>
+      <button id="cart-close-btn" aria-label="Close Cart" class="text-yellow-400 hover:text-yellow-300 focus:outline-none"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-4">
+      <!-- Cart items go here dynamically -->
+    </div>
+    <div class="p-4 border-t">
+      <div class="flex justify-between text-lg font-bold mb-3">
+        <span>Subtotal:</span>
+        <span id="cart-subtotal">$0.00</span>
+      </div>
+      <button id="checkout-btn" class="w-full bg-red-500 text-white py-3 rounded-lg font-semibold hover:bg-red-600 transition">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Wishlist Drawer -->
+  <div id="wishlist-drawer" class="fixed top-0 left-0 h-full w-80 bg-white shadow-lg transform -translate-x-full transition-transform z-50 flex flex-col">
+    <div class="p-4 bg-blue-900 text-white flex justify-between items-center">
+      <h3 class="font-fredoka text-xl">Your Wishlist</h3>
+      <button id="wishlist-close-btn" aria-label="Close Wishlist" class="text-yellow-400 hover:text-yellow-300 focus:outline-none"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="wishlist-items" class="flex-1 overflow-y-auto p-4 space-y-4">
+      <!-- Wishlist items rendered dynamically -->
+    </div>
+  </div>
+
+  <!-- Quick View Modal -->
+  <div id="quick-view-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity z-60">
+    <div class="bg-white rounded-lg shadow-lg max-w-lg w-full max-h-[80vh] overflow-y-auto relative p-6">
+      <button id="quick-view-close" aria-label="Close Quick View" class="absolute top-3 right-3 text-gray-600 hover:text-gray-800 focus:outline-none">
+        <i class="fas fa-times fa-lg"></i>
+      </button>
+      <div id="quick-view-content">
+        <!-- Dynamic quick view toy details -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Cart and Wishlist state using localStorage
+    const cartBtn = document.getElementById('cart-btn');
+    const cartDrawer = document.getElementById('cart-drawer');
+    const cartCloseBtn = document.getElementById('cart-close-btn');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartSubtotalEl = document.getElementById('cart-subtotal');
+    const checkoutBtn = document.getElementById('checkout-btn');
+
+    const wishlistBtn = document.getElementById('wishlist-btn');
+    const wishlistDrawer = document.getElementById('wishlist-drawer');
+    const wishlistCloseBtn = document.getElementById('wishlist-close-btn');
+    const wishlistItemsContainer = document.getElementById('wishlist-items');
+    const wishlistCount = document.getElementById('wishlist-count');
+
+    // Quick view
+    const quickViewModal = document.getElementById('quick-view-modal');
+    const quickViewClose = document.getElementById('quick-view-close');
+    const quickViewContent = document.getElementById('quick-view-content');
+
+    // Sample toys data for quick view and top sellers
+    const toys = [
+      {
+        id: 1,
+        name: 'Superhero Action Figure',
+        category: 'action-figures',
+        price: 24.99,
+        img: 'https://images.unsplash.com/photo-1560869492-1b0f1d2152c9?auto=format&fit=crop&w=600&q=60',
+        age: '5+',
+        stock: 10,
+        description: 'An exciting superhero action figure with moveable joints and accessories.',
+        specs: ['Height: 6 inches', 'Material: Plastic', 'Battery: None']
+      },
+      {
+        id: 2,
+        name: 'Educational Blocks Set',
+        category: 'educational',
+        price: 19.99,
+        img: 'https://images.unsplash.com/photo-1581145643826-b1e84df7693b?auto=format&fit=crop&w=600&q=60',
+        age: '3+',
+        stock: 15,
+        description: 'Colorful blocks set that teaches shapes, colors, and balance.',
+        specs: ['50 pieces', 'Material: Wood', 'Non-toxic paint']
+      },
+      {
+        id: 3,
+        name: 'Plush Teddy Bear',
+        category: 'plushies',
+        price: 15.99,
+        img: 'https://images.unsplash.com/photo-1515802074687-e1f2ea4129b9?auto=format&fit=crop&w=600&q=60',
+        age: '0+',
+        stock: 20,
+        description: 'Soft and cuddly plush teddy bear with embroidered features.',
+        specs: ['Height: 10 inches', 'Material: Plush fabric', 'Machine washable']
+      },
+      {
+        id: 4,
+        name: 'Wooden Building Blocks',
+        category: 'wooden-toys',
+        price: 29.99,
+        img: 'https://images.unsplash.com/photo-1512898592424-cb57b50dca26?auto=format&fit=crop&w=600&q=60',
+        age: '2+',
+        stock: 12,
+        description: 'Classic wooden blocks for creative building and stacking.',
+        specs: ['100 pieces', 'Material: Wood', 'Smooth edges']
+      },
+      {
+        id: 5,
+        name: 'Colorful Board Game',
+        category: 'board-games',
+        price: 22.99,
+        img: 'https://images.unsplash.com/photo-1607904856763-197d9ed88fea?auto=format&fit=crop&w=600&q=60',
+        age: '6+',
+        stock: 8,
+        description: 'Fun and vibrant board game for family and friends.',
+        specs: ['Plays 2-6 players', 'Duration: 30 mins', 'Age 6+']
+      }
+    ];
+
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem('toyland_cart')) || [];
+      cartItemsContainer.innerHTML = '';
+      let subtotal = 0;
+
+      cart.forEach(item => {
+        const toy = toys.find(t => t.id === item.id);
+        if (!toy) return; // skip if toy missing (should not happen)
+        subtotal += toy.price * item.qty;
+
+        // Cart item element
+        const div = document.createElement('div');
+        div.className = 'flex items-center space-x-3';
+        div.innerHTML = `
+          <img src="${toy.img}" alt="${toy.name}" onerror="this.onerror=null;this.src='https://via.placeholder.com/60?text=Toy';" class="w-16 h-16 rounded-lg">
+          <div class="flex-1">
+            <h4 class="font-semibold">${toy.name}</h4>
+            <p class="text-red-500 font-bold">$${(toy.price).toFixed(2)}</p>
+            <div class="flex items-center space-x-1 mt-1">
+              <button class="cart-qty-btn bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold rounded px-2" data-id="${toy.id}" data-action="decrease">-</button>
+              <span class="px-2 font-bold text-blue-900">${item.qty}</span>
+              <button class="cart-qty-btn bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold rounded px-2" data-id="${toy.id}" data-action="increase">+</button>
+              <button class="cart-remove-btn text-red-500 hover:text-red-700 ml-4" data-id="${toy.id}"><i class="fas fa-trash-alt"></i></button>
+            </div>
+          </div>
+        `;
+
+        cartItemsContainer.appendChild(div);
+      });
+
+      cartSubtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById('cart-count').textContent = cart.reduce((a,b) => a + b.qty, 0);
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem('toyland_cart', JSON.stringify(cart));
+    }
+
+    cartBtn.addEventListener('click', () => {
+      cartDrawer.classList.remove('translate-x-full');
+    });
+    cartCloseBtn.addEventListener('click', () => {
+      cartDrawer.classList.add('translate-x-full');
+    });
+
+    checkoutBtn.addEventListener('click', () => {
+      alert('Thank you for your purchase! (Simulation)');
+      localStorage.removeItem('toyland_cart');
+      loadCart();
+      cartDrawer.classList.add('translate-x-full');
+    });
+
+    cartItemsContainer.addEventListener('click', e => {
+      if (e.target.closest('.cart-qty-btn')) {
+        const btn = e.target.closest('.cart-qty-btn');
+        const id = parseInt(btn.getAttribute('data-id'));
+        const action = btn.getAttribute('data-action');
+        let cart = JSON.parse(localStorage.getItem('toyland_cart')) || [];
+        let item = cart.find(i => i.id === id);
+        if (!item) return;
+        if (action === 'increase') {
+          item.qty++;
+        } else if (action === 'decrease' && item.qty > 1) {
+          item.qty--;
+        }
+        saveCart(cart);
+        loadCart();
+      } else if (e.target.closest('.cart-remove-btn')) {
+        const btn = e.target.closest('.cart-remove-btn');
+        const id = parseInt(btn.getAttribute('data-id'));
+        let cart = JSON.parse(localStorage.getItem('toyland_cart')) || [];
+        cart = cart.filter(i => i.id !== id);
+        saveCart(cart);
+        loadCart();
+      }
+    });
+
+    // Wishlist drawer
+    function loadWishlist() {
+      const wishlist = JSON.parse(localStorage.getItem('toyland_wishlist')) || [];
+      wishlistItemsContainer.innerHTML = '';
+
+      wishlist.forEach(id => {
+        const toy = toys.find(t => t.id === id);
+        if (!toy) return;
+
+        const div = document.createElement('div');
+        div.className = 'flex items-center space-x-3';
+        div.innerHTML = `
+          <img src="${toy.img}" alt="${toy.name}" onerror="this.onerror=null;this.src='https://via.placeholder.com/60?text=Toy';" class="w-16 h-16 rounded-lg">
+          <div class="flex-1">
+            <h4 class="font-semibold">${toy.name}</h4>
+            <p class="text-red-500 font-bold">$${toy.price.toFixed(2)}</p>
+            <button class="wishlist-remove-btn text-red-500 hover:text-red-700 mt-1" data-id="${toy.id}"><i class="fas fa-trash-alt"></i> Remove</button>
+          </div>
+        `;
+
+        wishlistItemsContainer.appendChild(div);
+      });
+
+      wishlistCount.textContent = wishlist.length;
+    }
+
+    wishlistBtn.addEventListener('click', () => {
+      wishlistDrawer.classList.remove('-translate-x-full');
+    });
+    wishlistCloseBtn.addEventListener('click', () => {
+      wishlistDrawer.classList.add('-translate-x-full');
+    });
+
+    wishlistItemsContainer.addEventListener('click', e => {
+      if (e.target.closest('.wishlist-remove-btn')) {
+        const btn = e.target.closest('.wishlist-remove-btn');
+        const id = parseInt(btn.getAttribute('data-id'));
+        let wishlist = JSON.parse(localStorage.getItem('toyland_wishlist')) || [];
+        wishlist = wishlist.filter(i => i !== id);
+        localStorage.setItem('toyland_wishlist', JSON.stringify(wishlist));
+        loadWishlist();
+      }
+    });
+
+    // Quick view modal
+    function showQuickView(id) {
+      const toy = toys.find(t => t.id === id);
+      if (!toy) return;
+
+      quickViewContent.innerHTML = `
+        <div class="flex flex-col md:flex-row gap-6">
+          <img src="${toy.img}" alt="${toy.name}" onerror="this.onerror=null;this.src='https://via.placeholder.com/300?text=Toy';" class="w-full md:w-48 rounded-lg shadow-lg">
+          <div class="flex-1">
+            <h3 class="text-2xl font-fredoka font-bold mb-3">${toy.name}</h3>
+            <p class="text-red-500 font-bold text-xl mb-3">$${toy.price.toFixed(2)}</p>
+            <p class="mb-3">${toy.description}</p>
+            <p><strong>Recommended Age:</strong> ${toy.age}</p>
+            <p><strong>Stock:</strong> ${toy.stock > 0 ? '<span class="text-green-600 font-semibold">In Stock</span>' : '<span class="text-red-600 font-semibold">Out of Stock</span>'}</p>
+            <ul class="list-disc list-inside mt-2 mb-4">
+              ${toy.specs.map(spec => `<li>${spec}</li>`).join('')}
+            </ul>
+            <div class="flex space-x-3">
+              <button id="quick-view-add-cart" class="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold rounded px-4 py-2">Add to Cart</button>
+              <button id="quick-view-wishlist" class="text-red-500 hover:text-red-700 font-bold px-4 py-2 flex items-center">
+                <i class="fas fa-heart mr-2"></i> Wishlist
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Add event listeners for buttons
+      document.getElementById('quick-view-add-cart').onclick = () => {
+        addToCart(toy.id);
+        closeQuickView();
+        cartDrawer.classList.remove('translate-x-full');
+      };
+
+      document.getElementById('quick-view-wishlist').onclick = () => {
+        toggleWishlist(toy.id);
+      };
+
+      quickViewModal.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function closeQuickView() {
+      quickViewModal.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    quickViewClose.addEventListener('click', closeQuickView);
+    quickViewModal.addEventListener('click', e => {
+      if (e.target === quickViewModal) {
+        closeQuickView();
+      }
+    });
+
+    // Add to Cart function
+    function addToCart(toyId) {
+      let cart = JSON.parse(localStorage.getItem('toyland_cart')) || [];
+      let item = cart.find(i => i.id === toyId);
+      if (item) {
+        item.qty++;
+      } else {
+        cart.push({id: toyId, qty: 1});
+      }
+      localStorage.setItem('toyland_cart', JSON.stringify(cart));
+      loadCart();
+    }
+
+    // Wishlist toggle function
+    function toggleWishlist(toyId) {
+      let wishlist = JSON.parse(localStorage.getItem('toyland_wishlist')) || [];
+      if (wishlist.includes(toyId)) {
+        wishlist = wishlist.filter(i => i !== toyId);
+      } else {
+        wishlist.push(toyId);
+      }
+      localStorage.setItem('toyland_wishlist', JSON.stringify(wishlist));
+      loadWishlist();
+    }
+
+    // For quick view triggers on top sellers
+    document.querySelectorAll('.quick-view-trigger').forEach(el => {
+      el.addEventListener('click', () => {
+        const id = parseInt(el.getAttribute('data-id'));
+        showQuickView(id);
+      });
+    });
+
+    // Initial loads
+    loadCart();
+    loadWishlist();
+  </script>
+</body>
+</html>
