@@ -2,137 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Coleus Plants - Colorful Foliage Wonders</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxury Horology E-Commerce</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header class="hero">
-        <div class="hero-overlay">
-            <h1>Coleus Plants</h1>
-            <p>Celebrate the vibrant colors of Coleus foliage</p>
-            <div class="hero-buttons">
-                <button id="exploreCatalogBtn">Explore Catalog</button>
-                <button id="careGuideBtn">Care Guide</button>
+    <header>
+        <h1>Luxury Horology Boutique</h1>
+        <div class="filters">
+            <input type="text" id="search" placeholder="Search by brand or model..." aria-label="Search Watches" />
+            <div class="brand-filters">
+                <button class="brand-btn active" data-brand="all">All</button>
+                <button class="brand-btn" data-brand="Rolex">Rolex</button>
+                <button class="brand-btn" data-brand="Omega">Omega</button>
+                <button class="brand-btn" data-brand="Seiko">Seiko</button>
+                <button class="brand-btn" data-brand="Casio">Casio</button>
+                <button class="brand-btn" data-brand="TAG Heuer">TAG Heuer</button>
+                <button class="brand-btn" data-brand="Tissot">Tissot</button>
+                <button class="brand-btn" data-brand="Patek Philippe">Patek Philippe</button>
+                <button class="brand-btn" data-brand="Audemars Piguet">Audemars Piguet</button>
+                <button class="brand-btn" data-brand="Cartier">Cartier</button>
+                <button class="brand-btn" data-brand="Tudor">Tudor</button>
             </div>
+            <select id="sort">
+                <option value="default">Sort By</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="brand">Brand Name</option>
+                <option value="model">Model Name</option>
+            </select>
         </div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Coleus_Scutellarioides.jpg/1024px-Coleus_Scutellarioides.jpg" alt="Coleus Hero" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Coleus_Scutellarioides.jpg/640px-Coleus_Scutellarioides.jpg'" />
     </header>
 
     <main>
-        <section id="catalog-section">
-            <h2>Plant Catalog</h2>
-            <div class="filters">
-                <input type="text" id="searchInput" placeholder="Search by variety name..." />
-                <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="sun">Sun-Tolerant</button>
-                    <button class="filter-btn" data-filter="shade">Shade-Loving</button>
-                </div>
-                <select id="priceSort">
-                    <option value="none">Sort by price</option>
-                    <option value="low-high">Price: Low to High</option>
-                    <option value="high-low">Price: High to Low</option>
-                </select>
-            </div>
-            <div id="plantGrid" class="plant-grid">
-                <!-- Plant cards will be dynamically loaded here -->
-                <div class="product-card">
-                    <img class="card-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Coleus_Scutellarioides.jpg/640px-Coleus_Scutellarioides.jpg" alt="Wizard Scarlet" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Coleus_Scutellarioides.jpg/640px-Coleus_Scutellarioides.jpg'" />
-                    <div class="product-content">
-                        <h3>Wizard Scarlet</h3>
-                        <p>A striking variety with deep red and green leaves.</p>
-                        <span class="badge full-sun">Full Sun</span>
-                        <p>Price: $15.00</p>
-                        <button class="accent-btn">Close Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img class="card-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Plectranthus_scutellarioides_-_Coleus_China_Rose.jpg/640px-Plectranthus_scutellarioides_-_Coleus_China_Rose.jpg" alt="China Rose" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Coleus_Scutellarioides.jpg/640px-Coleus_Scutellarioides.jpg'" />
-                    <div class="product-content">
-                        <h3>China Rose</h3>
-                        <p>An elegant Coleus with rose-pink leaves and delicate patterns.</p>
-                        <span class="badge part-shade">Part Shade</span>
-                        <p>Price: $12.50</p>
-                        <button class="accent-btn">Close Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img class="card-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Coleus_Black_Dragon_2.jpg/640px-Coleus_Black_Dragon_2.jpg" alt="Black Dragon" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Coleus_Scutellarioides.jpg/640px-Coleus_Scutellarioides.jpg'" />
-                    <div class="product-content">
-                        <h3>Black Dragon</h3>
-                        <p>A bold variety with dark purple-black foliage.</p>
-                        <span class="badge full-sun">Full Sun</span>
-                        <p>Price: $18.00</p>
-                        <button class="accent-btn">Close Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img class="card-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Coleus_Kong_Rose.jpg/640px-Coleus_Kong_Rose.jpg" alt="Kong Rose" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Coleus_Scutellarioides.jpg/640px-Coleus_Scutellarioides.jpg'" />
-                    <div class="product-content">
-                        <h3>Kong Rose</h3>
-                        <p>A vibrant variety with rose-purple and green leaves.</p>
-                        <span class="badge part-shade">Part Shade</span>
-                        <p>Price: $16.00</p>
-                        <button class="accent-btn">Close Cart</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="care-guide-section">
-            <h2>Care Guide</h2>
-            <div class="accordion">
-                <button class="accordion-btn">Light Needs</button>
-                <div class="accordion-content">
-                    <p>Coleus plants thrive in partial shade to full sun, depending on the variety. Most prefer bright, indirect light for vivid foliage colors.</p>
-                </div>
-
-                <button class="accordion-btn">Watering</button>
-                <div class="accordion-content">
-                    <p>Keep the soil consistently moist but not soggy. Water when the top inch of soil feels dry. Avoid letting plants sit in water.</p>
-                </div>
-
-                <button class="accordion-btn">Soil & Fertilizer</button>
-                <div class="accordion-content">
-                    <p>Use well-draining potting soil rich in organic matter. Fertilize monthly during the growing season with a balanced fertilizer.</p>
-                </div>
-
-                <button class="accordion-btn">Propagation</button>
-                <div class="accordion-content">
-                    <p>Propagate Coleus easily via stem cuttings; root cuttings in water or moist soil until roots form.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact-newsletter">
-            <h2>Contact & Newsletter</h2>
-            <form id="contactForm">
-                <label for="nameInput">Name:</label>
-                <input type="text" id="nameInput" name="name" required />
-
-                <label for="emailInput">Email:</label>
-                <input type="email" id="emailInput" name="email" required />
-
-                <label for="messageInput">Message:</label>
-                <textarea id="messageInput" name="message" required></textarea>
-
-                <button type="submit">Send Message</button>
-                <div id="contactFeedback" class="feedback"></div>
-            </form>
-
-            <form id="newsletterForm">
-                <label for="newsletterEmail">Subscribe to our Newsletter:</label>
-                <input type="email" id="newsletterEmail" name="newsletterEmail" placeholder="Your email..." required />
-                <button type="submit">Subscribe</button>
-                <div id="newsletterFeedback" class="feedback"></div>
-            </form>
-        </section>
+        <div id="products" class="product-grid">
+            <!-- Product cards added dynamically by script.js -->
+        </div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Coleus Plants. All rights reserved.</p>
-    </footer>
+    <aside id="cart-panel" aria-label="Shopping Cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <div class="cart-footer">
+            <div id="cart-total">Total: $0.00</div>
+            <button id="clear-cart" aria-label="Clear Cart">Clear Cart</button>
+        </div>
+    </aside>
 
     <script src="script.js"></script>
 </body>
