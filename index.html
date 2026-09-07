@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Coleus Plants - Colorful Foliage Wonders</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
     <header class="hero">
@@ -16,7 +16,7 @@
                 <button id="careGuideBtn">Care Guide</button>
             </div>
         </div>
-        <img src="https://images.unsplash.com/photo-1596728325492-b485ff7430ad?auto=format&fit=crop&w=1200&q=80" alt="Coleus Hero" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1596728325492-b485ff7430ad?auto=format&fit=crop&w=600&q=80'" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Coleus_Scutellarioides.jpg/1024px-Coleus_Scutellarioides.jpg" alt="Coleus Hero" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Coleus_Scutellarioides.jpg/640px-Coleus_Scutellarioides.jpg'" />
     </header>
 
     <main>
@@ -35,43 +35,73 @@
                     <option value="high-low">Price: High to Low</option>
                 </select>
             </div>
-            <div id="plantGrid" class="plant-grid"></div>
+            <div id="plantGrid" class="plant-grid">
+                <!-- Plant cards will be dynamically loaded here -->
+                <div class="product-card">
+                    <img class="card-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Coleus_Scutellarioides.jpg/640px-Coleus_Scutellarioides.jpg" alt="Wizard Scarlet" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Coleus_Scutellarioides.jpg/640px-Coleus_Scutellarioides.jpg'" />
+                    <div class="product-content">
+                        <h3>Wizard Scarlet</h3>
+                        <p>A striking variety with deep red and green leaves.</p>
+                        <span class="badge full-sun">Full Sun</span>
+                        <p>Price: $15.00</p>
+                        <button class="accent-btn">Close Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="card-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Plectranthus_scutellarioides_-_Coleus_China_Rose.jpg/640px-Plectranthus_scutellarioides_-_Coleus_China_Rose.jpg" alt="China Rose" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Coleus_Scutellarioides.jpg/640px-Coleus_Scutellarioides.jpg'" />
+                    <div class="product-content">
+                        <h3>China Rose</h3>
+                        <p>An elegant Coleus with rose-pink leaves and delicate patterns.</p>
+                        <span class="badge part-shade">Part Shade</span>
+                        <p>Price: $12.50</p>
+                        <button class="accent-btn">Close Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="card-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Coleus_Black_Dragon_2.jpg/640px-Coleus_Black_Dragon_2.jpg" alt="Black Dragon" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Coleus_Scutellarioides.jpg/640px-Coleus_Scutellarioides.jpg'" />
+                    <div class="product-content">
+                        <h3>Black Dragon</h3>
+                        <p>A bold variety with dark purple-black foliage.</p>
+                        <span class="badge full-sun">Full Sun</span>
+                        <p>Price: $18.00</p>
+                        <button class="accent-btn">Close Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="card-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Coleus_Kong_Rose.jpg/640px-Coleus_Kong_Rose.jpg" alt="Kong Rose" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Coleus_Scutellarioides.jpg/640px-Coleus_Scutellarioides.jpg'" />
+                    <div class="product-content">
+                        <h3>Kong Rose</h3>
+                        <p>A vibrant variety with rose-purple and green leaves.</p>
+                        <span class="badge part-shade">Part Shade</span>
+                        <p>Price: $16.00</p>
+                        <button class="accent-btn">Close Cart</button>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="care-guide-section">
             <h2>Care Guide</h2>
             <div class="accordion">
-                <button class="accordion-header">Light Needs</button>
+                <button class="accordion-btn">Light Needs</button>
                 <div class="accordion-content">
                     <p>Coleus plants thrive in partial shade to full sun, depending on the variety. Most prefer bright, indirect light for vivid foliage colors.</p>
                 </div>
 
-                <button class="accordion-header">Watering</button>
+                <button class="accordion-btn">Watering</button>
                 <div class="accordion-content">
                     <p>Keep the soil consistently moist but not soggy. Water when the top inch of soil feels dry. Avoid letting plants sit in water.</p>
                 </div>
 
-                <button class="accordion-header">Soil & Fertilizer</button>
+                <button class="accordion-btn">Soil & Fertilizer</button>
                 <div class="accordion-content">
                     <p>Use well-draining potting soil rich in organic matter. Fertilize monthly during the growing season with a balanced fertilizer.</p>
                 </div>
 
-                <button class="accordion-header">Propagation</button>
+                <button class="accordion-btn">Propagation</button>
                 <div class="accordion-content">
                     <p>Propagate Coleus easily via stem cuttings; root cuttings in water or moist soil until roots form.</p>
                 </div>
-            </div>
-        </section>
-
-        <section id="cart-section">
-            <button id="cartToggle" aria-label="Toggle shopping cart">Cart (<span id="cartCount">0</span>)</button>
-            <div id="cartDrawer" class="cart-drawer">
-                <h3>Your Cart</h3>
-                <div id="cartItems"></div>
-                <div class="cart-total">
-                    Total: $<span id="cartTotal">0.00</span>
-                </div>
-                <button id="closeCart">Close Cart</button>
             </div>
         </section>
 
