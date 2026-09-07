@@ -1,34 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>WonderToys - Contact</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WonderToys - Contact Us</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
 </head>
 <body>
-    <header class="header">
-        <div class="logo">WonderToys</div>
-        <nav class="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="cart.html">Cart</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1>Contact Us</h1>
-        <form>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required />
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </main>
+  <header class="header">
+    <div class="header-container container">
+      <div class="logo">WonderToys</div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="cart.html">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="search-bar">
+        <input type="text" placeholder="Search toys..." />
+        <button aria-label="Search">🔍</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container contact-container">
+    <h1>Contact Us</h1>
+    <section class="store-details">
+      <h2>Store Details</h2>
+      <p><strong>Address:</strong> 123 Playtime Lane, Toy City, Funland 45678</p>
+      <p><strong>Support Email:</strong> support@wondertoys.com</p>
+      <p><strong>Working Hours:</strong> Mon - Sat, 9am - 6pm</p>
+    </section>
+
+    <section class="contact-form-section">
+      <h2>Send Us a Message</h2>
+      <form class="contact-form" id="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-socials">
+      <a href="#" aria-label="Facebook">
+        <img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png" alt="Facebook" />
+      </a>
+      <a href="#" aria-label="Twitter">
+        <img src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png" alt="Twitter" />
+      </a>
+      <a href="#" aria-label="Instagram">
+        <img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png" alt="Instagram" />
+      </a>
+    </div>
+    <p>&copy; 2024 WonderToys. All rights reserved.</p>
+  </footer>
 </body>
 </html>
