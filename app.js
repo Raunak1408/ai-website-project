@@ -1,65 +1,26 @@
-// JavaScript for WonderToys website interactivity
+// JavaScript for WonderToys
 
-// Cart badge counter update
-const cartCountElement = document.getElementById('cart-count');
+// Cart counter functionality
 let cartCount = 0;
 
-function updateCartCount(count) {
-  cartCount = count;
-  if(cartCountElement) {
-    cartCountElement.textContent = cartCount;
-  }
+function updateCartCount() {
+    const cartCountElement = document.getElementById('cart-count');
+    if (cartCountElement) {
+        cartCountElement.innerText = cartCount;
+    }
 }
 
-// Initialize cart count
-updateCartCount(cartCount);
-
-// Add to Cart and Quick Buy buttons event listeners
-function setupCartButtons() {
-  const addToCartButtons = document.querySelectorAll('.btn-primary');
-
-  addToCartButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      cartCount++;
-      updateCartCount(cartCount);
-      alert('Item added to cart!');
-    });
-  });
+// Event listener for adding to cart
+function addToCart() {
+    cartCount++;
+    updateCartCount();
 }
 
-// Filter functionality mockup (for shop page)
-function setupFilters() {
-  const filterCheckboxes = document.querySelectorAll('.filter-group input[type=checkbox]');
-  const filterRadios = document.querySelectorAll('.filter-group input[type=radio]');
-
-  filterCheckboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', () => {
-      alert('Filters applied (mockup).');
+// Mobile navigation toggle functionality
+const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+if (mobileNavToggle) {
+    mobileNavToggle.addEventListener('click', function() {
+        const navMenu = document.querySelector('.nav');
+        navMenu.classList.toggle('active');
     });
-  });
-
-  filterRadios.forEach(radio => {
-    radio.addEventListener('change', () => {
-      alert('Filters applied (mockup).');
-    });
-  });
 }
-
-// Mobile navigation toggle
-function setupMobileMenu() {
-  const toggleButton = document.querySelector('.mobile-menu-toggle');
-  const navList = document.querySelector('.nav-list');
-  
-  if(toggleButton && navList) {
-    toggleButton.addEventListener('click', () => {
-      navList.classList.toggle('show');
-    });
-  }
-}
-
-// Initialize all interactivity
-document.addEventListener('DOMContentLoaded', () => {
-  setupCartButtons();
-  setupFilters();
-  setupMobileMenu();
-});
