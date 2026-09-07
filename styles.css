@@ -1,0 +1,129 @@
+/* Light Botanical Theme Styles */
+body {
+    background-color: #f8faf7;
+    color: #1c2a1e;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f3f6f3;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(28, 42, 30, 0.15);
+}
+
+header h1 {
+    color: #1c2a1e;
+    margin: 0;
+    font-weight: 700;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #1c2a1e;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #b83253;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #9e2a2b;
+}
+
+.product-card {
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+}
+
+.card-image {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.product-content {
+    padding: 15px 18px;
+    flex-grow: 1;
+}
+
+.badge {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.badge.full-sun {
+    background-color: #e8f5e9;
+    color: #1c2a1e;
+}
+
+.badge.part-shade {
+    background-color: #f3e5f5;
+    color: #1c2a1e;
+}
+
+.accent-btn {
+    background-color: #b83253;
+    color: white;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.accent-btn:hover {
+    background-color: #9e2a2b;
+}
+
+.filter-buttons {
+    margin-bottom: 25px;
+}
+
+.filter-buttons button {
+    margin-right: 8px;
+}
+
+/* Responsive grid for product cards */
+.plant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+    color: #1c2a1e;
+    background-color: #f3f6f3;
+}
