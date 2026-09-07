@@ -1,34 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WonderToys - Cart</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="app.js" defer></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WonderToys - Cart & Checkout</title>
+<link rel="stylesheet" href="style.css" />
+<script defer src="app.js"></script>
 </head>
 <body>
-<div class="header">
+<header class="header">
+  <div class="container header-container">
     <div class="logo">WonderToys</div>
     <nav class="nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="product.html">Product</a></li>
-            <li><a href="cart.html">Cart</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="cart.html" class="active">Cart <span id="cart-count">0</span></a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
-</div>
+    <input
+      type="search"
+      placeholder="Search toys..."
+      aria-label="Search toys"
+      class="search-bar"
+    />
+    <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+      &#9776;
+    </button>
+  </div>
+</header>
+<main class="cart-checkout container">
+  <section class="cart-items">
+    <h2>Your Cart</h2>
+    <ul id="cart-list" class="cart-list">
+      <!-- Cart items dynamically added here -->
+    </ul>
+  </section>
 
-<main>
-    <h2>Your Shopping Cart</h2>
-    <div class="cart-items"></div>
-    <p>Total: $0.00</p>
+  <section class="order-summary">
+    <h2>Order Summary</h2>
+    <div class="summary-details">
+      <div class="subtotal">
+        <span>Subtotal:</span> <span id="subtotal-amount">$0.00</span>
+      </div>
+      <div class="shipping-cost">
+        <label for="shipping">Shipping Cost:</label>
+        <select id="shipping" name="shipping">
+          <option value="0">Free</option>
+          <option value="5">$5.00</option>
+          <option value="10">$10.00</option>
+        </select>
+      </div>
+      <div class="promo-code">
+        <label for="promo">Discount Promo Code:</label>
+        <input type="text" id="promo" name="promo" placeholder="Enter promo code" />
+      </div>
+      <div class="total-amount">
+        <span>Total:</span> <span id="total-amount">$0.00</span>
+      </div>
+    </div>
+
+    <form id="checkout-form" class="checkout-form" aria-label="Checkout Form">
+      <h3>Checkout Form</h3>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="address">Shipping Address:</label>
+      <textarea id="address" name="address" rows="3" required></textarea>
+
+      <label for="payment-method">Payment Method:</label>
+      <select id="payment-method" name="payment-method" required>
+        <option value="credit-card">Credit Card</option>
+        <option value="paypal">PayPal</option>
+        <option value="apple-pay">Apple Pay</option>
+      </select>
+
+      <button type="submit" class="btn-primary">Place Order</button>
+    </form>
+  </section>
 </main>
-
-<div class="footer">
-    <p>2023 &copy; WonderToys | All Rights Reserved</p>
-</div>
+<footer class="footer">
+  <div class="container footer-container">
+    <div class="footer-left">
+      <p>&copy; 2024 WonderToys. All rights reserved.</p>
+    </div>
+    <div class="footer-right social-links">
+      <a href="#" aria-label="Facebook"><img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook" /></a>
+      <a href="#" aria-label="Twitter"><img src="https://img.icons8.com/color/48/000000/twitter--v1.png" alt="Twitter" /></a>
+      <a href="#" aria-label="Instagram"><img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram" /></a>
+    </div>
+    <form class="newsletter-form" aria-label="Subscribe to newsletter">
+      <input type="email" placeholder="Your email address" aria-label="Email address" required />
+      <button type="submit" class="btn-primary">Subscribe</button>
+    </form>
+  </div>
+</footer>
 </body>
 </html>
