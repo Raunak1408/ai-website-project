@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WonderToys - Shop</title>
+<link rel="stylesheet" href="style.css" />
+<script defer src="app.js"></script>
+</head>
+<body>
+<header class="header">
+  <div class="container header-container">
+    <div class="logo">WonderToys</div>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="cart.html">Cart <span class="cart-badge" id="cart-count">0</span></a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+      <div class="nav-search">
+        <input type="search" id="search-shop" placeholder="Search toys..." aria-label="Search toys" />
+      </div>
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+        &#9776;
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="shop-main container">
+  <aside class="shop-filters">
+    <h2>Filter By</h2>
+    <form id="filter-form">
+      <div class="filter-group">
+        <label for="category">Category</label>
+        <select id="category" name="category">
+          <option value="all">All</option>
+          <option value="action-figures">Action Figures</option>
+          <option value="educational">Educational & STEM</option>
+          <option value="plush-toys">Plush Toys</option>
+          <option value="board-games">Board Games & Puzzles</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="age-group">Age Group</label>
+        <select id="age-group" name="age-group">
+          <option value="all">All</option>
+          <option value="0-3">0-3 yrs</option>
+          <option value="4-7">4-7 yrs</option>
+          <option value="8+">8+ yrs</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="price-range">Price Range</label>
+        <select id="price-range" name="price-range">
+          <option value="all">All</option>
+          <option value="0-20">$0 - $20</option>
+          <option value="21-50">$21 - $50</option>
+          <option value="51+">$51+</option>
+        </select>
+      </div>
+      <button type="button" id="apply-filters" class="btn-secondary">Apply Filters</button>
+    </form>
+  </aside>
+
+  <section class="product-grid">
+    <h2>Toys Collection</h2>
+    <div class="products">
+      <article class="product-card" data-category="action-figures" data-age="8+" data-price="29.99">
+        <img src="https://images.unsplash.com/photo-1589820296151-dc209bbd44e2?auto=format&fit=crop&w=400&q=80" alt="Action Figure Soldier" />
+        <h3>Action Figure Soldier</h3>
+        <div class="rating">★★★★☆</div>
+        <div class="price">$29.99</div>
+        <button class="btn-quick-buy">Quick Buy</button>
+      </article>
+      <article class="product-card" data-category="educational" data-age="4-7" data-price="19.99">
+        <img src="https://images.unsplash.com/photo-1583142337019-1de8ed9d2ddf?auto=format&fit=crop&w=400&q=80" alt="Math Learning Kit" />
+        <h3>Math Learning Kit</h3>
+        <div class="rating">★★★★★</div>
+        <div class="price">$19.99</div>
+        <button class="btn-quick-buy">Quick Buy</button>
+      </article>
+      <article class="product-card" data-category="plush-toys" data-age="0-3" data-price="25.00">
+        <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=400&q=80" alt="Teddy Bear" />
+        <h3>Teddy Bear</h3>
+        <div class="rating">★★★★★</div>
+        <div class="price">$25.00</div>
+        <button class="btn-quick-buy">Quick Buy</button>
+      </article>
+      <article class="product-card" data-category="board-games" data-age="8+" data-price="34.99">
+        <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=400&q=80" alt="Classic Board Game" />
+        <h3>Classic Board Game</h3>
+        <div class="rating">★★★★☆</div>
+        <div class="price">$34.99</div>
+        <button class="btn-quick-buy">Quick Buy</button>
+      </article>
+      <article class="product-card" data-category="action-figures" data-age="8+" data-price="45.00">
+        <img src="https://images.unsplash.com/photo-1562007907-d1e9c8329b57?auto=format&fit=crop&w=400&q=80" alt="Mech Warrior" />
+        <h3>Mech Warrior</h3>
+        <div class="rating">★★★★☆</div>
+        <div class="price">$45.00</div>
+        <button class="btn-quick-buy">Quick Buy</button>
+      </article>
+      <article class="product-card" data-category="educational" data-age="4-7" data-price="15.99">
+        <img src="https://images.unsplash.com/photo-1583337130417-f22e0e5c2ae1?auto=format&fit=crop&w=400&q=80" alt="Alphabet Blocks" />
+        <h3>Alphabet Blocks</h3>
+        <div class="rating">★★★★☆</div>
+        <div class="price">$15.99</div>
+        <button class="btn-quick-buy">Quick Buy</button>
+      </article>
+      <article class="product-card" data-category="plush-toys" data-age="0-3" data-price="30.00">
+        <img src="https://images.unsplash.com/photo-1508264165352-258a96351f88?auto=format&fit=crop&w=400&q=80" alt="Stuffed Bunny" />
+        <h3>Stuffed Bunny</h3>
+        <div class="rating">★★★★★</div>
+        <div class="price">$30.00</div>
+        <button class="btn-quick-buy">Quick Buy</button>
+      </article>
+      <article class="product-card" data-category="board-games" data-age="8+" data-price="40.00">
+        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400&q=80" alt="Puzzle Game" />
+        <h3>Puzzle Game</h3>
+        <div class="rating">★★★★☆</div>
+        <div class="price">$40.00</div>
+        <button class="btn-quick-buy">Quick Buy</button>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-container">
+    <div class="footer-left">
+      <h3>WonderToys</h3>
+      <p>Bringing joy to playtime!</p>
+    </div>
+    <div class="footer-right">
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook" /></a>
+        <a href="#" aria-label="Twitter"><img src="https://img.icons8.com/color/48/000000/twitter.png" alt="Twitter" /></a>
+        <a href="#" aria-label="Instagram"><img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram" /></a>
+      </div>
+      <form class="newsletter-form" aria-label="Subscribe to newsletter">
+        <input type="email" placeholder="Your email address" aria-label="Email address" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
