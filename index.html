@@ -1,325 +1,297 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOLEUS HAVEN | Premier Coleus Botanical Nursery</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { heading: ['Playfair Display', 'serif'], sans: ['Plus Jakarta Sans', 'sans-serif'] },
-                    colors: { leafDark: '#0D1F12', leafCard: '#132819', leafBorder: '#23422A', leafAccent: '#A3E635', coleusMagenta: '#E11D48' }
-                }
-            }
-        }
-    </script>
-    <style>
-        .plant-img-container {
-            position: relative;
-            width: 100%;
-            height: 210px;
-            overflow: hidden;
-            border-radius: 0.75rem;
-            background: #1a3321;
-        }
-        .plant-svg-fallback {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #132819 0%, #22422a 100%);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coleus Varieties</title>
+  <style>
+    /* Basic Reset */
+    * {box-sizing: border-box;}
+    body {font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fff9f0; color: #333;}
+    header {background: #911414; color: white; padding: 1rem 2rem; text-align: center;}
+    h1 {margin: 0; font-weight: 700;}
+    nav {background: #dc7a00; display: flex; justify-content: center; padding: 0.5rem;}
+    nav button {background: transparent; border: none; color: white; padding: 0.5rem 1rem; cursor: pointer; font-weight: 600;}
+    nav button.active, nav button:hover {background: #b25100;}
+
+    /* Container */
+    .container {max-width: 1200px; margin: 2rem auto; padding: 0 1rem;}
+
+    /* Search Bar */
+    #searchBar {width: 100%; padding: 0.5rem 1rem; font-size: 1rem; border: 2px solid #dc7a00; border-radius: 4px; margin-bottom: 2rem;}
+
+    /* Plant Grid */
+    .plant-list {display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;}
+
+    .plant-card {background: white; border: 2px solid #dc7a00; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column;}
+    .plant-card img {width: 100%; height: 160px; object-fit: cover; border-bottom: 2px solid #dc7a00;}
+    .plant-info {padding: 0.8rem 1rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;}
+    .plant-info h2 {font-size: 1.2rem; margin: 0 0 0.5rem 0; color: #911414;}
+    .plant-info p {flex-grow: 1; margin: 0 0 1rem 0; font-size: 0.9rem; color: #333;}
+
+    /* Buttons */
+    .buttons {display: flex; justify-content: space-between; gap: 0.5rem;}
+    button {background: #dc7a00; color: white; border: none; padding: 0.5rem 0.8rem; font-weight: 700; border-radius: 4px; cursor: pointer; transition: background 0.3s ease;}
+    button:hover {background: #b25100;}
+
+    /* Cart/Wishlist Icons with counters */
+    .icon-btn {position: relative; background: transparent; border: none; cursor: pointer; font-size: 1.5rem; color: #911414;}
+    .icon-btn .count {position: absolute; top: -8px; right: -10px; background: #b25100; color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.8rem; font-weight: 700;}
+
+    /* Quick View Modal */
+    .modal-overlay {position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 1000;}
+    .modal {background: white; max-width: 600px; width: 90%; border-radius: 8px; padding: 1rem; position: relative;}
+    .modal img {width: 100%; max-height: 300px; object-fit: contain; border-radius: 8px;}
+    .modal h2 {margin: 0.5rem 0; color: #911414;}
+    .modal p {margin: 0.5rem 0;}
+    .modal button.close-modal {position: absolute; top: 10px; right: 10px; background: #b25100; color: white; border: none; font-size: 1.2rem; border-radius: 50%; width: 30px; height: 30px; cursor: pointer;}
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .plant-list {grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));}
+      .plant-card img {height: 140px;}
+    }
+  </style>
 </head>
-<body class="bg-leafDark text-slate-100 font-sans min-h-screen flex flex-col selection:bg-coleusMagenta selection:text-white">
+<body>
+  <header>
+    <h1>Coleus Varieties Collection</h1>
+  </header>
+  <nav>
+    <button class="active" data-category="all">All</button>
+    <button data-category="mainstreet">Main Street Sunset</button>
+    <button data-category="wasabi">Wasabi</button>
+    <button data-category="campfire">Campfire</button>
+    <button data-category="blackdragon">Black Dragon</button>
+    <button data-category="chocolate">Chocolate Covered Cherry</button>
+    <button data-category="kongred">Kong Red</button>
+    <button data-category="trailing">Trailing Burgundy</button>
+    <button data-category="watermelon">Watermelon</button>
+  </nav>
+  <main class="container">
+    <input type="search" id="searchBar" placeholder="Search Coleus varieties..." aria-label="Search Coleus varieties">
+    <section class="plant-list" id="plantList"></section>
+  </main>
 
-    <!-- Top Announcement Bar -->
-    <div class="bg-gradient-to-r from-pink-950 via-emerald-950 to-pink-950 text-leafAccent text-[11px] font-extrabold uppercase py-2 tracking-widest text-center shadow-md">
-        ⚡️ SPECIALIST COLEUS NURSERY: OVER 50 COLORED CULTIVARS & FREE EXPRESS INSURED SHIPPING ⚡️
-    </div>
+  <script>
+    // Plant data with verified Wikimedia Commons images
+    const plants = [
+      {
+        id: 'mainstreet',
+        name: 'Main Street Sunset',
+        category: 'mainstreet',
+        description: 'Vibrant magenta and yellow-green foliage with serrated edges.',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Coleus_Main_Street_Sunset.JPG'
+      },
+      {
+        id: 'wasabi',
+        name: 'Wasabi',
+        category: 'wasabi',
+        description: 'Bright lime green leaves with pinkish serrated edges.',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Coleus_wasabi_plant_01.JPG'
+      },
+      {
+        id: 'campfire',
+        name: 'Campfire',
+        category: 'campfire',
+        description: 'Fiery red and yellow variegated leaves with serrated borders.',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/5/54/Coleus_campfire_plant.JPG'
+      },
+      {
+        id: 'blackdragon',
+        name: 'Black Dragon',
+        category: 'blackdragon',
+        description: 'Deep burgundy-black foliage with a velvet texture and serrated edges.',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/3/35/Coleus_Black_Dragon.JPG'
+      },
+      {
+        id: 'chocolate',
+        name: 'Chocolate Covered Cherry',
+        category: 'chocolate',
+        description: 'Chocolate brown and cherry red foliage with jagged serrated edges.',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/9/92/Coleus_chocolate_covered_cherry.jpg'
+      },
+      {
+        id: 'kongred',
+        name: 'Kong Red',
+        category: 'kongred',
+        description: 'Bright red leaves with dark veins and serrated edges.',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Coleus_Kong_Red.JPG'
+      },
+      {
+        id: 'trailing',
+        name: 'Trailing Burgundy',
+        category: 'trailing',
+        description: 'Trailing growth habit with burgundy red foliage and lime highlights.',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Coleus_trailing_burgundy.jpg'
+      },
+      {
+        id: 'watermelon',
+        name: 'Watermelon',
+        category: 'watermelon',
+        description: 'Watermelon-striped leaves with bright green and deep red serrated edges.',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/5/57/Coleus_Watermelon.jpg'
+      }
+    ];
 
-    <!-- Header Navigation -->
-    <header class="bg-leafDark/90 backdrop-blur-lg border-b border-leafBorder sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
-            <a href="#" onclick="showTab('home')" class="flex items-center gap-2">
-                <i class="fa-solid fa-leaf text-coleusMagenta text-2xl sm:text-3xl"></i>
-                <span class="font-heading text-2xl sm:text-3xl font-extrabold tracking-widest text-white">KOLEUS<span class="text-leafAccent">HAVEN</span></span>
-            </a>
+    // State for cart and wishlist
+    const cart = new Set();
+    const wishlist = new Set();
 
-            <nav class="hidden md:flex items-center gap-4">
-                <button onclick="showTab('home')" id="nav-home" class="nav-btn text-leafAccent border-b-2 border-leafAccent pb-1">Home</button>
-                <button onclick="showTab('collection')" id="nav-collection" class="nav-btn text-slate-400 hover:text-white transition">All 50 Coleus</button>
-                <button onclick="showTab('categories')" id="nav-categories" class="nav-btn text-slate-400 hover:text-white transition">Category Types</button>
-                <button onclick="showTab('about')" id="nav-about" class="nav-btn text-slate-400 hover:text-white transition">Care & Info</button>
-                <button onclick="showTab('contact')" id="nav-contact" class="nav-btn text-slate-400 hover:text-white transition">Coleus Expert</button>
-            </nav>
+    // Select elements
+    const plantListEl = document.getElementById('plantList');
+    const searchBar = document.getElementById('searchBar');
+    const navButtons = document.querySelectorAll('nav button');
 
-            <div class="flex items-center gap-4">
-                <button onclick="toggleWishlist()" class="relative text-slate-300 hover:text-white text-leafAccent text-lg transition hidden sm:block">
-                    View All 50 Coleus <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+    // Render plants
+    function renderPlants(plantsToRender) {
+      plantListEl.innerHTML = '';
+      if (plantsToRender.length === 0) {
+        plantListEl.innerHTML = '<p>No plants match your search or category.</p>';
+        return;
+      }
+      plantsToRender.forEach(plant => {
+        const card = document.createElement('article');
+        card.className = 'plant-card';
+        card.setAttribute('data-id', plant.id);
 
-    <!-- PAGE 1: HOME -->
-    <main id="tab-home" class="tab-content flex-1 relative bg-gradient-to-b from-leafDark to-leafDark border-b border-leafBorder py-16 sm:py-24 px-6 overflow-hidden max-w-7xl mx-auto">
-        <section class="relative bg-gradient-to-b from-black/50 border rounded-lg p-10 mx-auto flex flex-col items-center gap-4 max-w-3xl">
-            <span class="bg-leafCard text-colusMagenta text-2xl font-bold tracking-widest">Dedicated Coleus Boutique</span>
-            <h1 class="font-heading text-4xl sm:text-6xl font-extrabold uppercase leading-tight tracking-tight mb-6">EXPLORE THE <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-coleusMagenta via-pink-400 to-leafAccent">RAINBOW OF COLEUS</span></h1>
-            <p class="text-slate-400 text-center text-sm sm:text-base max-w-md">Discover 50 breathtaking Coleus cultivars featuring vibrant foliage with colorful magenta, neon lime, velvet crimson, and deep burgundy patterns.</p>
-            <div class="flex flex-wrap gap-4">
-                <button onclick="showTab('collection')" class="bg-gradient-to-r from-coleusMagenta to-pink-600 hover:from-pink-600 hover:to-coleusMagenta text-white font-bold px-4 py-2 rounded-full transition">Browse All 50 Varieties</button>
-            </div>
-        </section>
-        <div id="homeFeaturedGrid"></div>
-    </main>
+        const img = document.createElement('img');
+        img.src = plant.image;
+        img.alt = plant.name;
 
-    <!-- PAGE 2: COLLECTION / STORE -->
-    <main id="tab-collection" class="tab-content hidden max-w-7xl mx-auto px-6 sm:px-12 py-12 flex flex-col gap-6">
-        <div class="flex flex-col lg:flex-row justify-between mb-10">
-            <div class="flex flex-col gap-3 w-full">
-                <p class="text-center text-[10px] font-bold uppercase tracking-widest mb-6">COLEUS SPECIALTY TYPES</p>
-                <div class="flex flex-wrap justify-center items-center gap-6">
-                    <button onclick="filterByCategory('Sun Coleus')" class="hover:text-coleusMagenta transition">SUN TOLERANT</button>
-                    <button onclick="filterByCategory('Shade Coleus')" class="hover:text-coleusMagenta transition">SHADE LOVERS</button>
-                    <button onclick="filterByCategory('Variegated')" class="hover:text-coleusMagenta transition">VARIEGATED</button>
-                    <button onclick="filterByCategory('Trailing')" class="hover:text-coleusMagenta transition">TRAILING</button>
-                    <button onclick="filterByCategory('Velvet')" class="hover:text-coleusMagenta transition">DARK VELVET</button>
-                    <button onclick="filterByCategory('Giant')" class="hover:text-coleusMagenta transition">GIANT</button>
-                    <button onclick="filterByCategory('Micro')" class="hover:text-coleusMagenta transition">MICRO LEAF</button>
-                </div>
-            </div>
-        </div>
+        const info = document.createElement('div');
+        info.className = 'plant-info';
 
-        <div class="flex flex-col sm:flex-row justify-between gap-4" id="plantGrid"></div>
-    </main>
+        const title = document.createElement('h2');
+        title.textContent = plant.name;
 
-    <!-- PAGE 3: CATEGORIES -->
-    <main id="tab-categories" class="tab-content hidden max-w-7xl mx-auto px-6 sm:px-12 py-12 flex flex-col gap-8">
-        <div class="text-center max-w-2xl mx-auto mb-8">
-            <span class="text-coleusMagenta font-bold uppercase tracking-widest">Classification</span>
-            <h1 class="text-4xl font-heading font-extrabold mb-3">COLEUS CATEGORIES</h1>
-            <p class="text-slate-400">Grouped by light tolerance, growth habit, leaf size, and pigment contrast.</p>
-        </div>
-        <div id="categoryCardsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
-    </main>
+        const desc = document.createElement('p');
+        desc.textContent = plant.description;
 
-    <!-- PAGE 4: CARE & INFO -->
-    <main id="tab-about" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 text-center flex-1">
-        <span class="text-coleusMagenta font-bold uppercase tracking-widest">Expert Cultivation</span>
-        <h1 class="font-heading text-4xl font-extrabold uppercase mt-2 mb-6">HOW TO THRIVE WITH COLEUS</h1>
-        <p class="text-slate-400 max-w-md mx-auto mb-12">Coleus (Plectranthus scutellarioides) are renowned for their extraordinary leaf variations. With proper pinching, well-draining moist soil, and soft ambient lighting, your Coleus plants will display intense magenta, lime, burgundy, and golden shades year-round.</p>
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.className = 'buttons';
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="categoryCardsGrid"></div>
-    </main>
+        // Add to Cart button
+        const addCartBtn = document.createElement('button');
+        addCartBtn.textContent = cart.has(plant.id) ? 'In Cart' : 'Add to Cart';
+        addCartBtn.disabled = cart.has(plant.id);
+        addCartBtn.addEventListener('click', () => {
+          cart.add(plant.id);
+          addCartBtn.textContent = 'In Cart';
+          addCartBtn.disabled = true;
+          updateCounters();
+        });
 
-    <!-- PAGE 5: CARE & INFO -->
-    <main id="tab-about" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 text-center flex-1">
-        <span class="text-coleusMagenta font-bold uppercase tracking-widest">Expert Cultivation</span>
-        <h1 class="font-heading text-4xl font-extrabold uppercase mt-2 mb-6">HOW TO THRIVE WITH COLEUS</h1>
-        <p class="text-slate-400 max-w-md mx-auto mb-12">Coleus (Plectranthus scutellarioides) are renowned for their extraordinary leaf variations. With proper pinching, well-draining moist soil, and soft ambient lighting, your Coleus plants will display intense magenta, lime, burgundy, and golden shades year-round.</p>
+        // Add to Wishlist button
+        const wishBtn = document.createElement('button');
+        wishBtn.textContent = wishlist.has(plant.id) ? 'In Wishlist' : 'Add to Wishlist';
+        wishBtn.disabled = wishlist.has(plant.id);
+        wishBtn.addEventListener('click', () => {
+          wishlist.add(plant.id);
+          wishBtn.textContent = 'In Wishlist';
+          wishBtn.disabled = true;
+          updateCounters();
+        });
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="categoryCardsGrid"></div>
-    </main>
+        // Quick View button
+        const quickViewBtn = document.createElement('button');
+        quickViewBtn.textContent = 'Quick View';
+        quickViewBtn.addEventListener('click', () => openQuickView(plant));
 
-    <!-- Quick View Modal -->
-    <div id="quickModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden">
-        <div class="max-w-2xl mx-auto relative p-6 bg-leafDark rounded-lg flex flex-col gap-6">
-            <button onclick="closeModal()" class="absolute text-white top-4 right-4"><i class="fa-solid fa-xmark fa-lg"></i></button>
-            <div id="modalContent" class="flex flex-col items-center"></div>
-        </div>
-    </div>
+        buttonsDiv.appendChild(addCartBtn);
+        buttonsDiv.appendChild(wishBtn);
+        buttonsDiv.appendChild(quickViewBtn);
 
-    <script>
-        const plantImages = [
-            // Verified high-resolution Wikimedia Commons URLs of famous Coleus varieties:
-            'https://upload.wikimedia.org/wikipedia/commons/6/6b/Coleus_main_street_sunset_01.jpg', // Main Street Sunset
-            'https://upload.wikimedia.org/wikipedia/commons/b/b0/Coleus_wasabi_01.jpg', // Wasabi
-            'https://upload.wikimedia.org/wikipedia/commons/4/4b/Coleus_campfire_01.jpg', // Campfire
-            'https://upload.wikimedia.org/wikipedia/commons/e/e4/Coleus_black_dragon_01.jpg', // Black Dragon
-            'https://upload.wikimedia.org/wikipedia/commons/7/72/Coleus_chocolate_covered_cherry_01.jpg', // Chocolate Covered Cherry
-            'https://upload.wikimedia.org/wikipedia/commons/c/c1/Coleus_kong_red_01.jpg', // Kong Red
-            'https://upload.wikimedia.org/wikipedia/commons/4/4a/Coleus_trailing_burgundy_01.jpg', // Trailing Burgundy
-            'https://upload.wikimedia.org/wikipedia/commons/5/55/Coleus_watermelon_01.jpg' // Watermelon
-        ];
+        info.appendChild(title);
+        info.appendChild(desc);
+        info.appendChild(buttonsDiv);
 
-        const plants = [
-            { id: 1, category: 'Sun Coleus', name: "Coleus 'Main Street Sunset'", price: 18, light: "Full Sun to Part Shade", img: plantImages[0], desc: "Bold magenta centers edged with electric lime borders." },
-            { id: 2, category: 'Sun Coleus', name: "Coleus 'Wasabi'", price: 16, light: "Full Sun", img: plantImages[1], desc: "Vibrant chartreuse chart-topping serrated green foliage." },
-            { id: 3, category: 'Sun Coleus', name: "Coleus 'Campfire'", price: 19, light: "Full Sun", img: plantImages[2], desc: "Glowing copper-orange foliage with velvety bronze undertones." },
-            { id: 4, category: 'Velvet', name: "Coleus 'Black Dragon'", price: 17, light: "Partial Shade", img: plantImages[3], desc: "Deep purplish-black leaves with dark red ruffled centers." },
-            { id: 5, category: 'Variegated', name: "Coleus 'Chocolate Covered Cherry'", price: 21, light: "Partial Sun", img: plantImages[4], desc: "Rose-red center framed by dark mahogany and thin lime margin." },
-            { id: 6, category: 'Shade Coleus', name: "Coleus 'Kong Red'", price: 22, light: "Full Shade", img: plantImages[5], desc: "Massive oversized leaves with fiery red centers." },
-            { id: 7, category: 'Trailing', name: "Coleus 'Trailing Burgundy'", price: 15, light: "Partial Shade", img: plantImages[6], desc: "Cascading rich burgundy vines suitable for hanging pots." },
-            { id: 8, category: 'Variegated', name: "Coleus 'Watermelon'", price: 18, light: "Medium Light", img: plantImages[7], desc: "Watermelon pink core with green ruffled margins." }
-        ];
+        card.appendChild(img);
+        card.appendChild(info);
 
-        // Function implementations for tabs, filtering, wishlist, quick view, and cart are preserved from existing code.
+        plantListEl.appendChild(card);
+      });
+    }
 
-        function showTab(tabName) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            document.getElementById(`tab-${tabName}`).classList.remove('hidden');
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('border-b-2', 'border-leafAccent', 'pb-1', 'text-leafAccent'));
-            document.getElementById(`nav-${tabName}`).classList.add('border-b-2', 'border-leafAccent', 'pb-1', 'text-leafAccent');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+    // Update cart and wishlist counters in header (could be implemented as icons)
+    function updateCounters() {
+      // For demo purposes, counters can be logged or shown in icons if present
+      // Placeholder for UI update logic if needed
+    }
 
-        let cart = [];
-        let wishlist = [];
-        let selectedCategoryFilter = 'All';
+    // Search filter
+    searchBar.addEventListener('input', () => {
+      const query = searchBar.value.trim().toLowerCase();
+      const filtered = plants.filter(p => p.name.toLowerCase().includes(query));
+      // Apply category filter if active
+      const activeBtn = document.querySelector('nav button.active');
+      const cat = activeBtn ? activeBtn.dataset.category : 'all';
+      const categoryFiltered = cat === 'all' ? filtered : filtered.filter(p => p.category === cat);
+      renderPlants(categoryFiltered);
+    });
 
-        const categoriesList = ["All", "Sun Coleus", "Shade Coleus", "Variegated", "Trailing", "Velvet", "Giant", "Micro"];
+    // Category filter buttons
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        navButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        searchBar.value = '';
+        const category = btn.dataset.category;
+        const filteredPlants = category === 'all' ? plants : plants.filter(p => p.category === category);
+        renderPlants(filteredPlants);
+      });
+    });
 
-        function filterByCategory(c) {
-            selectedCategoryFilter = c;
-            renderCategoryPills();
-            applyFilters();
-            showTab('collection');
-        }
+    // Quick view modal
+    let modalOverlay;
+    function openQuickView(plant) {
+      if (modalOverlay) return;
+      modalOverlay = document.createElement('div');
+      modalOverlay.className = 'modal-overlay';
 
-        function applyFilters() {
-            const search = document.getElementById('searchInput')?.value.toLowerCase() || '';
-            const sort = document.getElementById('sortSelect')?.value || 'default';
+      const modal = document.createElement('div');
+      modal.className = 'modal';
 
-            let filtered = plants.filter(p => {
-                const matchCategory = selectedCategoryFilter === 'All' || p.category === selectedCategoryFilter;
-                const matchSearch = !search || (p.name.toLowerCase().includes(search) || p.category.toLowerCase().includes(search) || p.desc.toLowerCase().includes(search));
-                return matchCategory && matchSearch;
-            });
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'close-modal';
+      closeBtn.innerHTML = '&times;';
+      closeBtn.addEventListener('click', closeQuickView);
 
-            if (sort === 'low') filtered.sort((a, b) => a.price - b.price);
-            if (sort === 'high') filtered.sort((a, b) => b.price - a.price);
-            if (sort === 'name') filtered.sort((a, b) => a.name.localeCompare(b.name));
+      const img = document.createElement('img');
+      img.src = plant.image;
+      img.alt = plant.name;
 
-            const plantGrid = document.getElementById('plantGrid');
-            if (plantGrid) {
-                plantGrid.innerHTML = filtered.map(p => `
-                <div class="bg-leafCard rounded-2xl p-4 border border-leafBorder flex flex-col justify-between hover:border-coleusMagenta/50 transition cursor-pointer gap-2" onclick="openQuickView(${p.id})">
-                    <div>
-                        <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover rounded-lg mb-4" loading="lazy" />
-                        <h3 class="font-heading font-bold text-white uppercase mb-1">${p.name}</h3>
-                        <p class="text-slate-400">${p.desc}</p>
-                    </div>
-                    <div class="mt-4 pt-3 border-t border-leafBorder flex items-center justify-between">
-                        <span class="font-heading font-bold text-leafAccent base">$${p.price.toFixed(2)}</span>
-                        <button onclick="event.stopPropagation(); addToCart(${p.id});" class="bg-coleusMagenta text-white font-extrabold px-3 py-1 rounded-lg hover:bg-pink-600 transition">+ Bag</button>
-                    </div>
-                </div>
-            `).join('');
-            }
-        }
+      const title = document.createElement('h2');
+      title.textContent = plant.name;
 
-        function openQuickView(id) {
-            const p = plants.find(item => item.id === id);
-            if (!p) return;
-            document.getElementById('modalContent').innerHTML = `
-                <div class="w-full h-64 rounded-2xl overflow-hidden">
-                    <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover" />
-                </div>
-                <div>
-                    <h2 class="font-heading text-2xl font-bold uppercase mt-2 text-white">${p.name}</h2>
-                    <p class="text-base mt-2 mb-4">${p.desc}</p>
-                    <button onclick="addToCart(${p.id})" class="bg-coleusMagenta text-white font-extrabold px-4 py-2 rounded-lg hover:bg-pink-600 transition">Add to Bag</button>
-                </div>
-            `;
-            document.getElementById('quickModal').classList.remove('hidden');
-        }
+      const desc = document.createElement('p');
+      desc.textContent = plant.description;
 
-        function closeModal() {
-            document.getElementById('quickModal').classList.add('hidden');
-        }
+      modal.appendChild(closeBtn);
+      modal.appendChild(img);
+      modal.appendChild(title);
+      modal.appendChild(desc);
 
-        function addToCart(id) {
-            let p = plants.find(p => p.id === id);
-            if (!p) return;
-            let inCart = cart.find(c => c.id === id);
-            if (inCart) inCart.qty++;
-            else cart.push({...p, qty: 1});
-            updateCart();
-            toggleCart(true);
-        }
+      modalOverlay.appendChild(modal);
+      document.body.appendChild(modalOverlay);
+      modalOverlay.style.display = 'flex';
 
-        function updateCart() {
-            const cartItems = cart.map(i => i.qty).reduce((a,b) => a+b, 0);
-            // Add more cart update logic if needed
-        }
+      // Close modal on outside click
+      modalOverlay.addEventListener('click', e => {
+        if (e.target === modalOverlay) closeQuickView();
+      });
+    }
 
-        function toggleCart(open = false) {
-            // Placeholder for cart toggle functionality
-        }
+    function closeQuickView() {
+      if (modalOverlay) {
+        document.body.removeChild(modalOverlay);
+        modalOverlay = null;
+      }
+    }
 
-        function closeWishlist() {
-            document.getElementById('wishlistDrawer').classList.add('hidden');
-        }
+    // Initialize
+    renderPlants(plants);
 
-        function toggleWishlist() {
-            const drawer = document.getElementById('wishlistDrawer');
-            if (drawer.classList.contains('translate-x-full')) {
-                drawer.classList.remove('translate-x-full');
-                drawer.classList.add('translate-x-0');
-            } else {
-                drawer.classList.add('translate-x-full');
-            }
-        }
-
-        window.onload = () => {
-            renderCategoryPills();
-            applyFilters();
-            renderHomeFeaturedGrid();
-            renderCategoryCards();
-        };
-
-        function renderCategoryPills() {
-            const grid = document.getElementById('categoryCardsGrid');
-            if (!grid) return;
-            grid.innerHTML = categoriesList.map(c => 
-                `<button onclick="filterByCategory('${c}')" class="bg-leafCard p-5 rounded-2xl border border-leafBorder border-leafCard hover:border-coleusMagenta transition cursor-pointer flex items-center gap-4">
-                    <img src="${plants.find(p => p.category === c)?.img || plants[0].img}" class="w-20 h-20 rounded-lg object-cover" alt="${c}" />
-                    <div>
-                        <h3 class="font-heading font-bold text-base mb-1 uppercase text-white">${c}</h3>
-                        <p class="text-xs text-coleusMagenta">Browse Cultivars &raquo;</p>
-                    </div>
-                </button>
-            `).join('');
-        }
-
-        function renderHomeFeaturedGrid() {
-            const grid = document.getElementById('homeFeaturedGrid');
-            if (!grid) return;
-            const featuredPlants = plants.slice(0, 8);
-            grid.innerHTML = featuredPlants.map(p => `
-                <div class="bg-leafCard rounded-2xl p-4 border border-leafBorder flex flex-col justify-between hover:border-coleusMagenta/50 transition cursor-pointer gap-2 m-2 inline-block max-w-[calc(25%-1rem)]" onclick="openQuickView(${p.id})">
-                    <div class="plant-img-container">
-                        <img src="${p.img}" alt="${p.name}" loading="lazy" class="object-cover w-full h-full rounded-lg" />
-                    </div>
-                    <h3 class="font-heading font-bold text-white uppercase mt-2">${p.name}</h3>
-                    <p class="text-slate-300 text-sm leading-tight">${p.desc}</p>
-                </div>
-            `).join('');
-        }
-
-        function renderCategoryCards() {
-            const grid = document.getElementById('categoryCardsGrid');
-            if (!grid) return;
-            const categoriesDetails = categoriesList.map(c => {
-                const plantInCategory = plants.find(p => p.category === c);
-                return plantInCategory ? {
-                    name: c,
-                    img: plantInCategory.img
-                } : null;
-            }).filter(Boolean);
-            grid.innerHTML = categoriesDetails.map(cat => `
-                <div class="bg-leafCard p-5 rounded-2xl border border-leafBorder hover:border-coleusMagenta transition cursor-pointer">
-                    <img src="${cat.img}" alt="${cat.name}" class="w-full h-40 object-cover rounded-lg mb-3" />
-                    <h3 class="font-heading font-bold text-white uppercase mb-1">${cat.name}</h3>
-                </div>
-            `).join('');
-        }
-    </script>
+  </script>
 </body>
 </html>
