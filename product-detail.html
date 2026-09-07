@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ToyLand Magic - Product Detail</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body style="background-color: #fffdfa; font-family: 'Playfair Display', serif; color:#333;">
+
+<header class="header">
+  <nav class="navbar">
+    <div class="logo" style="font-weight: 700; font-size: 1.8rem; cursor:pointer;">ToyLand Magic </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="catalog.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <input type="search" id="navbar-search" placeholder="Search toys..." aria-label="Search toys" />
+    <div class="cart-icon">
+      <a href="cart.html" title="Your Cart">
+        <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=40&q=80" alt="Cart Icon" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=40&q=80';" />
+        <span id="cart-badge" class="badge"></span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main style="margin: 2rem;">
+  <section id="product-detail" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+    <div style="flex: 1 1 300px; max-width: 400px;">
+      <img id="main-image" src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80" alt="Product Image" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="width: 100%; border-radius: 16px;" />
+      <div id="image-gallery" style="display: flex; gap: 0.5rem; margin-top: 1rem;"></div>
+    </div>
+    <div style="flex: 1 1 300px; max-width: 600px;">
+      <h1 id="product-name" style="color:#ff5757;"></h1>
+      <p id="product-category" style="font-weight: 700; color: #d4af37;"></p>
+      <p id="product-age"></p>
+      <p id="product-price" style="font-weight: 700; color: #3b82f6;"></p>
+      <p id="product-specs"></p>
+      <button id="add-to-cart-btn" class="add-to-cart-btn" style="background-color:#ff5757; border:none; color:#fff; padding: 0.75rem 1.5rem; border-radius: 16px; font-weight:700; cursor:pointer;">Add to Cart</button>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+<script>
+  // Product details data for demo (id matches catalog products ids)
+  const productsDetails = {
+    'prod1': {
+      id: 'prod1',
+      name: "Cuddle Buddy Teddy Bear",
+      category: "Plushies",
+      age: "0-3 yrs",
+      price: 19.99,
+      specs: "Soft and cuddly teddy bear, perfect for babies and toddlers.",
+      images: [
+        "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1535572290543-960a8046f5af?auto=format&fit=crop&w=600&q=80"
+      ]
+    },
+    'prod2': {
+      id: 'prod2',
+      name: "Rainbow Wooden Stacker",
+      category: "Wooden Toys",
+      age: "1-4 yrs",
+      price: 24.99,
+      specs: "Colorful wooden stacking toy for toddlers to develop motor skills.",
+      images: [
+        "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=600&q=80"
+      ]
+    },
+    'prod3': {
+      id: 'prod3',
+      name: "Super Turbo Race Car",
+      category: "Vehicles",
+      age: "3+ yrs",
+      price: 14.99,
+      specs: "High-speed toy race car for endless fun.",
+      images: ["https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=600&q=80"]
+    },
+    'prod4': {
+      id: 'prod4',
+      name: "Galaxy Explorer LEGO Set",
+      category: "Building Sets",
+      age: "6+ yrs",
+      price: 49.99,
+      specs: "Creative LEGO building set with space exploration theme.",
+      images: ["https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?auto=format&fit=crop&w=600&q=80"]
+    },
+    'prod5': {
+      id: 'prod5',
+      name: "Cyber Bot Action Figure",
+      category: "Action Figures",
+      age: "5+ yrs",
+      price: 29.99,
+      specs: "Robotic action figure with movable parts.",
+      images: ["https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&w=600&q=80"]
+    },
+    'prod6': {
+      id: 'prod6',
+      name: "Magic Family Board Game",
+      category: "Games & Puzzles",
+      age: "8+ yrs",
+      price: 34.99,
+      specs: "Family board game for fun and learning.",
+      images: ["https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=600&q=80"]
+    },
+    'prod7': {
+      id: 'prod7',
+      name: "Vintage Princess Doll",
+      category: "Dolls",
+      age: "3+ yrs",
+      price: 22.99,
+      specs: "Classic princess doll with beautiful dress.",
+      images: ["https://images.unsplash.com/photo-1535572290543-960a8046f5af?auto=format&fit=crop&w=600&q=80"]
+    },
+    'prod8': {
+      id: 'prod8',
+      name: "Classic Wooden Rocking Horse",
+      category: "Wooden Toys",
+      age: "2-5 yrs",
+      price: 59.99,
+      specs: "Timeless wooden rocking horse for little riders.",
+      images: ["https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=600&q=80"]
+    }
+  };
+
+  function renderProductDetail(product) {
+    if (!product) return;
+    document.getElementById('product-name').textContent = product.name;
+    document.getElementById('product-category').textContent = `Category: ${product.category}`;
+    document.getElementById('product-age').textContent = `Recommended Age: ${product.age}`;
+    document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
+    document.getElementById('product-specs').textContent = product.specs;
+    
+    // Main image
+    const mainImage = document.getElementById('main-image');
+    mainImage.src = product.images[0];
+    mainImage.alt = product.name;
+    mainImage.onerror = () => { mainImage.src = 'https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80'; };
+
+    // Gallery
+    const gallery = document.getElementById('image-gallery');
+    gallery.innerHTML = '';
+    product.images.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = product.name;
+      img.style.width = '60px';
+      img.style.borderRadius = '12px';
+      img.style.cursor = 'pointer';
+      img.onerror = () => { img.src = 'https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80'; };
+      img.addEventListener('click', () => {
+        mainImage.src = src;
+      });
+      gallery.appendChild(img);
+    });
+
+    // Add to cart button
+    const addToCartBtn = document.getElementById('add-to-cart-btn');
+    addToCartBtn.onclick = () => {
+      addToCart(product.id);
+    };
+  }
+
+  // Read product ID from URL query param
+  function getProductIdFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('id');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const productId = getProductIdFromURL();
+    if (productId && productsDetails[productId]) {
+      renderProductDetail(productsDetails[productId]);
+    } else {
+      document.getElementById('product-detail').innerHTML = '<p>Product not found.</p>';
+    }
+  });
+</script>
+
+</body>
+</html>
