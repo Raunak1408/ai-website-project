@@ -1,9 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; url=index.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | ToyVerse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { heading: ['Fredoka', 'cursive'], sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                    colors: { toyRed: '#FF4757', toyYellow: '#FFA502', toyBlue: '#1E90FF' }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <p>Redirecting to <a href="index.html">VeloxDrive Home</a>...</p>
+<body class="bg-amber-50/50 text-slate-800 font-sans flex flex-col min-h-screen">
+
+    <header class="bg-white shadow-md sticky top-0 z-50 border-b-4 border-toyYellow">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 text-2xl font-heading font-bold text-toyRed">
+                <i class="fa-solid fa-robot text-toyBlue"></i> TOY<span class="text-toyYellow">VERSE</span>
+            </a>
+            <nav class="flex gap-6 font-semibold text-sm">
+                <a href="index.html" class="hover:text-toyBlue">Home</a>
+                <a href="categories.html" class="hover:text-toyBlue">Categories</a>
+                <a href="about.html" class="text-toyRed font-bold border-b-2 border-toyRed pb-1">Our Story</a>
+                <a href="contact.html" class="hover:text-toyBlue">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 flex-1 text-center">
+        <span class="bg-toyYellow/20 text-slate-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Sparking Imagination</span>
+        <h1 class="font-heading text-4xl font-bold text-slate-800 mt-3 mb-6">Our Mission at ToyVerse</h1>
+        <p class="text-slate-600 leading-relaxed text-base mb-8">
+            Founded with a passion for creative play, ToyVerse curates non-toxic, educational, and joyful toys designed to help children explore, learn, and grow through hands-on fun.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <i class="fa-solid fa-shield-cat text-3xl text-toyRed mb-3"></i>
+                <h3 class="font-bold text-slate-800 mb-1">100% Child Safe</h3>
+                <p class="text-xs text-slate-500">Every toy meets strict global safety standards and non-toxic materials guidelines.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <i class="fa-solid fa-truck-fast text-3xl text-toyBlue mb-3"></i>
+                <h3 class="font-bold text-slate-800 mb-1">Express Shipping</h3>
+                <p class="text-xs text-slate-500">Fast delivery directly to your doorstep with real-time tracking.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <i class="fa-solid fa-face-smile text-3xl text-toyYellow mb-3"></i>
+                <h3 class="font-bold text-slate-800 mb-1">Happiness Promise</h3>
+                <p class="text-xs text-slate-500">Easy 30-day hassle-free return policy if your little one isn't thrilled.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t-4 border-toyRed text-center text-xs">
+        &copy; 2026 ToyVerse Inc. All rights reserved.
+    </footer>
 </body>
 </html>
