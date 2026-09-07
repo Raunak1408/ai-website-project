@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ToyLand Magic - About & Contact</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body style="background-color: #fffdfa; font-family: 'Playfair Display', serif; color:#333;">
+
+<header class="header">
+  <nav class="navbar">
+    <div class="logo" style="font-weight: 700; font-size: 1.8rem; cursor:pointer;">ToyLand Magic </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="catalog.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <input type="search" id="navbar-search" placeholder="Search toys..." aria-label="Search toys" />
+    <div class="cart-icon">
+      <a href="cart.html" title="Your Cart">
+        <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=40&q=80" alt="Cart Icon" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=40&q=80';" />
+        <span id="cart-badge" class="badge"></span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main style="margin: 2rem; max-width: 800px;">
+  <h1 style="color:#3b82f6;">About ToyLand Magic</h1>
+  <section style="background: #fff; border-radius: 16px; padding: 1rem; box-shadow: 0 0 15px rgba(59,130,246,0.2); margin-bottom: 2rem;">
+    <p>ToyLand Magic is your premier destination for high-quality toys that inspire imagination, creativity, and joy for children of all ages.</p>
+    <p>Our commitment to safety and excellence is reflected in every toy we offer, with rigorous safety standards and certifications ensuring your child's well-being.</p>
+  </section>
+
+  <section style="background: #fff; border-radius: 16px; padding: 1rem; box-shadow: 0 0 15px rgba(59,130,246,0.2); margin-bottom: 2rem;">
+    <h2 style="color:#ff5757;">Safety Standards & Certifications</h2>
+    <ul>
+      <li>ASTM F963 Certified</li>
+      <li>EN71 Safety Standard Compliant</li>
+      <li>Non-toxic, BPA-Free Materials</li>
+      <li>CE Marking for European Safety</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 style="color:#3b82f6;">Contact Us</h2>
+    <form id="contact-form" style="display: flex; flex-direction: column; gap: 1rem; background: #fff; padding: 1rem; border-radius: 16px; box-shadow: 0 0 15px rgba(59,130,246,0.2); max-width: 400px;">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required placeholder="Your Name" style="padding: 0.5rem; border-radius: 12px; border: 1px solid #ddd;" />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required placeholder="your.email@example.com" style="padding: 0.5rem; border-radius: 12px; border: 1px solid #ddd;" />
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required placeholder="Write your message here..." style="padding: 0.5rem; border-radius: 12px; border: 1px solid #ddd; resize: vertical; min-height: 100px;"></textarea>
+
+      <button type="submit" style="background-color:#3b82f6; color:white; border:none; padding: 0.75rem; border-radius: 16px; font-weight:700; cursor:pointer;">Send Message</button>
+    </form>
+  </section>
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
