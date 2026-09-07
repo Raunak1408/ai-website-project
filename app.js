@@ -6,17 +6,18 @@ let cartCount = 0;
 
 function updateCartCount(count) {
   cartCount = count;
-  if (cartCountElement) {
+  if(cartCountElement) {
     cartCountElement.textContent = cartCount;
   }
 }
 
-// Initialize cart count (for demo purposes, start with 0)
-updateCartCount(0);
+// Initialize cart count
+updateCartCount(cartCount);
 
-// Add event listeners for all "Add to Cart" and "Quick Buy" buttons
-function setupAddToCartButtons() {
-  const addToCartButtons = document.querySelectorAll('.btn-add-cart, .btn-quick-buy');
+// Add to Cart and Quick Buy buttons event listeners
+function setupCartButtons() {
+  const addToCartButtons = document.querySelectorAll('.btn-primary');
+
   addToCartButtons.forEach(button => {
     button.addEventListener('click', () => {
       cartCount++;
@@ -26,37 +27,39 @@ function setupAddToCartButtons() {
   });
 }
 
-// Call setup after DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  setupAddToCartButtons();
+// Filter functionality mockup (for shop page)
+function setupFilters() {
+  const filterCheckboxes = document.querySelectorAll('.filter-group input[type=checkbox]');
+  const filterRadios = document.querySelectorAll('.filter-group input[type=radio]');
 
-  // Mobile menu toggle
-  const mobileToggle = document.querySelector('.mobile-menu-toggle');
+  filterCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+      alert('Filters applied (mockup).');
+    });
+  });
+
+  filterRadios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      alert('Filters applied (mockup).');
+    });
+  });
+}
+
+// Mobile navigation toggle
+function setupMobileMenu() {
+  const toggleButton = document.querySelector('.mobile-menu-toggle');
   const navList = document.querySelector('.nav-list');
-  if (mobileToggle && navList) {
-    mobileToggle.addEventListener('click', () => {
+  
+  if(toggleButton && navList) {
+    toggleButton.addEventListener('click', () => {
       navList.classList.toggle('show');
     });
   }
+}
 
-  // Filter application mockup on shop page
-  const applyFiltersBtn = document.getElementById('apply-filters');
-  if (applyFiltersBtn) {
-    applyFiltersBtn.addEventListener('click', () => {
-      alert('Filters applied (mockup). This would filter products.');
-    });
-  }
-
-  // Thumbnail image gallery on product page
-  const thumbnails = document.querySelectorAll('.thumbnail');
-  const mainImage = document.querySelector('.main-image');
-  thumbnails.forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      if (mainImage && thumb.src) {
-        mainImage.src = thumb.src;
-        thumbnails.forEach(t => t.classList.remove('active'));
-        thumb.classList.add('active');
-      }
-    });
-  });
+// Initialize all interactivity
+document.addEventListener('DOMContentLoaded', () => {
+  setupCartButtons();
+  setupFilters();
+  setupMobileMenu();
 });
