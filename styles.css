@@ -1,60 +1,40 @@
-.reset {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.header {
+    background-color: #87CEEB;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
 }
 
-body, html {
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f8ff;
-  color: #333;
+.nav ul {
+    list-style: none;
+    padding: 0;
 }
 
-.header, .footer {
-  background-color: #87CEEB;
-  text-align: center;
-  padding: 20px;
-}
-
-.nav {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.nav li a {
-  text-decoration: none;
-  color: #fff;
-  padding: 15px 20px;
-  border-radius: 5px;
+.nav ul li {
+    display: inline;
+    margin-right: 15px;
 }
 
 .product-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  border: 2px solid #ff6347;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
 }
 
-.product-card img {
-  width: 100%;
-  border-radius: 10px;
+.badge {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 5px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
-.button {
-  background-color: #ff6347;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #ff7f50;
+input, textarea {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 400px;
 }
