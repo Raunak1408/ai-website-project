@@ -11,130 +11,120 @@
 <header class="header">
   <div class="header-container container">
     <div class="logo">WonderToys</div>
-    <nav class="nav">
+    <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="shop.html">Shop</a>
-      <a href="cart.html">Cart <span id="cart-count" class="cart-count">0</span></a>
+      <a href="cart.html">Cart <span id="cart-count" class="cart-badge">0</span></a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="search-bar">
       <input type="text" id="search-input" placeholder="Search toys..." aria-label="Search toys" />
     </div>
-    <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle mobile menu">&#9776;</button>
+    <div class="mobile-menu-toggle" aria-label="Toggle menu">&#9776;</div>
   </div>
 </header>
 
 <main>
-  <section class="hero">
-    <div class="hero-container container">
-      <h1>Unleash the Power of Play!</h1>
-      <p>Discover the best toys to inspire fun, creativity, and learning for kids of all ages.</p>
-      <a href="shop.html" class="btn btn-primary">Shop Best Sellers</a>
-      <div class="decorative-elements">
-        <span class="decor-circle pink"></span>
-        <span class="decor-circle yellow"></span>
-        <span class="decor-circle blue"></span>
-      </div>
+  <!-- Hero Section -->
+  <section class="hero-container container" aria-label="Hero banner">
+    <h1>Unleash the Power of Play!</h1>
+    <p>Discover the best toys to inspire fun, creativity, and learning for kids of all ages.</p>
+    <a href="shop.html" class="btn btn-primary">Shop Best Sellers</a>
+    <div class="decorative-elements" aria-hidden="true">
+      <span style="color:#ff7043; font-size: 2rem;">✨</span>
+      <span style="color:#ffd54f; font-size: 3rem;">🎉</span>
+      <span style="color:#ba68c8; font-size: 2.5rem;">🧸</span>
     </div>
   </section>
 
+  <!-- Category Grid -->
   <section class="category-grid container" aria-label="Toy Categories">
-    <a href="shop.html#action-figures" class="category-card" aria-label="Action Figures category">
-      <img src="https://images.unsplash.com/photo-1558060370-d644479be6f7?auto=format&fit=crop&w=600&q=80" alt="Action Figures" />
+    <a href="shop.html#action-figures" class="category-card" aria-label="Action Figures Category">
+      <img src="https://images.unsplash.com/photo-1558060370-d644479be6f7?auto=format&fit=crop&w=600&q=80" alt="Action Figures toys" />
       <h3>Action Figures</h3>
     </a>
-    <a href="shop.html#educational-stem" class="category-card" aria-label="Educational and STEM category">
-      <img src="https://images.unsplash.com/photo-1600185367188-c9676245200b?auto=format&fit=crop&w=600&q=80" alt="Educational and STEM toys" />
-      <h3>Educational & STEM</h3>
+    <a href="shop.html#educational-stem" class="category-card" aria-label="Educational and STEM Toys Category">
+      <img src="https://images.unsplash.com/photo-1600185361249-3d1601df6d17?auto=format&fit=crop&w=600&q=80" alt="Educational STEM toys" />
+      <h3>Educational &amp; STEM</h3>
     </a>
-    <a href="shop.html#plush-toys" class="category-card" aria-label="Plush Toys category">
-      <img src="https://images.unsplash.com/photo-1523508281789-5e3bbfef11b3?auto=format&fit=crop&w=600&q=80" alt="Soft plush toys" />
+    <a href="shop.html#plush-toys" class="category-card" aria-label="Plush Toys Category">
+      <img src="https://images.unsplash.com/photo-1522770179533-24471fcdba45?auto=format&fit=crop&w=600&q=80" alt="Plush toys" />
       <h3>Plush Toys</h3>
     </a>
-    <a href="shop.html#board-games-puzzles" class="category-card" aria-label="Board Games and Puzzles category">
-      <img src="https://images.unsplash.com/photo-1518183214770-9cffbec72538?auto=format&fit=crop&w=600&q=80" alt="Board games and puzzles" />
-      <h3>Board Games & Puzzles</h3>
+    <a href="shop.html#board-games-puzzles" class="category-card" aria-label="Board Games and Puzzles Category">
+      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Board games and puzzles" />
+      <h3>Board Games &amp; Puzzles</h3>
     </a>
   </section>
 
+  <!-- Featured Products Section -->
   <section class="featured-products container" aria-label="Featured Products">
     <h2>Featured Products</h2>
     <div class="product-grid">
-      <article class="product-card">
+      <!-- Product Card Example -->
+      <article class="product-card" tabindex="0" aria-label="Robot Action Figure - Best Seller">
         <div class="badge best-seller">Best Seller</div>
-        <img src="https://images.unsplash.com/photo-1580734072261-8a7364f36955?auto=format&fit=crop&w=600&q=80" alt="Robot Action Figure" />
+        <img src="https://images.unsplash.com/photo-1580734076929-b1443e30d8b1?auto=format&fit=crop&w=600&q=80" alt="Robot Action Figure" />
         <h3>Robot Action Figure</h3>
-        <div class="star-rating" aria-label="4 out of 5 stars">
-          ★★★★☆
-        </div>
+        <div class="star-rating" aria-label="Rating: 4 out of 5 stars">★★★★☆</div>
         <p class="price">$34.99</p>
         <button class="btn btn-add-to-cart">Add to Cart</button>
       </article>
-
-      <article class="product-card">
+      <article class="product-card" tabindex="0" aria-label="Educational Robot">
         <div class="badge new">New</div>
         <img src="https://images.unsplash.com/photo-1612181501423-42c5ab003cf3?auto=format&fit=crop&w=600&q=80" alt="Educational Robot" />
         <h3>Educational Robot</h3>
-        <div class="star-rating" aria-label="5 out of 5 stars">
-          ★★★★★
-        </div>
+        <div class="star-rating" aria-label="Rating: 5 out of 5 stars">★★★★★</div>
         <p class="price">$39.99</p>
         <button class="btn btn-add-to-cart">Add to Cart</button>
       </article>
-
-      <article class="product-card">
+      <article class="product-card" tabindex="0" aria-label="Plush Teddy Bear">
         <div class="badge best-seller">Best Seller</div>
-        <img src="https://images.unsplash.com/photo-1518182170540-1a20f959c775?auto=format&fit=crop&w=600&q=80" alt="Plush Teddy Bear" />
+        <img src="https://images.unsplash.com/photo-1518183214770-9cffbec72538?auto=format&fit=crop&w=600&q=80" alt="Plush Teddy Bear" />
         <h3>Plush Teddy Bear</h3>
-        <div class="star-rating" aria-label="4.5 out of 5 stars">
-          ★★★★☆
-        </div>
+        <div class="star-rating" aria-label="Rating: 4.5 out of 5 stars">★★★★✰</div>
         <p class="price">$22.99</p>
         <button class="btn btn-add-to-cart">Add to Cart</button>
       </article>
-
-      <article class="product-card">
+      <article class="product-card" tabindex="0" aria-label="Colorful Board Game">
+        <div class="badge new">New</div>
         <img src="https://images.unsplash.com/photo-1617670100567-11e8e1aa25b0?auto=format&fit=crop&w=600&q=80" alt="Colorful Board Game" />
         <h3>Colorful Board Game</h3>
-        <div class="star-rating" aria-label="5 out of 5 stars">
-          ★★★★★
-        </div>
+        <div class="star-rating" aria-label="Rating: 5 out of 5 stars">★★★★★</div>
         <p class="price">$29.99</p>
         <button class="btn btn-add-to-cart">Add to Cart</button>
       </article>
-
     </div>
   </section>
 
+  <!-- Why Choose Us Bar -->
   <section class="why-choose-us container" aria-label="Why Choose WonderToys">
     <div class="feature">
-      <img src="https://img.icons8.com/color/48/000000/delivery.png" alt="Free Shipping Icon" class="feature-icon" />
+      <img src="https://img.icons8.com/color/48/000000/delivery.png" alt="Free Shipping Icon" />
       <p>Free Shipping</p>
     </div>
     <div class="feature">
-      <img src="https://img.icons8.com/color/48/000000/ok--v1.png" alt="Safe and Non-Toxic Icon" class="feature-icon" />
+      <img src="https://img.icons8.com/color/48/000000/ok--v1.png" alt="100% Safe & Non-Toxic Icon" />
       <p>100% Safe & Non-Toxic</p>
     </div>
     <div class="feature">
-      <img src="https://img.icons8.com/color/48/000000/return-commerce.png" alt="Easy Returns Icon" class="feature-icon" />
+      <img src="https://img.icons8.com/color/48/000000/return.png" alt="Easy Returns Icon" />
       <p>Easy Returns</p>
     </div>
   </section>
 </main>
 
-<footer class="footer">
-  <div class="container footer-container">
-    <p>&copy; 2024 WonderToys. All rights reserved.</p>
-    <div class="social-links">
-      <a href="#" aria-label="Facebook"><img src="https://img.icons8.com/ios-glyphs/24/000000/facebook.png" alt="Facebook" /></a>
-      <a href="#" aria-label="Twitter"><img src="https://img.icons8.com/ios-glyphs/24/000000/twitter.png" alt="Twitter" /></a>
-      <a href="#" aria-label="Instagram"><img src="https://img.icons8.com/ios-glyphs/24/000000/instagram-new.png" alt="Instagram" /></a>
-    </div>
-    <form class="newsletter" aria-label="Newsletter subscription">
-      <input type="email" placeholder="Subscribe to our newsletter" aria-label="Newsletter email subscription" required />
-      <button type="submit">Subscribe</button>
-    </form>
+<footer class="footer" role="contentinfo">
+  <div class="footer-socials">
+    <a href="#" aria-label="Facebook"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/facebook.png" alt="Facebook" /></a>
+    <a href="#" aria-label="Twitter"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/twitter.png" alt="Twitter" /></a>
+    <a href="#" aria-label="Instagram"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/instagram-new.png" alt="Instagram" /></a>
   </div>
+  <form class="newsletter-form" aria-label="Newsletter subscription form">
+    <input type="email" aria-label="Newsletter email subscription" placeholder="Subscribe to our newsletter" required />
+    <button type="submit">Subscribe</button>
+  </form>
+  <p>&copy; 2024 WonderToys. All rights reserved.</p>
 </footer>
 
 </body>
