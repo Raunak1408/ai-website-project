@@ -6,95 +6,122 @@
     <title>ToyLand Magic - Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: #fffdfa; font-family: 'Playfair Display', serif; color:#ff5757;">
-
-<header class="header">
-  <nav class="navbar">
-    <div class="logo" style="font-weight: 700; font-size: 1.8rem; cursor:pointer;">ToyLand Magic </div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="catalog.html">Shop</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
-    <input type="search" id="navbar-search" placeholder="Search toys..." aria-label="Search toys">
-    <div class="cart-icon">
-      <a href="cart.html" title="Your Cart">
-        <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=40&q=80" alt="Cart Icon" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=40&q=80';">
-        <span id="cart-badge" class="badge"></span>
-      </a>
-    </div>
-  </nav>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="logo">🧸 ToyLand Magic</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="search-cart">
+            <input type="search" id="navbar-search" placeholder="Search toys..." aria-label="Search toys">
+            <a href="cart.html" class="cart-icon" aria-label="Shopping cart">
+                🛒 <span class="cart-badge" style="display:none;">0</span>
+            </a>
+        </div>
+    </nav>
 </header>
 
 <main>
-  <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; border-radius: 16px; margin: 1rem; padding: 5rem 2rem; color: #fff; text-align: center;">
-    <h1>Welcome to ToyLand Magic</h1>
-    <p>Discover the magic of premium toys for all ages. Spark imagination, fun, and joy!</p>
-    <a href="catalog.html" class="btn-primary" style="background-color: #ff5757; padding: 1rem 2rem; border-radius: 16px; font-weight: 600; color: white; text-decoration: none;">Shop Now</a>
-  </section>
+    <section class="hero" style="background: url('https://images.unsplash.com/photo-1567016549303-3aebe8fbaa4e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat; border-radius: 16px; height: 320px; display:flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-shadow: 0 0 6px black; margin-bottom: 2rem;">
+        <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Welcome to ToyLand Magic</h1>
+        <p style="font-size: 1.25rem; max-width: 480px; text-align: center; margin-bottom: 1.5rem;">Discover the magic of premium toys for every age. Spark imagination, fun, and joy!</p>
+        <a href="catalog.html" class="primary-btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Shop Now</a>
+    </section>
 
-  <section class="featured-categories" style="display: flex; justify-content: space-around; margin: 2rem 1rem;">
-    <div class="category-card" style="background: #fff; border-radius: 16px; padding: 1rem; text-align: center; width: 120px; box-shadow: 0 0 15px rgba(255, 87, 87, 0.3); cursor: pointer;">
-      <img src="https://images.unsplash.com/photo-1535572290543-960a8046f5af?auto=format&fit=crop&w=120&q=80" alt="Cute Doll" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="width: 100%; border-radius: 12px;">
-      <h4>Dolls</h4>
-    </div>
-    <div class="category-card" style="background: #fff; border-radius: 16px; padding: 1rem; text-align: center; width: 120px; box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); cursor: pointer;">
-      <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=120&q=80" alt="Wooden Blocks" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="width: 100%; border-radius: 12px;">
-      <h4>Wooden Toys</h4>
-    </div>
-    <div class="category-card" style="background: #fff; border-radius: 16px; padding: 1rem; text-align: center; width: 120px; box-shadow: 0 0 15px rgba(254, 240, 138, 0.5); cursor: pointer;">
-      <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=120&q=80" alt="Toy Vehicles" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="width: 100%; border-radius: 12px;">
-      <h4>Vehicles</h4>
-    </div>
-  </section>
+    <section class="featured-categories" style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 3rem;">
+        <a href="catalog.html?category=Plushies" class="card" style="width: 140px; text-align: center; text-decoration:none; color:#ff5757;">
+            <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80" alt="Plushies" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="border-radius: 12px; width: 100%; height: 120px; object-fit: cover;">
+            <h3>Plushies</h3>
+        </a>
+        <a href="catalog.html?category=Wooden Toys" class="card" style="width: 140px; text-align: center; text-decoration:none; color:#ff5757;">
+            <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=600&q=80" alt="Wooden Toys" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="border-radius: 12px; width: 100%; height: 120px; object-fit: cover;">
+            <h3>Wooden Toys</h3>
+        </a>
+        <a href="catalog.html?category=Vehicles" class="card" style="width: 140px; text-align: center; text-decoration:none; color:#ff5757;">
+            <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=600&q=80" alt="Vehicles" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="border-radius: 12px; width: 100%; height: 120px; object-fit: cover;">
+            <h3>Vehicles</h3>
+        </a>
+        <a href="catalog.html?category=Building Sets" class="card" style="width: 140px; text-align: center; text-decoration:none; color:#ff5757;">
+            <img src="https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?auto=format&fit=crop&w=600&q=80" alt="Building Sets" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="border-radius: 12px; width: 100%; height: 120px; object-fit: cover;">
+            <h3>Building Sets</h3>
+        </a>
+        <a href="catalog.html?category=Games" class="card" style="width: 140px; text-align: center; text-decoration:none; color:#ff5757;">
+            <img src="https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=600&q=80" alt="Games" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="border-radius: 12px; width: 100%; height: 120px; object-fit: cover;">
+            <h3>Games</h3>
+        </a>
+    </section>
 
-  <section class="best-sellers" style="margin: 2rem 1rem;">
-    <h2 style="color: #3b82f6;">Best Sellers</h2>
-    <div class="product-grid" style="display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1rem;">
-      <div class="product-card" style="background: #fff; border-radius: 16px; padding: 1rem; box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); transition: transform 0.3s ease; cursor:pointer;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
-        <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80" alt="Cuddle Buddy Teddy Bear" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="width: 100%; border-radius: 12px;">
-        <h3>Cuddle Buddy Teddy Bear</h3>
-        <p>Plushies - $19.99</p>
-      </div>
-      <div class="product-card" style="background: #fff; border-radius: 16px; padding: 1rem; box-shadow: 0 0 15px rgba(255, 87, 87, 0.3); transition: transform 0.3s ease; cursor:pointer;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
-        <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=600&q=80" alt="Rainbow Wooden Stacker" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="width: 100%; border-radius: 12px;">
-        <h3>Rainbow Wooden Stacker</h3>
-        <p>Wooden Toys - $24.99</p>
-      </div>
-      <div class="product-card" style="background: #fff; border-radius: 16px; padding: 1rem; box-shadow: 0 0 15px rgba(254, 240, 138, 0.5); transition: transform 0.3s ease; cursor:pointer;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
-        <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=600&q=80" alt="Super Turbo Race Car" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="width: 100%; border-radius: 12px;">
-        <h3>Super Turbo Race Car</h3>
-        <p>Vehicles - $14.99</p>
-      </div>
-    </div>
-  </section>
+    <section class="best-sellers" style="margin-bottom: 3rem;">
+        <h2 style="color:#3b82f6; margin-bottom: 1rem;">Best Sellers</h2>
+        <div class="product-grid" style="display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1rem;">
+            <!-- Best seller products cards -->
+            <a href="product-detail.html?id=1" class="card" style="text-decoration:none; color:#ff5757;">
+                <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80" alt="Cuddle Buddy Teddy Bear" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';">
+                <h3>Cuddle Buddy Teddy Bear</h3>
+                <p>$19.99</p>
+            </a>
+            <a href="product-detail.html?id=2" class="card" style="text-decoration:none; color:#ff5757;">
+                <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=600&q=80" alt="Rainbow Wooden Stacker" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';">
+                <h3>Rainbow Wooden Stacker</h3>
+                <p>$24.99</p>
+            </a>
+            <a href="product-detail.html?id=3" class="card" style="text-decoration:none; color:#ff5757;">
+                <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=600&q=80" alt="Super Turbo Race Car" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';">
+                <h3>Super Turbo Race Car</h3>
+                <p>$14.99</p>
+            </a>
+            <a href="product-detail.html?id=4" class="card" style="text-decoration:none; color:#ff5757;">
+                <img src="https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?auto=format&fit=crop&w=600&q=80" alt="Galaxy Explorer LEGO Set" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';">
+                <h3>Galaxy Explorer LEGO Set</h3>
+                <p>$49.99</p>
+            </a>
+        </div>
+    </section>
 
-  <section class="brand-trust" style="margin: 3rem 1rem; text-align:center; color: #ef4444; font-weight: 700;">
-    <h3>Trusted by Parents & Kids Worldwide</h3>
-    <div style="display:flex; justify-content:center; gap: 2rem; margin-top: 1rem;">
-      <img src="https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=100&q=80" alt="Safety Certified" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="width: 100px; border-radius: 16px;">
-      <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&w=100&q=80" alt="Quality Toys" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="width: 100px; border-radius: 16px;">
-      <img src="https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?auto=format&fit=crop&w=100&q=80" alt="Eco Friendly" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="width: 100px; border-radius: 16px;">
-    </div>
-  </section>
+    <section class="brand-trust" style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem;">
+        <div class="card" style="flex: 1; text-align: center; padding: 1rem;">
+            <img src="https://images.unsplash.com/photo-161610890716171-6b1bb98ffd09?auto=format&fit=crop&w=120&q=80" alt="Safety Certified" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="width:60px; height:60px; margin-bottom: 0.5rem;">
+            <h4>Safety Certified</h4>
+            <p>Committed to highest safety standards.</p>
+        </div>
+        <div class="card" style="flex: 1; text-align: center; padding: 1rem;">
+            <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&w=120&q=80" alt="Eco Friendly" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="width:60px; height:60px; margin-bottom: 0.5rem;">
+            <h4>Eco Friendly</h4>
+            <p>Environmentally conscious products.</p>
+        </div>
+        <div class="card" style="flex: 1; text-align: center; padding: 1rem;">
+            <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=120&q=80" alt="Trusted Brand" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80';" style="width:60px; height:60px; margin-bottom: 0.5rem;">
+            <h4>Trusted Brand</h4>
+            <p>Years of delighting kids and parents.</p>
+        </div>
+    </section>
 
-  <section class="newsletter" style="background-color: #fff; margin: 2rem 1rem; padding: 1rem 2rem; border-radius: 16px; box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); text-align: center;">
-    <h3>Subscribe to our Newsletter</h3>
-    <form id="newsletter-form">
-      <input type="email" placeholder="Enter your email" required style="padding: 0.5rem; border-radius: 12px; border: 1px solid #ddd; width: 250px; max-width: 80%;">
-      <button type="submit" style="background-color: #3b82f6; color: white; padding: 0.5rem 1.5rem; border-radius: 16px; border: none; margin-left: 0.5rem;">Subscribe</button>
-    </form>
-  </section>
+    <section class="newsletter" style="text-align: center; padding: 2rem 1rem; background-color: #fef08a; border-radius: 16px; color: #3b82f6;">
+        <h2>Subscribe to Our Newsletter</h2>
+        <form id="newsletter-form">
+            <input type="email" id="newsletter-email" placeholder="Enter your email" required style="padding: 0.8rem 1rem; border-radius: 12px; border: none; width: 250px; max-width: 90%; margin-right: 0.5rem; font-size: 1rem;">
+            <button type="submit" class="primary-btn">Subscribe</button>
+        </form>
+    </section>
 </main>
+
+<footer>
+    <p>© 2024 ToyLand Magic. All rights reserved.</p>
+</footer>
 
 <script src="script.js"></script>
 <script>
-  document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Thank you for subscribing to ToyLand Magic newsletter!');
-    this.reset();
-  });
+    document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletter-email').value.trim();
+        if(email.length > 0) {
+            alert('Thank you for subscribing to ToyLand Magic newsletter!');
+            this.reset();
+        }
+    });
 </script>
-
 </body>
 </html>
