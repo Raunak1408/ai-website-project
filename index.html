@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToyVerse | Ultimate Toy Store for All Ages</title>
+    <title>ToyVerse | World of Toys & Fun</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,144 +11,174 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        heading: ['Fredoka', 'cursive'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
-                    },
-                    colors: {
-                        toyRed: '#FF4757',
-                        toyYellow: '#FFA502',
-                        toyBlue: '#1E90FF',
-                        toyGreen: '#2ED573',
-                        toyPurple: '#70A1FF'
-                    }
+                    fontFamily: { heading: ['Fredoka', 'cursive'], sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                    colors: { toyRed: '#FF4757', toyYellow: '#FFA502', toyBlue: '#1E90FF', toyGreen: '#2ED573', toyPurple: '#70A1FF' }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-amber-50/50 text-slate-800 font-sans flex flex-col min-h-screen">
+<body class="bg-amber-50/40 text-slate-800 font-sans min-h-screen flex flex-col">
 
     <!-- Header Navigation -->
     <header class="bg-white shadow-md sticky top-0 z-50 border-b-4 border-toyYellow">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 text-2xl sm:text-3xl font-heading font-bold text-toyRed tracking-wide">
+            <a href="#" onclick="showTab('home')" class="flex items-center gap-2 text-2xl sm:text-3xl font-heading font-bold text-toyRed">
                 <i class="fa-solid fa-robot text-toyBlue"></i> TOY<span class="text-toyYellow">VERSE</span>
             </a>
 
-            <!-- Desktop Nav -->
+            <!-- Navigation Tabs -->
             <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
-                <a href="index.html" class="text-toyRed font-bold border-b-2 border-toyRed pb-1">Home</a>
-                <a href="categories.html" class="hover:text-toyBlue transition">Categories</a>
-                <a href="about.html" class="hover:text-toyBlue transition">Our Story</a>
-                <a href="contact.html" class="hover:text-toyBlue transition">Contact Us</a>
+                <button onclick="showTab('home')" id="nav-home" class="nav-link text-toyRed font-bold border-b-2 border-toyRed pb-1">Home</button>
+                <button onclick="showTab('categories')" id="nav-categories" class="nav-link hover:text-toyBlue transition">Categories</button>
+                <button onclick="showTab('about')" id="nav-about" class="nav-link hover:text-toyBlue transition">Our Story</button>
+                <button onclick="showTab('contact')" id="nav-contact" class="nav-link hover:text-toyBlue transition">Contact Us</button>
             </nav>
 
-            <!-- Header Actions -->
-            <div class="flex items-center gap-4">
-                <button onclick="toggleCart()" class="relative bg-toyYellow hover:bg-amber-500 text-slate-900 font-bold px-4 py-2 rounded-full text-sm transition flex items-center gap-2 shadow">
+            <!-- Actions -->
+            <div class="flex items-center gap-3">
+                <button onclick="toggleCart()" class="bg-toyYellow hover:bg-amber-500 text-slate-900 font-bold px-4 py-2 rounded-full text-sm transition flex items-center gap-2 shadow">
                     <i class="fa-solid fa-basket-shopping text-base"></i>
                     <span class="hidden sm:inline">Cart</span>
                     <span id="cartBadge" class="bg-toyRed text-white text-xs px-2 py-0.5 rounded-full">0</span>
                 </button>
-                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-slate-700">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
             </div>
-        </div>
-
-        <!-- Mobile Navigation Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-100 px-6 py-4 space-y-3 font-semibold text-sm">
-            <a href="index.html" class="block text-toyRed">Home</a>
-            <a href="categories.html" class="block hover:text-toyBlue">Categories</a>
-            <a href="about.html" class="block hover:text-toyBlue">Our Story</a>
-            <a href="contact.html" class="block hover:text-toyBlue">Contact Us</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-toyBlue via-sky-400 to-teal-400 text-white py-12 md:py-20 px-6 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-            <div>
-                <span class="bg-white/20 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-white/30">Big Smiles Guaranteed</span>
-                <h1 class="font-heading text-4xl sm:text-6xl font-bold mt-4 mb-4 leading-tight">
-                    Unbox Magical Joy Every Day! 🚀
-                </h1>
-                <p class="text-sky-100 text-base sm:text-lg mb-8 max-w-lg">
-                    Discover thousands of educational toys, action figures, board games, and plushies curated for kids and collectors.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="categories.html" class="bg-toyYellow hover:bg-amber-500 text-slate-900 font-extrabold px-6 py-3.5 rounded-full shadow-lg transition transform hover:-translate-y-0.5">
-                        Shop All Categories
-                    </a>
-                    <a href="#featured" class="bg-white hover:bg-slate-100 text-toyBlue font-extrabold px-6 py-3.5 rounded-full shadow transition">
-                        View Bestsellers
-                    </a>
+    <!-- PAGE 1: HOME -->
+    <main id="tab-home" class="tab-content">
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-toyBlue via-sky-400 to-teal-400 text-white py-12 md:py-16 px-6 relative">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+                <div>
+                    <span class="bg-white/20 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-white/30">Magical Toys & Games</span>
+                    <h1 class="font-heading text-4xl sm:text-6xl font-bold mt-4 mb-4 leading-tight">
+                        Unbox Unlimited Fun & Joy! 680
+                    </h1>
+                    <p class="text-sky-100 text-base mb-8 max-w-lg">
+                        Explore thousands of action figures, educational puzzles, plushies, and board games for all ages.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="showTab('categories')" class="bg-toyYellow hover:bg-amber-500 text-slate-900 font-extrabold px-6 py-3.5 rounded-full shadow-lg transition">
+                            Explore Categories
+                        </button>
+                        <a href="#trending" class="bg-white hover:bg-slate-100 text-toyBlue font-extrabold px-6 py-3.5 rounded-full shadow transition">
+                            View Bestsellers
+                        </a>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=800&auto=format&fit=crop" class="rounded-3xl shadow-2xl border-4 border-white max-h-80 object-cover">
                 </div>
             </div>
-            <div class="flex justify-center">
-                <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=800&auto=format&fit=crop" alt="Colorful Toys" class="rounded-3xl shadow-2xl border-4 border-white max-h-96 object-cover">
+        </section>
+
+        <!-- Category Grid Preview -->
+        <section class="max-w-7xl mx-auto px-6 py-12">
+            <h2 class="font-heading text-3xl font-bold text-center text-slate-800 mb-8">Popular Toy Categories</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                <button onclick="filterCategory('Action')" class="bg-white p-4 rounded-2xl text-center shadow-sm hover:shadow-md border border-slate-100 transition group">
+                    <div class="w-12 h-12 bg-red-100 text-toyRed rounded-xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition"><i class="fa-solid fa-mask text-xl"></i></div>
+                    <span class="font-bold text-xs text-slate-800">Action Figures</span>
+                </button>
+                <button onclick="filterCategory('Educational')" class="bg-white p-4 rounded-2xl text-center shadow-sm hover:shadow-md border border-slate-100 transition group">
+                    <div class="w-12 h-12 bg-blue-100 text-toyBlue rounded-xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition"><i class="fa-solid fa-brain text-xl"></i></div>
+                    <span class="font-bold text-xs text-slate-800">Educational</span>
+                </button>
+                <button onclick="filterCategory('Plushies')" class="bg-white p-4 rounded-2xl text-center shadow-sm hover:shadow-md border border-slate-100 transition group">
+                    <div class="w-12 h-12 bg-amber-100 text-toyYellow rounded-xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition"><i class="fa-solid fa-otter text-xl"></i></div>
+                    <span class="font-bold text-xs text-slate-800">Plushies</span>
+                </button>
+                <button onclick="filterCategory('RC')" class="bg-white p-4 rounded-2xl text-center shadow-sm hover:shadow-md border border-slate-100 transition group">
+                    <div class="w-12 h-12 bg-emerald-100 text-toyGreen rounded-xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition"><i class="fa-solid fa-car-side text-xl"></i></div>
+                    <span class="font-bold text-xs text-slate-800">RC Cars</span>
+                </button>
+                <button onclick="filterCategory('Board')" class="bg-white p-4 rounded-2xl text-center shadow-sm hover:shadow-md border border-slate-100 transition group">
+                    <div class="w-12 h-12 bg-purple-100 text-toyPurple rounded-xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition"><i class="fa-solid fa-chess-board text-xl"></i></div>
+                    <span class="font-bold text-xs text-slate-800">Board Games</span>
+                </button>
+                <button onclick="filterCategory('Outdoor')" class="bg-white p-4 rounded-2xl text-center shadow-sm hover:shadow-md border border-slate-100 transition group">
+                    <div class="w-12 h-12 bg-orange-100 text-orange-500 rounded-xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition"><i class="fa-solid fa-futbol text-xl"></i></div>
+                    <span class="font-bold text-xs text-slate-800">Outdoor</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Trending Toys -->
+        <section id="trending" class="max-w-7xl mx-auto px-6 py-8">
+            <h2 class="font-heading text-3xl font-bold text-slate-800 mb-6">Trending Bestsellers</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="homeGrid"></div>
+        </section>
+    </main>
+
+    <!-- PAGE 2: CATEGORIES -->
+    <main id="tab-categories" class="tab-content hidden max-w-7xl mx-auto px-6 py-10 flex-1 w-full">
+        <div class="text-center mb-8">
+            <h1 class="font-heading text-4xl font-bold text-slate-800 mb-2">Toy Catalog</h1>
+            <p class="text-slate-500 text-sm">Filter toys by category to find the perfect match</p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <button onclick="renderCategoryToys('All')" class="cat-pill active bg-toyRed text-white px-5 py-2 rounded-full font-bold text-xs transition">All Toys</button>
+            <button onclick="renderCategoryToys('Action')" class="cat-pill bg-white text-slate-700 border px-5 py-2 rounded-full font-bold text-xs transition">Action Figures</button>
+            <button onclick="renderCategoryToys('Educational')" class="cat-pill bg-white text-slate-700 border px-5 py-2 rounded-full font-bold text-xs transition">Educational</button>
+            <button onclick="renderCategoryToys('Plushies')" class="cat-pill bg-white text-slate-700 border px-5 py-2 rounded-full font-bold text-xs transition">Plushies</button>
+            <button onclick="renderCategoryToys('RC')" class="cat-pill bg-white text-slate-700 border px-5 py-2 rounded-full font-bold text-xs transition">RC Cars</button>
+            <button onclick="renderCategoryToys('Board')" class="cat-pill bg-white text-slate-700 border px-5 py-2 rounded-full font-bold text-xs transition">Board Games</button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="categoryGrid"></div>
+    </main>
+
+    <!-- PAGE 3: ABOUT US -->
+    <main id="tab-about" class="tab-content hidden max-w-4xl mx-auto px-6 py-12 text-center flex-1">
+        <span class="bg-toyYellow/20 text-slate-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Sparking Imagination</span>
+        <h1 class="font-heading text-4xl font-bold text-slate-800 mt-3 mb-6">Our Story & Mission</h1>
+        <p class="text-slate-600 leading-relaxed text-base mb-8">
+            Founded with a passion for creative play, ToyVerse offers non-toxic, durable, and educational toys designed to help children explore and grow.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            <div class="bg-white p-6 rounded-2xl border shadow-sm">
+                <i class="fa-solid fa-shield-cat text-3xl text-toyRed mb-2"></i>
+                <h3 class="font-bold text-slate-800 mb-1">100% Child Safe</h3>
+                <p class="text-xs text-slate-500">Meets strict international toy safety standards.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border shadow-sm">
+                <i class="fa-solid fa-truck-fast text-3xl text-toyBlue mb-2"></i>
+                <h3 class="font-bold text-slate-800 mb-1">Fast Delivery</h3>
+                <p class="text-xs text-slate-500">Express delivery directly to your doorstep.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border shadow-sm">
+                <i class="fa-solid fa-face-smile text-3xl text-toyYellow mb-2"></i>
+                <h3 class="font-bold text-slate-800 mb-1">Easy Returns</h3>
+                <p class="text-xs text-slate-500">30-day hassle-free exchange promise.</p>
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Categories Highlights -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
-        <h2 class="font-heading text-3xl font-bold text-center text-slate-800 mb-8">Popular Toy Categories</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            <a href="categories.html?cat=Action" class="bg-white p-4 rounded-2xl text-center shadow-sm hover:shadow-md border border-slate-100 transition group">
-                <div class="w-14 h-14 bg-red-100 text-toyRed rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition">
-                    <i class="fa-solid fa-mask text-2xl"></i>
+    <!-- PAGE 4: CONTACT -->
+    <main id="tab-contact" class="tab-content hidden max-w-xl mx-auto px-6 py-12 flex-1 w-full">
+        <div class="bg-white p-8 rounded-3xl border shadow-sm">
+            <h1 class="font-heading text-3xl font-bold text-slate-800 text-center mb-2">Contact Support</h1>
+            <p class="text-xs text-slate-500 text-center mb-6">Have questions? We'd love to help!</p>
+            <form onsubmit="event.preventDefault(); alert('Message sent successfully!');" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Name</label>
+                    <input type="text" required placeholder="John Doe" class="w-full bg-slate-50 border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-toyBlue">
                 </div>
-                <h3 class="font-bold text-sm text-slate-800">Action Figures</h3>
-            </a>
-            <a href="categories.html?cat=Educational" class="bg-white p-4 rounded-2xl text-center shadow-sm hover:shadow-md border border-slate-100 transition group">
-                <div class="w-14 h-14 bg-blue-100 text-toyBlue rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition">
-                    <i class="fa-solid fa-brain text-2xl"></i>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email</label>
+                    <input type="email" required placeholder="john@example.com" class="w-full bg-slate-50 border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-toyBlue">
                 </div>
-                <h3 class="font-bold text-sm text-slate-800">Educational</h3>
-            </a>
-            <a href="categories.html?cat=Plushies" class="bg-white p-4 rounded-2xl text-center shadow-sm hover:shadow-md border border-slate-100 transition group">
-                <div class="w-14 h-14 bg-amber-100 text-toyYellow rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition">
-                    <i class="fa-solid fa-otter text-2xl"></i>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Message</label>
+                    <textarea rows="4" required placeholder="Type your message here..." class="w-full bg-slate-50 border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-toyBlue"></textarea>
                 </div>
-                <h3 class="font-bold text-sm text-slate-800">Plushies</h3>
-            </a>
-            <a href="categories.html?cat=RC" class="bg-white p-4 rounded-2xl text-center shadow-sm hover:shadow-md border border-slate-100 transition group">
-                <div class="w-14 h-14 bg-emerald-100 text-toyGreen rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition">
-                    <i class="fa-solid fa-car-side text-2xl"></i>
-                </div>
-                <h3 class="font-bold text-sm text-slate-800">RC Cars</h3>
-            </a>
-            <a href="categories.html?cat=Board" class="bg-white p-4 rounded-2xl text-center shadow-sm hover:shadow-md border border-slate-100 transition group">
-                <div class="w-14 h-14 bg-purple-100 text-toyPurple rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition">
-                    <i class="fa-solid fa-chess-board text-2xl"></i>
-                </div>
-                <h3 class="font-bold text-sm text-slate-800">Board Games</h3>
-            </a>
-            <a href="categories.html?cat=Outdoor" class="bg-white p-4 rounded-2xl text-center shadow-sm hover:shadow-md border border-slate-100 transition group">
-                <div class="w-14 h-14 bg-orange-100 text-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition">
-                    <i class="fa-solid fa-futbol text-2xl"></i>
-                </div>
-                <h3 class="font-bold text-sm text-slate-800">Outdoor</h3>
-            </a>
+                <button type="submit" class="w-full bg-toyRed text-white font-bold py-3.5 rounded-xl shadow hover:bg-red-600 transition">Send Message</button>
+            </form>
         </div>
-    </section>
-
-    <!-- Featured Toys Section -->
-    <section id="featured" class="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex-1">
-        <div class="flex justify-between items-end mb-6">
-            <div>
-                <h2 class="font-heading text-3xl font-bold text-slate-800">Trending Toys</h2>
-                <p class="text-xs sm:text-sm text-slate-500 mt-1">Handpicked bestsellers loved by parents & kids</p>
-            </div>
-            <a href="categories.html" class="text-toyBlue font-bold text-xs sm:text-sm hover:underline">View All &rarr;</a>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="homeToysGrid">
-            <!-- Toys generated via JS -->
-        </div>
-    </section>
+    </main>
 
     <!-- Cart Drawer -->
     <div id="cartDrawer" class="fixed inset-0 z-50 pointer-events-none">
@@ -156,92 +186,126 @@
         <div id="cartContent" class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white p-6 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 pointer-events-auto">
             <div>
                 <div class="flex justify-between items-center border-b pb-4 mb-4">
-                    <h3 class="font-heading text-xl font-bold text-slate-800">Your Shopping Basket</h3>
+                    <h3 class="font-heading text-xl font-bold text-slate-800">Shopping Basket</h3>
                     <button onclick="toggleCart()" class="text-slate-400 hover:text-slate-800 text-xl"><i class="fa-solid fa-xmark"></i></button>
                 </div>
-                <div id="cartItems" class="space-y-4 max-h-[60vh] overflow-y-auto pr-1"></div>
+                <div id="cartItems" class="space-y-4 max-h-[60vh] overflow-y-auto"></div>
             </div>
             <div class="border-t pt-4">
                 <div class="flex justify-between items-center mb-4">
                     <span class="font-bold text-slate-600">Total:</span>
                     <span id="cartTotal" class="font-heading text-2xl font-bold text-toyRed">$0.00</span>
                 </div>
-                <button onclick="checkout()" class="w-full bg-toyGreen hover:bg-emerald-600 text-white font-extrabold py-3.5 rounded-xl shadow transition">
-                    Checkout Now
-                </button>
+                <button onclick="checkout()" class="w-full bg-toyGreen hover:bg-emerald-600 text-white font-extrabold py-3.5 rounded-xl shadow transition">Checkout Now</button>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-10 mt-12 border-t-4 border-toyRed">
-        <div class="max-w-7xl mx-auto px-6 text-center space-y-4">
-            <div class="font-heading text-2xl font-bold text-white">TOYVERSE</div>
-            <p class="text-xs max-w-md mx-auto text-slate-400">Bringing imagination to life with safe, durable, and fun toys for children worldwide.</p>
-            <p class="text-xs">&copy; 2026 ToyVerse Inc. All rights reserved.</p>
-        </div>
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t-4 border-toyRed mt-12 text-center text-xs">
+        <p class="font-heading text-lg font-bold text-white mb-2">TOYVERSE</p>
+        <p>&copy; 2026 ToyVerse Inc. All rights reserved.</p>
     </footer>
 
     <script>
-        const featuredToys = [
-            { id: 101, name: "LEGO Cyber Mech Robot", price: 49.99, category: "Action", rating: "4.9", img: "https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?w=600&auto=format&fit=crop" },
-            { id: 102, name: "Soft Giant Teddy Bear", price: 29.99, category: "Plushies", rating: "4.8", img: "https://images.unsplash.com/photo-1559454403-b8fb88521f11?w=600&auto=format&fit=crop" },
-            { id: 103, name: "High-Speed RC Drift Car", price: 39.99, category: "RC", rating: "4.7", img: "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?w=600&auto=format&fit=crop" },
-            { id: 104, name: "Wooden Solar System Puzzle", price: 24.99, category: "Educational", rating: "4.9", img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&auto=format&fit=crop" }
+        const allToys = [
+            { id: 1, name: "LEGO Cyber Mech Robot", price: 49.99, category: "Action", rating: "4.9", img: "https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?w=600&auto=format&fit=crop" },
+            { id: 2, name: "Soft Giant Teddy Bear", price: 29.99, category: "Plushies", rating: "4.8", img: "https://images.unsplash.com/photo-1559454403-b8fb88521f11?w=600&auto=format&fit=crop" },
+            { id: 3, name: "High-Speed RC Drift Car", price: 39.99, category: "RC", rating: "4.7", img: "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?w=600&auto=format&fit=crop" },
+            { id: 4, name: "Solar System Wooden Puzzle", price: 24.99, category: "Educational", rating: "4.9", img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&auto=format&fit=crop" },
+            { id: 5, name: "Superhero Avenger Figure", price: 19.99, category: "Action", rating: "4.6", img: "https://images.unsplash.com/photo-1608889825205-eebdb9fc5806?w=600&auto=format&fit=crop" },
+            { id: 6, name: "Family Strategy Board Game", price: 34.99, category: "Board", rating: "4.8", img: "https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=600&auto=format&fit=crop" }
         ];
 
         let cart = [];
 
-        function renderHomeToys() {
-            const grid = document.getElementById('homeToysGrid');
-            grid.innerHTML = featuredToys.map(toy => `
-                <div class="bg-white rounded-2xl p-4 shadow-sm hover:shadow-md border border-slate-100 flex flex-col justify-between transition">
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`tab-${tabName}`).classList.remove('hidden');
+
+            document.querySelectorAll('.nav-link').forEach(btn => {
+                btn.className = "nav-link hover:text-toyBlue transition";
+            });
+            const activeBtn = document.getElementById(`nav-${tabName}`);
+            if(activeBtn) activeBtn.className = "nav-link text-toyRed font-bold border-b-2 border-toyRed pb-1";
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderHome() {
+            const grid = document.getElementById('homeGrid');
+            grid.innerHTML = allToys.slice(0, 4).map(toy => `
+                <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex flex-col justify-between">
                     <div>
-                        <div class="relative rounded-xl overflow-hidden mb-3 bg-slate-50 h-48">
-                            <img src="${toy.img}" alt="${toy.name}" class="w-full h-full object-cover">
-                            <span class="absolute top-2 left-2 bg-toyBlue/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full">${toy.category}</span>
-                        </div>
-                        <h3 class="font-bold text-slate-800 text-base mb-1">${toy.name}</h3>
-                        <div class="text-xs text-amber-500 font-bold mb-3"><i class="fa-solid fa-star"></i> ${toy.rating} / 5.0</div>
+                        <img src="${toy.img}" class="w-full h-44 object-cover rounded-xl mb-3">
+                        <span class="text-[10px] font-bold bg-toyBlue/10 text-toyBlue px-2.5 py-1 rounded-full">${toy.category}</span>
+                        <h3 class="font-bold text-slate-800 mt-2 mb-1">${toy.name}</h3>
                     </div>
-                    <div class="flex justify-between items-center pt-2 border-t">
-                        <span class="font-heading text-xl font-bold text-slate-900">$${toy.price}</span>
-                        <button onclick="addToCart(${toy.id})" class="bg-toyYellow hover:bg-amber-500 text-slate-900 font-bold px-3.5 py-2 rounded-xl text-xs transition">
-                            + Add to Basket
-                        </button>
+                    <div class="flex justify-between items-center mt-3 pt-2 border-t">
+                        <span class="font-heading font-bold text-lg">$${toy.price}</span>
+                        <button onclick="addToCart(${toy.id})" class="bg-toyYellow hover:bg-amber-500 font-bold text-slate-900 text-xs px-3 py-1.5 rounded-xl">+ Add</button>
                     </div>
                 </div>
             `).join('');
         }
 
+        function renderCategoryToys(category) {
+            const grid = document.getElementById('categoryGrid');
+            const filtered = category === 'All' ? allToys : allToys.filter(t => t.category === category);
+            
+            grid.innerHTML = filtered.map(toy => `
+                <div class="bg-white rounded-2xl p-4 shadow-sm border flex flex-col justify-between">
+                    <div>
+                        <img src="${toy.img}" class="w-full h-48 object-cover rounded-xl mb-3">
+                        <span class="text-[10px] font-bold bg-toyBlue/10 text-toyBlue px-2.5 py-1 rounded-full">${toy.category}</span>
+                        <h3 class="font-bold text-slate-800 text-base mt-2 mb-1">${toy.name}</h3>
+                    </div>
+                    <div class="flex justify-between items-center mt-3 pt-2 border-t">
+                        <span class="font-heading font-bold text-xl">$${toy.price}</span>
+                        <button onclick="addToCart(${toy.id})" class="bg-toyYellow hover:bg-amber-500 font-bold text-slate-900 text-xs px-4 py-2 rounded-xl">Add to Basket</button>
+                    </div>
+                </div>
+            `).join('');
+
+            document.querySelectorAll('.cat-pill').forEach(btn => {
+                if(btn.innerText.includes(category) || (category === 'All' && btn.innerText.includes('All'))) {
+                    btn.className = "cat-pill active bg-toyRed text-white px-5 py-2 rounded-full font-bold text-xs transition";
+                } else {
+                    btn.className = "cat-pill bg-white text-slate-700 border px-5 py-2 rounded-full font-bold text-xs transition";
+                }
+            });
+        }
+
+        function filterCategory(cat) {
+            showTab('categories');
+            renderCategoryToys(cat);
+        }
+
         function addToCart(id) {
-            const item = featuredToys.find(t => t.id === id);
+            const toy = allToys.find(t => t.id === id);
             const inCart = cart.find(c => c.id === id);
-            if(inCart) { inCart.qty++; } else { cart.push({...item, qty: 1}); }
+            if(inCart) inCart.qty++; else cart.push({...toy, qty: 1});
             updateCart();
             toggleCart(true);
         }
 
         function updateCart() {
             const container = document.getElementById('cartItems');
-            const totalEl = document.getElementById('cartTotal');
-            const badge = document.getElementById('cartBadge');
-            
             container.innerHTML = cart.map(item => `
-                <div class="flex items-center justify-between border-b pb-3">
+                <div class="flex justify-between items-center border-b pb-2 text-xs">
                     <div>
-                        <h4 class="font-bold text-xs text-slate-800">${item.name}</h4>
-                        <div class="text-xs text-slate-500">$${item.price} x ${item.qty}</div>
+                        <div class="font-bold">${item.name}</div>
+                        <div class="text-slate-400">$${item.price} x ${item.qty}</div>
                     </div>
-                    <div class="font-bold text-sm text-toyRed">$${(item.price * item.qty).toFixed(2)}</div>
+                    <div class="font-bold text-toyRed">$${(item.price * item.qty).toFixed(2)}</div>
                 </div>
             `).join('');
 
             const total = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
             const count = cart.reduce((acc, i) => acc + i.qty, 0);
 
-            totalEl.innerText = `$${total.toFixed(2)}`;
-            badge.innerText = count;
+            document.getElementById('cartTotal').innerText = `$${total.toFixed(2)}`;
+            document.getElementById('cartBadge').innerText = count;
         }
 
         function toggleCart(forceOpen = false) {
@@ -258,19 +322,16 @@
             }
         }
 
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        }
-
         function checkout() {
-            if(cart.length === 0) return alert('Your basket is empty!');
-            alert('🎉 Thank you for your order! Your toys are on their way!');
+            if(cart.length === 0) return alert('Your cart is empty!');
+            alert('389 Order Received! Thank you for shopping with ToyVerse.');
             cart = [];
             updateCart();
             toggleCart();
         }
 
-        renderHomeToys();
+        renderHome();
+        renderCategoryToys('All');
     </script>
 </body>
 </html>
