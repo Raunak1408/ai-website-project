@@ -17,6 +17,24 @@
             }
         }
     </script>
+    <style>
+        .plant-img-container {
+            position: relative;
+            width: 100%;
+            height: 210px;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            background: #1a3321;
+        }
+        .plant-svg-fallback {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #132819 0%, #22422a 100%);
+        }
+    </style>
 </head>
 <body class="bg-leafDark text-slate-100 font-sans min-h-screen flex flex-col selection:bg-coleusMagenta selection:text-white">
 
@@ -28,13 +46,11 @@
     <!-- Header Navigation -->
     <header class="bg-leafDark/90 backdrop-blur-lg border-b border-leafBorder sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
-            <!-- Logo -->
             <a href="#" onclick="showTab('home')" class="flex items-center gap-2">
                 <i class="fa-solid fa-leaf text-coleusMagenta text-2xl sm:text-3xl"></i>
                 <span class="font-heading text-2xl sm:text-3xl font-extrabold tracking-widest text-white">KOLIUS<span class="text-leafAccent">HAVEN</span></span>
             </a>
 
-            <!-- Desktop Nav Links -->
             <nav class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-widest uppercase">
                 <button onclick="showTab('home')" id="nav-home" class="nav-btn text-leafAccent border-b-2 border-leafAccent pb-1">Home</button>
                 <button onclick="showTab('collection')" id="nav-collection" class="nav-btn text-slate-400 hover:text-white transition">All 50 Coleus</button>
@@ -43,7 +59,6 @@
                 <button onclick="showTab('contact')" id="nav-contact" class="nav-btn text-slate-400 hover:text-white transition">Coleus Expert</button>
             </nav>
 
-            <!-- Actions -->
             <div class="flex items-center gap-4">
                 <button onclick="toggleWishlist()" class="relative text-slate-300 hover:text-leafAccent text-lg transition hidden sm:block">
                     <i class="fa-regular fa-heart"></i>
@@ -61,16 +76,15 @@
 
     <!-- PAGE 1: HOME -->
     <main id="tab-home" class="tab-content flex-1">
-        <!-- Hero Section -->
         <section class="relative bg-gradient-to-b from-black via-leafDark to-leafDark border-b border-leafBorder py-16 sm:py-24 px-6 overflow-hidden">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="z-10">
-                    <span class="bg-leafCard text-coleusMagenta text-xs font-bold px-4 py-1.5 rounded-full border border-leafBorder uppercase tracking-widest inline-block mb-4">Dedicated Coleus (Kolius) Boutique</span>
+                    <span class="bg-leafCard text-coleusMagenta text-xs font-bold px-4 py-1.5 rounded-full border border-leafBorder uppercase tracking-widest inline-block mb-4">Dedicated Coleus Boutique</span>
                     <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase leading-tight tracking-tight mb-6">
                         EXPLORE THE <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-coleusMagenta via-pink-400 to-leafAccent">RAINBOW OF COLEUS</span>
                     </h1>
                     <p class="text-slate-400 text-sm sm:text-base mb-8 max-w-lg leading-relaxed">
-                        Discover 50 breathtaking Coleus cultivars featuring vivid magenta, neon lime, velvet crimson, and deep mahogany leaf patterns for indoors and shade gardens.
+                        Discover 50 breathtaking Coleus cultivars featuring vibrant foliage with colorful magenta, neon lime, velvet crimson, and deep burgundy patterns.
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <button onclick="showTab('collection')" class="bg-gradient-to-r from-coleusMagenta to-pink-600 hover:from-pink-500 hover:to-coleusMagenta text-white font-extrabold text-xs uppercase tracking-widest px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5">
@@ -82,11 +96,10 @@
                     </div>
                 </div>
 
-                <!-- Showcase Image -->
                 <div class="relative flex justify-center">
                     <div class="absolute w-80 h-80 bg-coleusMagenta/20 rounded-full blur-3xl"></div>
                     <div class="relative bg-leafCard p-4 rounded-3xl border border-leafBorder shadow-2xl max-w-md w-full">
-                        <img id="heroImage" src="https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=800&q=80" alt="Coleus Main Street" class="rounded-2xl h-80 w-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=800&q=80" alt="Coleus Main Street" class="rounded-2xl h-80 w-full object-cover">
                         <div class="mt-4 flex justify-between items-center px-2">
                             <div>
                                 <p class="text-[10px] text-coleusMagenta font-bold uppercase tracking-widest">FEATURED CULTIVAR</p>
@@ -99,7 +112,6 @@
             </div>
         </section>
 
-        <!-- Quick Categories Strip -->
         <section class="bg-black/50 border-b border-leafBorder py-8 px-6">
             <div class="max-w-7xl mx-auto">
                 <p class="text-center text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-6">COLEUS SPECIALTY TYPES</p>
@@ -115,7 +127,6 @@
             </div>
         </section>
 
-        <!-- Featured Section -->
         <section class="max-w-7xl mx-auto px-6 py-16">
             <div class="flex flex-col sm:flex-row justify-between sm:items-end mb-10 gap-4">
                 <div>
@@ -138,11 +149,10 @@
                 <p class="text-slate-400 text-xs uppercase tracking-widest mt-1">50 Unique Coleus Cultivars & Foliage Patterns</p>
             </div>
 
-            <!-- Controls (Search + Sort) -->
             <div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
                 <div class="relative flex-1 sm:w-64">
                     <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-500 text-xs"></i>
-                    <input type="text" id="searchInput" oninput="applyFilters()" placeholder="Search Wasabi, Dragon, Sunset, Velvet..." class="w-full bg-leafCard border border-leafBorder rounded-xl pl-9 pr-4 py-2.5 text-xs text-white focus:outline-none focus:border-coleusMagenta">
+                    <input type="text" id="searchInput" oninput="applyFilters()" placeholder="Search Wasabi, Dragon, Sunset..." class="w-full bg-leafCard border border-leafBorder rounded-xl pl-9 pr-4 py-2.5 text-xs text-white focus:outline-none focus:border-coleusMagenta">
                 </div>
 
                 <select id="sortSelect" onchange="applyFilters()" class="bg-leafCard border border-leafBorder text-slate-300 text-xs rounded-xl px-4 py-2.5 focus:outline-none focus:border-coleusMagenta">
@@ -154,10 +164,7 @@
             </div>
         </div>
 
-        <!-- Filter Pills -->
         <div class="flex flex-wrap gap-2 mb-10 overflow-x-auto pb-2" id="categoryPills"></div>
-
-        <!-- Plant Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="plantGrid"></div>
     </main>
 
@@ -270,66 +277,82 @@
     <footer class="bg-black border-t border-leafBorder py-12 mt-16 text-center text-xs text-slate-500">
         <div class="font-heading text-2xl font-bold text-white mb-2 tracking-widest">KOLIUS<span class="text-leafAccent">HAVEN</span></div>
         <p class="mb-4 text-slate-400">Specialist Nursery dedicated strictly to Coleus Cultivars.</p>
-        <p> copy; 2026 Kolius Haven Nursery. All rights reserved.</p>
+        <p> A9 2026 Kolius Haven Nursery. All rights reserved.</p>
     </footer>
 
     <script>
-        // High quality botanical Coleus fallback image
-        const defaultImg = "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80";
-        function handleImgError(img) { img.onerror = null; img.src = defaultImg; }
+        const plantImages = [
+            "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1463936575829-25148e1db1b8?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1512424886564-42f36f328325?auto=format&fit=crop&w=600&q=80"
+        ];
 
-        // 50 Specific Coleus Cultivars paired with matching accurate stock images
+        function renderPlantImage(src, name) {
+            return `
+                <div class="plant-img-container">
+                    <img src="${src}" alt="${name}" loading="lazy" class="w-full h-full object-cover transition transform hover:scale-105 duration-300" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'plant-svg-fallback\'><div class=\'text-center p-4\'><i class=\'fa-solid fa-leaf text-coleusMagenta text-4xl mb-2\'></i><p class=\'text-[10px] text-slate-300 font-bold uppercase tracking-wider\'>Botanical Foliage</p></div></div>';">
+                </div>
+            `;
+        }
+
         const plants = [
-            { id: 1, category: "Sun Coleus", name: "Coleus 'Main Street Sunset'", price: 18, light: "Full Sun to Part Shade", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Bold magenta centers edged with electric lime borders." },
-            { id: 2, category: "Sun Coleus", name: "Coleus 'Wasabi'", price: 16, light: "Full Sun", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Vibrant chartreuse chart-topping serrated green foliage." },
-            { id: 3, category: "Sun Coleus", name: "Coleus 'Campfire'", price: 19, light: "Full Sun", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Glowing copper-orange foliage with velvety bronze undertones." },
-            { id: 4, category: "Velvet", name: "Coleus 'Black Dragon'", price: 17, light: "Partial Shade", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80", desc: "Deep purplish-black leaves with dark red ruffled centers." },
-            { id: 5, category: "Variegated", name: "Coleus 'Chocolate Covered Cherry'", price: 21, light: "Partial Sun", img: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80", desc: "Rose-red center framed by dark mahogany and thin lime margin." },
-            { id: 6, category: "Shade Coleus", name: "Coleus 'Kong Red'", price: 22, light: "Full Shade", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Massive oversized leaves with fiery red centers." },
-            { id: 7, category: "Trailing", name: "Coleus 'Trailing Burgundy'", price: 15, light: "Partial Shade", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Cascading rich burgundy vines suitable for hanging pots." },
-            { id: 8, category: "Variegated", name: "Coleus 'Watermelon'", price: 18, light: "Medium Light", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Watermelon pink core with green ruffled margins." },
-            { id: 9, category: "Sun Coleus", name: "Coleus 'Inferno'", price: 20, light: "Full Sun", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Textured fiery terracotta red foliage." },
-            { id: 10, category: "Micro", name: "Coleus 'Mini Me'", price: 14, light: "Bright Indirect", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80", desc: "Compact micro-leaf variety with tight pink and green clusters." },
-            { id: 11, category: "Variegated", name: "Coleus 'Pineapple'", price: 16, light: "Part Shade", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Golden yellow leaves accented with lime splashes." },
-            { id: 12, category: "Giant", name: "Coleus 'Kong Salmon Pink'", price: 24, light: "Shade", img: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80", desc: "Huge spade leaves with delicate salmon pink centers." },
-            { id: 13, category: "Trailing", name: "Coleus 'Trailing Plum'", price: 17, light: "Filtered Sun", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Spilling deep purple stems with ruffled leaf edges." },
-            { id: 14, category: "Velvet", name: "Coleus 'Dark Star'", price: 18, light: "Partial Sun", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80", desc: "Uniform rich purple velvet leaves." },
-            { id: 15, category: "Sun Coleus", name: "Coleus 'Redhead'", price: 19, light: "Full Sun", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Bright crimson red leaves that stay intense in full sun." },
-            { id: 16, category: "Variegated", name: "Coleus 'Henna'", price: 20, light: "Full Sun to Shade", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Serrated gold copper leaves with magenta undersides." },
-            { id: 17, category: "Shade Coleus", name: "Coleus 'Wizard Velvet Red'", price: 15, light: "Shade", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80", desc: "Classic shade bedding coleus with narrow white borders." },
-            { id: 18, category: "Micro", name: "Coleus 'Fingerpaint'", price: 16, light: "Part Sun", img: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80", desc: "Narrow fringed leaves splashed with red and yellow." },
-            { id: 19, category: "Giant", name: "Coleus 'Big Blonde'", price: 23, light: "Partial Sun", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Sweeping chartreuse yellow leaves with dark burgundy stems." },
-            { id: 20, category: "Trailing", name: "Coleus 'Trailing Queen'", price: 18, light: "Shade", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Prostrate trailing habit with tricolor leaf markings." },
-            { id: 21, category: "Sun Coleus", name: "Coleus 'Electric Lime'", price: 17, light: "Full Sun", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Lemon-lime foliage with fine ivory veining." },
-            { id: 22, category: "Velvet", name: "Coleus 'Palisandra'", price: 20, light: "Part Shade", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80", desc: "Near-black jet foliage with velvety luster." },
-            { id: 23, category: "Variegated", name: "Coleus 'Fishnet Stockings'", price: 25, light: "Filtered Light", img: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80", desc: "Bright green leaves covered in dark purple net veining." },
-            { id: 24, category: "Shade Coleus", name: "Coleus 'Wizard Jade'", price: 14, light: "Shade", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Ivory center surrounded by crisp jade green borders." },
-            { id: 25, category: "Sun Coleus", name: "Coleus 'Trusty Rusty'", price: 18, light: "Full Sun", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Copper-red leaves bordered by yellow outline." },
-            { id: 26, category: "Variegated", name: "Coleus 'Gay's Delight'", price: 17, light: "Bright Light", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Chartreuse foliage accented with deep black veins." },
-            { id: 27, category: "Giant", name: "Coleus 'Kong Rose'", price: 22, light: "Shade", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Massive foliage with vivid rose-pink highlights." },
-            { id: 28, category: "Micro", name: "Coleus 'Under the Sea Goldfish'", price: 19, light: "Part Shade", img: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80", desc: "Unique fish-tail leaf shapes in orange and gold." },
-            { id: 29, category: "Trailing", name: "Coleus 'Meandering Linda'", price: 18, light: "Part Sun", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Trailing habit with ruffled pink and purple foliage." },
-            { id: 30, category: "Sun Coleus", name: "Coleus 'Solar Sunrise'", price: 19, light: "Full Sun", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Multicolor splashes of yellow, magenta, and green." },
-            { id: 31, category: "Velvet", name: "Coleus 'Chocolate Drop'", price: 16, light: "Filtered Sun", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80", desc: "Small rounded chocolate brown leaves with crimson center." },
-            { id: 32, category: "Variegated", name: "Coleus 'Tilt a Whirl'", price: 21, light: "Partial Shade", img: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80", desc: "Swirling, ruffled leaves in red, bronze, and yellow." },
-            { id: 33, category: "Shade Coleus", name: "Coleus 'Wizard Coral Sunrise'", price: 15, light: "Full Shade", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Soft salmon coral central coloring." },
-            { id: 34, category: "Sun Coleus", name: "Coleus 'Sedona Sun'", price: 18, light: "Full Sun", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Warm rust and burnt-amber sun-tolerant foliage." },
-            { id: 35, category: "Micro", name: "Coleus 'Under the Sea Bonefish'", price: 20, light: "Partial Shade", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Serrated skeletal leaves with lime green tips." },
-            { id: 36, category: "Giant", name: "Coleus 'Kong Mosaic'", price: 23, light: "Shade", img: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80", desc: "Mosaic pattern of red, green, and cream on massive leaves." },
-            { id: 37, category: "Trailing", name: "Coleus 'Trailing Strawberry'", price: 17, light: "Bright Indirect", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Pink strawberry centers on creeping garden stems." },
-            { id: 38, category: "Variegated", name: "Coleus 'Alabama Sunset'", price: 19, light: "Full Sun to Shade", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Changes color from pink to yellow gold depending on light." },
-            { id: 39, category: "Velvet", name: "Coleus 'Midnight Train'", price: 18, light: "Part Shade", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80", desc: "Dark velvety purple notched foliage." },
-            { id: 40, category: "Sun Coleus", name: "Coleus 'Gator Glory'", price: 20, light: "Full Sun", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Deep golden chartreuse with scalloped edges." },
-            { id: 41, category: "Shade Coleus", name: "Coleus 'Wizard Golden'", price: 14, light: "Shade", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Pure golden yellow leaves for dark shady nooks." },
-            { id: 42, category: "Micro", name: "Coleus 'Bantam Red'", price: 15, light: "Bright Filtered", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Miniature compact crimson foliage for terrariums." },
-            { id: 43, category: "Variegated", name: "Coleus 'Pineapple Splash'", price: 17, light: "Part Sun", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Yellow leaves with crimson splashes down the center." },
-            { id: 44, category: "Giant", name: "Coleus 'Kong Lime'", price: 22, light: "Full Shade", img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80", desc: "Huge light lime leaves with white central vein." },
-            { id: 45, category: "Sun Coleus", name: "Coleus 'Mariposa'", price: 19, light: "Full Sun", img: "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=600&q=80", desc: "Butterfly-shaped deep magenta and pink leaves." },
-            { id: 46, category: "Trailing", name: "Coleus 'Trailing Garnet'", price: 16, light: "Part Shade", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Garnet red weeping stems with bright green edge." },
-            { id: 47, category: "Velvet", name: "Coleus 'Royal Glissade'", price: 21, light: "Partial Sun", img: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80", desc: "Raspberry red velvet centers with subtle bronze dusting." },
-            { id: 48, category: "Variegated", name: "Coleus 'French Quarter'", price: 20, light: "Full Sun to Shade", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Pink, magenta, yellow, and green kaleidoscope foliage." },
-            { id: 49, category: "Shade Coleus", name: "Coleus 'Wizard Scarlet'", price: 15, light: "Shade", img: "https://images.unsplash.com/photo-1599598425947-2342502c3882?auto=format&fit=crop&w=600&q=80", desc: "Scarlet core surrounded by chartreuse trim." },
-            { id: 50, category: "Sun Coleus", name: "Coleus 'Saturn'", price: 18, light: "Full Sun", img: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80", desc: "Deep red center with lime rings resembling planetary rings." }
+            { id: 1, category: "Sun Coleus", name: "Coleus 'Main Street Sunset'", price: 18, light: "Full Sun to Part Shade", img: plantImages[0], desc: "Bold magenta centers edged with electric lime borders." },
+            { id: 2, category: "Sun Coleus", name: "Coleus 'Wasabi'", price: 16, light: "Full Sun", img: plantImages[1], desc: "Vibrant chartreuse chart-topping serrated green foliage." },
+            { id: 3, category: "Sun Coleus", name: "Coleus 'Campfire'", price: 19, light: "Full Sun", img: plantImages[2], desc: "Glowing copper-orange foliage with velvety bronze undertones." },
+            { id: 4, category: "Velvet", name: "Coleus 'Black Dragon'", price: 17, light: "Partial Shade", img: plantImages[3], desc: "Deep purplish-black leaves with dark red ruffled centers." },
+            { id: 5, category: "Variegated", name: "Coleus 'Chocolate Covered Cherry'", price: 21, light: "Partial Sun", img: plantImages[4], desc: "Rose-red center framed by dark mahogany and thin lime margin." },
+            { id: 6, category: "Shade Coleus", name: "Coleus 'Kong Red'", price: 22, light: "Full Shade", img: plantImages[5], desc: "Massive oversized leaves with fiery red centers." },
+            { id: 7, category: "Trailing", name: "Coleus 'Trailing Burgundy'", price: 15, light: "Partial Shade", img: plantImages[6], desc: "Cascading rich burgundy vines suitable for hanging pots." },
+            { id: 8, category: "Variegated", name: "Coleus 'Watermelon'", price: 18, light: "Medium Light", img: plantImages[7], desc: "Watermelon pink core with green ruffled margins." },
+            { id: 9, category: "Sun Coleus", name: "Coleus 'Inferno'", price: 20, light: "Full Sun", img: plantImages[8], desc: "Textured fiery terracotta red foliage." },
+            { id: 10, category: "Micro", name: "Coleus 'Mini Me'", price: 14, light: "Bright Indirect", img: plantImages[9], desc: "Compact micro-leaf variety with tight pink and green clusters." },
+            { id: 11, category: "Variegated", name: "Coleus 'Pineapple'", price: 16, light: "Part Shade", img: plantImages[1], desc: "Golden yellow leaves accented with lime splashes." },
+            { id: 12, category: "Giant", name: "Coleus 'Kong Salmon Pink'", price: 24, light: "Shade", img: plantImages[4], desc: "Huge spade leaves with delicate salmon pink centers." },
+            { id: 13, category: "Trailing", name: "Coleus 'Trailing Plum'", price: 17, light: "Filtered Sun", img: plantImages[2], desc: "Spilling deep purple stems with ruffled leaf edges." },
+            { id: 14, category: "Velvet", name: "Coleus 'Dark Star'", price: 18, light: "Partial Sun", img: plantImages[3], desc: "Uniform rich purple velvet leaves." },
+            { id: 15, category: "Sun Coleus", name: "Coleus 'Redhead'", price: 19, light: "Full Sun", img: plantImages[0], desc: "Bright crimson red leaves that stay intense in full sun." },
+            { id: 16, category: "Variegated", name: "Coleus 'Henna'", price: 20, light: "Full Sun to Shade", img: plantImages[2], desc: "Serrated gold copper leaves with magenta undersides." },
+            { id: 17, category: "Shade Coleus", name: "Coleus 'Wizard Velvet Red'", price: 15, light: "Shade", img: plantImages[3], desc: "Classic shade bedding coleus with narrow white borders." },
+            { id: 18, category: "Micro", name: "Coleus 'Fingerpaint'", price: 16, light: "Part Sun", img: plantImages[4], desc: "Narrow fringed leaves splashed with red and yellow." },
+            { id: 19, category: "Giant", name: "Coleus 'Big Blonde'", price: 23, light: "Partial Sun", img: plantImages[1], desc: "Sweeping chartreuse yellow leaves with dark burgundy stems." },
+            { id: 20, category: "Trailing", name: "Coleus 'Trailing Queen'", price: 18, light: "Shade", img: plantImages[6], desc: "Prostrate trailing habit with tricolor leaf markings." },
+            { id: 21, category: "Sun Coleus", name: "Coleus 'Electric Lime'", price: 17, light: "Full Sun", img: plantImages[1], desc: "Lemon-lime foliage with fine ivory veining." },
+            { id: 22, category: "Velvet", name: "Coleus 'Palisandra'", price: 20, light: "Part Shade", img: plantImages[3], desc: "Near-black jet foliage with velvety luster." },
+            { id: 23, category: "Variegated", name: "Coleus 'Fishnet Stockings'", price: 25, light: "Filtered Light", img: plantImages[4], desc: "Bright green leaves covered in dark purple net veining." },
+            { id: 24, category: "Shade Coleus", name: "Coleus 'Wizard Jade'", price: 14, light: "Shade", img: plantImages[5], desc: "Ivory center surrounded by crisp jade green borders." },
+            { id: 25, category: "Sun Coleus", name: "Coleus 'Trusty Rusty'", price: 18, light: "Full Sun", img: plantImages[8], desc: "Copper-red leaves bordered by yellow outline." },
+            { id: 26, category: "Variegated", name: "Coleus 'Gay's Delight'", price: 17, light: "Bright Light", img: plantImages[1], desc: "Chartreuse foliage accented with deep black veins." },
+            { id: 27, category: "Giant", name: "Coleus 'Kong Rose'", price: 22, light: "Shade", img: plantImages[0], desc: "Massive foliage with vivid rose-pink highlights." },
+            { id: 28, category: "Micro", name: "Coleus 'Under the Sea Goldfish'", price: 19, light: "Part Shade", img: plantImages[4], desc: "Unique fish-tail leaf shapes in orange and gold." },
+            { id: 29, category: "Trailing", name: "Coleus 'Meandering Linda'", price: 18, light: "Part Sun", img: plantImages[6], desc: "Trailing habit with ruffled pink and purple foliage." },
+            { id: 30, category: "Sun Coleus", name: "Coleus 'Solar Sunrise'", price: 19, light: "Full Sun", img: plantImages[0], desc: "Multicolor splashes of yellow, magenta, and green." },
+            { id: 31, category: "Velvet", name: "Coleus 'Chocolate Drop'", price: 16, light: "Filtered Sun", img: plantImages[3], desc: "Small rounded chocolate brown leaves with crimson center." },
+            { id: 32, category: "Variegated", name: "Coleus 'Tilt a Whirl'", price: 21, light: "Partial Shade", img: plantImages[4], desc: "Swirling, ruffled leaves in red, bronze, and yellow." },
+            { id: 33, category: "Shade Coleus", name: "Coleus 'Wizard Coral Sunrise'", price: 15, light: "Full Shade", img: plantImages[5], desc: "Soft salmon coral central coloring." },
+            { id: 34, category: "Sun Coleus", name: "Coleus 'Sedona Sun'", price: 18, light: "Full Sun", img: plantImages[8], desc: "Warm rust and burnt-amber sun-tolerant foliage." },
+            { id: 35, category: "Micro", name: "Coleus 'Under the Sea Bonefish'", price: 20, light: "Partial Shade", img: plantImages[9], desc: "Serrated skeletal leaves with lime green tips." },
+            { id: 36, category: "Giant", name: "Coleus 'Kong Mosaic'", price: 23, light: "Shade", img: plantImages[0], desc: "Mosaic pattern of red, green, and cream on massive leaves." },
+            { id: 37, category: "Trailing", name: "Coleus 'Trailing Strawberry'", price: 17, light: "Bright Indirect", img: plantImages[6], desc: "Pink strawberry centers on creeping garden stems." },
+            { id: 38, category: "Variegated", name: "Coleus 'Alabama Sunset'", price: 19, light: "Full Sun to Shade", img: plantImages[2], desc: "Changes color from pink to yellow gold depending on light." },
+            { id: 39, category: "Velvet", name: "Coleus 'Midnight Train'", price: 18, light: "Part Shade", img: plantImages[3], desc: "Dark velvety purple notched foliage." },
+            { id: 40, category: "Sun Coleus", name: "Coleus 'Gator Glory'", price: 20, light: "Full Sun", img: plantImages[1], desc: "Deep golden chartreuse with scalloped edges." },
+            { id: 41, category: "Shade Coleus", name: "Coleus 'Wizard Golden'", price: 14, light: "Shade", img: plantImages[5], desc: "Pure golden yellow leaves for dark shady nooks." },
+            { id: 42, category: "Micro", name: "Coleus 'Bantam Red'", price: 15, light: "Bright Filtered", img: plantImages[9], desc: "Miniature compact crimson foliage for terrariums." },
+            { id: 43, category: "Variegated", name: "Coleus 'Pineapple Splash'", price: 17, light: "Part Sun", img: plantImages[1], desc: "Yellow leaves with crimson splashes down the center." },
+            { id: 44, category: "Giant", name: "Coleus 'Kong Lime'", price: 22, light: "Full Shade", img: plantImages[5], desc: "Huge light lime leaves with white central vein." },
+            { id: 45, category: "Sun Coleus", name: "Coleus 'Mariposa'", price: 19, light: "Full Sun", img: plantImages[0], desc: "Butterfly-shaped deep magenta and pink leaves." },
+            { id: 46, category: "Trailing", name: "Coleus 'Trailing Garnet'", price: 16, light: "Part Shade", img: plantImages[6], desc: "Garnet red weeping stems with bright green edge." },
+            { id: 47, category: "Velvet", name: "Coleus 'Royal Glissade'", price: 21, light: "Partial Sun", img: plantImages[3], desc: "Raspberry red velvet centers with subtle bronze dusting." },
+            { id: 48, category: "Variegated", name: "Coleus 'French Quarter'", price: 20, light: "Full Sun to Shade", img: plantImages[4], desc: "Pink, magenta, yellow, and green kaleidoscope foliage." },
+            { id: 49, category: "Shade Coleus", name: "Coleus 'Wizard Scarlet'", price: 15, light: "Shade", img: plantImages[5], desc: "Scarlet core surrounded by chartreuse trim." },
+            { id: 50, category: "Sun Coleus", name: "Coleus 'Saturn'", price: 18, light: "Full Sun", img: plantImages[2], desc: "Deep red center with lime rings resembling planetary rings." }
         ];
 
         let cart = [];
@@ -385,8 +408,8 @@
                     <div class="bg-leafCard rounded-2xl p-4 border border-leafBorder flex flex-col justify-between hover:border-coleusMagenta/50 transition">
                         <div>
                             <div class="relative mb-3">
-                                <img src="${p.img}" onerror="handleImgError(this)" class="w-full h-52 object-cover rounded-xl">
-                                <button onclick="toggleWishlistItem(${p.id})" class="absolute top-2 right-2 bg-black/60 text-white w-8 h-8 rounded-full flex items-center justify-center hover:text-coleusMagenta">
+                                ${renderPlantImage(p.img, p.name)}
+                                <button onclick="toggleWishlistItem(${p.id})" class="absolute top-2 right-2 bg-black/60 text-white w-8 h-8 rounded-full flex items-center justify-center hover:text-coleusMagenta z-10">
                                     <i class="${wishlist.includes(p.id) ? 'fa-solid text-coleusMagenta' : 'fa-regular'} fa-heart"></i>
                                 </button>
                             </div>
@@ -412,7 +435,9 @@
             grid.innerHTML = plants.slice(0, 8).map(p => `
                 <div class="bg-leafCard rounded-2xl p-4 border border-leafBorder flex flex-col justify-between hover:border-coleusMagenta/50 transition">
                     <div>
-                        <img src="${p.img}" onerror="handleImgError(this)" class="w-full h-48 object-cover rounded-xl mb-3">
+                        <div class="relative mb-3">
+                            ${renderPlantImage(p.img, p.name)}
+                        </div>
                         <span class="text-[9px] text-coleusMagenta font-bold uppercase">${p.category}</span>
                         <h3 class="font-heading font-bold text-sm text-white uppercase">${p.name}</h3>
                     </div>
@@ -432,7 +457,9 @@
                 const samplePlant = plants.find(p => p.category === cat) || plants[0];
                 return `
                     <div onclick="filterByCategory('${cat}')" class="bg-leafCard p-5 rounded-2xl border border-leafBorder hover:border-coleusMagenta transition cursor-pointer flex items-center gap-4">
-                        <img src="${samplePlant.img}" onerror="handleImgError(this)" class="w-20 h-20 rounded-xl object-cover">
+                        <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+                            <img src="${samplePlant.img}" alt="${cat}" class="w-full h-full object-cover">
+                        </div>
                         <div>
                             <h3 class="font-heading font-bold text-lg text-white uppercase">${cat}</h3>
                             <p class="text-xs text-coleusMagenta">Browse Cultivars &rarr;</p>
@@ -446,7 +473,9 @@
             const p = plants.find(item => item.id === id);
             if(!p) return;
             document.getElementById('modalContent').innerHTML = `
-                <img src="${p.img}" onerror="handleImgError(this)" class="w-full h-64 object-cover rounded-2xl">
+                <div class="w-full h-64 rounded-2xl overflow-hidden">
+                    <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover">
+                </div>
                 <div>
                     <span class="text-xs text-coleusMagenta font-bold uppercase">${p.category}</span>
                     <h2 class="font-heading text-2xl font-bold uppercase mt-1 text-white">${p.name}</h2>
@@ -474,7 +503,7 @@
             document.getElementById('wishlistItems').innerHTML = items.map(i => `
                 <div class="flex justify-between items-center text-xs border-b border-leafBorder pb-3">
                     <div class="flex items-center gap-3">
-                        <img src="${i.img}" onerror="handleImgError(this)" class="w-12 h-12 rounded-lg object-cover">
+                        <img src="${i.img}" class="w-12 h-12 rounded-lg object-cover">
                         <div>
                             <div class="font-bold text-white uppercase">${i.name}</div>
                             <div class="text-leafAccent">$${i.price.toFixed(2)}</div>
@@ -511,7 +540,7 @@
             document.getElementById('cartItems').innerHTML = cart.map(i => `
                 <div class="flex justify-between items-center text-xs border-b border-leafBorder pb-3">
                     <div class="flex items-center gap-3">
-                        <img src="${i.img}" onerror="handleImgError(this)" class="w-12 h-12 rounded-lg object-cover">
+                        <img src="${i.img}" class="w-12 h-12 rounded-lg object-cover">
                         <div>
                             <div class="font-bold text-white uppercase">${i.name}</div>
                             <div class="text-slate-400">$${i.price.toFixed(2)} x ${i.qty}</div>
