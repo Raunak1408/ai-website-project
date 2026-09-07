@@ -1,332 +1,247 @@
-// Data for Coleus varieties
-const coleusPlants = [
-    {
-        id: 1,
-        name: 'Wizard Scarlet',
-        scientificName: 'Coleus scutellarioides',
-        price: 15.99,
-        sunRequirement: 'sun',
-        imgUrl: 'https://images.unsplash.com/photo-1599598425947-2313627d32e9?auto=format&fit=crop&w=600&q=80',
-        fallbackUrl: 'https://images.unsplash.com/photo-1596728325492-b485ff7430ad?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-        id: 2,
-        name: 'China Rose',
-        scientificName: 'Coleus scutellarioides',
-        price: 12.49,
-        sunRequirement: 'shade',
-        imgUrl: 'https://images.unsplash.com/photo-1628186221443-4f3879a8e9e4?auto=format&fit=crop&w=600&q=80',
-        fallbackUrl: 'https://images.unsplash.com/photo-1596728325492-b485ff7430ad?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-        id: 3,
-        name: 'Black Dragon',
-        scientificName: 'Coleus scutellarioides',
-        price: 18.99,
-        sunRequirement: 'shade',
-        imgUrl: 'https://images.unsplash.com/photo-1618214227092-261578a1fa18?auto=format&fit=crop&w=600&q=80',
-        fallbackUrl: 'https://images.unsplash.com/photo-1596728325492-b485ff7430ad?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-        id: 4,
-        name: 'Kong Rose',
-        scientificName: 'Coleus scutellarioides',
-        price: 14.50,
-        sunRequirement: 'sun',
-        imgUrl: 'https://images.unsplash.com/photo-1599598425947-2313627d32e9?auto=format&fit=crop&w=600&q=80',
-        fallbackUrl: 'https://images.unsplash.com/photo-1596728325492-b485ff7430ad?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-        id: 5,
-        name: 'Lime Shrimp',
-        scientificName: 'Coleus scutellarioides',
-        price: 13.75,
-        sunRequirement: 'sun',
-        imgUrl: 'https://images.unsplash.com/photo-1628186221443-4f3879a8e9e4?auto=format&fit=crop&w=600&q=80',
-        fallbackUrl: 'https://images.unsplash.com/photo-1596728325492-b485ff7430ad?auto=format&fit=crop&w=600&q=80'
-    },
-    {
-        id: 6,
-        name: 'Henna',
-        scientificName: 'Coleus scutellarioides',
-        price: 11.99,
-        sunRequirement: 'shade',
-        imgUrl: 'https://images.unsplash.com/photo-1618214227092-261578a1fa18?auto=format&fit=crop&w=600&q=80',
-        fallbackUrl: 'https://images.unsplash.com/photo-1596728325492-b485ff7430ad?auto=format&fit=crop&w=600&q=80'
-    }
+const products = [
+    { brand: "Rolex", model: "Submariner Date", price: 13500, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Rolex", model: "Daytona Cosmograph", price: 22000, img: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Rolex", model: "Datejust 41", price: 10500, img: "https://images.unsplash.com/photo-1622434641406-a158123450f9?auto=format&fit=crop&w=600&q=80" },
+
+    { brand: "Omega", model: "Speedmaster Professional", price: 5500, img: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Omega", model: "Seamaster Diver 300M", price: 4800, img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Omega", model: "Constellation Co-Axial", price: 6200, img: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=80" },
+
+    { brand: "Seiko", model: "Prospex Diver", price: 800, img: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Seiko", model: "Presage Cocktail Time", price: 650, img: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Seiko", model: "5 Sports Automatic", price: 450, img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80" },
+
+    { brand: "Casio", model: "G-Shock GA-2100", price: 130, img: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Casio", model: "Edifice Chronograph", price: 220, img: "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Casio", model: "Vintage Digital A168", price: 50, img: "https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?auto=format&fit=crop&w=600&q=80" },
+
+    { brand: "TAG Heuer", model: "Carrera Automatic", price: 4100, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" },
+    { brand: "TAG Heuer", model: "Monaco Calibre 11", price: 6500, img: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=600&q=80" },
+    { brand: "TAG Heuer", model: "Aquaracer Professional", price: 2750, img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" },
+
+    { brand: "Tissot", model: "PRX Automatic", price: 800, img: "https://images.unsplash.com/photo-1622434641406-a158123450f9?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Tissot", model: "Seastar 1000", price: 950, img: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Tissot", model: "Le Locle Powermatic", price: 850, img: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=600&q=80" },
+
+    { brand: "Patek Philippe", model: "Nautilus 5711", price: 32000, img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Patek Philippe", model: "Calatrava Automatic", price: 23000, img: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Patek Philippe", model: "Aquanaut Travel Time", price: 25000, img: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=600&q=80" },
+
+    { brand: "Audemars Piguet", model: "Royal Oak Selfwinding", price: 41000, img: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Audemars Piguet", model: "Royal Oak Offshore", price: 28000, img: "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Audemars Piguet", model: "CODE 11.59", price: 35000, img: "https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?auto=format&fit=crop&w=600&q=80" },
+
+    { brand: "Cartier", model: "Santos de Cartier", price: 9000, img: "https://images.unsplash.com/photo-1622434641406-a158123450f9?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Cartier", model: "Tank Must", price: 7500, img: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Cartier", model: "Ballon Bleu", price: 11000, img: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=80" },
+
+    { brand: "Tudor", model: "Black Bay 58", price: 3700, img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Tudor", model: "Pelagos Titanium", price: 4600, img: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?auto=format&fit=crop&w=600&q=80" },
+    { brand: "Tudor", model: "Heritage Chrono", price: 3500, img: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=600&q=80" }
 ];
 
-// DOM elements
-const plantGrid = document.getElementById('plantGrid');
-const searchInput = document.getElementById('searchInput');
-const filterButtons = document.querySelectorAll('.filter-btn');
-const priceSort = document.getElementById('priceSort');
-const cartToggle = document.getElementById('cartToggle');
-const cartDrawer = document.getElementById('cartDrawer');
-const closeCartBtn = document.getElementById('closeCart');
-const cartItemsContainer = document.getElementById('cartItems');
-const cartCount = document.getElementById('cartCount');
-const cartTotal = document.getElementById('cartTotal');
-const careGuideBtn = document.getElementById('careGuideBtn');
-const catalogSection = document.getElementById('catalog-section');
-const careGuideSection = document.getElementById('care-guide-section');
+const productsContainer = document.getElementById('products');
+const searchInput = document.getElementById('search');
+const brandButtons = document.querySelectorAll('.brand-btn');
+const sortSelect = document.getElementById('sort');
+const cartPanel = document.getElementById('cart-panel');
+const cartItemsContainer = document.getElementById('cart-items');
+const cartTotal = document.getElementById('cart-total');
+const clearCartBtn = document.getElementById('clear-cart');
 
-// Cart data
-let cart = JSON.parse(localStorage.getItem('coleusCart')) || [];
+let currentBrandFilter = 'all';
+let currentSearchTerm = '';
+let currentSort = 'default';
 
-// Render plants based on filters and search
-function renderPlants() {
-    let filteredPlants = coleusPlants;
-
-    // Filter by category
-    const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
-    if (activeFilter === 'sun') {
-        filteredPlants = filteredPlants.filter(p => p.sunRequirement === 'sun');
-    } else if (activeFilter === 'shade') {
-        filteredPlants = filteredPlants.filter(p => p.sunRequirement === 'shade');
-    }
-
-    // Filter by search
-    const searchTerm = searchInput.value.trim().toLowerCase();
-    if (searchTerm) {
-        filteredPlants = filteredPlants.filter(p => p.name.toLowerCase().includes(searchTerm));
-    }
-
-    // Sort by price
-    const sortValue = priceSort.value;
-    if (sortValue === 'low-high') {
-        filteredPlants.sort((a, b) => a.price - b.price);
-    } else if (sortValue === 'high-low') {
-        filteredPlants.sort((a, b) => b.price - a.price);
-    }
-
-    plantGrid.innerHTML = '';
-
-    filteredPlants.forEach(plant => {
-        const card = document.createElement('div');
-        card.className = 'plant-card';
-
-        card.innerHTML = `
-            <img src="${plant.imgUrl}" alt="${plant.name}" onerror="this.onerror=null;this.src='${plant.fallbackUrl}'" />
-            <div class="plant-info">
-                <h3>${plant.name}</h3>
-                <div class="scientific-name">${plant.scientificName}</div>
-                <div class="price">$${plant.price.toFixed(2)}</div>
-                <div class="${plant.sunRequirement === 'sun' ? 'sun-tag' : 'shade-tag'}">
-                    ${plant.sunRequirement === 'sun' ? 'Full Sun' : 'Part Shade'}
-                </div>
-                <button class="add-cart-btn" data-id="${plant.id}">Add to Cart</button>
-            </div>
-        `;
-
-        plantGrid.appendChild(card);
-    });
-
-    // Add event listeners to Add to Cart buttons
-    document.querySelectorAll('.add-cart-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const id = parseInt(btn.dataset.id);
-            addToCart(id);
-        });
-    });
-}
-
-// Add item to cart
-function addToCart(id) {
-    const plant = coleusPlants.find(p => p.id === id);
-    if (!plant) return;
-
-    const cartItem = cart.find(item => item.id === id);
-    if (cartItem) {
-        cartItem.quantity++;
-    } else {
-        cart.push({ ...plant, quantity: 1 });
-    }
-    saveCart();
-    renderCart();
-    alert(`${plant.name} added to cart.`);
-}
-
-// Render cart contents
-function renderCart() {
-    cartItemsContainer.innerHTML = '';
-    let total = 0;
-
-    if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
-        cartCount.textContent = '0';
-        cartTotal.textContent = '0.00';
-        return;
-    }
-
-    cart.forEach(item => {
-        total += item.price * item.quantity;
-
-        const cartItem = document.createElement('div');
-        cartItem.className = 'cart-item';
-
-        cartItem.innerHTML = `
-            <img src="${item.imgUrl}" alt="${item.name}" onerror="this.onerror=null;this.src='${item.fallbackUrl}'" />
-            <div class="cart-item-info">
-                <h4>${item.name}</h4>
-                <div class="price">$${item.price.toFixed(2)}</div>
-                <div class="quantity-controls">
-                    <button class="qty-decrement" data-id="${item.id}">-</button>
-                    <span>${item.quantity}</span>
-                    <button class="qty-increment" data-id="${item.id}">+</button>
-                </div>
-            </div>
-            <button class="remove-item-btn" data-id="${item.id}" aria-label="Remove item">&times;</button>
-        `;
-
-        cartItemsContainer.appendChild(cartItem);
-    });
-
-    cartCount.textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
-    cartTotal.textContent = total.toFixed(2);
-
-    // Attach quantity controls
-    document.querySelectorAll('.qty-increment').forEach(btn => {
-        btn.addEventListener('click', () => {
-            changeQuantity(parseInt(btn.dataset.id), 1);
-        });
-    });
-
-    document.querySelectorAll('.qty-decrement').forEach(btn => {
-        btn.addEventListener('click', () => {
-            changeQuantity(parseInt(btn.dataset.id), -1);
-        });
-    });
-
-    // Attach remove item buttons
-    document.querySelectorAll('.remove-item-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            removeItem(parseInt(btn.dataset.id));
-        });
-    });
-}
-
-function changeQuantity(id, delta) {
-    const item = cart.find(i => i.id === id);
-    if (!item) return;
-
-    item.quantity += delta;
-    if (item.quantity < 1) {
-        removeItem(id);
-    } else {
-        saveCart();
-        renderCart();
-    }
-}
-
-function removeItem(id) {
-    cart = cart.filter(i => i.id !== id);
-    saveCart();
-    renderCart();
-}
+let cart = JSON.parse(localStorage.getItem('cart')) || {};
 
 function saveCart() {
-    localStorage.setItem('coleusCart', JSON.stringify(cart));
+    localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// Accordion for Care Guide
-const accordionHeaders = document.querySelectorAll('.accordion-header');
-accordionHeaders.forEach(header => {
-    header.addEventListener('click', () => {
-        const isActive = header.classList.contains('active');
+function updateCartUI() {
+    cartItemsContainer.innerHTML = '';
+    let total = 0;
+    for (const key in cart) {
+        const item = cart[key];
+        const lineTotal = item.price * item.qty;
+        total += lineTotal;
 
-        accordionHeaders.forEach(h => {
-            h.classList.remove('active');
-            h.nextElementSibling.style.maxHeight = null;
-            h.nextElementSibling.style.opacity = 0;
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+
+        const infoDiv = document.createElement('div');
+        infoDiv.className = 'cart-item-info';
+        infoDiv.innerHTML = `<div class="cart-item-brand">${item.brand}</div><div class="cart-item-model">${item.model}</div>`;
+
+        const qtyInput = document.createElement('input');
+        qtyInput.type = 'number';
+        qtyInput.min = '1';
+        qtyInput.value = item.qty;
+        qtyInput.className = 'cart-item-qty';
+        qtyInput.addEventListener('change', e => {
+            const newQty = parseInt(e.target.value);
+            if (newQty > 0) {
+                cart[key].qty = newQty;
+                saveCart();
+                updateCartUI();
+                renderProducts();
+            } else {
+                e.target.value = item.qty;
+            }
         });
 
-        if (!isActive) {
-            header.classList.add('active');
-            const content = header.nextElementSibling;
-            content.style.maxHeight = content.scrollHeight + 'px';
-            content.style.opacity = 1;
-        }
+        const priceDiv = document.createElement('div');
+        priceDiv.textContent = `$${lineTotal.toFixed(2)}`;
+
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = '×';
+        removeBtn.title = 'Remove Item';
+        removeBtn.addEventListener('click', () => {
+            delete cart[key];
+            saveCart();
+            updateCartUI();
+            renderProducts();
+        });
+
+        div.appendChild(infoDiv);
+        div.appendChild(qtyInput);
+        div.appendChild(priceDiv);
+        div.appendChild(removeBtn);
+
+        cartItemsContainer.appendChild(div);
+    }
+    cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+
+    if (Object.keys(cart).length > 0) {
+        openCart();
+    } else {
+        closeCart();
+    }
+}
+
+function openCart() {
+    cartPanel.classList.add('open');
+}
+
+function closeCart() {
+    cartPanel.classList.remove('open');
+}
+
+function addToCart(brand, model, price) {
+    const key = `${brand}__${model}`;
+    if (cart[key]) {
+        cart[key].qty++;
+    } else {
+        cart[key] = { brand, model, price, qty: 1 };
+    }
+    saveCart();
+    updateCartUI();
+}
+
+function renderProducts() {
+    let filtered = products.filter(p => {
+        const matchesBrand = currentBrandFilter === 'all' || p.brand === currentBrandFilter;
+        const matchesSearch = p.brand.toLowerCase().includes(currentSearchTerm) || p.model.toLowerCase().includes(currentSearchTerm);
+        return matchesBrand && matchesSearch;
+    });
+
+    if (currentSort === 'price-asc') {
+        filtered.sort((a, b) => a.price - b.price);
+    } else if (currentSort === 'price-desc') {
+        filtered.sort((a, b) => b.price - a.price);
+    } else if (currentSort === 'brand') {
+        filtered.sort((a, b) => a.brand.localeCompare(b.brand));
+    } else if (currentSort === 'model') {
+        filtered.sort((a, b) => a.model.localeCompare(b.model));
+    }
+
+    productsContainer.innerHTML = '';
+
+    filtered.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+
+        const img = document.createElement('img');
+        img.src = p.img;
+        img.alt = `${p.brand} ${p.model}`;
+        img.className = 'product-image';
+        img.setAttribute('onerror', "this.onerror=null; this.src='https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80';");
+
+        const info = document.createElement('div');
+        info.className = 'product-info';
+
+        const brandEl = document.createElement('div');
+        brandEl.className = 'product-brand';
+        brandEl.textContent = p.brand;
+
+        const modelEl = document.createElement('div');
+        modelEl.className = 'product-model';
+        modelEl.textContent = p.model;
+
+        const priceEl = document.createElement('div');
+        priceEl.className = 'product-price';
+        priceEl.textContent = `$${p.price.toLocaleString()}`;
+
+        const addToCartBtn = document.createElement('button');
+        addToCartBtn.className = 'add-to-cart-btn';
+        addToCartBtn.textContent = 'Add to Cart';
+        addToCartBtn.addEventListener('click', () => {
+            addToCart(p.brand, p.model, p.price);
+        });
+
+        info.appendChild(brandEl);
+        info.appendChild(modelEl);
+        info.appendChild(priceEl);
+        card.appendChild(img);
+        card.appendChild(info);
+        card.appendChild(addToCartBtn);
+
+        productsContainer.appendChild(card);
+    });
+}
+
+searchInput.addEventListener('input', e => {
+    currentSearchTerm = e.target.value.toLowerCase();
+    renderProducts();
+});
+
+brandButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        brandButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentBrandFilter = btn.getAttribute('data-brand');
+        renderProducts();
     });
 });
 
-// Cart drawer toggle
-cartToggle.addEventListener('click', () => {
-    cartDrawer.classList.toggle('open');
+sortSelect.addEventListener('change', e => {
+    currentSort = e.target.value;
+    renderProducts();
 });
 
-closeCartBtn.addEventListener('click', () => {
-    cartDrawer.classList.remove('open');
-});
-
-// Filter buttons
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        renderPlants();
-    });
-});
-
-// Search input
-searchInput.addEventListener('input', () => {
-    renderPlants();
-});
-
-// Price sort
-priceSort.addEventListener('change', () => {
-    renderPlants();
-});
-
-// Scroll to sections for hero buttons
-careGuideBtn.addEventListener('click', () => {
-    careGuideSection.scrollIntoView({ behavior: 'smooth' });
-});
-
-const exploreCatalogBtn = document.getElementById('exploreCatalogBtn');
-exploreCatalogBtn.addEventListener('click', () => {
-    catalogSection.scrollIntoView({ behavior: 'smooth' });
-});
-
-// Contact form validation and feedback
-const contactForm = document.getElementById('contactForm');
-const contactFeedback = document.getElementById('contactFeedback');
-contactForm.addEventListener('submit', e => {
-    e.preventDefault();
-    const name = contactForm.name.value.trim();
-    const email = contactForm.email.value.trim();
-    const message = contactForm.message.value.trim();
-
-    if (name && email && message) {
-        contactFeedback.textContent = 'Thank you for your message! We will get back to you soon.';
-        contactForm.reset();
-    } else {
-        contactFeedback.textContent = 'Please fill in all fields correctly.';
-    }
-
-    setTimeout(() => {
-        contactFeedback.textContent = '';
-    }, 4000);
-});
-
-// Newsletter subscription feedback
-const newsletterForm = document.getElementById('newsletterForm');
-const newsletterFeedback = document.getElementById('newsletterFeedback');
-newsletterForm.addEventListener('submit', e => {
-    e.preventDefault();
-    const email = newsletterForm.newsletterEmail.value.trim();
-    if (email) {
-        newsletterFeedback.textContent = 'Subscription successful! Thank you!';
-        newsletterForm.reset();
-    } else {
-        newsletterFeedback.textContent = 'Please enter a valid email address.';
-    }
-
-    setTimeout(() => {
-        newsletterFeedback.textContent = '';
-    }, 4000);
+clearCartBtn.addEventListener('click', () => {
+    cart = {};
+    saveCart();
+    updateCartUI();
+    renderProducts();
 });
 
 // Initial render
-renderPlants();
-renderCart();
+renderProducts();
+updateCartUI();
+
+// Accessibility: Close cart on outside click
+cartPanel.addEventListener('click', e => {
+    if (e.target === cartPanel) {
+        closeCart();
+    }
+});
+
+// Keyboard accessibility for cart panel close
+window.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && cartPanel.classList.contains('open')) {
+        closeCart();
+    }
+});
+
