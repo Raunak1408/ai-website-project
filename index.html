@@ -3,196 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHRONOVAULT | Masterpieces on Your Wrist</title>
+    <title>VERDANT HAVEN | Premium Botanical Nursery</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { heading: ['Cinzel', 'serif'], sans: ['Plus Jakarta Sans', 'sans-serif'] },
-                    colors: { chronoGold: '#D4AF37', chronoDark: '#0A0B0E', chronoCard: '#12141A', chronoBorder: '#232733', chronoAccent: '#F3E5AB' }
+                    fontFamily: { heading: ['Playfair Display', 'serif'], sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                    colors: { leafDark: '#0D1F12', leafCard: '#132819', leafBorder: '#23422A', leafAccent: '#A3E635', leafSoft: '#ECFDF5' }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-chronoDark text-slate-100 font-sans min-h-screen flex flex-col selection:bg-chronoGold selection:text-black">
+<body class="bg-leafDark text-slate-100 font-sans min-h-screen flex flex-col selection:bg-leafAccent selection:text-black">
 
     <!-- Top Announcement Bar -->
-    <div class="bg-gradient-to-r from-amber-900 via-chronoGold to-amber-900 text-black text-[11px] font-extrabold uppercase py-2 tracking-widest text-center shadow-md">
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        
-        
-        
-        
-        
-        ✨ COMPLIMENTARY INSURED WORLDWIDE SHIPPING & 5-YEAR INTERNATIONAL WARRANTY ON ALL TIMEPIECES
+    <div class="bg-gradient-to-r from-emerald-950 via-green-900 to-emerald-950 text-leafAccent text-[11px] font-extrabold uppercase py-2 tracking-widest text-center shadow-md">
+        FREE INSURED EXPRESS PLANT SHIPPING & 30-DAY HAPPY PLANT GUARANTEE 
     </div>
 
     <!-- Header Navigation -->
-    <header class="bg-chronoDark/90 backdrop-blur-lg border-b border-chronoBorder sticky top-0 z-50">
+    <header class="bg-leafDark/90 backdrop-blur-lg border-b border-leafBorder sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
             <!-- Logo -->
             <a href="#" onclick="showTab('home')" class="flex items-center gap-2">
-                <i class="fa-solid fa-clock text-chronoGold text-2xl sm:text-3xl"></i>
-                <span class="font-heading text-2xl sm:text-3xl font-extrabold tracking-widest text-white">CHRONO<span class="text-chronoGold">VAULT</span></span>
+                <i class="fa-solid fa-leaf text-leafAccent text-2xl sm:text-3xl"></i>
+                <span class="font-heading text-2xl sm:text-3xl font-extrabold tracking-widest text-white">VERDANT<span class="text-leafAccent">HAVEN</span></span>
             </a>
 
             <!-- Desktop Nav Links -->
             <nav class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-widest uppercase">
-                <button onclick="showTab('home')" id="nav-home" class="nav-btn text-chronoGold border-b-2 border-chronoGold pb-1">Boutique</button>
-                <button onclick="showTab('collection')" id="nav-collection" class="nav-btn text-slate-400 hover:text-white transition">All Watches</button>
-                <button onclick="showTab('brands')" id="nav-brands" class="nav-btn text-slate-400 hover:text-white transition">Houses & Brands</button>
-                <button onclick="showTab('about')" id="nav-about" class="nav-btn text-slate-400 hover:text-white transition">Heritage</button>
-                <button onclick="showTab('contact')" id="nav-contact" class="nav-btn text-slate-400 hover:text-white transition">Concierge</button>
+                <button onclick="showTab('home')" id="nav-home" class="nav-btn text-leafAccent border-b-2 border-leafAccent pb-1">Boutique</button>
+                <button onclick="showTab('collection')" id="nav-collection" class="nav-btn text-slate-400 hover:text-white transition">All 50 Plants</button>
+                <button onclick="showTab('categories')" id="nav-categories" class="nav-btn text-slate-400 hover:text-white transition">Categories</button>
+                <button onclick="showTab('about')" id="nav-about" class="nav-btn text-slate-400 hover:text-white transition">Eco Mission</button>
+                <button onclick="showTab('contact')" id="nav-contact" class="nav-btn text-slate-400 hover:text-white transition">Plant Doctor</button>
             </nav>
 
             <!-- Actions -->
             <div class="flex items-center gap-4">
-                <button onclick="toggleWishlist()" class="relative text-slate-300 hover:text-chronoGold text-lg transition hidden sm:block">
+                <button onclick="toggleWishlist()" class="relative text-slate-300 hover:text-leafAccent text-lg transition hidden sm:block">
                     <i class="fa-regular fa-heart"></i>
-                    <span id="wishlistBadge" class="absolute -top-2 -right-2 bg-chronoGold text-black font-bold text-[9px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    <span id="wishlistBadge" class="absolute -top-2 -right-2 bg-leafAccent text-black font-bold text-[9px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
                 </button>
                 
-                <button onclick="toggleCart()" class="relative bg-chronoCard border border-chronoBorder hover:border-chronoGold text-white font-bold px-4 py-2 rounded-full text-xs transition flex items-center gap-2">
-                    <i class="fa-solid fa-bag-shopping text-chronoGold"></i>
-                    <span class="hidden sm:inline tracking-wider">VAULT</span>
-                    <span id="cartBadge" class="bg-chronoGold text-black text-[10px] font-extrabold px-2 py-0.5 rounded-full">0</span>
+                <button onclick="toggleCart()" class="relative bg-leafCard border border-leafBorder hover:border-leafAccent text-white font-bold px-4 py-2 rounded-full text-xs transition flex items-center gap-2">
+                    <i class="fa-solid fa-basket-shopping text-leafAccent"></i>
+                    <span class="hidden sm:inline tracking-wider">BAG</span>
+                    <span id="cartBadge" class="bg-leafAccent text-black text-[10px] font-extrabold px-2 py-0.5 rounded-full">0</span>
                 </button>
             </div>
         </div>
@@ -201,71 +62,69 @@
     <!-- PAGE 1: HOME -->
     <main id="tab-home" class="tab-content flex-1">
         <!-- Hero Section -->
-        <section class="relative bg-gradient-to-b from-black via-chronoDark to-chronoDark border-b border-chronoBorder py-16 sm:py-24 px-6 overflow-hidden">
+        <section class="relative bg-gradient-to-b from-black via-leafDark to-leafDark border-b border-leafBorder py-16 sm:py-24 px-6 overflow-hidden">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="z-10">
-                    <span class="bg-chronoCard text-chronoGold text-xs font-bold px-4 py-1.5 rounded-full border border-chronoBorder uppercase tracking-widest inline-block mb-4">Official Authorized Retailer</span>
+                    <span class="bg-leafCard text-leafAccent text-xs font-bold px-4 py-1.5 rounded-full border border-leafBorder uppercase tracking-widest inline-block mb-4">Certified Organic Botanical Nursery</span>
                     <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase leading-tight tracking-tight mb-6">
-                        THE ART OF <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-chronoGold via-amber-200 to-chronoGold">HOROLOGY</span>
+                        BRING NATURE <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-leafAccent via-emerald-200 to-leafAccent">INTO YOUR HOME</span>
                     </h1>
                     <p class="text-slate-400 text-sm sm:text-base mb-8 max-w-lg leading-relaxed">
-                        Discover 30 iconic Swiss, German, and Japanese timepieces from 10 legendary luxury watchmakers. Hand-assembled accuracy for true connoisseurs.
+                        Explore 50 distinct indoor and outdoor plant species cultivated with peat-free soil and organic care. Sustainable greenery delivered straight to your door.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <button onclick="showTab('collection')" class="bg-gradient-to-r from-chronoGold to-amber-600 hover:from-amber-500 hover:to-chronoGold text-black font-extrabold text-xs uppercase tracking-widest px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5">
-                            Explore Collection
+                        <button onclick="showTab('collection')" class="bg-gradient-to-r from-leafAccent to-emerald-500 hover:from-emerald-400 hover:to-leafAccent text-black font-extrabold text-xs uppercase tracking-widest px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5">
+                            Browse 50 Categories
                         </button>
-                        <button onclick="showTab('brands')" class="bg-chronoCard hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-xl border border-chronoBorder transition">
-                            View 10 Brands
+                        <button onclick="showTab('categories')" class="bg-leafCard hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-xl border border-leafBorder transition">
+                            Explore Collections
                         </button>
                     </div>
                 </div>
 
-                <!-- Showcase Carousel Image -->
+                <!-- Showcase Image -->
                 <div class="relative flex justify-center">
-                    <div class="absolute w-80 h-80 bg-chronoGold/10 rounded-full blur-3xl"></div>
-                    <div class="relative bg-chronoCard p-4 rounded-3xl border border-chronoBorder shadow-2xl max-w-md w-full">
-                        <img id="heroImage" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop" alt="Hero Watch" class="rounded-2xl h-80 w-full object-cover">
+                    <div class="absolute w-80 h-80 bg-leafAccent/10 rounded-full blur-3xl"></div>
+                    <div class="relative bg-leafCard p-4 rounded-3xl border border-leafBorder shadow-2xl max-w-md w-full">
+                        <img id="heroImage" src="https://images.pexels.com/photos/3097770/pexels-photo-3097770.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hero Plant" class="rounded-2xl h-80 w-full object-cover">
                         <div class="mt-4 flex justify-between items-center px-2">
                             <div>
-                                <p class="text-[10px] text-chronoGold font-bold uppercase tracking-widest" id="heroBrand">ROLEX</p>
-                                <h3 class="font-heading text-lg font-bold text-white" id="heroTitle">Submariner Date 41mm</h3>
+                                <p class="text-[10px] text-leafAccent font-bold uppercase tracking-widest">TROPICAL FOLIAGE</p>
+                                <h3 class="font-heading text-lg font-bold text-white">Swiss Cheese Plant (Monstera Deliciosa)</h3>
                             </div>
-                            <span class="font-heading text-chronoGold font-bold text-lg" id="heroPrice">$14,500</span>
+                            <span class="font-heading text-leafAccent font-bold text-lg">$45.00</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Brand Quick Filters Logo Strip -->
-        <section class="bg-black/50 border-b border-chronoBorder py-8 px-6">
+        <!-- Quick Categories Strip -->
+        <section class="bg-black/50 border-b border-leafBorder py-8 px-6">
             <div class="max-w-7xl mx-auto">
-                <p class="text-center text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-6">FEATURED HOROLOGICAL HOUSES</p>
+                <p class="text-center text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-6">POPULAR BOTANICAL SPECIES</p>
                 <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-10 text-slate-400 font-heading text-sm sm:text-base font-bold">
-                    <button onclick="filterByBrand('Rolex')" class="hover:text-chronoGold transition">ROLEX</button>
-                    <button onclick="filterByBrand('Patek Philippe')" class="hover:text-chronoGold transition">PATEK PHILIPPE</button>
-                    <button onclick="filterByBrand('Audemars Piguet')" class="hover:text-chronoGold transition">AUDEMARS PIGUET</button>
-                    <button onclick="filterByBrand('Omega')" class="hover:text-chronoGold transition">OMEGA</button>
-                    <button onclick="filterByBrand('Cartier')" class="hover:text-chronoGold transition">CARTIER</button>
-                    <button onclick="filterByBrand('TAG Heuer')" class="hover:text-chronoGold transition">TAG HEUER</button>
-                    <button onclick="filterByBrand('Breitling')" class="hover:text-chronoGold transition">BREITLING</button>
-                    <button onclick="filterByBrand('IWC Schaffhausen')" class="hover:text-chronoGold transition">IWC</button>
-                    <button onclick="filterByBrand('Seiko Grand')" class="hover:text-chronoGold transition">GRAND SEIKO</button>
-                    <button onclick="filterByBrand('Jaeger-LeCoultre')" class="hover:text-chronoGold transition">JLC</button>
+                    <button onclick="filterByCategory('Monstera')" class="hover:text-leafAccent transition">MONSTERA</button>
+                    <button onclick="filterByCategory('Ficus')" class="hover:text-leafAccent transition">FICUS</button>
+                    <button onclick="filterByCategory('Sansevieria')" class="hover:text-leafAccent transition">SANSEVIERIA</button>
+                    <button onclick="filterByCategory('Succulent')" class="hover:text-leafAccent transition">SUCCULENTS</button>
+                    <button onclick="filterByCategory('Fern')" class="hover:text-leafAccent transition">FERNS</button>
+                    <button onclick="filterByCategory('Orchid')" class="hover:text-leafAccent transition">ORCHIDS</button>
+                    <button onclick="filterByCategory('Palm')" class="hover:text-leafAccent transition">PALMS</button>
+                    <button onclick="filterByCategory('Herb')" class="hover:text-leafAccent transition">HERBS</button>
                 </div>
             </div>
         </section>
 
-        <!-- Featured Watches Section -->
+        <!-- Featured Section -->
         <section class="max-w-7xl mx-auto px-6 py-16">
             <div class="flex flex-col sm:flex-row justify-between sm:items-end mb-10 gap-4">
                 <div>
-                    <span class="text-chronoGold text-xs font-extrabold uppercase tracking-widest">Handpicked Timepieces</span>
-                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold uppercase mt-1">CURATED ICONIC MODELS</h2>
+                    <span class="text-leafAccent text-xs font-extrabold uppercase tracking-widest">Curated Plants</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold uppercase mt-1">FEATURED GREENERY</h2>
                 </div>
-                <button onclick="showTab('collection')" class="text-chronoGold text-xs font-extrabold uppercase tracking-widest hover:underline flex items-center gap-2">
-                    Browse All 30 Watches <i class="fa-solid fa-arrow-right"></i>
+                <button onclick="showTab('collection')" class="text-leafAccent text-xs font-extrabold uppercase tracking-widest hover:underline flex items-center gap-2">
+                    View All 50 Plants <i class="fa-solid fa-arrow-right"></i>
                 </button>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="homeFeaturedGrid"></div>
@@ -274,103 +133,100 @@
 
     <!-- PAGE 2: COLLECTION / STORE -->
     <main id="tab-collection" class="tab-content hidden max-w-7xl mx-auto px-4 sm:px-6 py-12 flex-1 w-full">
-        <!-- Header Controls -->
-        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 gap-6 border-b border-chronoBorder pb-8">
+        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 gap-6 border-b border-leafBorder pb-8">
             <div>
-                <h1 class="font-heading text-3xl sm:text-4xl font-extrabold uppercase">THE WATCH VAULT</h1>
-                <p class="text-slate-400 text-xs uppercase tracking-widest mt-1">Showing 30 Watches from 10 Authentic Luxury Brands</p>
+                <h1 class="font-heading text-3xl sm:text-4xl font-extrabold uppercase">BOTANICAL CATALOG</h1>
+                <p class="text-slate-400 text-xs uppercase tracking-widest mt-1">Explore 50 Organic Plant Species & Categories</p>
             </div>
 
-            <!-- Controls (Search + Filter + Sort) -->
+            <!-- Controls (Search + Sort) -->
             <div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
-                <!-- Search -->
                 <div class="relative flex-1 sm:w-64">
                     <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-500 text-xs"></i>
-                    <input type="text" id="searchInput" oninput="applyFilters()" placeholder="Search Rolex, Omega, Chrono..." class="w-full bg-chronoCard border border-chronoBorder rounded-xl pl-9 pr-4 py-2.5 text-xs text-white focus:outline-none focus:border-chronoGold">
+                    <input type="text" id="searchInput" oninput="applyFilters()" placeholder="Search Monstera, Fern, Aloe, Cactus..." class="w-full bg-leafCard border border-leafBorder rounded-xl pl-9 pr-4 py-2.5 text-xs text-white focus:outline-none focus:border-leafAccent">
                 </div>
 
-                <!-- Sort -->
-                <select id="sortSelect" onchange="applyFilters()" class="bg-chronoCard border border-chronoBorder text-slate-300 text-xs rounded-xl px-4 py-2.5 focus:outline-none focus:border-chronoGold">
+                <select id="sortSelect" onchange="applyFilters()" class="bg-leafCard border border-leafBorder text-slate-300 text-xs rounded-xl px-4 py-2.5 focus:outline-none focus:border-leafAccent">
                     <option value="default">Sort By: Featured</option>
                     <option value="low">Price: Low to High</option>
                     <option value="high">Price: High to Low</option>
-                    <option value="name">Model Name (A-Z)</option>
+                    <option value="name">Name (A-Z)</option>
                 </select>
             </div>
         </div>
 
-        <!-- Brand Filter Pills -->
-        <div class="flex flex-wrap gap-2 mb-10 overflow-x-auto pb-2" id="brandPills"></div>
+        <!-- Filter Pills -->
+        <div class="flex flex-wrap gap-2 mb-10 overflow-x-auto pb-2" id="categoryPills"></div>
 
-        <!-- Watch Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="watchGrid"></div>
+        <!-- Plant Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="plantGrid"></div>
     </main>
 
-    <!-- PAGE 3: BRANDS DISPLAY -->
-    <main id="tab-brands" class="tab-content hidden max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
+    <!-- PAGE 3: CATEGORIES -->
+    <main id="tab-categories" class="tab-content hidden max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
         <div class="text-center max-w-2xl mx-auto mb-12">
-            <span class="text-chronoGold text-xs font-bold uppercase tracking-widest">Official Partners</span>
-            <h1 class="font-heading text-4xl font-extrabold uppercase mt-1 mb-3">10 WORLD-CLASS WATCH HOUSES</h1>
-            <p class="text-slate-400 text-xs leading-relaxed uppercase tracking-wider">Explore our certified roster of manufacture brands with 3 distinct models each.</p>
+            <span class="text-leafAccent text-xs font-bold uppercase tracking-widest">Organized Collections</span>
+            <h1 class="font-heading text-4xl font-extrabold uppercase mt-1 mb-3">50 PLANT CATEGORIES</h1>
+            <p class="text-slate-400 text-xs leading-relaxed uppercase tracking-wider">Categorized by light requirements, species families, and interior suitability.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="brandCardsGrid"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="categoryCardsGrid"></div>
     </main>
 
-    <!-- PAGE 4: HERITAGE / ABOUT -->
+    <!-- PAGE 4: ECO MISSION / ABOUT -->
     <main id="tab-about" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 text-center flex-1">
-        <span class="text-chronoGold text-xs font-bold uppercase tracking-widest">Est. 1998</span>
-        <h1 class="font-heading text-4xl font-extrabold uppercase mt-2 mb-6">UNRIVALED HOROLOGICAL INTEGRITY</h1>
+        <span class="text-leafAccent text-xs font-bold uppercase tracking-widest">Sustainably Grown</span>
+        <h1 class="font-heading text-4xl font-extrabold uppercase mt-2 mb-6">PEAT-FREE & SUSTAINABLE NURSERY</h1>
         <p class="text-slate-400 text-sm leading-relaxed mb-12">
-            ChronoVault is an authorized partner to the finest Swiss, German, and Japanese manufactures. Every timepiece shipped from our vault is verified by master horologists, complete with original papers, factory seals, and international manufacturer warranty.
+            At Verdant Haven, every plant is nurtured using 100% peat-free soil mixes, organic fertilizer, and zero harmful chemicals. Our packaging is fully recyclable and biodegradable.
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-            <div class="bg-chronoCard p-6 rounded-2xl border border-chronoBorder">
-                <i class="fa-solid fa-award text-3xl text-chronoGold mb-3"></i>
-                <h3 class="font-heading font-bold text-base mb-1 uppercase">Certified Authentic</h3>
-                <p class="text-xs text-slate-400">100% genuine with original serial numbers and factory documentation.</p>
+            <div class="bg-leafCard p-6 rounded-2xl border border-leafBorder">
+                <i class="fa-solid fa-seedling text-3xl text-leafAccent mb-3"></i>
+                <h3 class="font-heading font-bold text-base mb-1 uppercase">100% Peat-Free</h3>
+                <p class="text-xs text-slate-400">Protecting natural peatlands through coconut coir and organic compost blends.</p>
             </div>
-            <div class="bg-chronoCard p-6 rounded-2xl border border-chronoBorder">
-                <i class="fa-solid fa-plane-lock text-3xl text-chronoGold mb-3"></i>
-                <h3 class="font-heading font-bold text-base mb-1 uppercase">Insured Vault Delivery</h3>
-                <p class="text-xs text-slate-400">Armored express transport with full replacement insurance globally.</p>
+            <div class="bg-leafCard p-6 rounded-2xl border border-leafBorder">
+                <i class="fa-solid fa-box-open text-3xl text-leafAccent mb-3"></i>
+                <h3 class="font-heading font-bold text-base mb-1 uppercase">Eco Packaging</h3>
+                <p class="text-xs text-slate-400">Plastic-free, fully recyclable straw and cardboard shipping boxes.</p>
             </div>
-            <div class="bg-chronoCard p-6 rounded-2xl border border-chronoBorder">
-                <i class="fa-solid fa-screwdriver-wrench text-3xl text-chronoGold mb-3"></i>
-                <h3 class="font-heading font-bold text-base mb-1 uppercase">Master Service Center</h3>
-                <p class="text-xs text-slate-400">In-house horologists offering movement servicing & pressure testing.</p>
+            <div class="bg-leafCard p-6 rounded-2xl border border-leafBorder">
+                <i class="fa-solid fa-heart-pulse text-3xl text-leafAccent mb-3"></i>
+                <h3 class="font-heading font-bold text-base mb-1 uppercase">30-Day Guarantee</h3>
+                <p class="text-xs text-slate-400">Free replacement or expert advice if your plant suffers within 30 days.</p>
             </div>
         </div>
     </main>
 
-    <!-- PAGE 5: CONCIERGE / CONTACT -->
+    <!-- PAGE 5: PLANT DOCTOR / CONTACT -->
     <main id="tab-contact" class="tab-content hidden max-w-xl mx-auto px-6 py-16 flex-1 w-full">
-        <div class="bg-chronoCard p-8 rounded-3xl border border-chronoBorder shadow-2xl">
-            <h1 class="font-heading text-3xl font-extrabold uppercase text-center mb-2">WATCH CONCIERGE</h1>
-            <p class="text-xs text-slate-400 text-center uppercase tracking-widest mb-8">Schedule a private viewing or inquire about rare references</p>
+        <div class="bg-leafCard p-8 rounded-3xl border border-leafBorder shadow-2xl">
+            <h1 class="font-heading text-3xl font-extrabold uppercase text-center mb-2">PLANT DOCTOR CONCIERGE</h1>
+            <p class="text-xs text-slate-400 text-center uppercase tracking-widest mb-8">Get expert horticulturist advice on care, watering, or pests</p>
 
-            <form onsubmit="event.preventDefault(); alert('Concierge inquiry submitted! A Senior Specialist will contact you shortly.');" class="space-y-4">
+            <form onsubmit="event.preventDefault(); alert('Inquiry submitted! Our Horticulturist will email you shortly.');" class="space-y-4">
                 <div>
-                    <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Full Name</label>
-                    <input type="text" required placeholder="Lord Arthur Pendelton" class="w-full bg-chronoDark border border-chronoBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-chronoGold">
+                    <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Your Name</label>
+                    <input type="text" required placeholder="John Doe" class="w-full bg-leafDark border border-leafBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-leafAccent">
                 </div>
                 <div>
                     <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Email Address</label>
-                    <input type="email" required placeholder="arthur@domain.com" class="w-full bg-chronoDark border border-chronoBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-chronoGold">
+                    <input type="email" required placeholder="john@domain.com" class="w-full bg-leafDark border border-leafBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-leafAccent">
                 </div>
                 <div>
-                    <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Timepiece Reference / Message</label>
-                    <textarea rows="4" required placeholder="Specify the model or private appointment details..." class="w-full bg-chronoDark border border-chronoBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-chronoGold"></textarea>
+                    <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Plant Issue / Question</label>
+                    <textarea rows="4" required placeholder="Describe your plant species and symptoms..." class="w-full bg-leafDark border border-leafBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-leafAccent"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-gradient-to-r from-chronoGold to-amber-600 text-black font-extrabold text-xs uppercase tracking-widest py-4 rounded-xl transition hover:opacity-90">Request Appointment</button>
+                <button type="submit" class="w-full bg-gradient-to-r from-leafAccent to-emerald-500 text-black font-extrabold text-xs uppercase tracking-widest py-4 rounded-xl transition hover:opacity-90">Send to Horticulturist</button>
             </form>
         </div>
     </main>
 
     <!-- Quick View Modal -->
     <div id="quickModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden">
-        <div class="bg-chronoCard border border-chronoBorder max-w-2xl w-full rounded-3xl p-6 relative text-white">
+        <div class="bg-leafCard border border-leafBorder max-w-2xl w-full rounded-3xl p-6 relative text-white">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
             <div id="modalContent" class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center"></div>
         </div>
@@ -379,10 +235,10 @@
     <!-- Wishlist Drawer Modal -->
     <div id="wishlistDrawer" class="fixed inset-0 z-50 pointer-events-none">
         <div id="wishlistBackdrop" onclick="toggleWishlist()" class="absolute inset-0 bg-black/70 opacity-0 transition-opacity pointer-events-auto hidden"></div>
-        <div id="wishlistContent" class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-chronoCard border-l border-chronoBorder p-6 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 pointer-events-auto">
+        <div id="wishlistContent" class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-leafCard border-l border-leafBorder p-6 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 pointer-events-auto">
             <div>
-                <div class="flex justify-between items-center border-b border-chronoBorder pb-4 mb-4">
-                    <h3 class="font-heading text-xl font-bold uppercase text-white">SAVED TIMEPIECES</h3>
+                <div class="flex justify-between items-center border-b border-leafBorder pb-4 mb-4">
+                    <h3 class="font-heading text-xl font-bold uppercase text-white">SAVED PLANTS</h3>
                     <button onclick="toggleWishlist()" class="text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
                 </div>
                 <div id="wishlistItems" class="space-y-4 max-h-[70vh] overflow-y-auto"></div>
@@ -393,90 +249,94 @@
     <!-- Cart Drawer -->
     <div id="cartDrawer" class="fixed inset-0 z-50 pointer-events-none">
         <div id="cartBackdrop" onclick="toggleCart()" class="absolute inset-0 bg-black/70 opacity-0 transition-opacity pointer-events-auto hidden"></div>
-        <div id="cartContent" class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-chronoCard border-l border-chronoBorder p-6 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 pointer-events-auto">
+        <div id="cartContent" class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-leafCard border-l border-leafBorder p-6 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 pointer-events-auto">
             <div>
-                <div class="flex justify-between items-center border-b border-chronoBorder pb-4 mb-4">
-                    <h3 class="font-heading text-xl font-bold uppercase text-white">YOUR WATCH VAULT BAG</h3>
+                <div class="flex justify-between items-center border-b border-leafBorder pb-4 mb-4">
+                    <h3 class="font-heading text-xl font-bold uppercase text-white">YOUR GREEN BAG</h3>
                     <button onclick="toggleCart()" class="text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
                 </div>
                 <div id="cartItems" class="space-y-4 max-h-[60vh] overflow-y-auto"></div>
             </div>
-            <div class="border-t border-chronoBorder pt-4">
+            <div class="border-t border-leafBorder pt-4">
                 <div class="flex justify-between items-center mb-4">
-                    <span class="text-xs font-bold uppercase text-slate-400">Total Investment:</span>
-                    <span id="cartTotal" class="font-heading text-2xl font-bold text-chronoGold">$0.00</span>
+                    <span class="text-xs font-bold uppercase text-slate-400">Total:</span>
+                    <span id="cartTotal" class="font-heading text-2xl font-bold text-leafAccent">$0.00</span>
                 </div>
-                <button onclick="checkout()" class="w-full bg-gradient-to-r from-chronoGold to-amber-600 text-black font-extrabold text-xs uppercase tracking-widest py-4 rounded-xl shadow transition hover:opacity-90">Acquire Timepiece Now</button>
+                <button onclick="alert('Order Placed Successfully!')" class="w-full bg-gradient-to-r from-leafAccent to-emerald-500 text-black font-extrabold text-xs uppercase tracking-widest py-4 rounded-xl shadow transition hover:opacity-90">Checkout Now</button>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-black border-t border-chronoBorder py-12 mt-16 text-center text-xs text-slate-500">
-        <div class="font-heading text-2xl font-bold text-white mb-2 tracking-widest">CHRONO<span class="text-chronoGold">VAULT</span></div>
-        <p class="mb-4 text-slate-400">Certified Authentic Luxury Timepieces & Horology Boutique.</p>
-        <p>&copy; 2026 ChronoVault Inc. All Swiss, German & Japanese trademarks belong to their respective manufactures.</p>
+    <footer class="bg-black border-t border-leafBorder py-12 mt-16 text-center text-xs text-slate-500">
+        <div class="font-heading text-2xl font-bold text-white mb-2 tracking-widest">VERDANT<span class="text-leafAccent">HAVEN</span></div>
+        <p class="mb-4 text-slate-400">Certified Organic Botanical Nursery & Plant Boutique.</p>
+        <p>9 2026 Verdant Haven Inc. All rights reserved.</p>
     </footer>
 
     <script>
-        // 30 Watches from 10 Famous Brands (3 per brand)
-        const watches = [
-            // 1. Rolex
-            { id: 1, brand: "Rolex", name: "Submariner Date 41mm", price: 14500, style: "Diver", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop", desc: "Oystersteel casing with Cerachrom bezel and luminescent Chromalight display." },
-            { id: 2, brand: "Rolex", name: "Daytona Cosmograph", price: 32000, style: "Chronograph", img: "https://images.unsplash.com/photo-1547996160-01ff74742fd0?w=600&auto=format&fit=crop", desc: "The ultimate racing chronograph in 18k Everose gold with tachymetric scale." },
-            { id: 3, brand: "Rolex", name: "Datejust 41 Fluted Bezel", price: 11200, style: "Dress", img: "https://images.unsplash.com/photo-1622434641406-a158123450f9?w=600&auto=format&fit=crop", desc: "Classic Jubilee bracelet with iconic fluted bezel and slate Roman dial." },
+        const defaultImg = "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600";
+        function handleImgError(img) { img.onerror = null; img.src = defaultImg; }
 
-            // 2. Patek Philippe
-            { id: 4, brand: "Patek Philippe", name: "Nautilus 5711/1A", price: 115000, style: "Sports", img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&auto=format&fit=crop", desc: "Porthole case design in steel with horizontally embossed blue dial." },
-            { id: 5, brand: "Patek Philippe", name: "Aquanaut 5167A", price: 48000, style: "Sports", img: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&auto=format&fit=crop", desc: "Tropical composite strap with black embossed dial and automatic caliber 26-330 S." },
-            { id: 6, brand: "Patek Philippe", name: "Calatrava Small Seconds", price: 29500, style: "Dress", img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop", desc: "Pure elegance in 18k rose gold with guilloch e9 hobnail bezel." },
-
-            // 3. Audemars Piguet
-            { id: 7, brand: "Audemars Piguet", name: "Royal Oak \"Jumbo\" Extra-Thin", price: 68000, style: "Sports", img: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600&auto=format&fit=crop", desc: "Iconic octagonal bezel with exposed screws and Petite Tapisserie dial pattern." },
-            { id: 8, brand: "Audemars Piguet", name: "Royal Oak Offshore Chronograph", price: 42000, style: "Chronograph", img: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&auto=format&fit=crop", desc: "Robust 44mm ceramic bezel with M e9ga Tapisserie black pattern." },
-            { id: 9, brand: "Audemars Piguet", name: "Code 11.59 Automatic", price: 27000, style: "Dress", img: "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=600&auto=format&fit=crop", desc: "Octagonal middlecase embedded within a round gold bezel with double curved sapphire glass." },
-
-            // 4. Omega
-            { id: 10, brand: "Omega", name: "Speedmaster Professional Moonwatch", price: 7600, style: "Chronograph", img: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=600&auto=format&fit=crop", desc: "Co-Axial Master Chronometer caliber 3861 tested on the lunar surface." },
-            { id: 11, brand: "Omega", name: "Seamaster Diver 300M Co-Axial", price: 5900, style: "Diver", img: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=600&auto=format&fit=crop", desc: "Laser-engraved wave dial with helium escape valve and ceramic bezel." },
-            { id: 12, brand: "Omega", name: "Constellation Co-Axial Master", price: 8400, style: "Dress", img: "https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&auto=format&fit=crop", desc: "Famous claws design with half-moon facets and star emblem on dial." },
-
-            // 5. Cartier
-            { id: 13, brand: "Cartier", name: "Santos de Cartier Large", price: 7750, style: "Dress", img: "https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?w=600&auto=format&fit=crop", desc: "Square aviator heritage with QuickSwitch interchangeable steel strap." },
-            { id: 14, brand: "Cartier", name: "Tank Must Automatic", price: 4900, style: "Dress", img: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=600&auto=format&fit=crop", desc: "Rectilinear lines, cabochon sapphire crown, and Roman numerals." },
-            { id: 15, brand: "Cartier", name: "Ballon Bleu de Cartier 40mm", price: 6800, style: "Dress", img: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&auto=format&fit=crop", desc: "Floating blue cabochon sapphire encased in convex steel curves." },
-
-            // 6. TAG Heuer
-            { id: 16, brand: "TAG Heuer", name: "Monaco Calibre 11 Square", price: 7800, style: "Chronograph", img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop", desc: "The original square racing chronograph worn by Steve McQueen." },
-            { id: 17, brand: "TAG Heuer", name: "Carrera Chronograph Glassbox", price: 6450, style: "Chronograph", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop", desc: "Domed sapphire crystal curvature housing the automatic Calibre TH20-00." },
-            { id: 18, brand: "TAG Heuer", name: "Aquaracer Professional 300", price: 3500, style: "Diver", img: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=600&auto=format&fit=crop", desc: "12-faceted ceramic bezel with wave pattern dial and 300m water resistance." },
-
-            // 7. Breitling
-            { id: 19, brand: "Breitling", name: "Navitimer B01 Chronograph 43", price: 9600, style: "Aviation", img: "https://images.unsplash.com/photo-1547996160-01ff74742fd0?w=600&auto=format&fit=crop", desc: "Aviation slide rule bezel powered by the in-house Manufacture Caliber 01." },
-            { id: 20, brand: "Breitling", name: "Superocean Heritage B20", price: 5400, style: "Diver", img: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&auto=format&fit=crop", desc: "1957 tribute mesh steel bracelet with high-tech ceramic bezel." },
-            { id: 21, brand: "Breitling", name: "Chronomat Automatic GMT 40", price: 5800, style: "Sports", img: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600&auto=format&fit=crop", desc: "Rouleaux bracelet with dual-timezone GMT complication." },
-
-            // 8. IWC Schaffhausen
-            { id: 22, brand: "IWC Schaffhausen", name: "Pilot's Watch Chronograph 41", price: 7600, style: "Aviation", img: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=600&auto=format&fit=crop", desc: "Ergonomic 41mm casing with blue sunray dial and EasX-CHANGE strap system." },
-            { id: 23, brand: "IWC Schaffhausen", name: "Portugieser Automatic 40", price: 7450, style: "Dress", img: "https://images.unsplash.com/photo-1622434641406-a158123450f9?w=600&auto=format&fit=crop", desc: "Railtrack minute scale with feuille hands and sub-seconds dial." },
-            { id: 24, brand: "IWC Schaffhausen", name: "Ingenieur Automatic 40", price: 11700, style: "Sports", img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&auto=format&fit=crop", desc: "G e9rald Genta design heritage in steel with grid structure dial." },
-
-            // 9. Grand Seiko
-            { id: 25, brand: "Grand Seiko", name: "Heritage 'Shunbun' Spring Drive", price: 6600, style: "Dress", img: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=600&auto=format&fit=crop", desc: "Cherry blossom textured dial with smooth gliding Spring Drive movement." },
-            { id: 26, brand: "Grand Seiko", name: "Evolution 9 'White Birch'", price: 9100, style: "Dress", img: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&auto=format&fit=crop", desc: "Dynamic birch forest textured dial powered by High-Beat Caliber 9SA5." },
-            { id: 27, brand: "Grand Seiko", name: "Sport GMT Spring Drive", price: 6200, style: "Sports", img: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&auto=format&fit=crop", desc: "Zaratsu polished titanium casing with 24-hour rotating bezel." },
-
-            // 10. Jaeger-LeCoultre
-            { id: 28, brand: "Jaeger-LeCoultre", name: "Reverso Tribute Monoface", price: 8900, style: "Dress", img: "https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?w=600&auto=format&fit=crop", desc: "Swiveling polo watch case designed in 1931 with Casa Fagliano leather strap." },
-            { id: 29, brand: "Jaeger-LeCoultre", name: "Master Ultra Thin Moon", price: 11800, style: "Dress", img: "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=600&auto=format&fit=crop", desc: "Ultra-slim 9.3mm case featuring a realistic moon phase complication at 6 o'clock." },
-            { id: 30, brand: "Jaeger-LeCoultre", name: "Polaris Mariner Date Diver", price: 11100, style: "Diver", img: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=600&auto=format&fit=crop", desc: "Inner rotating bezel with dual crowns and ISO 6425 diving compliance." }
+        // 50 Plant Species
+        const plants = [
+            { id: 1, category: "Monstera", name: "Swiss Cheese Plant (Monstera Deliciosa)", price: 45, light: "Bright Indirect", img: "https://images.pexels.com/photos/3097770/pexels-photo-3097770.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Iconic split leaves, fast growing indoor tropical staple." },
+            { id: 2, category: "Ficus", name: "Fiddle Leaf Fig (Ficus Lyrata)", price: 65, light: "Bright Light", img: "https://images.pexels.com/photos/7084309/pexels-photo-7084309.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Large violin-shaped glossy green leaves." },
+            { id: 3, category: "Sansevieria", name: "Snake Plant (Sansevieria Trifasciata)", price: 28, light: "Low Light", img: "https://images.pexels.com/photos/2123482/pexels-photo-2123482.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Indestructible air purifier with upright sword leaves." },
+            { id: 4, category: "Epipremnum", name: "Golden Pothos Vine", price: 22, light: "Low to Medium", img: "https://images.pexels.com/photos/7663988/pexels-photo-7663988.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Heart-shaped variegated green & yellow trailing vine." },
+            { id: 5, category: "Zamioculcas", name: "ZZ Plant (Zamioculcas Zamiifolia)", price: 34, light: "Low Light", img: "https://images.pexels.com/photos/793012/pexels-photo-793012.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Smooth waxy leaves, extremely drought tolerant." },
+            { id: 6, category: "Spathiphyllum", name: "Peace Lily", price: 30, light: "Medium Indirect", img: "https://images.pexels.com/photos/4503751/pexels-photo-4503751.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Deep green leaves with beautiful white spathe flowers." },
+            { id: 7, category: "Succulent", name: "Medicinal Aloe Vera", price: 18, light: "Direct Sun", img: "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Fleshy soothing gel leaves, perfect windowsill succulent." },
+            { id: 8, category: "Ficus", name: "Rubber Tree Burgundy", price: 42, light: "Bright Indirect", img: "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Deep dark burgundy glossy foliage." },
+            { id: 9, category: "Calathea", name: "Calathea Orbifolia", price: 38, light: "Medium Indirect", img: "https://images.pexels.com/photos/6208087/pexels-photo-6208087.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Oversized round striped foliage, prayer plant family." },
+            { id: 10, category: "Succulent", name: "String of Pearls", price: 26, light: "Bright Light", img: "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Cascading pea-shaped succulent pearls." },
+            { id: 11, category: "Fern", name: "Boston Fern", price: 29, light: "High Humidity", img: "https://images.pexels.com/photos/970089/pexels-photo-970089.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Feathery lush green fronds for hanging baskets." },
+            { id: 12, category: "Orchid", name: "Moth Orchid (Phalaenopsis)", price: 48, light: "Filtered Sun", img: "https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Long-lasting elegant blooms for modern interiors." },
+            { id: 13, category: "Succulent", name: "Jade Plant", price: 24, light: "Full Sun", img: "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Tree-like woody succulent representing good fortune." },
+            { id: 14, category: "Palm", name: "Bird of Paradise", price: 85, light: "Bright Sunlight", img: "https://images.pexels.com/photos/3097770/pexels-photo-3097770.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Dramatic banana-like leaves for bold indoor statements." },
+            { id: 15, category: "Monstera", name: "Monkey Mask (Adansonii)", price: 32, light: "Bright Indirect", img: "https://images.pexels.com/photos/3097770/pexels-photo-3097770.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Swiss cheese trailing vine with fenestrated leaves." },
+            { id: 16, category: "Philodendron", name: "Philodendron Birkin", price: 36, light: "Medium Indirect", img: "https://images.pexels.com/photos/7663988/pexels-photo-7663988.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Striking white pinstripes on dark green leaves." },
+            { id: 17, category: "Pilea", name: "Chinese Money Plant", price: 25, light: "Bright Indirect", img: "https://images.pexels.com/photos/793012/pexels-photo-793012.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Pancake-shaped leaves on upright stems." },
+            { id: 18, category: "Ficus", name: "Ficus Audrey", price: 72, light: "Bright Indirect", img: "https://images.pexels.com/photos/7084309/pexels-photo-7084309.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Velvety leaves with pale white trunk structure." },
+            { id: 19, category: "Bonsai", name: "Japanese Juniper Bonsai", price: 95, light: "Outdoor Sun", img: "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Traditional sculpted miniature evergreen tree." },
+            { id: 20, category: "Palm", name: "Ponytail Palm", price: 44, light: "Direct Light", img: "https://images.pexels.com/photos/3097770/pexels-photo-3097770.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Bulbous trunk storing water with curly palm leaves." },
+            { id: 21, category: "Aglaonema", name: "Pink Chinese Evergreen", price: 39, light: "Low Light", img: "https://images.pexels.com/photos/6208087/pexels-photo-6208087.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Vibrant pink & green patterned foliage." },
+            { id: 22, category: "Anthurium", name: "Velvet Cardboard Anthurium", price: 88, light: "Bright Humidity", img: "https://images.pexels.com/photos/6208087/pexels-photo-6208087.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Heart-shaped velvety leaves with bright white veins." },
+            { id: 23, category: "Succulent", name: "Zebra Haworthia", price: 16, light: "Bright Partial", img: "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Compact succulent with white bumpy stripes." },
+            { id: 24, category: "Peperomia", name: "String of Turtles", price: 28, light: "Medium Indirect", img: "https://images.pexels.com/photos/7663988/pexels-photo-7663988.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Tiny shell-patterned leaves on cascading vines." },
+            { id: 25, category: "Aspidistra", name: "Cast Iron Plant", price: 46, light: "Deep Shade", img: "https://images.pexels.com/photos/2123482/pexels-photo-2123482.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Thrives in neglect, dark corners, and deep shade." },
+            { id: 26, category: "Dracaena", name: "Madagascar Dragon Tree", price: 52, light: "Medium Light", img: "https://images.pexels.com/photos/7084309/pexels-photo-7084309.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Slim reddish-edged leaves atop slender stems." },
+            { id: 27, category: "Fern", name: "Maidenhair Fern", price: 27, light: "High Moisture", img: "https://images.pexels.com/photos/970089/pexels-photo-970089.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Delicate fan-shaped pinnules on black stems." },
+            { id: 28, category: "Palm", name: "Majesty Palm", price: 58, light: "Bright Moisture", img: "https://images.pexels.com/photos/3097770/pexels-photo-3097770.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Tropical feather-like fronds for bright rooms." },
+            { id: 29, category: "Herb", name: "Genovese Sweet Basil", price: 12, light: "Full Sunlight", img: "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Aromatic culinary herb for sunny kitchen counters." },
+            { id: 30, category: "Herb", name: "Tuscan Blue Rosemary", price: 15, light: "Full Sun Outdoor", img: "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Fragrant needle foliage with blue edible flowers." },
+            { id: 31, category: "Herb", name: "English Lavender", price: 19, light: "Full Bright Sun", img: "https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Calming purple aromatic herb spikes." },
+            { id: 32, category: "Succulent", name: "String of Dolphins", price: 27, light: "Bright Light", img: "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Dolphin-shaped leaves trailing on delicate stems." },
+            { id: 33, category: "Alocasia", name: "African Mask (Alocasia)", price: 42, light: "Filtered Bright", img: "https://images.pexels.com/photos/6208087/pexels-photo-6208087.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Arrowhead foliage with silvery white veins." },
+            { id: 34, category: "Calathea", name: "Rattlesnake Plant", price: 34, light: "Medium Shade", img: "https://images.pexels.com/photos/6208087/pexels-photo-6208087.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Wavy spotted foliage with deep purple undersides." },
+            { id: 35, category: "Syngonium", name: "Neon Robusta Arrowhead", price: 23, light: "Medium Light", img: "https://images.pexels.com/photos/7663988/pexels-photo-7663988.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Soft pastel pink arrowhead foliage." },
+            { id: 36, category: "Cactus", name: "Starfish Cactus", price: 29, light: "Sunlight", img: "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Unique star-patterned desert succulent." },
+            { id: 37, category: "Bonsai", name: "Ficus Ginseng Microcarpa", price: 49, light: "Bright Indirect", img: "https://images.pexels.com/photos/7084309/pexels-photo-7084309.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Thick aerial roots forming a miniature tree." },
+            { id: 38, category: "Cactus", name: "Golden Barrel Cactus", price: 35, light: "Full Sun", img: "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Spherical desert cactus covered in yellow spines." },
+            { id: 39, category: "Fern", name: "Staghorn Fern", price: 54, light: "Filtered Moisture", img: "https://images.pexels.com/photos/970089/pexels-photo-970089.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Antler-like mounted fronds for wall displays." },
+            { id: 40, category: "Hoya", name: "Hindu Rope (Hoya Carnosa)", price: 39, light: "Bright Light", img: "https://images.pexels.com/photos/7663988/pexels-photo-7663988.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Twisted contorted waxy trailing foliage." },
+            { id: 41, category: "Philodendron", name: "Philodendron Brasil", price: 25, light: "Low-Bright", img: "https://images.pexels.com/photos/7663988/pexels-photo-7663988.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Heartleaf with lime green center stripes." },
+            { id: 42, category: "Palm", name: "Parlor Palm", price: 28, light: "Low Light", img: "https://images.pexels.com/photos/3097770/pexels-photo-3097770.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Classic low-light tolerant indoor palm." },
+            { id: 43, category: "Euphorbia", name: "Crown of Thorns", price: 22, light: "Direct Sun", img: "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Spiny stems with continuous bright red blooms." },
+            { id: 44, category: "Herb", name: "Fresh Peppermint", price: 10, light: "Moist Sunlight", img: "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Refreshing mint leaves for tea and cooking." },
+            { id: 45, category: "Ceropegia", name: "String of Hearts", price: 32, light: "Bright Indirect", img: "https://images.pexels.com/photos/7663988/pexels-photo-7663988.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Purple-backed heart leaves on thin trailing stems." },
+            { id: 46, category: "Tradescantia", name: "Wandering Dude", price: 18, light: "Bright Light", img: "https://images.pexels.com/photos/7663988/pexels-photo-7663988.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Shimmering purple and silver striped vine." },
+            { id: 47, category: "Carnivorous", name: "Venus Flytrap", price: 26, light: "Full Wet Sun", img: "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Fascinating insect-catching leaf traps." },
+            { id: 48, category: "Carnivorous", name: "Trumpet Pitcher Plant", price: 34, light: "Full Wet Sun", img: "https://images.pexels.com/photos/1687341/pexels-photo-1687341.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Tubular pitcher traps catching flying insects." },
+            { id: 49, category: "Tree", name: "Arbequina Olive Tree", price: 89, light: "Direct Sun", img: "https://images.pexels.com/photos/7084309/pexels-photo-7084309.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Silvery Mediterranean foliage producing edible olives." },
+            { id: 50, category: "Tree", name: "Silver Dollar Eucalyptus", price: 38, light: "Full Bright Sun", img: "https://images.pexels.com/photos/1084199/pexels-photo-1084199.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Aromatic rounded blue-gray coin leaves." }
         ];
 
         let cart = [];
         let wishlist = [];
-        let selectedBrandFilter = 'All';
+        let selectedCategoryFilter = 'All';
 
-        const brandsList = ["All", "Rolex", "Patek Philippe", "Audemars Piguet", "Omega", "Cartier", "TAG Heuer", "Breitling", "IWC Schaffhausen", "Grand Seiko", "Jaeger-LeCoultre"];
+        const categoriesList = ["All", "Monstera", "Ficus", "Sansevieria", "Succulent", "Fern", "Orchid", "Palm", "Philodendron", "Bonsai", "Herb", "Cactus", "Tree"];
 
         function showTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
@@ -486,181 +346,141 @@
                 btn.className = "nav-btn text-slate-400 hover:text-white transition";
             });
             const activeBtn = document.getElementById(`nav-${tabName}`);
-            if(activeBtn) activeBtn.className = "nav-btn text-chronoGold border-b-2 border-chronoGold pb-1";
-            
+            if(activeBtn) activeBtn.className = "nav-btn text-leafAccent border-b-2 border-leafAccent pb-1";
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function renderBrandPills() {
-            const container = document.getElementById('brandPills');
-            container.innerHTML = brandsList.map(b => `
-                <button onclick="filterByBrand('${b}')" class="pill-btn whitespace-nowrap text-xs uppercase font-extrabold px-5 py-2 rounded-full border transition ${selectedBrandFilter === b ? 'bg-chronoGold text-black border-chronoGold' : 'bg-chronoCard text-slate-300 border-chronoBorder hover:border-slate-500'}">
-                    ${b}
-                </button>
+        function renderCategoryPills() {
+            const pillsContainer = document.getElementById('categoryPills');
+            if(!pillsContainer) return;
+            pillsContainer.innerHTML = categoriesList.map(c => `
+                <button onclick="filterByCategory('${c}')" class="text-xs uppercase font-bold px-4 py-2 rounded-xl border transition ${selectedCategoryFilter === c ? 'bg-leafAccent text-black border-leafAccent' : 'bg-leafCard text-slate-300 border-leafBorder hover:border-leafAccent'}">${c}</button>
             `).join('');
         }
 
-        function filterByBrand(b) {
-            selectedBrandFilter = b;
-            showTab('collection');
-            renderBrandPills();
+        function filterByCategory(c) {
+            selectedCategoryFilter = c;
+            renderCategoryPills();
             applyFilters();
+            showTab('collection');
         }
 
         function applyFilters() {
-            const search = document.getElementById('searchInput').value.toLowerCase();
-            const sort = document.getElementById('sortSelect').value;
+            const search = document.getElementById('searchInput')?.value.toLowerCase() || '';
+            const sort = document.getElementById('sortSelect')?.value || 'default';
 
-            let filtered = watches.filter(w => {
-                const matchBrand = selectedBrandFilter === 'All' || w.brand.toLowerCase() === selectedBrandFilter.toLowerCase();
-                const matchSearch = w.name.toLowerCase().includes(search) || w.brand.toLowerCase().includes(search) || w.style.toLowerCase().includes(search);
-                return matchBrand && matchSearch;
+            let filtered = plants.filter(p => {
+                const matchCategory = selectedCategoryFilter === 'All' || p.category === selectedCategoryFilter;
+                const matchSearch = p.name.toLowerCase().includes(search) || p.category.toLowerCase().includes(search);
+                return matchCategory && matchSearch;
             });
 
-            if (sort === 'low') filtered.sort((a,b) => a.price - b.price);
-            if (sort === 'high') filtered.sort((a,b) => b.price - a.price);
-            if (sort === 'name') filtered.sort((a,b) => a.name.localeCompare(b.name));
+            if(sort === 'low') filtered.sort((a,b) => a.price - b.price);
+            if(sort === 'high') filtered.sort((a,b) => b.price - a.price);
+            if(sort === 'name') filtered.sort((a,b) => a.name.localeCompare(b.name));
 
-            renderCollectionGrid(filtered);
-        }
-
-        function renderCollectionGrid(items) {
-            const grid = document.getElementById('watchGrid');
-            if(items.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-16 text-slate-500 font-bold">No timepieces matched your search criteria.</div>`;
-                return;
-            }
-
-            grid.innerHTML = items.map(w => `
-                <div class="bg-chronoCard rounded-2xl p-4 border border-chronoBorder flex flex-col justify-between hover:border-chronoGold/50 transition group relative">
-                    <button onclick="toggleWishlistItem(${w.id})" class="absolute top-6 right-6 z-10 w-8 h-8 rounded-full bg-black/60 text-slate-300 hover:text-chronoGold flex items-center justify-center transition">
-                        <i class="${wishlist.includes(w.id) ? 'fa-solid text-chronoGold' : 'fa-regular'} fa-heart"></i>
-                    </button>
-                    <div>
-                        <div class="relative rounded-xl overflow-hidden mb-4 bg-black h-56 flex items-center justify-center">
-                            <img src="${w.img}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <span class="absolute bottom-2 left-2 bg-black/80 text-chronoGold text-[9px] font-bold uppercase px-2.5 py-1 rounded border border-chronoBorder">${w.style}</span>
-                        </div>
-                        <p class="text-[10px] text-chronoGold font-extrabold uppercase tracking-widest">${w.brand}</p>
-                        <h3 class="font-heading font-bold text-sm text-white mb-1 uppercase">${w.name}</h3>
-                    </div>
-                    <div class="mt-4 pt-3 border-t border-chronoBorder flex items-center justify-between">
+            const grid = document.getElementById('plantGrid');
+            if(grid) {
+                grid.innerHTML = filtered.map(p => `
+                    <div class="bg-leafCard rounded-2xl p-4 border border-leafBorder flex flex-col justify-between hover:border-leafAccent/50 transition">
                         <div>
-                            <span class="block text-[9px] text-slate-500 uppercase font-bold">Retail Investment</span>
-                            <span class="font-heading font-bold text-lg text-chronoGold">$${w.price.toLocaleString()}</span>
+                            <div class="relative mb-3">
+                                <img src="${p.img}" onerror="handleImgError(this)" class="w-full h-52 object-cover rounded-xl">
+                                <button onclick="toggleWishlistItem(${p.id})" class="absolute top-2 right-2 bg-black/60 text-white w-8 h-8 rounded-full flex items-center justify-center hover:text-leafAccent">
+                                    <i class="${wishlist.includes(p.id) ? 'fa-solid text-leafAccent' : 'fa-regular'} fa-heart"></i>
+                                </button>
+                            </div>
+                            <span class="text-[9px] text-leafAccent font-bold uppercase tracking-widest">${p.category}</span>
+                            <h3 class="font-heading font-bold text-sm text-white uppercase mt-1">${p.name}</h3>
+                            <p class="text-xs text-slate-400 mt-1 line-clamp-2">${p.desc}</p>
                         </div>
-                        <div class="flex gap-1">
-                            <button onclick="quickView(${w.id})" class="bg-chronoDark hover:bg-zinc-800 text-slate-300 p-2.5 rounded-xl border border-chronoBorder text-xs"><i class="fa-solid fa-eye"></i></button>
-                            <button onclick="addToCart(${w.id})" class="bg-gradient-to-r from-chronoGold to-amber-600 hover:opacity-90 text-black font-extrabold text-[10px] uppercase px-3 py-2 rounded-xl transition">+ Bag</button>
+                        <div class="mt-4 pt-3 border-t border-leafBorder flex items-center justify-between">
+                            <span class="font-heading font-bold text-leafAccent text-base">$${p.price.toFixed(2)}</span>
+                            <div class="flex gap-2">
+                                <button onclick="openQuickView(${p.id})" class="bg-leafDark hover:bg-zinc-800 text-white p-2 rounded-lg text-xs"><i class="fa-solid fa-eye"></i></button>
+                                <button onclick="addToCart(${p.id})" class="bg-leafAccent text-black font-extrabold text-[10px] uppercase px-3 py-1.5 rounded-lg">+ Bag</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            `).join('');
+                `).join('');
+            }
         }
 
         function renderHomeFeatured() {
             const grid = document.getElementById('homeFeaturedGrid');
-            const featured = [watches[0], watches[3], watches[6], watches[9]]; // 1 from each major house
-
-            grid.innerHTML = featured.map(w => `
-                <div class="bg-chronoCard rounded-2xl p-4 border border-chronoBorder flex flex-col justify-between hover:border-chronoGold transition group">
+            if(!grid) return;
+            grid.innerHTML = plants.slice(0, 8).map(p => `
+                <div class="bg-leafCard rounded-2xl p-4 border border-leafBorder flex flex-col justify-between hover:border-leafAccent/50 transition">
                     <div>
-                        <img src="${w.img}" class="w-full h-52 object-cover rounded-xl mb-3 bg-black">
-                        <p class="text-[10px] font-bold text-chronoGold uppercase tracking-widest">${w.brand}</p>
-                        <h3 class="font-heading font-bold text-base text-white mt-1 uppercase">${w.name}</h3>
+                        <img src="${p.img}" onerror="handleImgError(this)" class="w-full h-48 object-cover rounded-xl mb-3">
+                        <span class="text-[9px] text-leafAccent font-bold uppercase">${p.category}</span>
+                        <h3 class="font-heading font-bold text-sm text-white uppercase">${p.name}</h3>
                     </div>
-                    <div class="flex justify-between items-center mt-4 pt-3 border-t border-chronoBorder">
-                        <span class="font-heading text-lg font-bold text-chronoGold">$${w.price.toLocaleString()}</span>
-                        <button onclick="addToCart(${w.id})" class="bg-gradient-to-r from-chronoGold to-amber-600 text-black font-extrabold text-xs uppercase px-4 py-2 rounded-xl">Acquire</button>
+                    <div class="mt-4 pt-3 border-t border-leafBorder flex items-center justify-between">
+                        <span class="font-heading font-bold text-leafAccent">$${p.price.toFixed(2)}</span>
+                        <button onclick="addToCart(${p.id})" class="bg-leafAccent text-black font-extrabold text-[10px] uppercase px-3 py-1.5 rounded-lg">+ Add</button>
                     </div>
                 </div>
             `).join('');
         }
 
-        function renderBrandCards() {
-            const container = document.getElementById('brandCardsGrid');
-            const brandsMeta = [
-                { name: "Rolex", origin: "Geneva, Switzerland", est: "1905", icon: "fa-crown" },
-                { name: "Patek Philippe", origin: "Geneva, Switzerland", est: "1839", icon: "fa-gem" },
-                { name: "Audemars Piguet", origin: "Le Brassus, Switzerland", est: "1875", icon: "fa-shield" },
-                { name: "Omega", origin: "Bienne, Switzerland", est: "1848", icon: "fa-circle-dot" },
-                { name: "Cartier", origin: "Paris, France", est: "1847", icon: "fa-feather" },
-                { name: "TAG Heuer", origin: "La Chaux-de-Fonds, Switzerland", est: "1860", icon: "fa-stopwatch" },
-                { name: "Breitling", origin: "Grenchen, Switzerland", est: "1884", icon: "fa-plane" },
-                { name: "IWC Schaffhausen", origin: "Schaffhausen, Switzerland", est: "1868", icon: "fa-compass" },
-                { name: "Grand Seiko", origin: "Shizukuishi, Japan", est: "1960", icon: "fa-sun" },
-                { name: "Jaeger-LeCoultre", origin: "Le Sentier, Switzerland", est: "1833", icon: "fa-gear" }
-            ];
-
-            container.innerHTML = brandsMeta.map(b => {
-                const count = watches.filter(w => w.brand.toLowerCase() === b.name.toLowerCase()).length;
+        function renderCategoryCards() {
+            const grid = document.getElementById('categoryCardsGrid');
+            if(!grid) return;
+            const uniqueCats = categoriesList.filter(c => c !== 'All');
+            grid.innerHTML = uniqueCats.map(cat => {
+                const samplePlant = plants.find(p => p.category === cat) || plants[0];
                 return `
-                    <div class="bg-chronoCard p-6 rounded-2xl border border-chronoBorder flex flex-col justify-between hover:border-chronoGold/60 transition">
+                    <div onclick="filterByCategory('${cat}')" class="bg-leafCard p-5 rounded-2xl border border-leafBorder hover:border-leafAccent transition cursor-pointer flex items-center gap-4">
+                        <img src="${samplePlant.img}" onerror="handleImgError(this)" class="w-20 h-20 rounded-xl object-cover">
                         <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <i class="fa-solid ${b.icon} text-3xl text-chronoGold"></i>
-                                <span class="bg-black/80 text-chronoGold text-[10px] font-bold px-3 py-1 rounded-full border border-chronoBorder">${count} Models</span>
-                            </div>
-                            <h3 class="font-heading text-xl font-bold uppercase text-white mb-1">${b.name}</h3>
-                            <p class="text-xs text-slate-400 font-semibold mb-4">${b.origin} &bull; Est. ${b.est}</p>
+                            <h3 class="font-heading font-bold text-lg text-white uppercase">${cat}</h3>
+                            <p class="text-xs text-leafAccent">Browse Collection &rarr;</p>
                         </div>
-                        <button onclick="filterByBrand('${b.name}')" class="w-full bg-chronoDark hover:bg-zinc-800 text-chronoGold border border-chronoBorder font-extrabold text-xs uppercase tracking-widest py-3 rounded-xl transition">
-                            View ${b.name} Vault &rarr;
-                        </button>
                     </div>
                 `;
             }).join('');
         }
 
-        function quickView(id) {
-            const w = watches.find(item => item.id === id);
-            const content = document.getElementById('modalContent');
-            content.innerHTML = `
+        function openQuickView(id) {
+            const p = plants.find(item => item.id === id);
+            if(!p) return;
+            document.getElementById('modalContent').innerHTML = `
+                <img src="${p.img}" onerror="handleImgError(this)" class="w-full h-64 object-cover rounded-2xl">
                 <div>
-                    <img src="${w.img}" class="rounded-2xl w-full h-64 object-cover border border-chronoBorder">
-                </div>
-                <div>
-                    <span class="text-chronoGold text-xs font-bold uppercase tracking-widest">${w.brand}</span>
-                    <h2 class="font-heading text-2xl font-bold text-white mt-1 uppercase">${w.name}</h2>
-                    <p class="font-heading text-xl font-bold text-chronoGold my-3">$${w.price.toLocaleString()}</p>
-                    <p class="text-xs text-slate-400 leading-relaxed mb-6">${w.desc}</p>
-                    <button onclick="addToCart(${w.id}); closeModal();" class="w-full bg-gradient-to-r from-chronoGold to-amber-600 text-black font-extrabold text-xs uppercase tracking-widest py-3.5 rounded-xl">Add to Vault Bag</button>
+                    <span class="text-xs text-leafAccent font-bold uppercase">${p.category}</span>
+                    <h2 class="font-heading text-2xl font-bold uppercase mt-1 text-white">${p.name}</h2>
+                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">${p.desc}</p>
+                    <div class="my-4 text-xs text-slate-300"><strong>Light:</strong> ${p.light}</div>
+                    <div class="text-2xl font-heading font-bold text-leafAccent mb-4">$${p.price.toFixed(2)}</div>
+                    <button onclick="addToCart(${p.id}); closeModal();" class="w-full bg-leafAccent text-black font-extrabold text-xs uppercase py-3 rounded-xl">Add to Bag</button>
                 </div>
             `;
             document.getElementById('quickModal').classList.remove('hidden');
         }
 
-        function closeModal() {
-            document.getElementById('quickModal').classList.add('hidden');
-        }
+        function closeModal() { document.getElementById('quickModal').classList.add('hidden'); }
 
         function toggleWishlistItem(id) {
-            if(wishlist.includes(id)) {
-                wishlist = wishlist.filter(i => i !== id);
-            } else {
-                wishlist.push(id);
-            }
+            if(wishlist.includes(id)) wishlist = wishlist.filter(item => item !== id);
+            else wishlist.push(id);
             document.getElementById('wishlistBadge').innerText = wishlist.length;
             applyFilters();
-            renderWishlist();
+            updateWishlistDrawer();
         }
 
-        function renderWishlist() {
-            const container = document.getElementById('wishlistItems');
-            if(wishlist.length === 0) {
-                container.innerHTML = `<p class="text-xs text-slate-500 text-center py-8">Your saved list is empty.</p>`;
-                return;
-            }
-
-            const items = watches.filter(w => wishlist.includes(w.id));
-            container.innerHTML = items.map(w => `
-                <div class="flex justify-between items-center border-b border-chronoBorder pb-3 text-xs">
-                    <div>
-                        <span class="text-chronoGold text-[9px] font-bold uppercase">${w.brand}</span>
-                        <div class="font-bold text-white uppercase">${w.name}</div>
-                        <div class="text-slate-400">$${w.price.toLocaleString()}</div>
+        function updateWishlistDrawer() {
+            const items = plants.filter(p => wishlist.includes(p.id));
+            document.getElementById('wishlistItems').innerHTML = items.map(i => `
+                <div class="flex justify-between items-center text-xs border-b border-leafBorder pb-3">
+                    <div class="flex items-center gap-3">
+                        <img src="${i.img}" onerror="handleImgError(this)" class="w-12 h-12 rounded-lg object-cover">
+                        <div>
+                            <div class="font-bold text-white uppercase">${i.name}</div>
+                            <div class="text-leafAccent">$${i.price.toFixed(2)}</div>
+                        </div>
                     </div>
-                    <button onclick="addToCart(${w.id})" class="bg-chronoGold text-black font-bold text-[10px] uppercase px-3 py-1.5 rounded-lg">Move to Bag</button>
+                    <button onclick="addToCart(${i.id})" class="bg-leafAccent text-black font-bold px-3 py-1 rounded text-[10px]">ADD</button>
                 </div>
             `).join('');
         }
@@ -668,7 +488,7 @@
         function toggleWishlist() {
             const drawer = document.getElementById('wishlistContent');
             const backdrop = document.getElementById('wishlistBackdrop');
-            if (drawer.classList.contains('translate-x-full')) {
+            if(drawer.classList.contains('translate-x-full')) {
                 drawer.classList.remove('translate-x-full');
                 backdrop.classList.remove('hidden');
                 setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
@@ -680,37 +500,38 @@
         }
 
         function addToCart(id) {
-            const watch = watches.find(w => w.id === id);
+            const item = plants.find(p => p.id === id);
             const inCart = cart.find(c => c.id === id);
-            if(inCart) inCart.qty++; else cart.push({...watch, qty: 1});
+            if(inCart) inCart.qty++; else cart.push({...item, qty: 1});
             updateCart();
             toggleCart(true);
         }
 
         function updateCart() {
-            const container = document.getElementById('cartItems');
-            container.innerHTML = cart.map(item => `
-                <div class="flex justify-between items-center border-b border-chronoBorder pb-3 text-xs">
-                    <div>
-                        <span class="text-chronoGold text-[9px] font-bold uppercase">${item.brand}</span>
-                        <div class="font-bold text-white uppercase">${item.name}</div>
-                        <div class="text-slate-400">$${item.price.toLocaleString()} x ${item.qty}</div>
+            document.getElementById('cartItems').innerHTML = cart.map(i => `
+                <div class="flex justify-between items-center text-xs border-b border-leafBorder pb-3">
+                    <div class="flex items-center gap-3">
+                        <img src="${i.img}" onerror="handleImgError(this)" class="w-12 h-12 rounded-lg object-cover">
+                        <div>
+                            <div class="font-bold text-white uppercase">${i.name}</div>
+                            <div class="text-slate-400">$${i.price.toFixed(2)} x ${i.qty}</div>
+                        </div>
                     </div>
-                    <div class="font-bold text-chronoGold">$${(item.price * item.qty).toLocaleString()}</div>
+                    <div class="font-bold text-leafAccent">$${(i.price * i.qty).toFixed(2)}</div>
                 </div>
             `).join('');
 
             const total = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
             const count = cart.reduce((acc, i) => acc + i.qty, 0);
 
-            document.getElementById('cartTotal').innerText = `$${total.toLocaleString()}`;
+            document.getElementById('cartTotal').innerText = `$${total.toFixed(2)}`;
             document.getElementById('cartBadge').innerText = count;
         }
 
-        function toggleCart(forceOpen = false) {
+        function toggleCart(open = false) {
             const drawer = document.getElementById('cartContent');
             const backdrop = document.getElementById('cartBackdrop');
-            if (forceOpen || drawer.classList.contains('translate-x-full')) {
+            if(open || drawer.classList.contains('translate-x-full')) {
                 drawer.classList.remove('translate-x-full');
                 backdrop.classList.remove('hidden');
                 setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
@@ -721,19 +542,10 @@
             }
         }
 
-        function checkout() {
-            if(cart.length === 0) return alert('Your vault bag is empty!');
-            alert('👑 Order Received! Your luxury timepiece has been reserved and our Concierge team will reach out for wire/payment confirmation.');
-            cart = [];
-            updateCart();
-            toggleCart();
-        }
-
-        // Initialize App
-        renderBrandPills();
-        renderHomeFeatured();
-        renderBrandCards();
+        renderCategoryPills();
         applyFilters();
+        renderHomeFeatured();
+        renderCategoryCards();
     </script>
 </body>
 </html>
