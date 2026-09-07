@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coleus Plants - Colorful Foliage Wonders</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-overlay">
+            <h1>Coleus Plants</h1>
+            <p>Celebrate the vibrant colors of Coleus foliage</p>
+            <div class="hero-buttons">
+                <button id="exploreCatalogBtn">Explore Catalog</button>
+                <button id="careGuideBtn">Care Guide</button>
+            </div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1596728325492-b485ff7430ad?auto=format&fit=crop&w=1200&q=80" alt="Coleus Hero" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1596728325492-b485ff7430ad?auto=format&fit=crop&w=600&q=80'" />
+    </header>
+
+    <main>
+        <section id="catalog-section">
+            <h2>Plant Catalog</h2>
+            <div class="filters">
+                <input type="text" id="searchInput" placeholder="Search by variety name..." />
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="sun">Sun-Tolerant</button>
+                    <button class="filter-btn" data-filter="shade">Shade-Loving</button>
+                </div>
+                <select id="priceSort">
+                    <option value="none">Sort by price</option>
+                    <option value="low-high">Price: Low to High</option>
+                    <option value="high-low">Price: High to Low</option>
+                </select>
+            </div>
+            <div id="plantGrid" class="plant-grid"></div>
+        </section>
+
+        <section id="care-guide-section">
+            <h2>Care Guide</h2>
+            <div class="accordion">
+                <button class="accordion-header">Light Needs</button>
+                <div class="accordion-content">
+                    <p>Coleus plants thrive in partial shade to full sun, depending on the variety. Most prefer bright, indirect light for vivid foliage colors.</p>
+                </div>
+
+                <button class="accordion-header">Watering</button>
+                <div class="accordion-content">
+                    <p>Keep the soil consistently moist but not soggy. Water when the top inch of soil feels dry. Avoid letting plants sit in water.</p>
+                </div>
+
+                <button class="accordion-header">Soil & Fertilizer</button>
+                <div class="accordion-content">
+                    <p>Use well-draining potting soil rich in organic matter. Fertilize monthly during the growing season with a balanced fertilizer.</p>
+                </div>
+
+                <button class="accordion-header">Propagation</button>
+                <div class="accordion-content">
+                    <p>Propagate Coleus easily via stem cuttings; root cuttings in water or moist soil until roots form.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cart-section">
+            <button id="cartToggle" aria-label="Toggle shopping cart">Cart (<span id="cartCount">0</span>)</button>
+            <div id="cartDrawer" class="cart-drawer">
+                <h3>Your Cart</h3>
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    Total: $<span id="cartTotal">0.00</span>
+                </div>
+                <button id="closeCart">Close Cart</button>
+            </div>
+        </section>
+
+        <section id="contact-newsletter">
+            <h2>Contact & Newsletter</h2>
+            <form id="contactForm">
+                <label for="nameInput">Name:</label>
+                <input type="text" id="nameInput" name="name" required />
+
+                <label for="emailInput">Email:</label>
+                <input type="email" id="emailInput" name="email" required />
+
+                <label for="messageInput">Message:</label>
+                <textarea id="messageInput" name="message" required></textarea>
+
+                <button type="submit">Send Message</button>
+                <div id="contactFeedback" class="feedback"></div>
+            </form>
+
+            <form id="newsletterForm">
+                <label for="newsletterEmail">Subscribe to our Newsletter:</label>
+                <input type="email" id="newsletterEmail" name="newsletterEmail" placeholder="Your email..." required />
+                <button type="submit">Subscribe</button>
+                <div id="newsletterFeedback" class="feedback"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Coleus Plants. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
