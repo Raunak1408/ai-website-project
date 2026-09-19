@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayfulPaws Toys</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero-banner">
+        <div class="hero-content">
+            <h1>Welcome to PlayfulPaws Toys!</h1>
+            <p>Bright, Fun, and Safe Toys for Your Furry Friends</p>
+            <div class="hero-buttons">
+                <button class="btn primary" id="shopNowBtn">Shop Now</button>
+                <button class="btn secondary" id="learnMoreBtn">Learn More</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="featured-toys">
+        <h2>Featured Toys</h2>
+        <div class="toys-grid" id="toysGrid">
+            <!-- Toys will be injected here dynamically -->
+        </div>
+    </section>
+
+    <section class="customer-reviews">
+        <h2>What Our Customers Say</h2>
+        <div class="reviews-grid" id="reviewsGrid">
+            <!-- Reviews added dynamically -->
+        </div>
+    </section>
+
+    <section class="newsletter-signup">
+        <h2>Subscribe to Our Newsletter</h2>
+        <form id="newsletterForm">
+            <input type="email" placeholder="Enter your email" required id="emailInput">
+            <button type="submit" class="btn primary">Subscribe</button>
+        </form>
+        <p id="subscriptionMessage"></p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
