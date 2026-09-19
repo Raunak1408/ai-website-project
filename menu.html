@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brew & Bean Cafe - Menu</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="logo">Brew & Bean Cafe</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html" class="active">Menu</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><button id="cart-btn" aria-label="Cart">Cart (<span id="cart-count">0</span>)</button></li>
+      </ul>
+      <button class="hamburger" aria-label="Menu Toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Our Menu</h1>
+  <div class="category-filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="hot">Hot Coffees</button>
+    <button class="filter-btn" data-filter="cold">Cold Brews</button>
+    <button class="filter-btn" data-filter="bakery">Bakery</button>
+  </div>
+
+  <div class="product-grid">
+    <article class="product-card hot">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Espresso" />
+      <h3>Espresso</h3>
+      <p>Strong and bold classic shot.</p>
+      <p class="price">$3.00</p>
+      <button class="add-to-cart">Add to Order</button>
+    </article>
+
+    <article class="product-card hot">
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400&q=80" alt="Cappuccino" />
+      <h3>Cappuccino</h3>
+      <p>Rich espresso with steamed milk and foam.</p>
+      <p class="price">$4.50</p>
+      <button class="add-to-cart">Add to Order</button>
+    </article>
+
+    <article class="product-card cold">
+      <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=400&q=80" alt="Iced Latte" />
+      <h3>Iced Latte</h3>
+      <p>Refreshing cold milk coffee.</p>
+      <p class="price">$4.00</p>
+      <button class="add-to-cart">Add to Order</button>
+    </article>
+
+    <article class="product-card bakery">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" alt="Croissant" />
+      <h3>Butter Croissant</h3>
+      <p>Flaky and buttery pastry.</p>
+      <p class="price">$3.50</p>
+      <button class="add-to-cart">Add to Order</button>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <p>© 2024 Brew & Bean Cafe. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
