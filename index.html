@@ -3,74 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PlayfulPaws Toys</title>
+    <title>PlayfulPaws Toys - Online Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
         <div class="hero">
-            <h1>Welcome to Brew & Bean - Coffee Shop</h1>
-            <p>Your favorite coffee shop.</p>
-            <button id="shop-now">Shop Now</button>
+            <h1>PlayfulPaws Toys</h1>
+            <p>Bright, Fun, and Safe Toys for Your Pets</p>
+            <div class="hero-buttons">
+                <button onclick="window.location='#featured-products'">Shop Now</button>
+                <button onclick="window.location='#newsletter'">Subscribe</button>
+            </div>
         </div>
         <nav class="nav-links">
             <ul>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="#toys">Our Toys</a></li>
-                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#featured-products">Featured Toys</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#newsletter">Newsletter</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="toys" class="toy-section">
+        <section id="featured-products" class="product-grid">
             <h2>Featured Toys</h2>
-            <div class="products">
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1541188897818-ddc60e17305d" alt="Toy 1">
-                    <h3>Toy 1</h3>
-                    <p>$10.00</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1560783941-betaef1e915e" alt="Toy 2">
-                    <h3>Toy 2</h3>
-                    <p>$15.00</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-                <div class="product">
-                    <img src="https://images.unsplash.com/photo-1586768310257-0289d8eec3d0" alt="Toy 3">
-                    <h3>Toy 3</h3>
-                    <p>$12.00</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-            </div>
+            <div class="product-items" id="product-grid"></div>
         </section>
 
         <section id="reviews" class="reviews">
             <h2>Customer Reviews</h2>
-            <div class="review">
-                <p>"Best toys ever! My dog loves them!" - Jane</p>
-            </div>
-            <div class="review">
-                <p>"Great quality and fast shipping." - Tom</p>
+            <div class="review-items">
+                <article class="review">
+                    <p>"My dog loves the Robot Action Figure! Highly recommended."</p>
+                    <footer>- Sarah B.</footer>
+                </article>
+                <article class="review">
+                    <p>"The STEM Building Blocks are fantastic for my kids and pets!"</p>
+                    <footer>- Mark T.</footer>
+                </article>
+                <article class="review">
+                    <p>"PlayfulPaws has the best quality toys and great customer service."</p>
+                    <footer>- Jenny M.</footer>
+                </article>
             </div>
         </section>
 
         <section id="newsletter" class="newsletter">
-            <h2>Sign up for our newsletter</h2>
-            <form>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+            <h2>Subscribe to Our Newsletter</h2>
+            <form id="newsletter-form">
+                <label for="newsletter-email">Email:</label>
+                <input type="email" id="newsletter-email" name="email" required>
                 <button type="submit">Subscribe</button>
             </form>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Brew & Bean - Coffee Shop</p>
+        <p>&copy; 2023 PlayfulPaws Toys</p>
     </footer>
-    <script src="script.js"></script>
+
+    <script src="app.js"></script>
 </body>
 </html>
