@@ -8,37 +8,56 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-<header class="header-banner">
-    <nav class="navbar">
-        <div class="logo">ToyJoy Land</div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><button id="cart-button">Cart (<span id="cart-count">0</span>)</button></li>
-            <li class="nav-toggle"><button id="nav-toggle-btn" aria-label="Toggle navigation">&#9776;</button></li>
-        </ul>
-    </nav>
-</header>
+    <header class="header-banner">
+        <nav class="navbar">
+            <div class="logo">ToyJoy Land</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><button id="nav-toggle-btn" class="nav-toggle" aria-label="Toggle navigation">&#9776;</button></li>
+            </ul>
+            <button id="cart-button">Cart (<span id="cart-count">0</span>)</button>
+        </nav>
+    </header>
 
-<main>
-    <section class="shop-main">
-        <h1>Shop All Toys</h1>
-        <div class="filter-bar">
-            <button class="filter-btn active" data-category="all">All</button>
-            <button class="filter-btn" data-category="action-figures">Action Figures</button>
-            <button class="filter-btn" data-category="educational">Educational</button>
-            <button class="filter-btn" data-category="plush-toys">Plush Toys</button>
-            <button class="filter-btn" data-category="board-games">Board Games</button>
-        </div>
-        <div class="products-grid" id="products-grid">
-            <!-- Products loaded dynamically by JS -->
-        </div>
-    </section>
-</main>
+    <main class="container">
+        <section class="shop-main">
+            <h1>Shop All Toys</h1>
 
-<footer>
-    <p>&copy; 2024 ToyJoy Land. All rights reserved.</p>
-</footer>
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="action-figures">Action Figures</button>
+                <button class="filter-btn" data-category="puzzles">Puzzles</button>
+                <button class="filter-btn" data-category="plush-toys">Plush Toys</button>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <!-- Product cards will be rendered here by JS -->
+            </div>
+        </section>
+
+        <div id="cart-modal" class="cart-modal">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <p id="cart-total"></p>
+            <button id="checkout-btn">Checkout</button>
+            <button id="close-cart-btn">Close</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ToyJoy Land. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="social-icons">
+            <span>FB</span>
+            <span>TW</span>
+            <span>IG</span>
+        </div>
+    </footer>
 </body>
 </html>
