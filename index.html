@@ -3,62 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechPulse Gear - Home</title>
+    <title>ToyJoy Land - Home</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
 <body>
     <header class="header-banner">
         <nav class="navbar">
-            <div class="logo">TechPulse Gear</div>
+            <div class="logo">ToyJoy Land</div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="products.html">Products</a></li>
+                <li><a href="shop.html">Shop</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><button id="cart-button">Cart (<span id="cart-count">0</span>)</button></li>
+                <li><button id="nav-toggle-btn" class="nav-toggle" aria-label="Toggle navigation">&#9776;</button></li>
             </ul>
+            <button id="cart-button">Cart (<span id="cart-count">0</span>)</button>
         </nav>
-        <section class="hero-banner">
-            <h1>Upgrade Your Gaming &amp; Tech Setup</h1>
-            <a href="products.html" class="btn btn-primary">Shop Now</a>
-        </section>
     </header>
 
     <main class="container">
-        <section class="featured-products">
+        <section class="hero-banner">
+            <h1>Where Imagination Comes to Play!</h1>
+            <p>Discover a world of fun and creativity with our vibrant and interactive toy collection.</p>
+            <a href="shop.html" class="btn btn-primary">Explore Toys</a>
+        </section>
+
+        <section class="featured-categories">
             <h2>Featured Categories</h2>
             <div class="featured-grid">
-                <div class="featured-item">
-                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Keyboards" />
-                    <h3>Keyboards</h3>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1550083866-3ca43549f25f?auto=format&fit=crop&w=400&q=80" alt="Action Figures">
+                    <h3>Action Figures</h3>
                 </div>
-                <div class="featured-item">
-                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="Headsets" />
-                    <h3>Headsets</h3>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1586952518486-7d1a3b7a4520?auto=format&fit=crop&w=400&q=80" alt="Educational Toys">
+                    <h3>Educational Toys</h3>
                 </div>
-                <div class="featured-item">
-                    <img src="https://images.unsplash.com/photo-1512499617640-c2f9992e5e38?auto=format&fit=crop&w=400&q=80" alt="Mice" />
-                    <h3>Mice</h3>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1590080877777-dc436973ff87?auto=format&fit=crop&w=400&q=80" alt="Board Games">
+                    <h3>Board Games</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1504945005722-f8cc3be2e9e4?auto=format&fit=crop&w=400&q=80" alt="Plush Toys">
+                    <h3>Plush Toys</h3>
                 </div>
             </div>
         </section>
 
-        <section class="about-us">
-            <h2>About TechPulse Gear</h2>
-            <p>TechPulse Gear is your premier destination for cutting-edge gaming and tech gear with neon-cyan and purple accents in a sleek dark-mode design. We prioritize quality, style, and your ultimate tech experience.</p>
+        <section class="highlight-banner">
+            <p>Flat 20% OFF on Educational Kits - Code: <strong>TOYJOY20</strong></p>
         </section>
 
-        <section class="hours-location">
-            <h2>Store Hours &amp; Location</h2>
-            <p>123 Coffee Street, Springfield</p>
-            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-            <p>Saturday: 10:00 AM - 4:00 PM</p>
-            <p>Sunday: Closed</p>
+        <section class="customer-testimonials">
+            <h2>Customer Reviews</h2>
+            <div class="reviews-grid">
+                <div class="review">
+                    <p>"My kids love the educational kits! Great quality and fun to assemble."</p>
+                    <h4>Sarah J.</h4>
+                </div>
+                <div class="review">
+                    <p>"The plush toys are incredibly soft and cuddly. Highly recommend!"</p>
+                    <h4>Mike W.</h4>
+                </div>
+                <div class="review">
+                    <p>"Action figures have the best detail and articulation. My son is obsessed!"</p>
+                    <h4>Linda K.</h4>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 TechPulse Gear. All rights reserved.</p>
+        <p>&copy; 2024 ToyJoy Land. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="social-icons">
+            <span>FB</span>
+            <span>TW</span>
+            <span>IG</span>
+        </div>
     </footer>
 </body>
 </html>
