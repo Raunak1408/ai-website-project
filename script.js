@@ -4,7 +4,7 @@
 const navToggle = document.getElementById('nav-toggle-btn');
 const navLinks = document.getElementById('nav-links');
 
-if (navToggle && navLinks) {
+if(navToggle && navLinks) {
   navToggle.addEventListener('click', () => {
     navLinks.classList.toggle('show');
   });
@@ -21,15 +21,15 @@ const closeCartBtn = document.getElementById('close-cart-btn');
 
 let cart = [];
 
-// Example products data for demonstration
+// Example products data for demonstration (normally from backend or API)
 const products = [
   {
     id: 1,
     name: 'Remote Control Car',
     category: 'action-figures',
     price: 29.99,
-    age: 'Ages 5+',
-    image: 'https://images.unsplash.com/photo-1600181951074-3a7be8cd9bcf?auto=format&fit=crop&w=400&q=80'
+    age: 'Ages 3+',
+    image: 'https://images.unsplash.com/photo-1600185367349-6a7745e5aec8?auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 2,
@@ -37,7 +37,7 @@ const products = [
     category: 'puzzles',
     price: 19.99,
     age: 'Ages 3+',
-    image: 'https://images.unsplash.com/photo-1509316785288-2c52251b2f9d?auto=format&fit=crop&w=400&q=80'
+    image: 'https://images.unsplash.com/photo-1509475826633-fed577a2c71b?auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 3,
@@ -45,15 +45,15 @@ const products = [
     category: 'plush-toys',
     price: 24.99,
     age: 'Ages 2+',
-    image: 'https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=400&q=80'
+    image: 'https://images.unsplash.com/photo-1511910849309-0b1a6f7d1b1e?auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 4,
     name: 'Educational Kit',
-    category: 'education-al',
+    category: 'educational-all',
     price: 39.99,
     age: 'Ages 6+',
-    image: 'https://images.unsplash.com/photo-1590080877777-dc436973ff87?auto=format&fit=crop&w=400&q=80'
+    image: 'https://images.unsplash.com/photo-1594561058021-e0e4f2a7ae4b?auto=format&fit=crop&w=400&q=80'
   }
 ];
 
@@ -63,16 +63,15 @@ function renderProducts(filterCategory = 'all') {
   if (!productsGrid) return;
   productsGrid.innerHTML = '';
 
-  const filteredProducts = filterCategory === 'all'
-    ? products
-    : products.filter(p => p.category === filterCategory);
+  const filteredProducts = filterCategory === 'all' ? products : products.filter(p => p.category === filterCategory);
 
   filteredProducts.forEach(product => {
     const card = document.createElement('div');
     card.className = 'product-card';
+    card.setAttribute('data-category', product.category);
 
     card.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
+      <img src="${product.image}" alt="${product.name}" />
       <div class="product-name">${product.name}</div>
       <div class="product-age">${product.age}</div>
       <div class="product-price">$${product.price.toFixed(2)}</div>
@@ -111,114 +110,113 @@ function addToCart(product) {
   alert(`${product.name} added to cart!`);
 }
 
-// Remove product from cart
-function removeFromCart(productId) {
-  const index = cart.findIndex(item => item.id === productId);
-  if (index !== -1) {
-    cart.splice(index, 1);
-  }
-  updateCartCount();
-  renderCart();
+// Update the cart count in header
+function updateCartCount() {
+  const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+  cartCount.textContent = totalQuantity;
 }
 
-// Render cart items and total
+// Render cart items in cart modal
 function renderCart() {
-  if (!cartItemsContainer || !cartTotal) return;
   cartItemsContainer.innerHTML = '';
   let total = 0;
 
   cart.forEach(item => {
     total += item.price * item.quantity;
-    const cartItem = document.createElement('div');
-    cartItem.className = 'cart-item';
-    cartItem.innerHTML = `
-      <div class="cart-item-name">${item.name} x${item.quantity}</div>
-      <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
-      <button class="cart-close-btn" data-id="${item.id}" aria-label="Remove ${item.name} from cart">&times;</button>
+
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'cart-item';
+
+    itemDiv.innerHTML = `
+      <span class="cart-item-name">${item.name} x${item.quantity}</span>
+      <span class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</span>
+      <button class="remove-from-cart" data-id="${item.id}" aria-label="Remove ${item.name} from cart">&times;</button>
     `;
-    cartItemsContainer.appendChild(cartItem);
+
+    cartItemsContainer.appendChild(itemDiv);
   });
 
   cartTotal.textContent = `Total: $${total.toFixed(2)}`;
 
   // Add event listeners to remove buttons
-  document.querySelectorAll('.cart-close-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = parseInt(btn.getAttribute('data-id'), 10);
+  const removeButtons = cartItemsContainer.querySelectorAll('.remove-from-cart');
+  removeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const id = parseInt(button.getAttribute('data-id'), 10);
       removeFromCart(id);
     });
   });
 }
 
-// Update cart count badge
-function updateCartCount() {
-  if (cartCount) {
-    const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
-    cartCount.textContent = totalQuantity;
-  }
+// Remove product from cart
+function removeFromCart(productId) {
+  cart = cart.filter(item => item.id !== productId);
+  updateCartCount();
+  renderCart();
 }
 
 // Open cart modal
 function openCartModal() {
-  if (cartModal) cartModal.classList.add('show');
+  cartModal.classList.add('show');
 }
 
 // Close cart modal
 function closeCartModal() {
-  if (cartModal) cartModal.classList.remove('show');
+  cartModal.classList.remove('show');
 }
 
-// Checkout button action
-if (checkoutBtn) {
-  checkoutBtn.addEventListener('click', () => {
-    alert('Thank you for your purchase!');
-    cart = [];
-    updateCartCount();
-    renderCart();
-    closeCartModal();
+// Event listeners for cart modal buttons
+checkoutBtn?.addEventListener('click', () => {
+  alert('Thank you for your purchase!');
+  cart = [];
+  updateCartCount();
+  renderCart();
+  closeCartModal();
+});
+
+closeCartBtn?.addEventListener('click', () => {
+  closeCartModal();
+});
+
+// Category filter buttons
+const filterButtons = document.querySelectorAll('.filter-btn');
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    const category = button.getAttribute('data-category');
+    renderProducts(category);
   });
-}
+});
 
-// Close cart button action
-if (closeCartBtn) {
-  closeCartBtn.addEventListener('click', () => {
-    closeCartModal();
-  });
-}
+// Initial render
+renderProducts();
 
-// Contact Form Submission Handler
+// Contact form submission handling
 const contactForm = document.getElementById('contact-form');
-const formSuccess = document.getElementById('form-success');
+const formSuccessMessage = document.getElementById('form-success');
 
-if (contactForm && formSuccess) {
-  contactForm.addEventListener('submit', (e) => {
+if(contactForm) {
+  contactForm.addEventListener('submit', e => {
     e.preventDefault();
-    // Basic validation handled by HTML5 required
-    formSuccess.hidden = false;
-    contactForm.reset();
+    // Simple validation and showing success message
+    if(contactForm.checkValidity()) {
+      contactForm.reset();
+      if (formSuccessMessage) {
+        formSuccessMessage.classList.remove('hidden');
+        setTimeout(() => {
+          formSuccessMessage.classList.add('hidden');
+        }, 5000);
+      }
+    }
   });
 }
 
-// Initial render of products in shop page
-if (document.getElementById('products-grid')) {
-  // Add filter button listeners
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      renderProducts(button.getAttribute('data-category'));
-    });
-  });
-
-  renderProducts();
-}
-
-// Mobile nav close on link click
+// Responsive nav hide on link click (mobile)
 const navLinksList = document.querySelectorAll('#nav-links li a');
 navLinksList.forEach(link => {
   link.addEventListener('click', () => {
-    if (navLinks.classList.contains('show')) {
+    if(navLinks.classList.contains('show')) {
       navLinks.classList.remove('show');
     }
   });
