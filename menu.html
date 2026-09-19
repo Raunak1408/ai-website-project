@@ -16,8 +16,6 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="menu.html" class="active">Menu</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><button id="cart-button">Cart (<span id="cart-count">0</span>)</button></li>
-                <li class="nav-toggle"><button aria-label="Toggle navigation" id="nav-toggle-btn">&#9776;</button></li>
             </ul>
         </nav>
     </div>
@@ -26,20 +24,52 @@
 <main class="container">
     <h1>Our Menu</h1>
 
-    <div class="category-filters">
+    <section class="category-filters">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="hot">Hot Coffees</button>
         <button class="filter-btn" data-filter="cold">Cold Brews</button>
-        <button class="filter-btn" data-filter="bakery">Pastries</button>
-    </div>
+        <button class="filter-btn" data-filter="pastry">Pastries</button>
+    </section>
 
     <section class="products-grid" id="products-grid">
         <!-- Product cards will be dynamically rendered here by JS -->
+        <article class="product-card" data-category="hot">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Espresso Coffee">
+            <h3>Espresso</h3>
+            <p>Rich & bold espresso shot from freshly roasted beans.</p>
+            <p class="price">$3.00</p>
+            <button class="btn add-to-cart" data-name="Espresso" data-price="3.00">Add to Order</button>
+        </article>
+
+        <article class="product-card" data-category="hot">
+            <img src="https://images.unsplash.com/photo-1511193311910-34a290d1e2f5?auto=format&fit=crop&w=400&q=60" alt="Cappuccino">
+            <h3>Cappuccino</h3>
+            <p>Rich espresso with steamed milk and foam.</p>
+            <p class="price">$4.50</p>
+            <button class="btn add-to-cart" data-name="Cappuccino" data-price="4.50">Add to Order</button>
+        </article>
+
+        <article class="product-card" data-category="cold">
+            <img src="https://images.unsplash.com/photo-1533145322410-ac591a4bdf28?auto=format&fit=crop&w=400&q=60" alt="Iced Latte">
+            <h3>Iced Latte</h3>
+            <p>Refreshing cold milk coffee.</p>
+            <p class="price">$4.00</p>
+            <button class="btn add-to-cart" data-name="Iced Latte" data-price="4.00">Add to Order</button>
+        </article>
+
+        <article class="product-card" data-category="pastry">
+            <img src="https://images.unsplash.com/photo-1590080877777-525772b9e748?auto=format&fit=crop&w=400&q=60" alt="Pastry Selection">
+            <h3>Pastry Selection</h3>
+            <p>Freshly baked goods to complement your coffee.</p>
+            <p class="price">Varies</p>
+            <button class="btn add-to-cart" data-name="Pastry Selection" data-price="0">Add to Order</button>
+        </article>
     </section>
 </main>
 
 <footer>
     <p>&copy; 2024 Brew & Bean Cafe. All rights reserved.</p>
 </footer>
+
 </body>
 </html>
