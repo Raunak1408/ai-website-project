@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brew & Bean Cafe - Contact</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechPulse Gear - Contact & Support</title>
+    <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
 </head>
 <body>
-<header>
-    <div class="container">
-        <div class="logo">Brew & Bean Cafe</div>
-        <nav>
+    <header class="header-banner">
+        <nav class="navbar">
+            <div class="logo">TechPulse Gear</div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
+                <li><a href="products.html">Products</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
                 <li><button id="cart-button">Cart (<span id="cart-count">0</span>)</button></li>
-                <li class="nav-toggle"><button aria-label="Toggle navigation" id="nav-toggle-btn">&#9776;</button></li>
             </ul>
         </nav>
-    </div>
-</header>
+        <section class="hero-banner">
+            <h1>Contact & Support</h1>
+        </section>
+    </header>
 
-<main class="container">
-    <h1>Contact / Reservation</h1>
+    <main class="container">
+        <section class="contact-section">
+            <h1>Contact / Support Form</h1>
+            <form id="contact-form" class="contact-form" novalidate>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required />
 
-    <form id="contact-form" class="contact-section" novalidate>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+                <label for="category">Issue Category:</label>
+                <select id="category" name="category" required>
+                    <option value="Sales">Sales</option>
+                    <option value="Technical">Technical</option>
+                    <option value="Billing">Billing</option>
+                    <option value="Other">Other</option>
+                </select>
 
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
 
-        <label for="time">Time:</label>
-        <input type="time" id="time" name="time" required>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
+    </main>
 
-        <label for="guests">Number of Guests:</label>
-        <input type="number" id="guests" name="guests" min="1" required>
-
-        <label for="requests">Special Requests:</label>
-        <textarea id="requests" name="requests" rows="4"></textarea>
-
-        <button type="submit" class="btn btn-primary">Send Reservation</button>
-    </form>
-</main>
-
-<footer>
-    <p>&copy; 2024 Brew & Bean Cafe. All rights reserved.</p>
-</footer>
-
+    <footer>
+        <p>&copy; 2024 TechPulse Gear. All rights reserved.</p>
+    </footer>
 </body>
 </html>
