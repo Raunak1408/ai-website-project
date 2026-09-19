@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechPulse Gear - Products</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header class="header-banner">
+        <nav class="navbar">
+            <div class="logo">TechPulse Gear</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><button id="cart-button">Cart (<span id="cart-count">0</span>)</button></li>
+            </ul>
+        </nav>
+        <section class="hero-banner">
+            <h1>Our Products</h1>
+        </section>
+    </header>
+
+    <main class="container">
+        <section class="category-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="Keyboards">Keyboards</button>
+            <button class="filter-btn" data-filter="Headsets">Headsets</button>
+            <button class="filter-btn" data-filter="Mice">Mice</button>
+        </section>
+
+        <section class="products-grid" id="products-grid">
+            <!-- Product cards will be rendered here dynamically -->
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="cart-modal">
+        <h2>Your Cart</h2>
+        <button class="cart-close-btn" aria-label="Close cart">&times;</button>
+        <div id="cart-items"></div>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button id="checkout-button" class="btn btn-primary">Checkout</button>
+    </div>
+</body>
+</html>
