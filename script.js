@@ -27,7 +27,7 @@ const products = [
     category: 'action-figures',
     price: 29.99,
     age: 'Ages 3+',
-    image: 'https://images.unsplash.com/photo-1600180758895-37a43c12693b?auto=format&fit=crop&w=400&q=80'
+    image: 'https://images.unsplash.com/photo-1600185366056-75ef05baedce?auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const products = [
     category: 'puzzles',
     price: 19.99,
     age: 'Ages 3+',
-    image: 'https://images.unsplash.com/photo-1509099836639-18ba9365c41e?auto=format&fit=crop&w=400&q=80'
+    image: 'https://images.unsplash.com/photo-1505575967455-6a3b6a5f1061?auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ const products = [
     category: 'plush-toys',
     price: 24.99,
     age: 'Ages 2+',
-    image: 'https://images.unsplash.com/photo-1511193311912-7e90b7844243?auto=format&fit=crop&w=400&q=80'
+    image: 'https://images.unsplash.com/photo-1527030280862-64139fba04ca?auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 4,
@@ -51,21 +51,19 @@ const products = [
     category: 'educational-toys',
     price: 39.99,
     age: 'Ages 6+',
-    image: 'https://images.unsplash.com/photo-1594561058021-e0e4f2a7ae4b?auto=format&fit=crop&w=400&q=80'
+    image: 'https://images.unsplash.com/photo-1582095133179-a4537a3eab2a?auto=format&fit=crop&w=400&q=80'
   }
 ];
 
-// Render products
+// Render products based on filter
 function renderProducts(filterCategory = 'all') {
   if (!document.getElementById('products-grid')) return;
   const productsGrid = document.getElementById('products-grid');
   productsGrid.innerHTML = '';
   
-  const filteredProducts = filterCategory === 'all'
-    ? products
-    : products.filter(p => p.category === filterCategory);
+  const filteredProducts = filterCategory === 'all' ? products : products.filter(p => p.category === filterCategory);
   
-  filteredProducts.forEach(product => {
+  filteredProducts.forEach((product) => {
     const card = document.createElement('div');
     card.className = 'product-card';
     card.innerHTML = `
@@ -77,116 +75,104 @@ function renderProducts(filterCategory = 'all') {
     `;
     productsGrid.appendChild(card);
   });
-  setUpAddToCartListeners();
+  setupAddToCartListeners();
 }
 
 // Setup filter buttons
-function setUpFilters() {
+function setupFilterButtons() {
   const filterButtons = document.querySelectorAll('.filter-btn');
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      renderProducts(button.getAttribute('data-category'));
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderProducts(btn.getAttribute('data-category'));
     });
   });
 }
 
-// Cart state
+// Cart functionality
 let cart = [];
 
-// Update cart count in header
 function updateCartCount() {
-  const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
-  if (cartCount) {
-    cartCount.textContent = totalQuantity;
-  }
+  let totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+  cartCount.textContent = totalQuantity;
 }
 
-// Render cart items in modal
-function renderCartItems() {
-  if (!cartItemsContainer) return;
-  cartItemsContainer.innerHTML = '';
-
-  cart.forEach(item => {
-    const div = document.createElement('div');
-    div.className = 'cart-item';
-    div.innerHTML = `
-      <span class="item-name">${item.name}</span>
-      <span class="item-quantity">x${item.quantity}</span>
-      <span class="item-price">$${(item.price * item.quantity).toFixed(2)}</span>
-      <button class="remove-from-cart" data-id="${item.id}" aria-label="Remove ${item.name} from cart">&times;</button>
-    `;
-    cartItemsContainer.appendChild(div);
-  });
-
-  const totalAmount = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-  if (cartTotalEl) {
-    cartTotalEl.textContent = `Total: $${totalAmount.toFixed(2)}`;
-  }
-
-  setUpRemoveFromCartListeners();
-}
-
-// Add to cart
-function addToCart(product) {
-  const existing = cart.find(item => item.id === product.id);
-  if (existing) {
-    existing.quantity += 1;
-  } else {
-    cart.push({...product, quantity: 1});
-  }
-  updateCartCount();
-  renderCartItems();
-  openCartModal();
-  alert(`${product.name} added to cart!`);
-}
-
-// Setup add to cart button listeners
-function setUpAddToCartListeners() {
-  const addButtons = document.querySelectorAll('.add-to-cart');
-  addButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = parseInt(btn.getAttribute('data-id'));
-      const product = products.find(p => p.id === id);
-      if (product) addToCart(product);
-    });
-  });
-}
-
-// Remove item from cart
-function removeFromCart(id) {
-  cart = cart.filter(item => item.id !== id);
-  updateCartCount();
-  renderCartItems();
-}
-
-// Setup remove buttons in cart
-function setUpRemoveFromCartListeners() {
-  const removeButtons = document.querySelectorAll('.remove-from-cart');
-  removeButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = parseInt(btn.getAttribute('data-id'));
-      removeFromCart(id);
-    });
-  });
-}
-
-// Open cart modal
 function openCartModal() {
   if (cartModal) {
     cartModal.classList.add('show');
   }
 }
 
-// Close cart modal
 function closeCartModal() {
   if (cartModal) {
     cartModal.classList.remove('show');
   }
 }
 
-// Event listeners for cart buttons
+function renderCartItems() {
+  if (!cartItemsContainer || !cartTotalEl) return;
+  cartItemsContainer.innerHTML = '';
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+    cartTotalEl.textContent = '';
+    return;
+  }
+  let total = 0;
+  cart.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <div><strong>${item.name}</strong> (x${item.quantity})</div>
+      <div>Price: $${(item.price * item.quantity).toFixed(2)}</div>
+      <button class="remove-from-cart" data-id="${item.id}">Remove</button>
+    `;
+    cartItemsContainer.appendChild(div);
+    total += item.price * item.quantity;
+  });
+  cartTotalEl.textContent = `Total: $${total.toFixed(2)}`;
+}
+
+function addToCart(productId) {
+  const product = products.find(p => p.id === productId);
+  if (!product) return;
+  const existing = cart.find(item => item.id === productId);
+  if (existing) {
+    existing.quantity++;
+  } else {
+    cart.push({...product, quantity: 1});
+  }
+  updateCartCount();
+  renderCartItems();
+  openCartModal();
+}
+
+function removeFromCart(productId) {
+  cart = cart.filter(item => item.id !== productId);
+  updateCartCount();
+  renderCartItems();
+}
+
+// Setup event listeners for add to cart buttons
+function setupAddToCartListeners() {
+  const addButtons = document.querySelectorAll('.add-to-cart');
+  addButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = parseInt(btn.getAttribute('data-id'));
+      addToCart(id);
+    });
+  });
+}
+
+// Setup listeners for remove from cart buttons
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('remove-from-cart')) {
+    const id = parseInt(e.target.getAttribute('data-id'));
+    removeFromCart(id);
+  }
+});
+
+// Setup cart open/close buttons
 if (cartButton) {
   cartButton.addEventListener('click', () => {
     if (cartModal.classList.contains('show')) {
@@ -203,39 +189,24 @@ if (closeCartBtn) {
   });
 }
 
-// Checkout button
-if (checkoutBtn) {
-  checkoutBtn.addEventListener('click', () => {
-    if (cart.length === 0) {
-      alert('Your cart is empty.');
-      return;
-    }
-    alert('Thank you for your purchase!');
-    cart = [];
-    updateCartCount();
-    renderCartItems();
-    closeCartModal();
-  });
-}
-
-// Contact form submission handling
+// Contact form submission
 const contactForm = document.getElementById('contact-form');
 const formSuccess = document.getElementById('form-success');
 
 if (contactForm) {
-  contactForm.addEventListener('submit', e => {
+  contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (!contactForm.checkValidity()) {
+    if (contactForm.checkValidity()) {
+      formSuccess.classList.remove('hidden');
+      contactForm.reset();
+    } else {
       contactForm.reportValidity();
-      return;
     }
-    formSuccess.classList.remove('hidden');
-    contactForm.reset();
   });
 }
 
-// Initialization on DOMContentLoaded
+// Initialize all functions on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
   renderProducts();
-  setUpFilters();
+  setupFilterButtons();
 });
