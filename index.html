@@ -8,92 +8,95 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-<header class="header-banner">
-    <nav class="navbar">
-        <div class="logo">Brew & Bean Cafe</div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="menu.html">Shop/Menu</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><button id="cart-button">Cart (<span id="cart-count">0</span>)</button></li>
-            <li class="nav-toggle"><button id="nav-toggle-btn" aria-label="Toggle navigation">&#9776;</button></li>
-        </ul>
-    </nav>
-</header>
+    <header class="header-banner">
+        <nav class="navbar">
+            <div class="logo">Brew & Bean Cafe</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><button id="cart-button">Cart (<span id="cart-count">0</span>)</button></li>
+                <li class="nav-toggle"><button aria-label="Toggle navigation" id="nav-toggle-btn">&#9776;</button></li>
+            </ul>
+        </nav>
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h1>Experience the Warmth of Freshly Brewed Coffee</h1>
+                <p>Discover your favorite blend and cozy up with us at Brew & Bean Cafe.</p>
+                <a href="menu.html" class="btn btn-primary">Explore Our Menu</a>
+            </div>
+        </section>
+    </header>
 
-<section class="hero-banner">
-    <h1>Experience the Warmth of Brew & Bean Cafe</h1>
-    <p>Your ultimate destination for fresh coffee blends and cozy ambiance.</p>
-    <a href="menu.html" class="btn btn-primary">Explore Our Menu</a>
-</section>
+    <main class="container">
+        <section class="featured-products">
+            <h2>Featured Coffee Blends</h2>
+            <div class="product-grid">
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Espresso Coffee">
+                    <h3>Espresso</h3>
+                    <p>Rich & bold espresso shot from freshly roasted beans.</p>
+                    <p class="price">$3.00</p>
+                    <button class="btn add-to-cart" data-name="Espresso" data-price="3.00">Add to Order</button>
+                </article>
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c3d8?auto=format&fit=crop&w=400&q=60" alt="Cappuccino">
+                    <h3>Cappuccino</h3>
+                    <p>Rich espresso with steamed milk and foam.</p>
+                    <p class="price">$4.50</p>
+                    <button class="btn add-to-cart" data-name="Cappuccino" data-price="4.50">Add to Order</button>
+                </article>
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1533145322410-ac591a4bdf28?auto=format&fit=crop&w=400&q=60" alt="Iced Latte">
+                    <h3>Iced Latte</h3>
+                    <p>Refreshing cold milk coffee.</p>
+                    <p class="price">$4.00</p>
+                    <button class="btn add-to-cart" data-name="Iced Latte" data-price="4.00">Add to Order</button>
+                </article>
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1590080877777-525772b9e748?auto=format&fit=crop&w=400&q=60" alt="Family Board Games">
+                    <h3>Pastry Selection</h3>
+                    <p>Freshly baked goods to complement your coffee.</p>
+                    <p class="price">Varies</p>
+                    <button class="btn add-to-cart" data-name="Pastry Selection" data-price="0">Add to Order</button>
+                </article>
+            </div>
+        </section>
 
-<section class="featured-products">
-    <h2>Featured Coffee Blends</h2>
-    <div class="product-grid">
-        <article class="product-card">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=60" alt="Espresso Coffee">
-            <h3>Espresso</h3>
-            <p>Rich and bold espresso made from freshly ground beans.</p>
-            <p class="price">$3.00</p>
-            <button class="add-to-cart">Add to Order</button>
-        </article>
-        <article class="product-card">
-            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c3d8?auto=format&fit=crop&w=400&q=60" alt="Cappuccino">
-            <h3>Cappuccino</h3>
-            <p>Rich espresso with steamed milk and foam.</p>
-            <p class="price">$4.50</p>
-            <button class="add-to-cart">Add to Order</button>
-        </article>
-        <article class="product-card">
-            <img src="https://images.unsplash.com/photo-1533145322410-ac591a4bdf28?auto=format&fit=crop&w=400&q=60" alt="Iced Latte">
-            <h3>Iced Latte</h3>
-            <p>Refreshing cold milk coffee.</p>
-            <p class="price">$4.00</p>
-            <button class="add-to-cart">Add to Order</button>
-        </article>
-        <article class="product-card">
-            <img src="https://images.unsplash.com/photo-1590080877777-525772b9e748?auto=format&fit=crop&w=400&q=60" alt="Family Board Games">
-            <h3>Pastry Selection</h3>
-            <p>Freshly baked goods to complement your coffee.</p>
-            <p class="price">Varies</p>
-            <button class="add-to-cart">Add to Order</button>
-        </article>
-    </div>
-</section>
+        <section class="about-us">
+            <h2>About Us</h2>
+            <p>At Brew & Bean Cafe, we pride ourselves on our freshly roasted coffee blends and warm, cozy atmosphere that makes you feel right at home.</p>
+        </section>
 
-<section class="about-us">
-    <h2>About Us</h2>
-    <p>At Brew & Bean Cafe, we pride ourselves on our freshly roasted coffee blends and warm, cozy atmosphere that makes you feel right at home.</p>
-</section>
+        <section class="customer-testimonials">
+            <h2>What Our Customers Say</h2>
+            <div class="reviews-grid">
+                <blockquote class="review">
+                    <p>"Amazing coffee and fast shipping! Highly recommend Brew & Bean Cafe."</p>
+                    <footer>- Sarah K.</footer>
+                </blockquote>
+                <blockquote class="review">
+                    <p>"Great variety and quality. My kids love it!"</p>
+                    <footer>- Mike D.</footer>
+                </blockquote>
+                <blockquote class="review">
+                    <p>"Excellent customer service and awesome packages!"</p>
+                    <footer>- Emma W.</footer>
+                </blockquote>
+            </div>
+        </section>
 
-<section class="customer-testimonials">
-    <h2>What Our Customers Say</h2>
-    <div class="reviews-grid">
-        <blockquote class="review">
-            <p>"Amazing coffee and fast shipping! Highly recommend Brew & Bean Cafe."</p>
-            <footer>- Sarah K.</footer>
-        </blockquote>
-        <blockquote class="review">
-            <p>"Great variety and quality. My kids love it!"</p>
-            <footer>- Mike D.</footer>
-        </blockquote>
-        <blockquote class="review">
-            <p>"Excellent customer service and awesome packages!"</p>
-            <footer>- Emma W.</footer>
-        </blockquote>
-    </div>
-</section>
+        <section class="hours-location">
+            <h2>Opening Hours & Location</h2>
+            <p>123 Coffee Street, Springfield</p>
+            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+            <p>Saturday: 10:00 AM - 4:00 PM</p>
+            <p>Sunday: Closed</p>
+        </section>
+    </main>
 
-<section class="hours-location">
-    <h2>Opening Hours & Location</h2>
-    <p>123 Coffee Street, Springfield</p>
-    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-    <p>Saturday: 10:00 AM - 4:00 PM</p>
-    <p>Sunday: Closed</p>
-</section>
-
-<footer>
-    <p>&copy; 2024 Brew & Bean Cafe. All rights reserved.</p>
-</footer>
+    <footer>
+        <p>&copy; 2024 Brew & Bean Cafe. All rights reserved.</p>
+    </footer>
 </body>
 </html>
