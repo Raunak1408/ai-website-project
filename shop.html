@@ -1,62 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToyJoy Land - Shop</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ToyJoy Land - Shop</title>
+<link rel="stylesheet" href="style.css" />
+<script src="script.js" defer></script>
 </head>
 <body>
-    <header class="header-banner">
-        <nav class="navbar">
-            <div class="logo">ToyJoy Land</div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html" class="active">Shop</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><button id="nav-toggle-btn" class="nav-toggle" aria-label="Toggle navigation">&#9776;</button></li>
-            </ul>
-            <button id="cart-button" aria-label="Toggle Cart" class="nav-toggle">Cart (<span id="cart-count">0</span>)</button>
-        </nav>
-    </header>
+<header class="header-banner">
+  <nav class="navbar">
+    <div class="logo">ToyJoy Land</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><button id="nav-toggle-btn" class="nav-toggle" aria-label="Toggle navigation">&#9776;</button></li>
+    </ul>
+    <button id="cart-button" aria-label="Toggle Cart" class="nav-toggle">Cart (<span id="cart-count">0</span>)</button>
+  </nav>
+</header>
+<main class="container">
+  <section class="shop-main">
+    <h1>Shop All Toys</h1>
+    <div class="category-filters">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="action-figures">Action Figures</button>
+      <button class="filter-btn" data-category="puzzles">Puzzles</button>
+      <button class="filter-btn" data-category="plush-toys">Plush Toys</button>
+    </div>
 
-    <main class="container">
-        <section class="shop-main">
-            <h1>Shop All Toys</h1>
-            <div class="category-filters">
-                <button class="filter-btn active" data-category="all">All</button>
-                <button class="filter-btn" data-category="action-figures">Action Figures</button>
-                <button class="filter-btn" data-category="puzzles">Puzzles</button>
-                <button class="filter-btn" data-category="plush-toys">Plush Toys</button>
-            </div>
+    <div class="products-grid" id="products-grid">
+      <!-- Product cards dynamically inserted via JS -->
+    </div>
+  </section>
 
-            <div class="products-grid" id="products-grid">
-                <!-- Products added by JS -->
-            </div>
-        </section>
-
-        <section id="cart-modal" class="cart-modal">
-            <h2>Your Cart</h2>
-            <div id="cart-items"></div>
-            <p id="cart-total"></p>
-            <button id="checkout-btn" class="btn btn-primary">Checkout</button>
-            <button id="close-cart-btn" class="btn">Close</button>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 ToyJoy Land. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="contact.html">Contact</a>
-        </div>
-        <div class="social-icons">
-            <span>FB</span>
-            <span>TW</span>
-            <span>IG</span>
-        </div>
-    </footer>
+  <aside id="cart-modal" class="cart-modal">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <p id="cart-total"></p>
+    <button id="checkout-btn" class="btn btn-primary">Checkout</button>
+    <button id="close-cart-btn" class="btn">Close</button>
+  </aside>
+</main>
+<footer>
+  <p>&copy; 2024 ToyJoy Land. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="social-icons">
+    <span>FB</span>
+    <span>TW</span>
+    <span>IG</span>
+  </div>
+</footer>
 </body>
 </html>
