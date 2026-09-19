@@ -3,62 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brew & Bean - Coffee Shop</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PlayfulPaws Toys</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
         <div class="hero">
-            <h1>Welcome to Brew & Bean</h1>
+            <h1>Welcome to Brew & Bean - Coffee Shop</h1>
             <p>Your favorite coffee shop.</p>
+            <button id="shop-now">Shop Now</button>
         </div>
         <nav class="nav-links">
             <ul>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="#menu">Menu</a></li>
+                <li><a href="#toys">Our Toys</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
         </nav>
     </header>
+
     <main>
-        <section id="about" class="about-us">
-            <h2>About Us</h2>
-            <p>At Brew & Bean, we serve the finest coffee in a cozy atmosphere.</p>
-        </section>
-        <section id="menu" class="menu">
-            <h2>Menu</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <h3>Espresso</h3>
-                    <p>$3.00</p>
+        <section id="toys" class="toy-section">
+            <h2>Featured Toys</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1541188897818-ddc60e17305d" alt="Toy 1">
+                    <h3>Toy 1</h3>
+                    <p>$10.00</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="menu-item">
-                    <h3>Latte</h3>
-                    <p>$4.00</p>
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1560783941-betaef1e915e" alt="Toy 2">
+                    <h3>Toy 2</h3>
+                    <p>$15.00</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="menu-item">
-                    <h3>Cappuccino</h3>
-                    <p>$4.50</p>
-                </div>
-                <div class="menu-item">
-                    <h3>Mocha</h3>
-                    <p>$5.00</p>
+                <div class="product">
+                    <img src="https://images.unsplash.com/photo-1586768310257-0289d8eec3d0" alt="Toy 3">
+                    <h3>Toy 3</h3>
+                    <p>$12.00</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
         </section>
-        <section id="contact" class="contact-us">
-            <h2>Contact Us</h2>
+
+        <section id="reviews" class="reviews">
+            <h2>Customer Reviews</h2>
+            <div class="review">
+                <p>"Best toys ever! My dog loves them!" - Jane</p>
+            </div>
+            <div class="review">
+                <p>"Great quality and fast shipping." - Tom</p>
+            </div>
+        </section>
+
+        <section id="newsletter" class="newsletter">
+            <h2>Sign up for our newsletter</h2>
             <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
-                <button type="submit">Submit</button>
+                <button type="submit">Subscribe</button>
             </form>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2023 Brew & Bean</p>
+        <p>&copy; 2023 Brew & Bean - Coffee Shop</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
