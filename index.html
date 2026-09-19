@@ -3,123 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeCraft AI - Modern AI Solutions</title>
+    <title>ToyJoy Land - Home</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
 <body>
-    <header class="hero-banner">
-        <div class="hero-content">
-            <h1>CodeCraft AI</h1>
-            <p>Crafting Intelligent Solutions with Precision and Innovation</p>
-            <div class="hero-buttons">
-                <button class="btn primary" id="getStartedBtn">Get Started</button>
-                <button class="btn secondary" id="learnMoreBtn">Learn More</button>
-            </div>
+    <header class="header-banner">
+        <nav class="navbar">
+            <div class="logo">ToyJoy Land</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><button id="cart-button">Cart (<span id="cart-count">0</span>)</button></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle">&#9776;</button>
+        </nav>
+        <div class="hero-banner">
+            <h1>Welcome to ToyJoy Land!</h1>
+            <p>Your ultimate destination for fun and colorful toys.</p>
+            <a href="shop.html" class="btn-primary">Shop Now</a>
         </div>
     </header>
 
-    <section class="featured-features">
-        <h2>Features That Empower Your Codecrafting</h2>
-        <div class="features-grid" id="featuresGrid">
-            <div class="feature-card">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=60" alt="AI Integration">
-                <h3>AI Integration</h3>
-                <p>Seamlessly enhance your projects with powerful AI capabilities.</p>
+    <section class="featured-categories">
+        <h2>Featured Toy Categories</h2>
+        <div class="categories-grid">
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1600185361043-0d374a706b7a?auto=format&fit=crop&w=400&q=60" alt="Action Figures">
+                <h3>Action Figures</h3>
             </div>
-            <div class="feature-card">
-                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=60" alt="Real-time Collaboration">
-                <h3>Real-time Collaboration</h3>
-                <p>Work together efficiently with collaborative coding in real-time.</p>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1528552744054-faf2b9b824d5?auto=format&fit=crop&w=400&q=60" alt="Educational Toys">
+                <h3>Educational</h3>
             </div>
-            <div class="feature-card">
-                <img src="https://images.unsplash.com/photo-1531497865144-caae6a4e2f62?auto=format&fit=crop&w=400&q=60" alt="Code Optimization">
-                <h3>Code Optimization</h3>
-                <p>Boost performance with intelligent code analysis and optimization.</p>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1533142266415-ac591a4bdf28?auto=format&fit=crop&w=400&q=60" alt="Plush Toys">
+                <h3>Plush Toys</h3>
             </div>
-            <div class="feature-card">
-                <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=400&q=60" alt="Custom Workflows">
-                <h3>Custom Workflows</h3>
-                <p>Create automated workflows to speed up your development processes.</p>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1590080877777-525772b9e748?auto=format&fit=crop&w=400&q=60" alt="Board Games">
+                <h3>Board Games</h3>
             </div>
         </div>
     </section>
 
-    <section class="pricing-section">
-        <h2>Pricing Plans</h2>
-        <div class="pricing-toggle">
-            <label class="switch">
-                <input type="checkbox" id="billingToggle">
-                <span class="slider round"></span>
-            </label>
-            <span id="billingCycleLabel">Monthly Billing</span>
-        </div>
-        <div class="pricing-cards">
-            <div class="pricing-card">
-                <h3>Basic</h3>
-                <p class="price" data-monthly="9.99" data-yearly="99.99">$9.99</p>
-                <ul>
-                    <li>Access to basic AI tools</li>
-                    <li>5 projects</li>
-                    <li>Email support</li>
-                </ul>
-                <button class="btn primary">Select Plan</button>
+    <section class="trending-products">
+        <h2>Trending Toys</h2>
+        <div class="products-grid" id="trending-products-grid">
+            <!-- Dynamically filled in Shop page, placeholder here -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1583703871760-4c37d0d3eb2a?auto=format&fit=crop&w=400&q=60" alt="Toy Robot">
+                <h3>Toy Robot</h3>
+                <p class="price">$29.99</p>
+                <p class="rating">★★★★☆</p>
             </div>
-            <div class="pricing-card">
-                <h3>Pro</h3>
-                <p class="price" data-monthly="29.99" data-yearly="299.99">$29.99</p>
-                <ul>
-                    <li>All Basic features</li>
-                    <li>Unlimited projects</li>
-                    <li>Priority support</li>
-                </ul>
-                <button class="btn primary">Select Plan</button>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1590080877702-691d63e2be17?auto=format&fit=crop&w=400&q=60" alt="Puzzle Set">
+                <h3>Puzzle Set</h3>
+                <p class="price">$19.99</p>
+                <p class="rating">★★★★★</p>
             </div>
-            <div class="pricing-card">
-                <h3>Enterprise</h3>
-                <p class="price" data-monthly="99.99" data-yearly="999.99">$99.99</p>
-                <ul>
-                    <li>All Pro features</li>
-                    <li>Dedicated account manager</li>
-                    <li>Customized solutions</li>
-                </ul>
-                <button class="btn primary">Select Plan</button>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1571137128503-dcf5dc8f1ee6?auto=format&fit=crop&w=400&q=60" alt="Stuffed Bear">
+                <h3>Stuffed Bear</h3>
+                <p class="price">$24.99</p>
+                <p class="rating">★★★★☆</p>
             </div>
         </div>
     </section>
 
-    <section class="faq-section">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-container" id="faqContainer">
-            <div class="faq-item">
-                <button class="faq-question">What is CodeCraft AI?</button>
-                <div class="faq-answer">
-                    <p>CodeCraft AI is a platform that provides AI-powered tools to enhance your coding projects and workflows.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">How do the pricing plans work?</button>
-                <div class="faq-answer">
-                    <p>Our pricing plans come with monthly and yearly options that you can toggle to find the best fit for your needs.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">Can I try before I buy?</button>
-                <div class="faq-answer">
-                    <p>Yes, we offer a free trial period so you can experience our services before making a commitment.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">Do you offer support?</button>
-                <div class="faq-answer">
-                    <p>Absolutely! Our support team is available 24/7 to assist you with any questions or issues.</p>
-                </div>
-            </div>
+    <section class="customer-reviews">
+        <h2>Customer Reviews</h2>
+        <div class="reviews-grid">
+            <blockquote class="review">
+                <p>"Amazing toys and fast shipping! Highly recommend ToyJoy Land."</p>
+                <footer>- Sarah K.</footer>
+            </blockquote>
+            <blockquote class="review">
+                <p>"Great variety and quality. My kids love it!"</p>
+                <footer>- Mike D.</footer>
+            </blockquote>
+            <blockquote class="review">
+                <p>"Excellent customer service and awesome packages!"</p>
+                <footer>- Emma W.</footer>
+            </blockquote>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 CodeCraft AI. All rights reserved.</p>
+        <p>&copy; 2024 ToyJoy Land. All rights reserved.</p>
     </footer>
 </body>
 </html>
