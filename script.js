@@ -45,12 +45,12 @@ const products = [
     category: 'plush-toys',
     price: 24.99,
     age: 'Ages 2+',
-    image: 'https://images.unsplash.com/photo-151119191912278-7e90b7844243?auto=format&fit=crop&w=400&q=80'
+    image: 'https://images.unsplash.com/photo-151119191191278-7e90b7844243?auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 4,
     name: 'Educational Kit',
-    category: 'educational-all',
+    category: 'educational-toys',
     price: 39.99,
     age: 'Ages 6+',
     image: 'https://images.unsplash.com/photo-1594561058021-e0e4f2a7ae4b?auto=format&fit=crop&w=400&q=80'
@@ -63,6 +63,7 @@ function renderProducts(filterCategory = 'all') {
   if (!productsGrid) return;
 
   productsGrid.innerHTML = '';
+
   const filteredProducts = filterCategory === 'all' ? products : products.filter(p => p.category === filterCategory);
 
   filteredProducts.forEach(product => {
@@ -81,10 +82,10 @@ function renderProducts(filterCategory = 'all') {
     productsGrid.appendChild(card);
   });
 
-  setUpAddToCartListeners();
+  setupAddToCartListeners();
 }
 
-// Set up filter buttons
+// Setup filter buttons
 function setUpFilters() {
   const filterButtons = document.querySelectorAll('.filter-btn');
   filterButtons.forEach(button => {
@@ -96,14 +97,16 @@ function setUpFilters() {
   });
 }
 
-// Add to Cart button listeners
-function setUpAddToCartListeners() {
+// Setup add to cart button listeners
+function setupAddToCartListeners() {
   const addToCartButtons = document.querySelectorAll('.add-to-cart');
   addToCartButtons.forEach(button => {
     button.addEventListener('click', () => {
       const productId = parseInt(button.dataset.id);
       const product = products.find(p => p.id === productId);
-      if (product) addToCart(product);
+      if (product) {
+        addToCart(product);
+      }
     });
   });
 }
@@ -121,25 +124,33 @@ function addToCart(product) {
   alert(`${product.name} added to cart!`);
 }
 
-// Update the cart count in the header
+// Update cart item count in header
 function updateCartCount() {
   const count = cart.reduce((acc, item) => acc + item.quantity, 0);
-  cartCount.textContent = count;
+  if (cartCount) {
+    cartCount.textContent = count;
+  }
 }
 
 // Open cart modal
 function openCartModal() {
-  cartModal.classList.add('show');
-  renderCartItems();
+  if(cartModal) {
+    cartModal.classList.add('show');
+    renderCartItems();
+  }
 }
 
 // Close cart modal
-function closeCartModal() {
-  cartModal.classList.remove('show');
+if (closeCartBtn) {
+  closeCartBtn.addEventListener('click', () => {
+    if(cartModal) cartModal.classList.remove('show');
+  });
 }
 
 // Render cart items in modal
 function renderCartItems() {
+  if(!cartItemsContainer || !cartTotal) return;
+
   cartItemsContainer.innerHTML = '';
   let total = 0;
 
@@ -147,34 +158,35 @@ function renderCartItems() {
     const itemDiv = document.createElement('div');
     itemDiv.className = 'cart-item';
     itemDiv.innerHTML = `
-      <span class="cart-item-name">${item.name} x${item.quantity}</span>
-      <span>$${(item.price * item.quantity).toFixed(2)}</span>
+      <span class="item-name">${item.name}</span>
+      <span class="item-qty">x${item.quantity}</span>
+      <span class="item-price">$${(item.price * item.quantity).toFixed(2)}</span>
       <button class="remove-from-cart" data-id="${item.id}" aria-label="Remove ${item.name} from cart">&times;</button>
     `;
     cartItemsContainer.appendChild(itemDiv);
+  
     total += item.price * item.quantity;
   });
 
   cartTotal.textContent = `Total: $${total.toFixed(2)}`;
 
-  setUpRemoveListeners();
-}
-
-// Set up remove buttons in cart
-function setUpRemoveListeners() {
+  // Add remove button listeners
   const removeButtons = document.querySelectorAll('.remove-from-cart');
   removeButtons.forEach(button => {
     button.addEventListener('click', () => {
-      const id = parseInt(button.dataset.id);
-      cart = cart.filter(item => item.id !== id);
+      const removeId = parseInt(button.dataset.id);
+      cart = cart.filter(item => item.id !== removeId);
       updateCartCount();
       renderCartItems();
+      if(cart.length === 0 && cartModal) {
+        cartModal.classList.remove('show');
+      }
     });
   });
 }
 
-// Checkout button handler
-if (checkoutBtn) {
+// Checkout button
+if(checkoutBtn) {
   checkoutBtn.addEventListener('click', () => {
     if (cart.length === 0) {
       alert('Your cart is empty.');
@@ -183,23 +195,16 @@ if (checkoutBtn) {
       cart = [];
       updateCartCount();
       renderCartItems();
-      closeCartModal();
+      if(cartModal) cartModal.classList.remove('show');
     }
   });
 }
 
-// Close button handler
-if (closeCartBtn) {
-  closeCartBtn.addEventListener('click', () => {
-    closeCartModal();
-  });
-}
-
-// Contact form submission handler
+// Contact form submission handling
 const contactForm = document.getElementById('contact-form');
 const formSuccess = document.getElementById('form-success');
 
-if (contactForm) {
+if(contactForm) {
   contactForm.addEventListener('submit', e => {
     e.preventDefault();
     if (!contactForm.checkValidity()) {
@@ -211,7 +216,7 @@ if (contactForm) {
   });
 }
 
-// Initialize on DOM content loaded
+// Initialize on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
   setUpFilters();
   renderProducts();
