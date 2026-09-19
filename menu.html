@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brew & Bean Cafe - Menu</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
 <header>
@@ -13,27 +14,30 @@
         <nav>
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html" class="active">Shop/Menu</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><button id="cart-button">Cart (<span id="cart-count">0</span>)</button></li>
-                <li class="nav-toggle"><button id="nav-toggle-btn" aria-label="Toggle navigation">&#9776;</button></li>
+                <li class="nav-toggle"><button aria-label="Toggle navigation" id="nav-toggle-btn">&#9776;</button></li>
             </ul>
         </nav>
     </div>
 </header>
+
 <main class="container">
     <h1>Our Menu</h1>
+
     <div class="category-filters">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="hot">Hot Coffees</button>
         <button class="filter-btn" data-filter="cold">Cold Brews</button>
         <button class="filter-btn" data-filter="bakery">Pastries</button>
     </div>
-    <section class="product-grid" id="product-grid">
-        <!-- Product cards rendered by JS -->
+
+    <section class="products-grid" id="products-grid">
+        <!-- Product cards will be dynamically rendered here by JS -->
     </section>
 </main>
-<script src="script.js"></script>
+
 <footer>
     <p>&copy; 2024 Brew & Bean Cafe. All rights reserved.</p>
 </footer>
