@@ -1,67 +1,34 @@
 /* Brew & Bean - Coffee Shop Styles */
-
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f8f8f8;
-    margin: 0;
-}
-
-.header {
-    background-color: #6b4f4f;
-    color: #fff;
+    background-color: #fefefe;
+    color: #333;
     padding: 20px;
 }
-
+.header {
+    background-color: #FFDD57;
+    text-align: center;
+    padding: 50px;
+}
 .hero {
-    background-image: url('https://images.unsplash.com/photo-1514516836695-b82f2c756eb3');
+    background-image: url('https://images.unsplash.com/photo-1511157241686-add3e1f3e5fc');
     background-size: cover;
     height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     color: white;
 }
-
-.nav-links {
+.toy-section {
+    margin: 20px 0;
+}
+.products {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
-
-.nav-links ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.about-us, .menu, .contact-us {
-    padding: 20px;
-    text-align: center;
-}
-
-.menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.menu-item {
+.product {
     border: 1px solid #ccc;
-    border-radius: 5px;
     padding: 10px;
-    margin: 10px;
-    width: 150px;
-}
-
-footer {
     text-align: center;
-    padding: 20px;
-    background-color: #6b4f4f;
-    color: #fff;
+}
+.newsletter {
+    text-align: center;
+    margin: 20px 0;
 }
