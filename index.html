@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToyJoy Land - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+<header class="header-banner">
+    <nav class="navbar">
+        <div class="logo">ToyJoy Land</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><button id="cart-button">Cart (<span id="cart-count">0</span>)</button></li>
+            <li class="nav-toggle"><button id="nav-toggle-btn" aria-label="Toggle navigation">&#9776;</button></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero-banner">
+    <h1>Welcome to ToyJoy Land!</h1>
+    <p>Your ultimate destination for fun and colorful toys.</p>
+    <a href="shop.html" class="btn btn-primary">Shop Now</a>
+</section>
+
+<section class="featured-categories">
+    <h2>Featured Toy Categories</h2>
+    <div class="categories-grid">
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1600185361043-0d374a706b7a?auto=format&fit=crop&w=400&q=60" alt="Action Figures">
+            <h3>Action Figures</h3>
+        </div>
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1528554714185-faf2b9b824d5?auto=format&fit=crop&w=400&q=60" alt="Educational Toys">
+            <h3>Educational</h3>
+        </div>
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1533144226641-ac591a4bdf28?auto=format&fit=crop&w=400&q=60" alt="Plush Toys">
+            <h3>Plush Toys</h3>
+        </div>
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1590080877777-525772b9e748?auto=format&fit=crop&w=400&q=60" alt="Board Games">
+            <h3>Board Games</h3>
+        </div>
+    </div>
+</section>
+
+<section class="trending-products">
+    <h2>Trending Toys</h2>
+    <div class="products-grid" id="trending-products-grid">
+        <!-- Trending products will be rendered here dynamically -->
+    </div>
+</section>
+
+<section class="customer-reviews">
+    <h2>Customer Reviews</h2>
+    <div class="reviews-grid">
+        <blockquote class="review">
+            <p>"Amazing toys and fast shipping! Highly recommend ToyJoy Land."</p>
+            <footer>- Sarah K.</footer>
+        </blockquote>
+        <blockquote class="review">
+            <p>"Great variety and quality. My kids love it!"</p>
+            <footer>- Mike D.</footer>
+        </blockquote>
+        <blockquote class="review">
+            <p>"Excellent customer service and awesome packages!"</p>
+            <footer>- Emma W.</footer>
+        </blockquote>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 ToyJoy Land. All rights reserved.</p>
+</footer>
+</body>
+</html>
