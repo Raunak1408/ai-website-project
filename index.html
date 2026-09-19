@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PlayfulPaws Toys - Colorful Online Toy Store</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="header-container container">
+            <div class="logo" aria-label="PlayfulPaws Toys Logo">PlayfulPaws Toys</div>
+            <nav class="nav-links" aria-label="Primary navigation">
+                <a href="#home" class="active">Home</a>
+                <a href="#shop">Shop</a>
+                <a href="#categories">Categories</a>
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search toys..." aria-label="Search toys" />
+            </div>
+            <button id="cart-toggle" class="menu-button" aria-label="Toggle cart">
+                <span class="cart-icon">&#128722;</span>
+                <span id="cart-count" class="cart-badge">0</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section id="home" class="hero-container" aria-label="Hero banner">
+            <div class="hero-text">
+                <h1>Where Imagination Comes to Life!</h1>
+                <p>Discover the best toys to inspire fun, creativity, and learning for kids of all ages.</p>
+                <div class="hero-buttons">
+                    <a href="#shop" class="btn btn-primary">Shop Now</a>
+                    <a href="#deals" class="btn btn-secondary">Explore Deals</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80" alt="Colorful assortment of toys" />
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="categories" class="category-grid" aria-label="Toy Categories">
+            <a href="#building-sets" class="category-card" aria-label="Building Sets category">
+                <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=600&q=80" alt="Building blocks and sets" />
+                <h3>Building Sets</h3>
+            </a>
+            <a href="#plush-toys" class="category-card" aria-label="Plush Toys category">
+                <img src="https://images.unsplash.com/photo-1503401298103-156b28e1a34b?auto=format&fit=crop&w=600&q=80" alt="Soft plush toys" />
+                <h3>Plush Toys</h3>
+            </a>
+            <a href="#board-games" class="category-card" aria-label="Board Games category">
+                <img src="https://images.unsplash.com/photo-1587825140708-fddb7f7a9f39?auto=format&fit=crop&w=600&q=80" alt="Board games setup" />
+                <h3>Board Games</h3>
+            </a>
+            <a href="#outdoor-play" class="category-card" aria-label="Outdoor Play category">
+                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80" alt="Kids playing outdoor games" />
+                <h3>Outdoor Play</h3>
+            </a>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section id="shop" class="featured-products" aria-label="Featured Products">
+            <h2>Featured Products</h2>
+
+            <nav class="filter-tabs" role="tablist" aria-label="Filter toys by age groups">
+                <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+                <button class="filter-tab" data-filter="0-3" role="tab" aria-selected="false">Ages 0-3</button>
+                <button class="filter-tab" data-filter="4-7" role="tab" aria-selected="false">Ages 4-7</button>
+                <button class="filter-tab" data-filter="8+" role="tab" aria-selected="false">Ages 8+</button>
+            </nav>
+
+            <div class="product-grid" role="tabpanel">
+                <!-- Product cards inserted dynamically by JS -->
+            </div>
+        </section>
+
+        <!-- Cart Drawer -->
+        <aside id="cart-drawer" class="cart-drawer" aria-label="Shopping cart" aria-hidden="true">
+            <h2>Your Cart</h2>
+            <div id="cart-items" class="cart-items"></div>
+            <div class="cart-footer">
+                <div class="subtotal">Subtotal: $<span id="cart-subtotal">0.00</span></div>
+                <button id="checkout-btn" class="btn btn-primary" disabled>Checkout</button>
+                <button id="close-cart" aria-label="Close cart">&times;</button>
+            </div>
+        </aside>
+
+        <!-- Newsletter & Contact Section -->
+        <section id="contact" class="newsletter-contact container" aria-label="Newsletter and Contact Section">
+            <div class="newsletter">
+                <h3>Sign up for Parent Discounts</h3>
+                <form id="newsletter-form" aria-label="Newsletter Sign-up Form">
+                    <input type="email" id="newsletter-email" name="email" placeholder="Enter your email" required aria-required="true" />
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+
+            <div class="contact-form">
+                <h3>Contact Us</h3>
+                <form id="contact-form" aria-label="Contact Form">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required aria-required="true" />
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required aria-required="true" />
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" required aria-required="true"></textarea>
+
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-socials">
+            <a href="#" aria-label="Facebook"><img src="https://img.icons8.com/fluent/48/000000/facebook-new.png" alt="Facebook" /></a>
+            <a href="#" aria-label="Twitter"><img src="https://img.icons8.com/fluent/48/000000/twitter.png" alt="Twitter" /></a>
+            <a href="#" aria-label="Instagram"><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" alt="Instagram" /></a>
+        </div>
+        <p>&copy; 2024 PlayfulPaws Toys. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
