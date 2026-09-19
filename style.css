@@ -14,7 +14,7 @@ body {
 }
 
 .hero {
-    background-image: url('https://images.unsplash.com/photo-1515142261605-8e3baa38627a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80');
+    background-image: url('https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?auto=format&fit=crop&w=1400&q=80');
     background-size: cover;
     background-position: center;
     height: 400px;
@@ -34,12 +34,12 @@ body {
 }
 
 .hero p {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 1rem;
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 
-.hero-buttons button {
+.hero button {
     background-color: #ffd700;
     border: none;
     padding: 12px 24px;
@@ -49,43 +49,18 @@ body {
     color: #333;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgb(255 215 0 / 0.4);
+    box-shadow: 0 4px 6px rgba(255, 215, 0, 0.4);
     transition: background-color 0.3s ease;
 }
 
-.hero-buttons button:hover {
-    background-color: #ffc300;
-}
-
-.nav-links ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    margin: 0;
-    background-color: #ffa07a;
-}
-
-.nav-links li {
-    margin: 0 15px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #ffd700;
+.hero button:hover {
+    background-color: #ffb700;
 }
 
 main {
     max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 15px;
+    margin: 20px auto 40px;
+    padding: 0 20px;
 }
 
 .product-grid {
@@ -95,8 +70,8 @@ main {
 .product-grid h2 {
     text-align: center;
     color: #ff6347;
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
 }
 
 .product-items {
@@ -108,55 +83,53 @@ main {
 .product-card {
     background-color: white;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgb(255 127 80 / 0.25);
+    box-shadow: 0 4px 10px rgba(255, 99, 71, 0.15);
     padding: 15px;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: box-shadow 0.3s ease;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgb(255 127 80 / 0.4);
+    box-shadow: 0 6px 15px rgba(255, 99, 71, 0.3);
 }
 
 .product-card img {
     max-width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    border-radius: 8px;
+    margin-bottom: 12px;
 }
 
 .product-title {
     color: #ff4500;
     font-size: 1.2rem;
-    margin-bottom: 10px;
-    font-weight: 700;
+    margin: 10px 0 6px;
 }
 
 .star-rating {
     color: #ffa500;
+    font-size: 1.1rem;
     margin-bottom: 10px;
 }
 
 .price {
     font-size: 1.1rem;
-    margin-bottom: 15px;
     color: #333;
-    font-weight: 700;
+    margin-bottom: 10px;
 }
 
 .btn-add-cart {
     background-color: #ff7f50;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 18px;
     color: white;
     font-weight: 700;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .btn-add-cart:hover {
-    background-color: #e6733d;
+    background-color: #e06b45;
 }
 
 .reviews {
@@ -164,88 +137,82 @@ main {
     padding: 40px 20px;
     border-radius: 12px;
     max-width: 1000px;
-    margin: 0 auto 50px auto;
+    margin: 0 auto 50px;
 }
 
 .reviews h2 {
     text-align: center;
     color: #ff6347;
+    font-size: 2rem;
     margin-bottom: 30px;
 }
 
 .review-items {
     display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
     justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
 .review {
-    background-color: #ffefd5;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(255, 99, 71, 0.1);
     padding: 20px;
-    max-width: 300px;
-    box-shadow: 0 4px 6px rgb(255 127 80 / 0.25);
-    font-style: italic;
-    color: #6b4c3b;
+    max-width: 320px;
+    flex: 1 1 250px;
+    text-align: center;
+    color: #333;
 }
 
-.review footer {
-    margin-top: 15px;
-    font-weight: 700;
-    text-align: right;
-    color: #b3571b;
+.review h3 {
+    margin-bottom: 10px;
+    color: #ff6347;
 }
 
 .newsletter {
-    background-color: #ffdab9;
+    background-color: #ffe4b5;
     padding: 30px 20px;
-    max-width: 600px;
-    margin: 0 auto 50px auto;
     border-radius: 12px;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    text-align: center;
 }
 
 .newsletter h2 {
-    text-align: center;
-    color: #d2691e;
     margin-bottom: 20px;
+    color: #cc8400;
 }
 
 #newsletter-form {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-#newsletter-form label {
-    margin-bottom: 10px;
-    font-weight: 700;
-    color: #8b4513;
-}
-
-#newsletter-form input[type="email"] {
-    padding: 10px;
+#newsletter-email {
+    padding: 10px 15px;
     font-size: 1rem;
-    border-radius: 8px;
-    border: 1px solid #d2b48c;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 350px;
+    border-radius: 6px;
+    border: 1px solid #cc8400;
+    flex-grow: 1;
+    min-width: 200px;
 }
 
 #newsletter-form button {
-    background-color: #d2691e;
+    background-color: #cc8400;
     border: none;
+    padding: 10px 20px;
     color: white;
     font-weight: 700;
-    padding: 10px 30px;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 #newsletter-form button:hover {
-    background-color: #b35416;
+    background-color: #b27500;
 }
 
 footer {
@@ -259,19 +226,26 @@ footer {
 @media (max-width: 600px) {
     .hero {
         height: 300px;
-        padding: 10px;
+        padding: 0 10px;
     }
+
     .hero h1 {
-        font-size: 2rem;
+        font-size: 2.25rem;
     }
+
     .hero p {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
+
     .product-items {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: 1fr;
     }
+
     .review-items {
         flex-direction: column;
-        align-items: center;
+    }
+
+    #newsletter-form {
+        flex-direction: column;
     }
 }
