@@ -14,17 +14,19 @@
         <nav>
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Shop/Menu</a></li>
+                <li><a href="menu.html">Menu</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
                 <li><button id="cart-button">Cart (<span id="cart-count">0</span>)</button></li>
-                <li class="nav-toggle"><button id="nav-toggle-btn" aria-label="Toggle navigation">&#9776;</button></li>
+                <li class="nav-toggle"><button aria-label="Toggle navigation" id="nav-toggle-btn">&#9776;</button></li>
             </ul>
         </nav>
     </div>
 </header>
+
 <main class="container">
     <h1>Contact / Reservation</h1>
-    <form id="contact-form">
+
+    <form id="contact-form" class="contact-section" novalidate>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
 
@@ -46,8 +48,10 @@
         <button type="submit" class="btn btn-primary">Send Reservation</button>
     </form>
 </main>
+
 <footer>
     <p>&copy; 2024 Brew & Bean Cafe. All rights reserved.</p>
 </footer>
+
 </body>
 </html>
