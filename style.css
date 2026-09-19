@@ -1,0 +1,221 @@
+/* style.css - Bright, colorful, modern, and responsive styles for PlayfulPaws Toys */
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff8f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.hero-banner {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    padding: 80px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-banner h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-banner p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-buttons .btn {
+    padding: 12px 28px;
+    margin: 0 10px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn.primary {
+    background-color: #fb6f92;
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: #e35678;
+}
+
+.btn.secondary {
+    background-color: #fdd835;
+    color: #333;
+}
+
+.btn.secondary:hover {
+    background-color: #d6bc00;
+}
+
+.featured-toys {
+    padding: 40px 20px;
+    background: #fff4f5;
+    text-align: center;
+}
+
+.featured-toys h2 {
+    font-size: 2.5rem;
+    color: #fb6f92;
+    margin-bottom: 30px;
+}
+
+.toys-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.toy-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(251, 111, 146, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.toy-card img {
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.toy-card h3 {
+    color: #fb6f92;
+    margin-bottom: 10px;
+}
+
+.toy-card p.price {
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #f50057;
+}
+
+.toy-card button {
+    background-color: #fdd835;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 22px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toy-card button:hover {
+    background-color: #d6bc00;
+}
+
+.customer-reviews {
+    background: #fff4f5;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.customer-reviews h2 {
+    font-size: 2.5rem;
+    color: #fb6f92;
+    margin-bottom: 30px;
+}
+
+.reviews-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.review-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(251, 111, 146, 0.2);
+    text-align: left;
+    font-style: italic;
+    color: #555;
+}
+
+.review-card p {
+    margin-bottom: 12px;
+}
+
+.review-card .reviewer {
+    font-weight: bold;
+    color: #fb6f92;
+}
+
+.newsletter-signup {
+    background: #fb6f92;
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+}
+
+.newsletter-signup h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#newsletterForm {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#newsletterForm input[type="email"] {
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    width: 300px;
+    max-width: 100%;
+    font-size: 1rem;
+}
+
+#newsletterForm button {
+    padding: 12px 28px;
+    border-radius: 30px;
+    border: none;
+    background-color: #fdd835;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#newsletterForm button:hover {
+    background-color: #d6bc00;
+}
+
+#subscriptionMessage {
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-banner h1 {
+        font-size: 2.2rem;
+    }
+    .hero-banner p {
+        font-size: 1.1rem;
+    }
+    .featured-toys h2, .customer-reviews h2, .newsletter-signup h2 {
+        font-size: 2rem;
+    }
+}
